@@ -1,0 +1,33 @@
+1. sort an array of string.
+    sort(words.begin(), words.end(), [](const string &l, const string &r) { return l.size() < r.size(); });
+
+2. compare in strings
+
+    Returns:
+    0 : if both strings are equal.
+    A value < 0 : if *this is shorter than str or,
+    first character that doesn't match is smaller than str.
+    A value > 0 : if *this is longer than str or,
+    first character that doesn't match is greater
+
+    // Code 1
+    
+    if((s1.compare(s2)) < 0)
+        cout << s1 << " is smaller than " << s2 << endl;
+ 
+    // returns 0(s1, is being compared to itself)
+    if((s1.compare(s1)) == 0)
+        cout << s1 << " is equal to " << s1 << endl;
+    else
+        cout << "Strings didn't match ";
+    
+    //code 2
+
+    // Compares 5 characters from index number 3 of s2 with s1
+    if((s2.compare(3, 5, s1)) == 0)
+        cout << "Here, "<< s1 << " are " << s2;
+ 
+    else
+        cout << "Strings didn't match ";
+
+        

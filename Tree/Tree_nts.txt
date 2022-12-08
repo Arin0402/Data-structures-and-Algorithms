@@ -1,0 +1,23 @@
+1. Tree traversal time O(n);
+2. Tree traversal space complexity(stack) -- for skewed tree -- O(n);
+                                          -- for balanced tree -- O(logn);
+3. Depth first Traversal - preorder, inorder, postorder.
+4. Breadth first traversal - level order traversal                                        
+
+Types of trees
+    - Full binary tree :
+        Either 0 or 2 children
+    - Complete binary tree :
+        - All levels should be completely filled except the last levels
+        - Last level should have all the nodes as left as possible.
+    - Perfect Binary tree  
+        - All leaf nodes are at the same level.
+    - Balanced binary tree 
+        - Height of binary tree is at max log(N), where n = number of nodes.
+    - Degenerate Tree  
+        - skewed tree.
+
+5. Search Time in Binary Tree - O(N);
+6. Search Time in Binary Search Tree - O(logn);
+7. Almost every BST height is O(logn);
+8. Inorder of BST is always in sorted order.

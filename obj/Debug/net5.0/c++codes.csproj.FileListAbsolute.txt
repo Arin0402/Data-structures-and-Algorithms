@@ -1,0 +1,5 @@
+C:\Users\usar\.vscode\.vscode\c++codes\obj\Debug\net5.0\c++codes.csprojAssemblyReference.cache
+C:\Users\usar\.vscode\.vscode\c++codes\obj\Debug\net5.0\c++codes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\usar\.vscode\.vscode\c++codes\obj\Debug\net5.0\c++codes.AssemblyInfoInputs.cache
+C:\Users\usar\.vscode\.vscode\c++codes\obj\Debug\net5.0\c++codes.AssemblyInfo.cs
+C:\Users\usar\.vscode\.vscode\c++codes\obj\Debug\net5.0\c++codes.csproj.CoreCompileInputs.cache
