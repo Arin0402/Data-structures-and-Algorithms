@@ -20,7 +20,7 @@ struct Node
     }
 
     // returns the refrence node for the character;
-    Node *get(char ch)
+    Node*   get(char ch)
     {
         return links[ch - 'a'];
     }

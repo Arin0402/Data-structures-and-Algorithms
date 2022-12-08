@@ -3,19 +3,14 @@
 
 2. compare in strings
 
-    Returns:
-    0 : if both strings are equal.
-    A value < 0 : if *this is shorter than str or,
-    first character that doesn't match is smaller than str.
-    A value > 0 : if *this is longer than str or,
-    first character that doesn't match is greater
+    // code 1
 
-    // Code 1
-    
     if((s1.compare(s2)) < 0)
         cout << s1 << " is smaller than " << s2 << endl;
- 
-    // returns 0(s1, is being compared to itself)
+
+    if((s1.compare(s2)) > 0)
+        cout << s1 << " is greater than " << s2 << endl;
+     
     if((s1.compare(s1)) == 0)
         cout << s1 << " is equal to " << s1 << endl;
     else

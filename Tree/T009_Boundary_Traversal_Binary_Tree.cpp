@@ -45,7 +45,7 @@ void addRightBoundary(node *root, vector<int> &res)
     }
 }
 
-void addLeaves(node *root, vector<int> &res)
+void addLeaves(node *root, vector<int> &res) // preorder traversal
 {
     if (isLeaf(root))
     {

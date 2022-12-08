@@ -1,0 +1,19 @@
+1. A node can not appear twice in the path.
+2. All trees are graph.
+3. Graph containing single cycle is known cyclic graph.
+4. a directed graph containing no cycles is known as Directed Acyclic graph( DAG)
+5. Total degree of undirected graph = 2*E (no. of edges)
+6. Degree of node in undirected graph  = number of edges connected to it.
+8. maximum number of edges a DAG can have as n(n−1)2.
+7. Topological sort is only valid in DAG.
+8. Dijkstra's algo do not work for graph with negative edges. We use Bellman Ford Algo for that.
+9. Bellman ford works for directed graph. In case of undirected graphs, they are converted to directed graphs first.
+10. Bellman ford does not work if there is negative cycle in graph. It detects negative cycle in graph
+11. Floyd Warshall finds the minimum distance for each vertex to other vertexes.
+12. Floyd Warshall works for negative edge but no negative cycle, whereas Dijkstra’s algorithm don’t work for negative edges.
+13. Kosa Raju's alog is used to find the number of connected components in a graph.
+14. For Eulerian graph , all the veritces should have even degree.
+15. For Semi Eulerian graph , two veritces should have odd degree and rest should have even degree.
+16. For Eulerian path , either all the veritces should have even degree or two veritces should have odd degree and rest should have even degree.
+
+

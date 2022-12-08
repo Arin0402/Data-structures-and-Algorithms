@@ -3,17 +3,17 @@
 using namespace std;
 
 // A utility function to swap two elements
-void swap(int* a, int* b)
+void swap(int *a, int *b)
 {
 	int t = *a;
 	*a = *b;
 	*b = t;
 }
 
-int partition (int arr[], int low, int high)
+int partition(int arr[], int low, int high)
 {
 	int pivot = arr[high]; // pivot
-	int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+	int i = (low - 1);	   // Index of smaller element and indicates the right position of pivot found so far
 
 	for (int j = low; j <= high - 1; j++)
 	{
@@ -66,5 +66,3 @@ int main()
 	printArray(arr, n);
 	return 0;
 }
-
-// This code is contributed by rathbhupendra

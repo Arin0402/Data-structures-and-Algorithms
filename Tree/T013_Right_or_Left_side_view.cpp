@@ -63,8 +63,6 @@ vector<int> rightSideView(TreeNode *root)
     // return Iterative(root);
 
     vector<int> ans;
-    if (!root)
-        return ans;
 
     Recursive(root, ans, 0);
     return ans;

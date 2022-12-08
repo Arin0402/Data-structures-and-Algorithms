@@ -1,3 +1,5 @@
 1. Declare empty 2d vector = vector<vector<int> > arr(4, vector<int>(4, 0));
 2. a x b = LCM(a, b) * GCD (a, b)
 3. 1<<k is same as 2^k    
+4. the “comparator” function returns a value; convertible to bool, which basically tells us whether the passed “first” argument
+  should be placed before the passed “second” argument or not. 

@@ -13,34 +13,26 @@ struct TreeNode
     }
 };
 
-// TC - O(H) (height of the tree)
+// TC - O(H) (height of the tree)   
 // Sc - O(H) (Height of the tree)
 
-// If we get a node for which one node(p or q) lies on the left of the node and one lies on the right, then that will be the answer.
-// one of (p or q) can also be equal to the node itself , so node will be the answer.
 TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
 {
 
-    if (!root)
-        return NULL;
+    int small, large;
 
-    if (root->val >= p->val && root->val <= q->val)
-        return root; // p is present on left and q on right.
-    if (root->val <= p->val && root->val >= q->val)
-        return root; // q is present on left and p on right.
+    small = min(p->val, q->val);
+    large = max(p->val, q->val);
 
-    if (root->val > p->val && root->val > q->val)
-    {
-        TreeNode *left = lowestCommonAncestor(root->left, p, q);
-        if (left)
-            return left;
-    }
-    else
+    while (root)
     {
 
-        TreeNode *right = lowestCommonAncestor(root->right, p, q);
-        if (right)
-            return right;
+        if (root->val >= small && root->val <= large)
+            return root;
+        else if (root->val >= small && root->val >= large)
+            root = root->left;
+        else
+            root = root->right;
     }
 
     return NULL;

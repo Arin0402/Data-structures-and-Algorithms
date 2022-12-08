@@ -47,6 +47,43 @@ vector<vector<int>> levelOrder(TreeNode *root)
     return ans;
 }
 
+// Reverse level order traersal
+vector<int> reverseLevelOrder(TreeNode *root)
+{
+    vector<int> ans;
+
+    if (!root)
+        return {};
+
+    queue<TreeNode *> q;
+    stack<int> s;
+
+    q.push(root);
+
+    while (!q.empty())
+    {
+
+        auto node = q.front();
+        q.pop();
+
+        s.push(node->val);
+
+        if (node->right)
+            q.push(node->right);
+        if (node->left)
+            q.push(node->left);
+    }
+
+    while (!s.empty())
+    {
+
+        ans.push_back(s.top());
+        s.pop();
+    }
+
+    return ans;
+}
+
 void preorder(vector<int> &res, TreeNode *root)
 {
     if (root == NULL)

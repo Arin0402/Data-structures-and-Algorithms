@@ -1,0 +1,11 @@
+1. Java does not support multiple inheritance.
+2. Can not create object of abstract class.
+3. final Keyword.
+   - use of final keyword with a variable makes it constant.
+   - use with class makes it inheritable i.e any other class cannot extend it.
+   - use with method prevents it from override.
+4. Creating Refrence of parent class and object of child class is alowed but the reverse is not allowed.
+5. If the class is not public , then it can have different file name.
+6. if the file is public, then we have to use file name same as class name.
+7. Object class is present in java.lang package. Every class in Java is directly or indirectly derived from the Object class. If a class does not extend any other class then it is a direct child class of Object and if extends another class then it is indirectly derived. Therefore the Object class methods are available to all Java classes. Hence Object class acts as a root of inheritance hierarchy in any Java Program.
+8. Differences between inheritance in c++ and java

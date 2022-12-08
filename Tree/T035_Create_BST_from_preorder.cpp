@@ -29,6 +29,7 @@ TreeNode *create(vector<int> &preorder, int &ind, int bound)
         return NULL;
 
     TreeNode *root = new TreeNode(preorder[ind++]);
+
     root->left = create(preorder, ind, root->val);
     root->right = create(preorder, ind, bound);
 

@@ -41,7 +41,6 @@ public:
 
     NodeValue largestBstHelper(Node *root)
     {
-
         // An empty tree is a BST of size 0;
         if (!root)
             return NodeValue(INT_MAX, INT_MIN, 0);
