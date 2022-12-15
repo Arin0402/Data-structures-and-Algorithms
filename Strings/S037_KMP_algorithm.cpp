@@ -57,7 +57,7 @@ public:
             {
                 ans.push_back(i - pat.size() + 1);
                 j = lps[j - 1];
-            }
+                        }
         }
 
         return ans;

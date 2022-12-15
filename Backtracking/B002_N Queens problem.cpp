@@ -4,6 +4,7 @@ using namespace std;
 ///  (n-1) + (col - row).
 
 // 1
+// O(n!)
 // using extra space
 class Solution
 {
