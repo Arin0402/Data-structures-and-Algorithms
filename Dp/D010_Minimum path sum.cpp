@@ -11,19 +11,19 @@ using namespace std;
 class Solution
 {
 public:
-    int helper(int row, int col, vector<vector<int>> &grid, vector<vector<int>> &dp)
+    int helper(int row, int col, int n, int m, vector<vector<int>> &grid, vector<vector<int>> &dp)
     {
 
-        if (row == 0 && col == 0)
+        if (row == n - 1 && col == m - 1)
             return grid[row][col];
-        if (row < 0 || col < 0)
+        if (row >= n || col >= m)
             return 1e9;
 
         if (dp[row][col] != -1)
             return dp[row][col];
 
-        int right = grid[row][col] + helper(row, col + 1, grid, dp);
-        int down = grid[row][col] + helper(row + 1, col, grid, dp);
+        int right = grid[row][col] + helper(row, col + 1, n, m, grid, dp);
+        int down = grid[row][col] + helper(row + 1, col, n, m, grid, dp);
 
         return dp[row][col] = min(right, down);
     }
@@ -36,7 +36,7 @@ public:
 
         vector<vector<int>> dp(n, vector<int>(m, -1));
 
-        return helper(0, 0, grid, dp);
+        return helper(0, 0, n, m, grid, dp);
     }
 };
 
