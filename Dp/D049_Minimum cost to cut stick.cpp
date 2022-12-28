@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
+
 // 1
 // memo
 // O(n*n*n)
