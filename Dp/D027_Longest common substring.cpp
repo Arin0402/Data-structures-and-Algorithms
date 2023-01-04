@@ -4,21 +4,33 @@ using namespace std;
 // 1
 // recursive
 
-int lcs(int i, int j, int count, string &X, string &Y)
+class Solution
 {
-
-    if (i == 0 || j == 0)
-        return count;
-
-    if (X[i - 1] == Y[j - 1])
+public:
+    int lcs(int i, int j, int &count, string &X, string &Y)
     {
-        count = lcs(i - 1, j - 1, count + 1, X, Y);
+
+        if (i == 0 || j == 0)
+            return 0;
+
+        int length = 0;
+
+        if (X[i - 1] == Y[j - 1])
+        {
+            length = 1 + lcs(i - 1, j - 1, count, X, Y);
+        }
+        count = max(length,
+                    max(lcs(i, j - 1, count, X, Y),
+                        lcs(i - 1, j, count, X, Y)));
+        return count;
     }
-    count = max(count,
-                max(lcs(i, j - 1, 0, X, Y),
-                    lcs(i - 1, j, 0, X, Y)));
-    return count;
-}
+
+    int longestCommonSubstr(string S1, string S2, int n, int m)
+    {
+        int count = 0;
+        return lcs(n - 1, m - 1, count, S1, S2);
+    }
+};
 
 // 2
 // based on the longest common substring.
