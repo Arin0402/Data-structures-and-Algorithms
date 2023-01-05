@@ -10,7 +10,7 @@ public:
     int lcs(int i, int j, int &count, string &X, string &Y)
     {
 
-        if (i == 0 || j == 0)
+        if (i < 0 || j < 0)
             return 0;
 
         int length = 0;
