@@ -20,6 +20,24 @@
 5. find the value of xor of all the numbers in range l and r.
     
     - O(1) solution
-    - 1 find xor of all the elements between 1 to r.
-    - 2 find xor of all the elements between 1 to l-1.
-    - 3 xor both values as it will cancel the duplicates.
+    - step 1 -> find xor of all the elements between 1 to r.
+    - step 2 -> find xor of all the elements between 1 to l-1.
+    - step 3 -> xor both values as it will cancel the duplicates.
+
+6. clear i th bit of a number.
+    
+    - n & ~(1 << i)
+
+7. Remove the first set bit from the right.
+
+    - ex :- 1101 -> 1100
+
+    - n & (n-1)
+
+8. check if a number is a power of two.
+    
+    - if n & (n-1) == 0. then yes, else no
+
+9. Get the rightmost setbit of a number
+
+    - n & ~(n - 1)
