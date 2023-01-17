@@ -47,15 +47,12 @@ public:
 
         for (auto ele : nums)
             xor_of_all ^= ele;
-
-        // cout<<xor_of_all<<endl;
+        
 
         int ind_of_right_bit = 0;
 
         while (xor_of_all)
-        {
-
-            // cout<< (xor_of_all&1) <<endl;
+        {            
             if ((xor_of_all & 1) == 0)
             {
                 ind_of_right_bit++;
@@ -64,9 +61,7 @@ public:
                 break;
 
             xor_of_all >>= 1;
-        }
-
-        // cout<<ind_of_right_bit<<endl;
+        }        
 
         int xor1 = 0, xor2 = 0;
 

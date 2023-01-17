@@ -39,5 +39,4 @@
     - if n & (n-1) == 0. then yes, else no
 
 9. Get the rightmost setbit of a number
-
     - n & ~(n - 1)
