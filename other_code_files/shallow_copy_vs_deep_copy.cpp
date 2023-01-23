@@ -67,7 +67,7 @@ void deepcopy()
     // value of a and b are different for both the objects;
 }
 
-int main()
+int main()  
 {
 
     shallowcopy();

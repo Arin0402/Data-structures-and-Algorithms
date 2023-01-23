@@ -1,0 +1,50 @@
+- Types of stack
+
+    Register Stack: This type of stack is also a memory element present in the memory unit and can handle a small amount of data only.
+    The height of the register stack is always limited as the size of the register stack is very small compared to the memory.
+
+    Memory Stack: This type of stack can handle a large amount of memory data. The height of the memory stack is flexible as it occupies a large amount of memory data
+
+
+- Application of Stack in real life:
+
+    CD/DVD stand.
+    Stack of books in a book shop.
+    Undo and Redo mechanism in text editors.
+    The history of a web browser is stored in the form of a stack.
+    Call logs, E-mails, and Google photos in any gallery are also stored in form of a stack.
+    YouTube downloads and Notifications are also shown in LIFO format(the latest appears first ).
+    Memory management
+    Backtracking
+    undo- redo
+    infix to postfix
+    Forward and backward features in web browsers
+
+- Applications of Queue: 
+
+    When a resource is shared among multiple consumers. Examples include CPU scheduling, Disk Scheduling. 
+    When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes. Examples include IO Buffers, pipes, file IO, etc. 
+    Queue can be used as an essential component in various other data structures.
+
+
+- Size factor and random selection of elements is disadvantage in both of them
+
+- stack in python
+
+    import queue
+
+    stack = queue.LifoQueue()
+
+    # Adding elements to the stack
+    stack.put(1)
+    stack.put(2)
+    stack.put(3)
+
+    # Accessing the top element
+    print(stack.queue[-1]) # Output: 3
+
+    # Removing the top element
+    print(stack.get()) # Output: 3
+
+    # Checking the size of the stack
+    print(stack.qsize()) # Output: 2
