@@ -29,7 +29,7 @@
 
 - Size factor and random selection of elements is disadvantage in both of them
 
-- stack in python
+- stack in python using queue
 
     import queue
 
@@ -48,3 +48,29 @@
 
     # Checking the size of the stack
     print(stack.qsize()) # Output: 2
+
+- normal stack in python
+
+    st = []
+
+    st.append(4)
+    st[-1] // top element
+    st.pop()
+    len(st) // size
+
+- Dequeue operations in cpp
+
+    push_back(x): Inserts element x at the back of the deque.
+    push_front(x): Inserts element x at the front of the deque.
+    pop_back(): Removes the element at the back of the deque.
+    pop_front(): Removes the element at the front of the deque.
+    front(): Returns a reference to the first element in the deque.
+    back(): Returns a reference to the last element in the deque.
+    begin(): Returns an iterator pointing to the first element in the deque.
+    end(): Returns an iterator pointing to the position past the last element in the deque.
+    empty(): Returns true if the deque is empty, false otherwise.
+    size(): Returns the number of elements in the deque.
+    clear(): Removes all elements from the deque
+    insert(pos, x): Inserts element x at position pos in the deque
+    erase(pos): Removes element at position pos in the deque
+    at(i): Returns the element at position i in the deque
