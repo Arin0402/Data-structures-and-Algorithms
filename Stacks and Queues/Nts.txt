@@ -74,3 +74,8 @@
     insert(pos, x): Inserts element x at position pos in the deque
     erase(pos): Removes element at position pos in the deque
     at(i): Returns the element at position i in the deque
+
+- Applications of circular queue:
+    Memory Management: The unused memory locations in the case of ordinary queues can be utilized in circular queues.
+    Traffic system: In computer controlled traffic system, circular queues are used to switch on the traffic lights one by one repeatedly as per the time set.
+    CPU Scheduling: Operating systems often maintain a queue of processes that are ready to execute or that are waiting for a particular event to occur.
