@@ -8,11 +8,11 @@ using namespace std;
 
 // 1
 // merge them one by one
-// O(k * k * N)
+// O(k * k * N) 
 
 // 2
 // by compairing the pointers of the arrays.(starting from the first colum)
-// O(k * k * N)
+// O(k * k * N) (k for compairing the elements of each row)
 
 // 3
 // divide and conquer techniqe.

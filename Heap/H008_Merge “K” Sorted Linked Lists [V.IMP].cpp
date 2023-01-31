@@ -1,15 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 // Approach 1;
 // To merge the lists one by one
 // TC - O(kN) N = total number of nodes.
@@ -19,12 +10,24 @@ struct ListNode
 // Tc = O(Nlogk)
 // Sc = O(k)
 
+struct Node
+{
+	int data;
+	Node* next;
+	
+	Node(int x){
+	    data = x;
+	    next = NULL;
+	}
+	
+};
+ 
 class cmp
 {
     public:
-    bool operator()(ListNode *a, ListNode *b)
+    bool operator()(Node *a, Node *b)
     {
-        return a->val > b->val;
+        return a->data > b->data;
     }
 };
 
@@ -32,12 +35,10 @@ class Solution
 {
 
 public:
-    ListNode *mergeKLists(vector<ListNode *> &lists)
+    Node *mergeKLists(Node* lists[], int k)
     {
 
-        priority_queue<ListNode *, vector<ListNode *>, cmp> pq;
-
-        int k = lists.size();
+        priority_queue<Node *, vector<Node *>, cmp> pq;
 
         for (int i = 0; i < k; i++)
         { // insert all the first elements of the lists.
@@ -45,13 +46,13 @@ public:
                 pq.push(lists[i]);
         }
 
-        ListNode *start = new ListNode(-1);
-        ListNode *dummy = start;
+        Node *start = new Node(-1);
+        Node *dummy = start;
 
         while (!pq.empty())
         {
 
-            ListNode *temp = pq.top();
+            Node *temp = pq.top();
             pq.pop();
 
             if (temp->next)
