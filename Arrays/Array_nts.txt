@@ -13,3 +13,32 @@
     std::sort(matrix.begin(), matrix.end(), [col](const vector<int>& lhs, const vector<int>& rhs) {
               return lhs[col] > rhs[col];})
   }
+
+6. Comparator for min heap priority queue
+
+  class myComparator
+  {
+  public:
+      bool operator()(Node* a, Node* b){
+          return a->data > b->data;
+      }
+  };
+
+  priority_queue<Node* , vector<Node*> , myComparator> pq;
+
+7. use of more than one data type in priority queue. (Heap 007)
+
+  priority_queue<pair<int, char>> pq;
+
+  ANOTHER method
+
+  struct Key {
+
+    int freq; 
+    char ch;
+    
+    bool operator<(const Key& k) const
+    {
+        return freq < k.freq;
+    }
+  };

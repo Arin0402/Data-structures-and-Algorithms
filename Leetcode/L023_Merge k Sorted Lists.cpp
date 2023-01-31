@@ -14,9 +14,9 @@ struct ListNode
 // To merge the lists one by one
 // TC - O(kN) N = total number of nodes.
 
-// App. 2
+// App. 2  
 // using min heap to store the minimum elements.
-// Tc = O(k logN)
+// Tc = O(Nlogk)
 // Sc = O(k)
 
 class cmp

@@ -1,0 +1,27 @@
+- Heap is a complete binary tree that comes with a special heap property(max heap or min heap)
+- Heapify is a method build the heap i.e arrange the element of a tree or array in minheap or max heap fashion.
+- This method places an element at at it correct level in the tree. The minimum/maximum element at the top ans  other elements on the below levels. element can be at any child left or right.
+- It is the process of rearranging the heap by compairing the parent with it's children recursively/
+- Heapify creates the max heap or the min heap
+- Max heap - root node is greater than all the left and right subtree nodes and it is true for each node.
+- Min heap - root node is smaller than all the left and right subtree nodes and it is true for each node.
+
+- !!!!!-----------NOTE------------!!!!!
+
+if any confusion -> https://www.youtube.com/watch?v=cuL8gXCSA58
+// techdose
+
+
+- time complexity for inserting a element in heap O(logn)
+- time complexity for deleting a element in heap O(logn)
+- time complexity of heapify algorithm is O(n).
+
+- !!!!!-----------NOTE------------!!!!!
+
+ the heapify algorithm suggests that the running time is O(n * lg(n))   since each call to Heapify costs O(lg(n))  and Build-Heap makes O(n)  such calls. This upper bound, though correct, is not asymptotically tight. 
+ Since Heapify takes a different time for each node, hence time complexity is O(logn)
+
+- left child in array -> 2i + 1
+- right child in array -> 2i + 2
+- parent - (i-1)/2
+- Index of last non-leaf node - N/2 - 1

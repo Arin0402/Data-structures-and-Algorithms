@@ -29,7 +29,7 @@ using namespace std;
 // In this algorithm pick a pivot element and move it to it’s correct position
 // Now, if index of pivot is equal to K then return the value, else if the index of pivot is greater than K, then recur for the left subarray, else recur for the right subarray
 // Repeat this process until the element at index K is not found
-// O(N2) in worst case and O(N) on average
+// O(N^2) in worst case and O(N) on average
 
 // Solution 6
 // Priority queue (max)
@@ -41,14 +41,7 @@ using namespace std;
 class Solution
 {
 public:
-    void swap(int *a, int *b)
-    {
-
-        int temp = *a;
-        *a = *b;
-        *b = temp;
-    }
-
+    
     // same partition function of quicksort.
     int partition(int low, int high, int arr[])
     {
@@ -57,16 +50,16 @@ public:
         int i = (low - 1);     // Index of smaller element and indicates
                                // the right position of pivot found so far
 
-        for (int j = low; j <= high - 1; j++)
+        for (int j = low; j < high; j++)
         {
             // If current element is smaller than the pivot
             if (arr[j] < pivot)
             {
                 i++; // increment index of smaller element
-                swap(&arr[i], &arr[j]);
+                swap(arr[i], arr[j]);
             }
         }
-        swap(&arr[i + 1], &arr[high]);
+        swap(arr[i + 1], arr[high]);
         return (i + 1);
     }
 
