@@ -15,5 +15,5 @@
 14. For Eulerian graph , all the veritces should have even degree.
 15. For Semi Eulerian graph , two veritces should have odd degree and rest should have even degree.
 16. For Eulerian path , either all the veritces should have even degree or two veritces should have odd degree and rest should have even degree.
-
+17. A matching in a Bipartite Graph is a set of the edges chosen in such a way that no two edges share an endpoint. A maximum matching is a matching of maximum size (maximum number of edges).
 

@@ -19,7 +19,7 @@ if any confusion -> https://www.youtube.com/watch?v=cuL8gXCSA58
 - !!!!!-----------NOTE------------!!!!!
 
  the heapify algorithm suggests that the running time is O(n * lg(n))   since each call to Heapify costs O(lg(n))  and Build-Heap makes O(n)  such calls. This upper bound, though correct, is not asymptotically tight. 
- Since Heapify takes a different time for each node, hence time complexity is O(logn)
+ Since Heapify takes a different time for each node, hence time complexity is O(n)
 
 - left child in array -> 2i + 1
 - right child in array -> 2i + 2
