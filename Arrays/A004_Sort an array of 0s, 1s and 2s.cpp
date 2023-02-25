@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
 class Solution
 {
     public:
@@ -16,7 +18,7 @@ class Solution
         
         int l = 0; // left pointer
         int r = n -1; // right pointer.
-        
+            
         int ptr = 0;
         
         while(ptr <= r){ // elements to the right will be 2.

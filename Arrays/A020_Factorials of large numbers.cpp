@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1
+
 // dry run with example to understand.
 // O(N^2).
 

@@ -7,7 +7,7 @@ using namespace std;
 
 // 2
 // simple Dutch national flag algo.
-
+// same as 0,1,2 sort.
 class Solution{   
 public:    
     

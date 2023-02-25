@@ -16,7 +16,7 @@ public:
         
         ans.push_back(intervals[0]); // push the initial interval.
         
-        int ind = 0; // index of the interval in ans to which other interval is comapared.
+        int ind = 0; // index of the interval in ans to which other intervals are comapared.
         
         for( int i =1 ; i < intervals.size(); i++){
                 

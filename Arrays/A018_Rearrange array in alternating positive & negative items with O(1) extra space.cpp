@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://www.youtube.com/watch?v=5MeI5Kk8KTQ
+// https://youtu.be/5MeI5Kk8KTQ?t=209
 // get intutiion by this video.
 
 

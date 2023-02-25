@@ -8,7 +8,7 @@ public:
     vector<int> search(string pat, string txt)
     {
         // create lps;
-        int n = txt.size();
+        int n = pat.size();
         int j = 0;
         int i = 1;
 
@@ -17,7 +17,7 @@ public:
         while (j <= i && i < n)
         {
 
-            if (txt[i] == txt[j])
+            if (pat[i] == pat[j])
             {
                 lps[i] = j + 1;
                 i++;
@@ -38,7 +38,7 @@ public:
         i = 0;
         j = 0;
 
-        while (i < n)
+        while (i < txt.size())
         {
 
             if (txt[i] == pat[j])

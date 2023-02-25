@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/subarray-with-0-sum-1587115621/1
+
 // 1
 // naive approach
 // traverse through all the subarrays and find the sum.

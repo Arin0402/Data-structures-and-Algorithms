@@ -4,7 +4,9 @@ using namespace std;
 // sorting and map naive solutions.
 
 // Floyd's Tortoise and Hare (Cycle Detection)
-// Why this algo works  - https://www.youtube.com/watch?v=wjYnzkAhcNk
+// Why this algo works  - https://youtu.be/wjYnzkAhcNk?t=542
+// another video
+// https://www.youtube.com/watch?v=LUm2ABqAs1w
 // O(n)
 class Solution {
 public:

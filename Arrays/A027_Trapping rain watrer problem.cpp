@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
+
 // 1
 // Brute force
 // for every index find the maximum height on the left and right of it.
