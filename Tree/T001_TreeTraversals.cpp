@@ -4,7 +4,7 @@ using namespace std;
 // node decleration
 struct TreeNode
 {
-    int val;
+    int val;    
     TreeNode *left;
     TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
