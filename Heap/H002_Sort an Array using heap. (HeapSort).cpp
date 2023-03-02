@@ -3,6 +3,7 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/heap-sort/1
 
+// The time complexity of heap sort is O(n logn) in all three cases (best case, average case, and worst case).
 class Solution
 {
     public:

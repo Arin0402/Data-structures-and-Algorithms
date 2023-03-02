@@ -5,10 +5,11 @@ using namespace std;
 
 // N -> total nummber of columns.
 // K -> number of rows.
+// N*K -> total number of elements.
 
 // 1
 // merge them one by one
-// O(k * k * N) 
+// O(k * k * N) or (k-1)*(2n)*log(2n) (using gap algo).
 
 // 2
 // by compairing the pointers of the arrays.(starting from the first colum)
@@ -21,7 +22,7 @@ using namespace std;
 
 // 4
 // using minheap
-// O(N * K * log K)
+// O((N * K) * log K)
 // O(K)
 // This MinHeap based solution has the same time complexity which is O(NK log K). But for a different and particular sized array, this solution works much better. The process must start with creating a MinHeap and inserting the first element of all the k arrays. Remove the root element of Minheap and put it in the output array and insert the next element from the array of removed element. To get the result the step must continue until there is no element left in the MinHeap. 
 
@@ -36,6 +37,7 @@ struct Node{
         this->i = i; // row of the element
         this->j = j; // column of the element;
     }
+    
 };
 
 class myComparator

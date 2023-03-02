@@ -24,7 +24,7 @@
     - step 2 -> find xor of all the elements between 1 to l-1.
     - step 3 -> xor both values as it will cancel the duplicates.
 
-6. clear i th bit of a number.
+6. clear ith bit of a number.
     
     - n & ~(1 << i)
 

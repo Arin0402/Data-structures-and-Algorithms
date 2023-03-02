@@ -1,6 +1,6 @@
 - Heap is a complete binary tree that comes with a special heap property(max heap or min heap)
 - Heapify is a method build the heap i.e arrange the element of a tree or array in minheap or max heap fashion.
-- This method places an element at at it correct level in the tree. The minimum/maximum element at the top ans  other elements on the below levels. element can be at any child left or right.
+- This method places an element at at it correct level in the tree. The minimum/maximum element at the top and  other elements on the below levels. element can be at any child left or right.
 - It is the process of rearranging the heap by compairing the parent with it's children recursively/
 - Heapify creates the max heap or the min heap
 - Max heap - root node is greater than all the left and right subtree nodes and it is true for each node.

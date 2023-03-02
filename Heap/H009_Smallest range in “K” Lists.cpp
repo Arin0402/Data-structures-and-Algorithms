@@ -2,7 +2,7 @@
 using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/find-smallest-range-containing-elements-from-k-lists/1
-// https://www.youtube.com/watch?v=RrxpTWqj97A
+// https://www.youtube.com/waxtch?v=RrxpTWqj97A
 
 // 1
 // use pointers for each row and calculate the minimum and maximum
