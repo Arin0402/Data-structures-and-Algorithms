@@ -21,3 +21,24 @@ Types of trees
 6. Search Time in Binary Search Tree - O(logn);
 7. Almost every BST height is O(logn);
 8. Inorder of BST is always in sorted order.
+9. Check if binary tree is complete
+
+    - count the number of nodes in it.
+    - the index of the parent is i.
+    - the index of the left child is 2i+ 1;
+    - the index of the right child is 2i+ 2;
+    - if at any node index >= n, then not complete binary tree.
+
+    // initial i is 0. n is the number of nodes.
+    bool isComplete(Node* root, int ind, int n){
+        
+        if(!root) return true;
+        
+        if(ind >= n) return false;
+        
+        bool left = isComplete(root->left, 2*ind + 1, n);
+        bool right = isComplete(root->right , 2*ind + 2, n);
+        
+        return left && right;
+        
+    }

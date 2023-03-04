@@ -28,17 +28,23 @@
 
 7. use of more than one data type in priority queue. (Heap 007)
 
-  priority_queue<pair<int, char>> pq;
+  - priority_queue<pair<int, char>> pq
 
-  ANOTHER method
+  ! ---------ANOTHER METHOD -----------------!
 
-  struct Key {
+  - struct Key {
 
-    int freq; 
-    char ch;
-    
-    bool operator<(const Key& k) const
-    {
-        return freq < k.freq;
-    }
+      int freq; 
+      char ch;
+      
+      bool operator<(const Key& k) const
+      {
+          return freq < k.freq;
+      }
   };
+
+8. GCD of two numbers
+  int gcd(int a, int b)
+  {
+      return b == 0 ? a : gcd(b, a % b);   
+  }
