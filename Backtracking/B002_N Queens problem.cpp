@@ -4,7 +4,12 @@ using namespace std;
 ///  (n-1) + (col - row).
 
 // 1
-// O(n!)
+// O(n!) but why ?
+
+// The brute-force approach to solving the problem involves examining all possible permutations of the queens on the board, and then checking if each permutation is a valid solution.
+
+// There are n! possible permutations of the n queens on the board, where n! is the factorial of n. This is because there are n choices for the position of the first queen, n-1 choices for the position of the second queen (since it cannot be in the same row or column as the first queen), n-2 choices for the position of the third queen (since it cannot be in the same row or column as the first two queens), and so on, down to 1 choice for the position of the last queen.
+
 // using extra space
 class Solution
 {

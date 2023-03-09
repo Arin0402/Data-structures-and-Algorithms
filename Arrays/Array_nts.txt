@@ -48,3 +48,5 @@
   {
       return b == 0 ? a : gcd(b, a % b);   
   }
+
+9. the key difference between push_back() and emplace_back() is that the former copies the object to be added to the vector, while the latter constructs the object in-place at the end of the vector. If you have a pre-existing object, you should use push_back(). If you want to construct the object at the end of the vector with constructor arguments, use emplace_back(). Push_back is slower and the emplace_back is faster.

@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/word-break-part-23249/1
+
 // 1
 // same as previous word break problem. just dont break out of the loop.
 //  O(2^n)
