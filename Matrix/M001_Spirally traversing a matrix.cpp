@@ -1,68 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
+// https://leetcode.com/problems/spiral-matrix/description/
+
+// 1
+// O(R x C)
+class Solution {
 public:
-    // Function to return a list of integers denoting spiral traversal of matrix.
-    vector<int> spirallyTraverse(vector<vector<int>> matrix, int r, int c)
-    {
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        
+        int R = matrix.size();
+        int C = matrix[0].size();
         vector<int> ans;
 
-        int left = 0, right = c - 1;
-        int top = 0, down = r - 1;
+        int top = 0, left = 0, bottom = R - 1, right = C - 1;
 
-        // denotes the direction of movement,
-        int direction = 0; // 0 means right direction.
+        while (top <= bottom && left <= right) {
+            for (int i = left; i <= right; i++)            
+                ans.push_back(matrix[top][i]);
 
-        while (top <= down && left <= right)
-        {
+            top++;
 
-            switch (direction)
-            {
+            for (int i = top; i <= bottom; i++)            
+                ans.push_back(matrix[i][right]);
 
-            case 0:
-                for (int i = left; i <= right; i++)
-                {
-                    ans.push_back(matrix[top][i]);
-                }
+            right--;
 
-                top++;
-                direction = 1;
-                break;
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--)                
+                    ans.push_back(matrix[bottom][i]);
 
-            case 1:
-                for (int i = top; i <= down; i++)
-                {
-                    ans.push_back(matrix[i][right]);
-                }
+                bottom--;
+            }
 
-                right--;
-                direction = 2;
-                break;
-
-            case 2:
-                for (int i = right; i >= left; i--)
-                {
-                    ans.push_back(matrix[down][i]);
-                }
-
-                down--;
-                direction = 3;
-                break;
-
-            case 3:
-
-                for (int i = down; i >= top; i--)
-                {
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--)                    
                     ans.push_back(matrix[i][left]);
-                }
 
                 left++;
-                direction = 0;
-                break;
             }
-        }
+        }   
 
         return ans;
     }
