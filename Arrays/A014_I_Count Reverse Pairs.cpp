@@ -1,19 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://practice.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
-// https://www.youtube.com/watch?v=kQ1mJlwW-c0
+//  https://practice.geeksforgeeks.org/problems/count-reverse-pairs/1
+// exactly same as before, just a little change.
 
 // 1
-// compare each element with succeding elements and increase the counter if it is greater.
-// O(n^2)
+// brute force
 
 // 2
-// Using merge sort
-class Solution{
+// using merge sort algorithm
+class Solution {
   public:
-    
-    long long int merge(long long int arr[], long long int l,long long int m,  long long int r)
+  
+    long long int merge(vector<int> &arr, long long int l,long long int m,  long long int r)
     {
         
         long long int i, j, k;
@@ -38,14 +37,24 @@ class Solution{
         {
             if (L[i] <= R[j])
             {
-                arr[k] = L[i++];
+                arr[k] = L[i];
+                i++;
             }
             else
             {
-                arr[k] = R[j++];
+                arr[k] = R[j];
                 
                 // Note- Do not use mid here, use length to subtract.
-                count += n1 - i ;
+                for(int ind = i ; ind < n1; ind++){
+                    // check for the index in the left array where this condition is true.
+                    // dry run to get the intution for the given example.
+                    if(L[ind] > 2*R[j]){
+                        count += n1 - ind;
+                        break;
+                    }    
+                }
+                
+                j++;
                 
             }
             k++;
@@ -58,7 +67,7 @@ class Solution{
         return count;
     }
     
-    long long int mergeSort(long long int arr[], int l, int r)
+    long long int mergeSort(vector<int> &arr, int l, int r)
     {
         
         long long int mid =  l + (r - l )/2 ;
@@ -77,10 +86,8 @@ class Solution{
         
     }
     
-    long long int inversionCount(long long arr[], long long N)
-    {
+    int countRevPairs(int n, vector<int> arr) {
         
-        return mergeSort(arr, 0, N -1);
+        return mergeSort(arr, 0, n -1);
     }
-
 };
