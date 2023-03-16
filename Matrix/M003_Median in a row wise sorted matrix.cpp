@@ -8,6 +8,7 @@ using namespace std;
 // extra space , convert into array and then find median.
 
 // 2
+// O(32*N*logm)
 // using binary search.
 // https://www.youtube.com/watch?v=63fPPOdIr2c
 class Solution

@@ -21,6 +21,7 @@ public:
         int n2 = nums2.size();
 
         int low = 0;
+        // we can take maximum of n1 elements
         int high = n1;
 
         while (low <= high)

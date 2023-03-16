@@ -15,64 +15,55 @@ using namespace std;
 // our low wil be minimum distance possible i.e 1.
 // high will be maximum distance possible.
 // try for the distances using binary search.
-class Solution
-{
+class Solution {
 public:
-    bool canPlaceCows(vector<int> &v, int n, int k, int dis)
-    {
-
-        // number of cows placed.
+    
+    bool canPlace(vector<int> &stalls, int n, int k, int mid){
+        
+        // first cow is placed at index 0
         int cnt = 1;
-
-        // current index of cow placed.
         int currInd = 0;
-
-        for (int i = 1; i < n; i++)
-        {
-
-            // distance between the two indexes is greater than or equal to the required distance.
-            if (v[i] - v[currInd] >= dis)
-            {
-                cnt++;       // cow placed.
-                currInd = i; // update index.
+        
+        for(int i = 1; i < n; i++){
+            
+            // difference is greater than mid
+            if(stalls[i] - stalls[currInd] >= mid){
+                cnt++;
+                currInd = i;
             }
-            // all cows are placed, so it is possible.
-            if (cnt == k)
-                return true;
+        
         }
-
-        return false;
+        
+        // check if the cows count is not less than k.
+        return cnt >= k;
+        
     }
-
-    int solve(int n, int k, vector<int> &v)
-    {
-
-        // sort the positions.
-        sort(v.begin(), v.end());
-
+    
+    int solve(int n, int k, vector<int> &stalls) {
+        
+        sort(stalls.begin(), stalls.end());
+        
         int low = 1;
-        int high = v[n - 1] - v[0];
-
-        // maximum distance.
-        int res = 0;
-
-        // binary search
-        while (low <= high)
-        {
-
-            int mid = low + (high - low) / 2;
-
-            // distance is valid.
-            if (canPlaceCows(v, n, k, mid))
-            {
-                res = mid; // store this distance nad check for greater distance.
+        
+        // maximum distance would be the largest element.
+        int high = stalls[n-1];
+        int ans;
+        
+        while(low <= high){
+            
+            int mid = low + (high - low)/2;
+            
+            if(canPlace(stalls, n, k, mid )){
+                
+                ans = mid;
+                
+                // increase the distance.
                 low = mid + 1;
             }
-            // not possible so decrease the distance.
-            else
-                high = mid - 1;
+            else high = mid - 1;
         }
-
-        return res;
+        
+        return ans;
+        
     }
 };
