@@ -51,3 +51,7 @@
         Sum += int(sys.argv[i])
 
     print("\n\nResult:", Sum)
+
+## Tuple and list
+
+    tuples are stored in a single memory block therefore they don’t require extra space for new objects whereas the lists are allocated in two blocks, first the fixed one with all the Python object information and second a variable sized block for the data.
