@@ -50,3 +50,10 @@
   }
 
 9. the key difference between push_back() and emplace_back() is that the former copies the object to be added to the vector, while the latter constructs the object in-place at the end of the vector. If you have a pre-existing object, you should use push_back(). If you want to construct the object at the end of the vector with constructor arguments, use emplace_back(). Push_back is slower and the emplace_back is faster.
+
+10. Difference b/w atoi() and stoi() in cpp
+
+  - both convert string to integer
+  - if string is not convertible to integer, atoi() will return zero whereas stoi() will throw exception
+  - NOTE (not related to above)
+  - the output of atoi("100 welcome") OR  stoi("100 welcome") is 100.
