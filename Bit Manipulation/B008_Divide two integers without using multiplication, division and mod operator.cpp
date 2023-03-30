@@ -2,7 +2,7 @@
 using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/division-without-using-multiplication-division-and-mod-operator/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
-// https://www.youtube.com/watch?v=zhJt9xIoXCI
+// https://youtu.be/zhJt9xIoXCI?t=915
 
 // 1
 // subtract one by one
