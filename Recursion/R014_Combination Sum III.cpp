@@ -3,6 +3,14 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/combination-sum-iii/1
 
+// 1
+// create a array from 1 to 9
+// then simple pick an not pick
+// TC = 2^9
+
+// 2
+// also can be done like this
+
 class Solution {
   public:
     
