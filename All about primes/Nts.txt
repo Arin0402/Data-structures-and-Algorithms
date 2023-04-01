@@ -1,0 +1,16 @@
+1 Playlist
+
+    https://www.youtube.com/playlist?list=PLN4aKSfpk8TQDJz7KLiwGFgnoUUwzfl1i
+
+2 Facts about prime numbers
+
+    - two is the only even prime
+    - every prime number can be written as 6n - 1 or 6n + 1
+    - GoldBach conjecture: Every even integer greater than 2 can be expressed as a sum of two primes
+    - 2 and 3 are the only consecutive numbers that are prime
+    - Wilson's theorem : (n-1)! % n == (n-1) % n  { where n is a natural number}
+
+3 Definition of a prime number
+    - a number which is divisible by 1 and itself and the the numer of factors are 2.
+
+4. The maximum number of prime factors a number can have is log2(n) (i.e log base 2 n)

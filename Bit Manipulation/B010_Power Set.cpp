@@ -3,7 +3,8 @@ using namespace std;
 
 
 // https://practice.geeksforgeeks.org/problems/power-set4302/1
-
+// TC - O(2^n * n)
+// SC - O(1)
 class Solution{
 	public:
 		vector<string> AllPossibleStrings(string s){

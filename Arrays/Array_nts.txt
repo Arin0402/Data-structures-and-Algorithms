@@ -57,3 +57,13 @@
   - if string is not convertible to integer, atoi() will return zero whereas stoi() will throw exception
   - NOTE (not related to above)
   - the output of atoi("100 welcome") OR  stoi("100 welcome") is 100.
+
+11. If you are declaring the array inside main():
+
+    int, double,char array can have max size of 10^6
+    bool array can have max size of 10^7
+
+    If declared array globally:
+
+    int, double,char array can have max size of 10^7
+    bool array can have max size of 10^8  
