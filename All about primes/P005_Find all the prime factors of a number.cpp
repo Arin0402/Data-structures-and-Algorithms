@@ -23,10 +23,37 @@ using namespace std;
 // TC - O(sqrt(n))
 // the above for loop can be run from i = 2 to i*i <= N
 // this reduces the time complexity
+class Solution{
+	public:
+	vector<int>AllPrimeFactors(int N) {
+	    
+	    vector<int> ans;
+	    
+	    for(int i = 2; i*i <= N; i++){
+	        
+	        int count = 0;
+	        
+	        while(N%i == 0){
+	            
+	            count++;
+	            N /= i;
+	        }
+	        
+	        if(count > 0) ans.push_back(i);
+	    }
+	    
+        // try for test case 36 and 17.
+	    if(N > 1) ans.push_back(N);
+	    
+	    return ans;
+	    
+	}
+};
 
 
 // 3
 // TC - O(n log(log n))(creating sieve)  + Log(n)(for finding the factors)
+// best approach when the queries are given
 // using sieve
 // using the concept of least prime factor(P004) mark all the elements till N with their least prime factor
 // now we have our array/sieve ready
@@ -68,9 +95,7 @@ public:
         }
         
 
-        // O(logn)
-        // previous factor
-        int prev = -1;
+        // O(logn)                
         
         while( N != 1 ){
             
