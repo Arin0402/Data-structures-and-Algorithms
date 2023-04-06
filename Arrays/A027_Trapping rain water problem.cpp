@@ -20,7 +20,7 @@ class Solution{
         return ans;
         
     }
-    
+
     long long trappingWater(int arr[], int n){
         
         long long ans = 0;
@@ -41,7 +41,7 @@ class Solution{
 };
 
 // 2
-// using prefix and suffix sum.
+// using prefix and suffix array.
 // this will help in finding the maximum left and right in O(1) time.
 // TC - O(n)
 // SC - (2n)
@@ -50,38 +50,56 @@ class Solution{
 // 3
 // O(n)
 class Solution{
+
     // Function to find the trapped water between the blocks.
     public:
-    long long trappingWater(int arr[], int n){
+    long long trappingWater(int height[], int n){
         
-        int left = 0;
-        int right = n-1;
-        
-        int leftMax = arr[0];
-        int rightMax = arr[n-1];
-        
+        int l = 0;
+        int r = n-1;
+
+        // maximum hright from the left
+        long long leftmaxi = INT_MIN  ;
+
+        // maximum height from the right
+        long long rightmaxi = INT_MIN;
+
         long long ans = 0;
-        
-        while(left <= right){
-          
-            if(arr[left] <= arr[right]){
+
+        while(l < r){
+            
+            // left height less than right
+            if(height[l] <= height[r]){
                 
-                ans += max( 0 , leftMax - arr[left]);
-                leftMax = max(leftMax, arr[left]);
-                left++;
-                
+                // height is less than leftmaxi and it is less than or equal to the height at right
+                // so we can store the water
+                if(height[l] < leftmaxi){                    
+                    ans += leftmaxi - height[l];
+                }
+                // update the leftmaxi
+                else leftmaxi = height[l];
+
+                // move
+                l++;                
             }
-            else {
+
+            // height at right is less than left
+            else{
                 
-                ans += max( 0 , rightMax - arr[right]);
-                rightMax = max(rightMax, arr[right]);
-                right--;
-                
+                // height is less than the right maxi
+                // so we can store water
+                if(height[r] < rightmaxi){
+                    ans += rightmaxi - height[r];                    
+                }
+                // update the right maxi
+                else rightmaxi = height[r];
+
+                // move
+                r--;
             }
+
         }
         
         return ans;
-        
     }
 };
-
