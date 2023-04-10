@@ -4,7 +4,11 @@ using namespace std;
 // https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1
 
 // 1
-// O(R*C)
+// TC - O(R*C)
+// Each element of the matrix can be inserted into the queue only once so the upper bound of iteration is O(R*C), i.e. the number of elements. So time complexity is O(R *C).
+
+// SC - O(R*C). 
+// To store the elements in a queue O(R*C) space is needed.
 struct Pair{
     int row;
     int col;
@@ -16,7 +20,7 @@ class Solution
     
     int helper( queue<Pair*> &q,vector<vector<int>>& grid, int n, int m, int &fresh){
         
-        if(q.empty()) return 0;
+        // rot all the oranges, so return
         if(fresh == 0) return 0;
         
         int rows[4] = {-1, 0, 1, 0};
@@ -35,6 +39,7 @@ class Solution
                 int nrow = rows[i] + p->row;
                 int ncol = cols[i] + p->col;
                 
+                // try all the four directions 
                 if(nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && grid[nrow][ncol] == 1){
                     grid[nrow][ncol] = 2;
                     
@@ -48,6 +53,9 @@ class Solution
             }
                  
         }
+        
+        // no more rotten oranges
+        if(q.empty()) return 0;
         
         time = 1 + helper(q, grid, n, m, fresh);
         
@@ -64,6 +72,7 @@ class Solution
         
         int fresh = 0;
         
+        // insert all the rotten oranges in the queue
         for(int i = 0; i < n; i++){
             for(int j =0; j < m; j++){
                 
@@ -78,10 +87,16 @@ class Solution
             }
         }
         
+        // no rotten oranges available
         if(q.empty()) return 0;
+        
+        // fins the time
         int time = helper(q, grid, n, m, fresh);
         
+        // not possinble ot rot all the oranges
         if(fresh != 0) return -1;
+        
+        // return the required time
         return time;
     }
 };

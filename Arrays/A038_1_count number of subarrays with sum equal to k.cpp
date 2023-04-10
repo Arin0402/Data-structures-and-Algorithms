@@ -3,6 +3,9 @@ using namespace std;
 
 // https://leetcode.com/problems/subarray-sum-equals-k/description/
 
+// !------------------NOTE-------------------!
+// another thread for this question in A073 (concept is same)
+
 // 1
 // O(n^2)
 // find for each index.

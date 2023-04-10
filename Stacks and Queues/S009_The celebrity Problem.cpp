@@ -2,7 +2,7 @@
 using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1
-// https://www.youtube.com/watch?v=Z5AEc12ieOs
+// https://youtu.be/Z5AEc12ieOs?t=893
 
 // 1.
 // O(N^2)
