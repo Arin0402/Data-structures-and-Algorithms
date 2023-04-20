@@ -28,7 +28,6 @@ public:
 
         for (int i = 0; i < n; i++)
         {
-
             time.push_back({arr[i], dep[i]});
         }
 
@@ -37,7 +36,7 @@ public:
 
         sort(time.begin(), time.end());
 
-        // minimum on estation will be required.
+        // minimum station will be required.
         int minStations = 1;
 
         // insert the departure time of the first train.
@@ -68,41 +67,53 @@ public:
 // using two pointer approach
 // TC - O(nlogn)
 
-class Solution
-{
-public:
-    // Function to find the minimum number of platforms required at the
-    // railway station such that no train waits.
-
+class Solution{
+    public:
+    //Function to find the minimum number of platforms required at the
+    //railway station such that no train waits.
     int findPlatform(int arr[], int dep[], int n)
     {
-        // we will assign the trains on the basis of their arrival.
+        
         sort(arr, arr + n);
-
-        // the arrived train will look for for the train taht will depart first
-        // so sort the departure array.
         sort(dep, dep + n);
-
-        int minStations = 1;
-
-        int i = 1;
-        int j = 0;
-
-        while (i < n)
-        {
-
-            // arrival time is greater than departure, so increment the j counter.
-            if (arr[i] > dep[j])
-            {
-                j++;
-            }
-            // departure time os greater, so station is required.
-            else
-                minStations++;
-
-            i++;
-        }
-
-        return minStations;
+    	
+    	// final platforms required
+    	int ans = 1;
+    	
+    	// platforms required at any instance
+    	int platforms = 1;
+    	
+    	// right pointer
+    	int i = 1; 
+    	
+    	// left pointer
+    	int j = 0;
+    	
+    	while(i < n){
+    	    
+    	    // the arrival time is less than the departure time of the train at index j
+    	    // so platform will be required
+    	    if(arr[i] <= dep[j]){
+    	        i++;
+    	        platforms++;
+    	    }
+    	    
+    	    // departure time of the train at index j is less than the arrival time 
+    	    // of the train at the index i
+    	    // so this train will leave vacating the station
+    	    else{
+    	        j++;
+    	        
+    	        // platform will be freed
+    	        platforms--;
+    	    }
+    	    
+    	    // update the maximum
+    	    ans = max(ans, platforms);
+    	    
+    	}
+    	
+    	return ans;
+    	
     }
 };
