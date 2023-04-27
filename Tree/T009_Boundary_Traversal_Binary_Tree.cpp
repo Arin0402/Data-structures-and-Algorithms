@@ -26,6 +26,7 @@ void addLeftBoundary(node *root, vector<int> &res)
             cur = cur->right;
     }
 }
+
 void addRightBoundary(node *root, vector<int> &res)
 {
     node *cur = root->right;

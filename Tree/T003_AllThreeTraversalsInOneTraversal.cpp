@@ -49,6 +49,8 @@ vector<int> traversal(TreeNode *root)
 
         // second time visit so inorder.
         // increase 2 to 3;
+        // push back into stack.
+        // if there is rigth child, then push it also into stack.
         else if (tp.second == 2)
         {
             in.push_back(tp.first->val);
@@ -65,7 +67,6 @@ vector<int> traversal(TreeNode *root)
         // this time no push back.
         else
         {
-
             post.push_back(tp.first->val);
         }
     }

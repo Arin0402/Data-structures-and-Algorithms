@@ -29,7 +29,7 @@ Types of trees
     - the index of the right child is 2i+ 2;
     - if at any node index >= n, then not complete binary tree.
 
-    // initial i is 0. n is the number of nodes.
+    // initial ind as 0. n is the number of nodes.
     bool isComplete(Node* root, int ind, int n){
         
         if(!root) return true;

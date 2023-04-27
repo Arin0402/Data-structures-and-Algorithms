@@ -8,6 +8,8 @@ struct TreeNode
     TreeNode *right;
 };
 
+// Right side view
+
 // iterative
 vector<int> Iterative(TreeNode *root)
 {

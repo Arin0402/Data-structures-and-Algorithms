@@ -117,6 +117,22 @@ void postorder(vector<int> &res, TreeNode *root)
     res.push_back(root->val);
 }
 
-int main()
-{
-}
+// - Applications of Inorder Traversal
+
+// If inorder traversal of Binary Search Tree (BST) is done , we get increasing order.
+// We can get reversed order / Decreasing order by doing inorder traversal in reverse order ( where right subtree is called first and then left subtree is called)
+
+// - Applications of Preorder Traversal
+
+// The main use of Preorder is to get copy of Tree.
+// Other use is to generate Prefix expression.
+
+// - Applications of Postorder Traversal
+
+// The main use of Postorder is to delete the tree ( Before deleting the parent, we should delete children first ).
+// Other use is to generate Postfix expression.
+
+// - Applications of Level order Traversal
+
+// Level order traversal is actually Breadth First Search.
+// Finding connected components in graph data structure.

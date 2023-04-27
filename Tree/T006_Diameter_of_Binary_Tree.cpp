@@ -11,6 +11,18 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+
 // Approach 1;
 // Top Down
 // O(n^2)
@@ -44,23 +56,36 @@ int diameter(TreeNode *root, int &ans)
 // Approach 2
 // Bottom Up Approach. DFS
 
-int height(TreeNode *root, int &ans)
-{
-
-    if (!root)
-        return 0;
-
-    int left = height(root->left, ans);
-    int right = height(root->right, ans);
-
-    ans = max(left + right, ans);
-
-    return 1 + max(left, right);
-}
-int diameter(TreeNode *root)
-{
-
-    int ans = 0;
-    height(root, ans);
-    return ans + 1;
-}
+class Solution {
+  public:
+    
+    int helper(Node* root, int &ans){
+        
+        if(!root) return 0;
+        
+        int left = 0, right = 0;
+        
+        // left height
+        if(root->left) left = helper(root->left, ans);
+        
+        // right height
+        if(root->right) right = helper(root->right, ans);
+        
+        // find the max diameter
+        ans = max(ans, 1 + left + right);
+        
+        // return the max of the heights
+        return 1 + max(left, right);
+        
+    }
+    
+    int diameter(Node* root) {
+        
+        int ans = 0;
+        
+        helper(root, ans);
+        
+        return ans;
+        
+    }
+};
