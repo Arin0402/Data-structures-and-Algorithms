@@ -42,3 +42,5 @@ Types of trees
         return left && right;
         
     }
+
+10. To count the total number of nodes in a perfect binary tree formula is (2^height - 1).

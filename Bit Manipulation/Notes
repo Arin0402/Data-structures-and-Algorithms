@@ -40,3 +40,72 @@
 
 9. Get the rightmost setbit of a number
     - n & ~(n - 1)
+
+10. How positive and negative integers are stored in the memory and all the points related to that (1 minute read)
+
+In a two's complement representation of signed integers using 32 bits, the range of values that can be represented is -2^31 to (2^31)-1. The reason for this is that the most significant bit (MSB) is used as the sign bit, so the range of possible values is split evenly between negative and non-negative values.
+
+The MSB has a value of -2^31, and the remaining 31 bits represent the magnitude of the value. For non-negative values, the sign bit is 0, and the remaining 31 bits are interpreted as a non-negative integer. For negative values, the sign bit is 1, and the remaining 31 bits are interpreted as the magnitude of the value in two's complement form.
+
+So the maximum value that can be represented by a signed 32-bit integer is (2^31)-1, which is the largest possible non-negative integer that can be represented using 31 bits. The minimum value that can be represented is -2^31, which is the most negative value that can be represented using 31 bits and the sign bit.
+
+It's important to note that the use of a sign bit doesn't reduce the maximum value that can be represented. The sign bit simply determines whether a value is negative or non-negative, and the magnitude of the value is still represented using the remaining bits.
+
+Let's consider a signed integer representation using 4 bits. The most significant bit (MSB) represents the sign of the value, with 0 indicating a non-negative value and 1 indicating a negative value. The remaining three bits represent the magnitude of the value in binary form.
+
+Using this representation, the range of values that can be represented is:
+
+For non-negative values: 0 to (2^3)-1 = 7
+For negative values: -(2^3) to -1
+The following table shows the possible values that can be represented using this signed integer representation:
+
+Binary	Decimal
+0000	0
+0001	1
+0010	2
+0011	3
+0100	4
+0101	5
+0110	6
+0111	7
+1000	-8
+1001	-7
+1010	-6
+1011	-5
+1100	-4
+1101	-3
+1110	-2
+1111	-1
+As you can see, the range of non-negative values goes from 0 to 7, and the range of negative values goes from -8 to -1. The MSB is used as the sign bit, so for non-negative values, the MSB is always 0, and for negative values, the MSB is always 1.
+
+Now let's consider the signed integer representation using 4 bits without a sign bit. In this case, all 4 bits represent the magnitude of the value, and the range of values that can be represented is:
+
+0 to (2^4)-1 = 15
+
+The following table shows the possible values that can be represented using this unsigned integer representation:
+
+Binary	Decimal
+0000	0
+0001	1
+0010	2
+0011	3
+0100	4
+0101	5
+0110	6
+0111	7
+1000	8
+1001	9
+1010	10
+1011	11
+1100	12
+1101	13
+1110	14
+1111	15
+As you can see, the range of possible values is larger than in the signed integer representation with a sign bit, but it doesn't allow for negative values.
+
+In summary, the use of a sign bit allows for both negative and non-negative values to be represented in a smaller range of values, while an unsigned integer representation uses all bits to represent only non-negative values in a larger range.
+
+
+
+
+

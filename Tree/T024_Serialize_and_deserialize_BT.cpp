@@ -14,6 +14,8 @@ struct TreeNode
 };
 
 // Encodes a tree to a single string.
+
+// level order traversal
 string serialize(TreeNode *root)
 {
 

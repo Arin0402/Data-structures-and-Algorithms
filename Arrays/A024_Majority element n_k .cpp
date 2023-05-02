@@ -16,3 +16,4 @@ using namespace std;
 // 3
 // Moore voting algorithm
 // Didn't got much, a bit complex
+            

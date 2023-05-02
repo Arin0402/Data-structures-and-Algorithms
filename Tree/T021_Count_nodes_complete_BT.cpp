@@ -8,8 +8,8 @@ struct TreeNode
     TreeNode *right;
 };
 
-// Formula is (2^TreeLevel - 1). Only works for perfect tree.
-// To determine if its a perfect tree, go all the way down and count the nodes on left and right side, If they match, its a perfect tree and our formula applies.
+// To count the total number of nodes in a perfect binary tree formula is (2^height - 1).
+// To determine if its a perfect tree, go all the way down and calculate the height on left and right side, If the height is same then, its a perfect tree and our formula applies.
 // If its not a perfect tree, we go on left and right subtree and again determine if they are perfect tree.
 // When we have our left and right heights, we do (1 + left + right)
 // If we reach null, return 0
@@ -22,7 +22,7 @@ int count(TreeNode *root)
         return 0;
 
     int lh = FindLeftheight(root);
-    int rh = FindRightheight(root);
+    int rh = FindRightheight(root); 
 
     if (lh == rh)
         return (1 << lh) - 1;

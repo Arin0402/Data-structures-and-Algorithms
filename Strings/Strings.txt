@@ -32,3 +32,7 @@
     - You can not apply any operator on a character array whereas, you can apply operators on String.
     - Being an array character array has a fixed length and its boundaries can be easily overrun. Where String does not have any boundaries.
     - Array elements are stored in a contiguous memory location hence that can be accessed faster than string variable.
+
+4. Concept of stringstream and getline 
+
+    T024 -> serialize an deserialize a binary tree
