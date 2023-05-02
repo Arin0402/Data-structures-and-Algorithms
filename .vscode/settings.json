@@ -75,5 +75,5 @@
         "valarray": "cpp",
         "variant": "cpp"
     },
-    "gitdoc.enabled": true
+    "gitdoc.enabled": false
 }
