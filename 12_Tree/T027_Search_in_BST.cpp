@@ -14,31 +14,19 @@ struct TreeNode
 };
 
 // Recursive - O(logn);
-TreeNode *searchBST(TreeNode *root, int val)
-{
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
 
-    if (!root)
-        return NULL;
+        if(!root) return NULL;
 
-    if (root->val == val)
-        return root; // value found;
+        if(root->val == val) return root;
 
-    if (root->val > val)
-    { // if root value is greater value , then search for left;
-        TreeNode *res = searchBST(root->left, val);
-        if (res)
-            return res; // node found, so return;
+        if(root->val > val) return searchBST(root->left, val);
+        return searchBST(root->right, val);
+
     }
-    else
-    {
-        TreeNode *res = searchBST(root->right, val);
-        if (res)
-            return res;
-    }
-
-    return NULL;
-}
-
+};
 // iterative - O(logn);
 TreeNode *searchBST(TreeNode *root, int val)
 {

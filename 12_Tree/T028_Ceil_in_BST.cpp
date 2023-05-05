@@ -13,35 +13,7 @@ struct Node
     }
 };
 
-// solution 1;
-int func1(Node *root, int input)
-{
-    int ans = INT_MAX;
-
-    while (root)
-    {
-
-        if (root->data == input)
-            return input;
-
-        if (root->data < ans && root->data > input)
-            ans = root->data;
-
-        if (root->data > input)
-        {
-            root = root->left;
-        }
-        else
-        {
-            root = root->right;
-        }
-    }
-
-    return ans;
-}
-
-// solution 2
-int func2(Node *root, int input)
+int func(Node *root, int input)
 {
 
     int ceil = -1;
@@ -64,8 +36,6 @@ int func2(Node *root, int input)
     return ceil;
 }
 int findCeil(Node *root, int input)
-{
-
-    // return func1(root, input);
-    return func2(root, input);
+{    
+    return func(root, input);
 }

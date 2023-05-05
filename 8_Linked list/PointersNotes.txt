@@ -114,10 +114,64 @@ NULL POINTER
     void function_pointer()
     {
 
+        // NOTE -> here use of brackets around *p are important. If we do not use it then it will consider it as
+                    a function whose name is p and the return type is address of integer.
+                    - It will look something like this -> int* p(int, int)
+                                                            ^--------------- return type            
+
+
         int (*p)(int, int); // pointer to a function
         p = add;
-        int c = p(2, 3);
+        int c = (*p)(2, 3);
         cout << c << endl;
 
         Output -> 5
     }        
+
+14. int *p , here int * is a datatype to store thr adderess of the integer.
+
+15. *p1 = *p2 , In assignment operator, right hand side will be solved first (i.e *p2 will be derefrenced first and then it
+            will be assigned to memory address stored in p1)
+
+16. All types of pointers (like int* p, float* p, double *p etc) have size of memory as int as the pointer only stores the address which is of integer type. the datatype (i.e int in int* , float in float* ) is used to define that what value will be stored at the memory address stored in the pointer variable.
+
+17. Referencing 
+
+    int a;
+
+    int &r = a; // r is referencing a i.e r is accessing the memory address of a 
+    
+    a = 10
+
+    cout<<a -> 10
+
+    r = 20
+
+    cout<<a -> 20
+
+
+    - We have to always initialise the reference variable
+    - reference to the variable cannot be changed if it is still in the memory
+
+    - Advantages -- simple syntax
+                 -- takes less memory
+
+    - Disadvantage -- we cannot create reference of the address so that's why we cannot create refrence of array   
+
+                        int a[10];
+
+                        int &r = a // This is wrong
+                        int &r = a[0] // This is correct
+
+18. Dynamic array
+    
+    -  int * arr = new int[length];
+
+    - Dynamic array is created at runtime so the compiler cannot delete the memory allocated to the array, so we have   
+        to explicilty delete the memory else it will remain allocation till the life of the program.
+
+    - Syntax - delete[] arr
+
+    - Note: If only a single element is declared on the heap, then the delete operator is used instead (without the square brackets []).
+
+19.  stack memory is used for storing temporary data with a limited lifetime, and its memory is managed automatically by the system. Heap memory is used for storing data with a variable size or lifetime, and its memory must be manually allocated and deallocated by the programmer.
