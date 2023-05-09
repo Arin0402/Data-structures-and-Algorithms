@@ -2,8 +2,7 @@
 
 _------------- These are the notes of linked list folder ----------------------_
 
-    1.
-        this is correct
+    1.  This is correct
 
         int myvar;
         int * myptr;
