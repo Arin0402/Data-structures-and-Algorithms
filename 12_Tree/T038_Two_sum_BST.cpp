@@ -40,12 +40,7 @@ public:
             pushAll(tp->left);
 
         return tp->val;
-    }
-
-    bool hasNext()
-    {
-        return !st.empty();
-    }
+    }    
 
     void pushAll(TreeNode *root)
     {
