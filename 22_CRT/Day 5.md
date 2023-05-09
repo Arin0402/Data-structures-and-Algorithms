@@ -1,5 +1,5 @@
 ### Day 5
-    
+
     1. #include <iostream>
 
         In C++, the #include <iostream> directive is a preprocessor directive that instructs the compiler to include the declarations of the standard input/output stream objects (cin, cout, cerr, etc.) in your program.
@@ -48,7 +48,7 @@
             if(n <= 0) return 0;
             if(n == 1) return 1;
 
-            return lucas(n-1) + lucas(n-2) + lucas(n-3); 
+            return lucas(n-1) + lucas(n-2) + lucas(n-3);
         }
 
     4. Polymorphism -> many forms
@@ -62,3 +62,5 @@
                 - Function Overloading
 
                     When there are multiple functions with the same name but different parameters, then the functions are said to be overloaded, hence this is known as Function Overloading.
+
+        - (---------- From GFG---------)

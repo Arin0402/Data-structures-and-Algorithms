@@ -1,5 +1,6 @@
 #### Ctrl+Shift+V -> to view the markdowm
 
+- Can read the notes from github repo (site). It has good UI
 
 - using const in formal parameters of function prevents the overriding of the variable in the function
 
