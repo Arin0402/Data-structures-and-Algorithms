@@ -26,10 +26,12 @@ TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
 
     while (root)
     {
-
+        
+        // The element which lies in the range of small and large is our LCA
         if (root->val >= small && root->val <= large)
             return root;
-        else if (root->val >= small && root->val >= large)
+
+        else if (root->val > small && root->val > large)
             root = root->left;
         else
             root = root->right;

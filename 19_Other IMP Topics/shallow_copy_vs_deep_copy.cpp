@@ -73,7 +73,7 @@ int main()
 {
 
     shallowcopy();
-    deepcopy();
+    // deepcopy();
 
     return 0;
 }

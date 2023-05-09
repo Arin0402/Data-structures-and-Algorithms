@@ -23,6 +23,11 @@
         So, while cout is defined as a member of the ostream class, it's typically accessed through the std namespace using the std::cout expression.
 
 
+        - cin is input stream object
+        - cout is output stream object
+        -  >> is input stream operator
+        - << is output stream operator
+
     2. print the pattern without using for loop
 
         5 4 3 2 1 1 2 3 4 5
