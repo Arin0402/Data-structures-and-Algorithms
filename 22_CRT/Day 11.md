@@ -257,8 +257,9 @@
 
         - +  and - are sign change operators
 
-## Demonstraction
+# Demonstration
 
+### code 1
     #include<iostream>
     #include<string.h>
     using namespace std;
@@ -348,9 +349,185 @@
         cout<<n<<endl;
     }
 
+### code 2
+
+    #include<iostream>
+    #include<string.h>
+    using namespace std;
+
+    class String{
+        
+        char str[100];
+        public:
+        
+            // constructor
+            String(const char *s = ""){
+                strcpy(str, s);
+            }
+            
+            // addition overloading
+            String sum(String &r)
+            {
+                String temp;
+                strcpy(temp.str,str);
+                strcat(temp.str,r.str);
+                return temp;
+            }
+            String operator +(String &r)
+            {
+                String temp;
+                strcpy(temp.str,str);
+                strcat(temp.str,r.str);
+                return temp;
+            }
+            
+            // comparision operators overloading
+            bool operator >(String &s2)
+            {
+                if(strcmp(str,s2.str)>0)
+                    return true;
+                return false;
+            }
+            bool operator <(String &s2)
+            {
+                if(strcmp(str,s2.str)<0)
+                    return true;
+                return false;
+            }
+            bool operator ==(String &s2)
+            {
+                if(strcmp(str,s2.str)==0)
+                    return true;
+                return false;
+            }
+            
+
+            // multiply string overloading
+            String mult(int n){
+                
+                String temp;
+                
+                for(int i = 0; i < n; i++){
+                    strcat(temp.str, str);
+                }
+                
+                return temp;
+            }            
+            String operator *(int n){
+                String temp;
+                
+                for(int i = 0; i < n; i++){
+                    strcat(temp.str, str);
+                }
+                
+                return temp;
+            }
+            
+            // output function
+            void output()
+            {
+                cout<<str<<endl;
+            }
+            
+            
+    };
+    int main()
+    {
+        String s1="abcd";
+        String s2="abcd";
+        String s3;
+        
+        *-------------------------addition overloading-------------------------*
+        //s3=s1.sum(s2);
+        s3=s1+s2;        
+        
+
+        *-------------------------comparision operators overloading-------------------------*
+        if(s1>s2)
+            cout<<"S1 is greater than S2"<<endl;
+        else if(s1<s2)
+            cout<<"S1 is less than S2"<<endl;
+        else
+            cout<<"S1==S2"<<endl;
+            
+
+        *-------------------------multilply operator overloading-------------------------*
+        // s3 = s1.mult(3);
+        s3 = s1*3;
+        s3.output();
+    }
+
+### code 3
+
+    #include <iostream>
+    using namespace std;
+
+    class Array{
+        
+        int arr[100];
+        int n;
+        
+        public:
+            
+            Array(int n){
+                this->n = n;
+            }
+            
+            // subscript operator[] overloading
+            // we are returning reference to the array element so that we can modify it in the main function.
+            // we could also return only value, but tehn we can not modify it.
+
+            int& at(int ind){
+                return arr[ind];
+            }
+            int& operator [](int ind){
+                return arr[ind];
+            }
+        
+    };
+
+    int main() {
+        
+
+        Array a(5);
+        
+        for(int i = 0; i < 5; i++ ){
+            cin >> a.at(i);
+        }
+        
+        for(int i = 0; i < 5; i++ ){
+            cout << a[i]<<" ";
+        }
+        cout<<endl;
+        
+        return 0;
+    }
+
+## Explicit keyword
+
+    - In C++, the term "explicit" is used as a keyword that can be applied to a constructor with ONE ARGUMENT. When a constructor is marked as "explicit," it means that the compiler will not use that constructor for implicit conversions.
 
 
+        class MyClass {
+        public:
+            MyClass(int x);
+        };
+        
+        main(){
+            MyClass obj = 42; // Compiler implicitly converts 42 to a MyClass object
+        }
+        
 
+    - However, if you mark the constructor as "explicit," the compiler will no longer perform this implicit conversion:
+
+
+        class MyClass {
+        public:
+            explicit MyClass(int x);    
+        };
+
+        MyClass obj = 42; // This will now result in a compiler error
+        MyClass obj(42); // This is still allowed
 
 
 

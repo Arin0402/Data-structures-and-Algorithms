@@ -253,7 +253,7 @@
 
 
 
-## Code 1
+### code 1
                 
         // parent class
         class A{
@@ -307,7 +307,7 @@
         }
 
 
-## Code 2    
+### code 2    
 
         class A{
             int x;
@@ -373,7 +373,7 @@
             return 0;
         }
 
-## Code 3
+### code 3
 
         class Array{
             int *arr;
