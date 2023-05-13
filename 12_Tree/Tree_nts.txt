@@ -44,3 +44,16 @@ Types of trees
     }
 
 10. To count the total number of nodes in a perfect binary tree formula is (2^height - 1).
+
+11. Red-black trees are a type of self-balancing binary search tree data structure that are used in computer science to efficiently store and retrieve data in an ordered manner.
+
+    The red-black tree is called "red-black" because each node in the tree is either colored red or black, and the tree is structured in such a way that certain properties are maintained at all times. These properties include:
+
+    Every node is either red or black.
+    The root node is black.
+    Every leaf node is black.
+    If a node is red, then both of its children are black.
+    For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
+    These properties ensure that the tree remains balanced, which means that the time complexity of operations such as searching, inserting, and deleting elements from the tree remains logarithmic in the worst case.
+
+    Red-black trees are commonly used in computer science applications such as compilers, database indexing, and memory allocation algorithms.
