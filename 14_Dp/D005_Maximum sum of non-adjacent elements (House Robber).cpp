@@ -3,7 +3,6 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/stickler-theif-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
-
 // 1
 // memo
 // O(N)
@@ -42,8 +41,8 @@ int maximumNonAdjacentSum(vector<int> &nums){
     
     int n = nums.size();                
     
-    int prev2 = INT_MIN;
-    int prev1 = INT_MIN;
+    int prev2 = 0;
+    int prev1 = 0;
     int num;
     
     for(int i = 0 ; i  < n;  i++){        

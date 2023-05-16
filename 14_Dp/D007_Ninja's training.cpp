@@ -5,7 +5,7 @@ using namespace std;
 
 // 1
 // memo
-// O(3*N) ( four each day three different states )
+// O(4*N) ( for each day , four different states)
 // O(N*4) + O(N)
 
 class Solution
