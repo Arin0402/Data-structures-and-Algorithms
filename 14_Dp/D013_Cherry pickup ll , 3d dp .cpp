@@ -6,7 +6,7 @@ using namespace std;
 // 1
 // memo
 // top down
-// O(n*m*m)*9
+// O(n*m*m)*9 -> https://youtu.be/QGfn7JeXK54?t=1364
 // O(n*m*m) + O(n)
 
 class Solution

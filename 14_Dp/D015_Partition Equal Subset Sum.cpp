@@ -71,7 +71,7 @@ public:
             dp[i][0] = true;
         }
 
-        if (arr[0] == target)
+        if (arr[0] <= target)
             dp[0][arr[0]] = true;
 
         for (int i = 1; i < N; i++)
@@ -112,7 +112,7 @@ public:
         vector<int> prev(target + 1, 0);
         prev[0] = true;
 
-        if (arr[0] == target)
+        if (arr[0] <= target)
             prev[arr[0]] = true;
 
         for (int i = 1; i < N; i++)
