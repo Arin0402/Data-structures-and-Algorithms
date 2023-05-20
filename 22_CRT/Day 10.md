@@ -444,3 +444,29 @@
             a2.free();
             return 0;
         }
+
+# Abstraction
+
+    - Data abstraction is the property by virtue of which only the essential details are displayed to the user.
+        The trival or the non essential units are not displayed to the user. It is the process of only identifying only the required characteristics of an object while ignoring the irrelevant details.
+    
+    - In C++, abstraction is implemented using abstract classes and pure virtual functions.
+
+# Encapsulation
+
+    - Encapsulation is a fundamental principle in object-oriented programming (OOP) that involves bundling data and methods together within a class and controlling their access through well-defined interfaces.
+
+    - In encapsulation, an object's data (attributes or properties) and the methods (functions or behaviors) that operate on that data are grouped together as a single unit. The data is typically declared as private or protected, meaning it is not directly accessible from outside the class. The methods, on the other hand, are declared as public or private, specifying their accessibility.
+
+    - The key aspects of encapsulation are:
+
+        - Data Hiding: Encapsulation hides the internal state of an object by making the data private or protected. This prevents direct access and modification of the data from external sources. 
+
+        - Access Control: Encapsulation allows for controlling access to the internal components of an object. By declaring certain data or methods as private or protected, you restrict direct access to them from external sources. This provides a level of security and prevents unintended modifications or misuse of the object's internals.
+
+        - Modularity and Reusability: Encapsulation promotes modularity by encapsulating related data and methods into self-contained classes. This makes it easier to manage and maintain code, as changes to one class do not affect other parts of the program. Encapsulated classes can also be reused in different contexts, as their internal implementation is hidden and the interaction is performed through well-defined interfaces.
+
+    - Overall, encapsulation helps in achieving data abstraction, information hiding, code organization, and improved code maintainability. It ensures that the implementation details are hidden and only the necessary information and operations are exposed, promoting a more robust and secure design in object-oriented programming.
+
+
+    - Abstraction is the thought process and encapsuation is the implementation.

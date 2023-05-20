@@ -5,6 +5,8 @@ using namespace std;
 
 // 1
 // memo
+// O(N*target)
+// O(N*target) + O(N)
 int code(int ind, int target, vector<vector<int>> &dp, vector<int> arr)
 {
     if (ind < 0)
@@ -47,3 +49,52 @@ int countPartitions(int n, int d, vector<int> &arr)
 
     return code(n - 1, (total - d) / 2, dp, arr);
 }
+
+// 2
+// O(N*target)
+// O(N*target)
+class Solution {
+  public:
+    int countPartitions(int n, int d, vector<int> &arr)
+    {
+    
+        int total = 0;
+        for (int i = 0; i < n; i++)
+            total += arr[i];
+            
+        if(total - d < 0) return 0;
+    
+        if ((total - d) & 1 == 1)
+            return 0;
+    
+        vector<vector<int>> dp(n + 1, vector<int>(total + 1, 0));
+        
+        int target = (total - d) / 2;
+        
+        for(int i = 0; i <= n; i++){
+            
+            for(int j = 0; j <= target; j++){
+                
+                if(i == 0 && j == 0) dp[0][0] = 1;
+                else{
+                    
+                    int take = 0;
+                    int not_take = 0;
+    
+                    if (i-1 >=0 && j - arr[i-1] >= 0 && arr[i - 1] <= target)
+                        take = dp[i - 1][j - arr[i-1]]; 
+                    
+                    if(i-1 >= 0)    
+                        not_take = dp[i - 1][j];
+                
+                    dp[i][j] = (take + not_take) % 1000000007;
+                }
+                
+            }
+        }
+        
+    
+        return dp[n][(total - d) / 2];
+    }
+
+};

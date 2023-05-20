@@ -68,7 +68,7 @@ public:
                 int not_take = dp[i - 1][j];
                 int take = 0;
                 if (coins[i] <= j)
-                    take = dp[i][j - coins[i]];
+                    take = dp[i][ j - coins[i] ];
                 dp[i][j] = take + not_take;
             }
         }

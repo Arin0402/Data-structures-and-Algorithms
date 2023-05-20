@@ -33,3 +33,5 @@
     Note that when we use insert, we have to use the std::make_pair function to create a pair of key-value elements to insert into the map. On the other hand, when we use emplace, we can pass the key-value elements directly to the function, and the elements will be constructed in-place within the map.
 
     In general, if you have a container of complex objects that are expensive to copy, you should prefer emplace over insert to avoid the overhead of creating temporary objects. However, if you are inserting simple objects or objects that are cheap to copy, insert may be a better choice as it can be more concise and easier to read.
+
+    - Also checkout Java folder.
