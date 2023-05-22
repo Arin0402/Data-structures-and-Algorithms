@@ -4,6 +4,7 @@
 
     - The main difference between a class and a structure is the default access control. In addition to this, classes are typically used for more complex objects that may have member functions and inherit from other classes, while structures are often used for simpler objects that just need to group data together.
 
+    - While structures can still be useful for simple data containers or when interfacing with legacy code, classes offer more flexibility, stronger encapsulation, and better support for object-oriented programming principles. Therefore, in modern C++ development, classes are generally preferred over structures.
 
     - we can add public and private blocks multiple times in a class
 
@@ -44,7 +45,7 @@
 
     - It is a keyword 
 
-    - we make function inline to avoid the functoin calls and returns inorder to save memory and time. When we use inline keyword at starting of any function, then the compiler at the compile time places the code of inline function at its declaration
+    - we make function inline to avoid the functoin calls and returns, inorder to save memory and time. When we use inline keyword at starting of any function, then the compiler at the compile time places the code of inline function at its declaration
 
     - It is like macros in c. a macro is a preprocessor directive that allows you to define a piece of code that can be reused throughout your program. Macros are typically defined using the #define preprocessor directive and can take parameters.
     

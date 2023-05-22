@@ -152,7 +152,7 @@
     {
         data d1(10,5.4);
         
-        // we need to use cout with user defined object
+        // when we need to use cout with user defined object
         cout << d1;
         cin >> d1;
         cout << d1;

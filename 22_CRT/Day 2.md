@@ -1,6 +1,6 @@
 ### Day 2
 
-    1. Switch case is faster than the is else statement
+    1. Switch case is faster than the if else statement
 
         - if else statement compares with each condition at the run time whereas switch case stores the condition
             using hashing at the compile time so that checking and looking for the condition is faster at the run time

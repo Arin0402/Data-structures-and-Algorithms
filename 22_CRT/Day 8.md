@@ -65,7 +65,6 @@
         cout<<s1;
 
         // This will give error
-
         char s1[1] = "a"; // not enough space available to accomodate s2 in s1.
         char s2[10] = "b";
 
@@ -103,7 +102,8 @@
                 string s;
                 float b;
                 
-                cin>>a;            
+                cin>>a;         
+                cin.ignore();   
                 getline(cin, s);
                 cin>>b;
 

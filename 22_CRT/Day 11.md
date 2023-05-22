@@ -95,7 +95,7 @@
             - The answer is that p will call the function of class A, as at the compile time the type of p is A and all the binding is done at compile time. This is compile time binding
             - So at the run time, when type of p becomes B, it does not matter because all the binding has been done at the compile time
 
-            - we unsderstand more in dynamic binding
+            - we will unsderstand more in dynamic binding
 
         -   B *p
 
@@ -154,7 +154,7 @@
         - Now for runtime binding, we are adding virtual infront of func() in parent class. 
 
             - * ------------------IMP-----------------*
-            - using virtual keyword, what will happen is that this parent class function will refuse to do binding at the compile time. So by doung this we can call the func() of child class using p as at the run time type of p becomes B
+            - using virtual keyword, what will happen is that this parent class function will refuse to do binding at the compile time. So by doing this we can call the func() of child class using p as at the run time type of p becomes B
         
 
             class A{
@@ -475,7 +475,7 @@
             
             // subscript operator[] overloading
             // we are returning reference to the array element so that we can modify it in the main function.
-            // we could also return only value, but tehn we can not modify it.
+            // we could also return only value, but then we can not modify it.
 
             int& at(int ind){
                 return arr[ind];

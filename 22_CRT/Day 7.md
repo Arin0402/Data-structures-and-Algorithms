@@ -60,7 +60,8 @@
     - a[i][j] =  *(*(a + i) + j) -> This is how 2d array is dereferenced
 
         - a contains the staring memory address
-        - *(a + i) get the address of the starting of the particular row
+        - *(a + i) gets the address of the starting of the particular row
+        - *(a + i) + j gets the adderss of that particular cell
         - *(*(a + i) + j) gets the value of that particular cell
     
     - Dynamic 2d array

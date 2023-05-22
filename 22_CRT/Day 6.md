@@ -131,7 +131,7 @@ _------------- These are the notes of linked list folder ----------------------_
             Output -> 5
         }
 
-    14. int *p , here int * is a datatype to store thr adderess of the integer.
+    14. int *p , here int * is a datatype to store the adderess of the integer.
 
     15. *p1 = *p2 , In assignment operator, right hand side will be solved first (i.e *p2 will be derefrenced first and then it
                 will be assigned to memory address stored in p1)
