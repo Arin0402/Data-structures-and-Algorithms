@@ -35,3 +35,5 @@
     In general, if you have a container of complex objects that are expensive to copy, you should prefer emplace over insert to avoid the overhead of creating temporary objects. However, if you are inserting simple objects or objects that are cheap to copy, insert may be a better choice as it can be more concise and easier to read.
 
     - Also checkout Java folder.
+
+    - A system can perform 10^8 operations per second.

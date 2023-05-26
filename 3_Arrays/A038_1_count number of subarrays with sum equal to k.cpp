@@ -29,7 +29,7 @@ public:
         
         // map to store the occurence of prefix sums
         unordered_map<int, int> mp;
-        int count = 0;
+        int count = 0;  
 
         for(int i = 0; i < n; i++){
             
@@ -40,7 +40,7 @@ public:
             if(prefix[i] == k) count++;
 
             if(mp.find(val) != mp.end()){
-                count += mp[val];                
+                count += mp[val];      
             }            
 
             // first time occuring.

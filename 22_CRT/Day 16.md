@@ -16,6 +16,8 @@
 
         Every path from the root to a leaf contains the same number of black nodes (this ensures the tree remains approximately balanced).
 
+    - Time complexty of operations if we are using string as keys is log(N)*(size of string)
+
 # Internal working of unordered map
 
     - In C++, unordered_map is typically implemented as a hash table.
@@ -49,5 +51,4 @@
     - These properties ensure that the longest path from the root to any leaf is no more than twice as long as the shortest path. This guarantees that the tree remains balanced and provides an efficient worst-case time complexity of O(log n) for search, insert, and delete operations.
 
     - To maintain these properties, red-black trees employ a set of operations such as rotations and color changes during insertion and deletion. These operations ensure that the tree maintains balance while preserving the key properties.
-
     

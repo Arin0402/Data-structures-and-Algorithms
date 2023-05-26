@@ -33,7 +33,7 @@ public:
 };
 
 // 2
-// based on the longest common substring.
+// based on the longest common subsequence.
 class Solution
 {
 public:

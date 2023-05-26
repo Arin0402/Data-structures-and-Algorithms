@@ -56,8 +56,10 @@ public:
         // using long long is giving overflow.
         vector<vector<double>> dp(n + 1, vector<double>(m + 1, 0));
 
-        /**/ for (int i = 0; i <= n; i++)
+        for (int i = 0; i <= n; i++)
             dp[i][0] = 1;
+
+        // we start from the index 1 as we cannot override the previous for loop's value
         for (int j = 1; j <= m; j++)
             dp[0][j] = 0;
 
