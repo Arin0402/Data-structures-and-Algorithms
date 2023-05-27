@@ -1,0 +1,3 @@
+- A037_Difference array concept for ranged queries
+- A038_1_count number of subarrays with sum equal to k.cpp
+- A073_Subarrays with sum K _ IMP.cpp
