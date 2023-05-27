@@ -143,7 +143,7 @@ public:
     }
 };
 
-// tab(striver's solution)
+// tabulation (striver's solution)
 // complicated
 class Solution
 {
