@@ -104,3 +104,55 @@ class Solution{
         return ans;
     }
 };
+
+// !------------------------------------IMP----------------------------!
+
+// printiung the subbarray having the maximum sum
+
+int main(){
+        
+    int n;
+    int arr[n];
+
+    // maximum sum
+    int ans = arr[0];
+
+    // prefic sum till ith index
+    int prefSum = 0;
+
+    // minimum prefix sum till ith index
+    int minPrefSum = 0;
+    
+    // kahaMila -> index at which the minimum subarray is found
+    int kahaMila = -1, L = -1, R = -1;
+
+    for(int i = 0; i < n ; i++){
+        
+        // add to the prefix sum
+        prefSum += arr[i];
+
+        // found maxi,mum subarray
+        if(prefSum - minPrefSum > ans){
+            
+            // update the value
+            ans = prefSum-minPrefSum;
+
+            // update the indexes
+            R = i;
+            L = kahaMila +1;
+        }
+        if(prefSum < minPrefSum){
+            
+            // update the minimum prefix sum
+            minPrefSum = prefSum;
+
+            // update the index
+            kahaMila = i;
+        }
+        
+    }
+
+    // printitng the subarray
+    for(int i=L ; i<=R; i++) cout<<arr[i]<<" ";
+    
+}
