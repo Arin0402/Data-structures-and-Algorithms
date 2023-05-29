@@ -67,3 +67,7 @@
 
     int, double,char array can have max size of 10^7
     bool array can have max size of 10^8  
+
+12. the size() function is unsigned int in cpp , so when we do arr.size() - 1 and if the vector is empty, it will give undefined behaviour
+
+    So we have to typecast it into into int or long long int
