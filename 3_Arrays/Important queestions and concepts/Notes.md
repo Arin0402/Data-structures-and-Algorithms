@@ -12,3 +12,6 @@ contact: 7042263245
 - A082_Number of subarrays having even sum.cpp
 - A083_Light Bulbs.cpp
 - A084_Efficient Worker Problem.cpp
+- A038_O_Longest subarray with sum divisible by K.cpp
+- A034_Median of two sorted arrays of different size.cpp
+- A026_U_Triplet multiplication in an array
