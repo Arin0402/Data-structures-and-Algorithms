@@ -1,0 +1,451 @@
+CREATE DATABASE org;
+USE org;
+
+ CREATE TABLE Worker(
+    WORKER_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    FIRST_NAME CHAR(25),
+    LAST_NAME CHAR(25),
+    SALARY INT(15),
+	JOINING_DATE DATETIME,
+	DEPARTMENT CHAR(25)
+);
+
+INSERT INTO worker(FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT)
+VALUES ('rohini', 'sharma', NULL, '14-02-20 09.00.00', 'HR');
+
+CREATE TABLE bonus(
+	WORKER_REF_ID INT, 
+    BONUS_AMOUNT INT(10),
+    bonus_DATE DATETIME,
+    FOREIGN KEY(WORKER_REF_ID) REFERENCES worker(WORKER_ID)
+	ON DELETE CASCADE    
+);
+
+Select * from worker;
+
+SELECT FIRST_NAME , SALARY FROM worker;
+
+# dual tables concept
+# using select command without using FROM clause
+# it allows to do certain operations without refering to the user defined tables
+SELECT 44 + 55;
+
+#------- where clause
+Select * from worker where Department = 'HR';
+
+#------- between clause
+Select * from worker where salary BETWEEN 0 AND 500000;
+
+#------- In clause
+# used to reduce multiple OR conditions
+Select * from worker where department in ( 'HR', 'Admin');
+
+#------- is NULL clause
+Select * from worker where salary is NULL;
+
+#wildcards
+Select * from worker where first_name like '_a%';
+
+#------- order by -- get the tuples in the sorted order
+select * from worker where first_name like '_o%' and department in ('admin', 'hr') order by salary;
+
+select * from worker where salary between 0 and 5000000 order by salary desc;
+
+#------- Distinct keyword
+select DISTINCT department from worker;
+
+#------- Group by clause
+# it groups the same values together and then we can apply the aggregation function (like COUNT here) to get the count.
+# the columns list after the select and after the group by should be the same always.
+# aggregation ( min, max, sum , avg) works only with group by
+# COUNT
+select department, COUNT(department) from worker group by department;
+
+#------- AVG
+# get the average salary of each department
+select department, AVG(salary) from worker group by department;
+
+#------- MIN 
+# get the minimum salary of each department
+select department, MIN(salary) from worker group by department;
+
+#------- MAX
+# get the maximum salary of each department
+select department, MAX(salary) from worker group by department;
+
+#------- SUM
+# get the total salary of each department
+select department, SUM(salary) from worker group by department;
+
+#------- Having keyword
+# used to apply filter in group by condition
+# only works with group by
+
+# ex - get the departments wherer the no. of workers are greater than 2
+select department, count(department) from worker GROUP BY department having count(department) > 2;
+
+#------- Unique constraint
+# create a table where the first name should be unique
+-- difference between unique and primary key
+	-- 	 A unique key allows null values. A primary key does not allow null values. 
+    --   A table can have multiple unique keys. A table can have only one primary key.
+    --   A unique key can be referenced by foreign keys from other tables.  In fact, foreign keys typically reference the primary key of another table.
+	
+create table customer(
+    cus_id INT PRIMARY KEY,
+    first_name VARCHAR(255) UNIQUE, # <--------- 
+    worker_ref_id INT,    
+    FOREIGN KEY (worker_ref_id) REFERENCES worker(worker_id)
+);
+
+#------- CHECK constraint
+# create a table in which the balance of the entry should always be > 1000
+create table account(	
+    id INT PRIMARY KEY, 
+    name VARCHAR(255) UNIQUE,
+    balance INT,
+    CONSTRAINT acc_balance_chk CHECK(balance > 1000)
+);
+# This is allowed
+INSERT INTO account(id, name, balance) VALUES(1, 'A', 10000);
+
+# This is not allowed as the name is not unique here
+INSERT INTO account(id, name, balance) VALUES(1, 'A', 100);
+
+#------- DEFAULT constraint
+# create a table in which the default value of balance is 0
+# if the column is not marked as NOT NULL, then a NULL value can be inserted even if a DEFAULT constraint is specified. 
+# In this case, the default value will only be used if no value is provided for the column.
+create table account(	
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    name VARCHAR(255) UNIQUE,
+	balance INT NOT NULL DEFAULT 0 # <----------- 
+);
+
+Insert into account(id,name)  values( 1, 'A');
+
+#------- ALTER table
+# add new column in the table
+ALTER table bonus add interest FLOAT NOT NULL DEFAULT 0;
+
+# changing the attribute's data type
+alter table bonus MODIFY interest DOUBLE NOT NULL DEFAULT 0;
+
+#----------Desc command
+# describe the table's schema
+DESC bonus;
+
+# change the name of the table
+ALTER TABLE bonus RENAME TO bonus;
+
+# change column -rename the column
+# syntax - alter table table_name CHANGE COLUMN old_name new_name data_type
+alter table bonus CHANGE COLUMN interest saving_interest FLOAT NOT NULL DEFAULT 0;
+
+# drop column
+alter table bonus DROP COLUMN saving_interest;
+
+# ------------Drop table (delete table)
+drop table table_name;
+
+# ---- Truncate table command -> drops all the tuples
+truncate table bonus;
+
+# OR
+
+# this will also empty the table
+Delete from customers;
+	
+
+## ---------- DML commands
+
+#-----Insert command
+# first syntax
+Insert into account (id, name, balance) 
+	Values  ( 1 , 'A', 10),
+			( 2 , 'B', 20),
+			( 3 , 'C', 30);
+
+# second syntax
+Insert into account
+	Values  ( 1 , 'A', 10),
+			( 2 , 'B', 20),
+			( 3 , 'C', 30);	
+
+# third syntax -> insert data only in some columns, rest will be assigned to default value
+Insert into account (name) 
+	Values  ('A'),
+			('B'),
+			('C');
+            		
+# --------- Update rows
+UPDATE account SET balance = 100 where id = 1;
+
+# UPDATE multiple rows
+
+# by default mysql does not allow to modify all the rows of a table for security reasons, so this command is used to remove the security. Without this command, we
+#	cannot update all the rows.
+# reset this to 1 after use
+SET SQl_SAFE_UPDATES = 0;
+UPDATE account set balance = 1000;
+
+# we can increment also
+UPDATE account set balance = balance + 1;
+
+# restoring the security
+SET SQl_SAFE_UPDATES = 1;
+
+select * from account;
+
+# ----------Delete 
+# delete rows
+Delete from account where id = 23;
+
+# Refrential constraints
+# - Insert -> row cannot be inserted in child table if the foreign key is not present as primary key in the parent table
+# - Delete -> row can not be deleted in the parent table if the primary key is being used as a forign key in child table
+
+# -------ON DELETE CASCADE and ON DELETE SET NULL
+# create tables for demonstration
+create table customer(	 
+    cus_id  INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    cus_name varchar(255),
+    pin_code  INT    
+);
+
+create table order_details (	
+    order_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    quantity INT,
+    cur_ref_id INT,
+    
+    # ON DELETE CASCADE
+    FOREIGN KEY(cur_ref_id) REFERENCES customer(cus_id) ON DELETE CASCADE # delete the rows with coresponding primary key if the row is deleted in the parent table
+    
+    # ON DELETE SET NULL
+    # FOREIGN KEY(cur_ref_id) REFERENCES customer(cus_id) ON DELETE SET NULL # set the value of the foreign key to NULL if the row is deleted in the parent table
+);
+
+# insert data into customer
+Insert into customer 
+	Values  ('1','A', 1200),
+			('2','B', 1200),
+            ('3','C', 1200);
+            
+# insert data into order_details
+# customer one places two orders
+Insert into order_details 
+	Values  (1, 100, 1),
+			(2, 200, 1);
+            				
+# delete customer 1 from the table
+# the corresponding entries from the order_details table will also get deleted
+DELETE from customer where cus_id = 1;
+
+# -----------Replace command
+# Repalce -> If already present, then replace
+#  		  -> Else insert
+
+# this will replace the cutomer 2 with the following values. Columns which are not mentioned will be set to NULL or their default value.
+# if there is no default value to the coulmn and it cannot be set as NULL, then It will throw error
+# here cus_name will be set to NULL
+REPLACE INTO customer( cus_id, pin_code)
+	VALUES(2, 1100);
+
+# acts a insert command
+REPLACE INTO customer( cus_id, cus_name, pin_code)
+	VALUES(3,'D', 1100);
+
+# --------Replace vs update
+# if row is not present, replace will add a new row while update will do nothing
+
+# ---------------Joins--------------
+-- 	- We set up relations between the tables using foreign key, so to fetch the data from the tables by using those relations , we use Joins.
+	-- Joins always returns a table
+    -- In order to apply a JOIN operation between two tables in a relational database, there must be a relationship between those tables.
+
+-- empty the customer and order_details table and insert the below data to understand joins
+Insert into customer 
+	Values  ('1','A', 1200),
+			('2','B', 1200),
+            ('3','C', 1200),
+            ('4','D', 1200),
+			('5','E', 1200),
+            ('6','F', 1200);
+                        
+Insert into order_details 
+	Values  (1, 100, 1),
+			(2, 200, 2),
+            ( 3 , 100, 2),
+            (7, 100, null); -- foreign key set to null
+            
+-- - Inner Join 
+-- We merge the columns of the tables if we have common attribute in both the tables (example primary key and foreign key). See example below
+-- To apply Joins, there should be a common attribute
+-- Here c and o are alias
+-- selecting all the columns from both the tables if c.cus_id = o.cur_ref_id. 
+Select c.*, o.* from customer AS c 
+INNER JOIN 
+order_details As o 
+ON c.cus_id = o.cur_ref_id ;
+
+-- Left Join
+-- Get all the rows from the left table and the matching rows from the right table
+Select c.*, o.* from customer AS c 
+LEFT JOIN 
+order_details As o 
+ON c.cus_id = o.cur_ref_id ;
+
+-- Right Join
+-- Get all the rows from the right table and the matching rows from the left table
+Select c.*, o.* from customer AS c 
+RIGHT JOIN 
+order_details As o 
+ON c.cus_id = o.cur_ref_id ;
+
+-- Full join
+-- Union of left and right table
+-- There is no keyword present naming FUll join
+-- we use Union of left and right join
+-- common rows form both the table + the rows from the left + the rows from the right
+Select * from customer AS c LEFT JOIN order_details As o ON c.cus_id = o.cur_ref_id
+UNION
+Select * from customer AS c RIGHT JOIN order_details As o ON c.cus_id = o.cur_ref_id;
+
+-- Cross join
+-- cartesian product of both the tables
+-- if A has 5 rows and B has 10 rows, then the resultant will have 5x10 = 50 rows
+select count(*) from customer cross join order_details; -- here the output is 24
+
+-- Self join
+-- used when join is applied on the same table
+-- for ex- uniary relationship where employee manages employee
+-- no keyword available. It is emulated using INNER JOIN
+Select c1.*, c2.* from customer AS c1 
+INNER JOIN 
+customer AS c2 
+ON c1.cus_id = c2.cus_id;
+-- both the tables are same
+
+
+-- Important examples, here is the link
+-- https://youtu.be/D_wNQR3LeeM?t=10080
+
+-- Can we use joins without using JOIN keyword
+-- Yes
+select * from customer, order_details where customer.cus_id = order_details.cur_ref_id;
+
+
+
+-- ------------ SET OPERATIONS--------------
+
+-- ------------UNION----------------
+
+	-- join is applied on the rows column wise whereas union is applied row wise
+	-- columns should be of same type and number in order to apply union, names of the column can be different
+    -- Union combines two or more select statements
+    -- all the common rows are written once + non matching rows from both the tables
+    
+    create table T1 (	
+		Id INTEGER,
+        Name Char(255)
+    );
+    
+    create table T2 (	
+		Id INTEGER,
+        name Char(255)
+    );
+		
+    Insert into t1 
+	Values  (1, 'A'),
+			(1, 'B'),
+            (2, 'C');
+					
+	Insert into t2 
+	Values  (1, 'A'),
+			(2, 'B'),
+            (3, 'D');
+            
+	select * from t1
+    UNION
+    select * from t2;
+	
+-- ---------------INTERSECT------------
+
+	-- only the common rows from both the tables
+    -- No keyword available for INTERSECT, we have to emulate it using INNER JOIN
+	-- as the columns are same so we can only display columns of t1
+    --  while applying the intersection operation, the matching is based on the specified columns, and it does not require an exact match for all column values.
+    
+	select t1.* from t1	 
+    INNER JOIN
+	t2 using(id) ;
+    
+    -- OR
+    
+    select t1.* from t1	 
+    INNER JOIN
+	t2 on t1.id = t2.id;
+    
+-- -----------------MINUS------------
+	
+    -- all the rows from the table 2 except the common rows
+    
+    select t2.* from t2
+    LEFT JOIN
+    t1 using(id) where t1.id is null;
+    
+    -- we are using "where t1.id is null" this condition beacause we want the common rows to be removed. so if there are any common rows then they would not pass the condition.
+	
+-- for examples
+-- https://youtu.be/D_wNQR3LeeM?list=PLDzeHZWIZsTpukecmA2p5rhHM14bl2dHU&t=11945
+
+
+-- ---------------SUBQUERIES--------------------
+
+	-- These can be used as an alternative to the subqueries.
+	-- When we run query insdie the query, then subqueries are used
+    
+    select * from customer where cus_id 
+    in 
+    (  select cur_ref_id from order_details where quantity > 100);
+    
+    -- examples
+    -- https://youtu.be/D_wNQR3LeeM?list=PLDzeHZWIZsTpukecmA2p5rhHM14bl2dHU&t=12480
+    
+    
+    -- -------- Corelated subqueries
+	-- in theis both outer query and inner query are realted to each other i.e they both depend on each other.
+    -- exapmle
+	-- https://youtu.be/D_wNQR3LeeM?list=PLDzeHZWIZsTpukecmA2p5rhHM14bl2dHU&t=12933
+	
+    -- for every value in outer query, inner query runs multiple times.
+    
+
+-- ------------------------VIEW----------------------
+
+-- view is a type of virtual table in which we can define what columns we want to display.
+
+-- creating a view containing only two columns
+CREATE VIEW customer_view AS SELECT cus_id, pin_code from customer;	
+
+-- viewing from the view
+select * from customer_view;
+
+-- altering the view
+ALTER VIEW customer_view AS select cus_name, pin_code from customer;
+
+-- dropping the view
+DROP VIEW IF EXISTS customer_view;
+
+use org;
+drop table t1;
+select * from customer;
+select * from order_details; 
+
+Insert into customer 
+	Values  ('4','D', 1200),
+			('5','E', 1200),
+            ('6','F', 1200);
+            
+Insert into order_details 
+	Values  ( 3 , 100, 2);
