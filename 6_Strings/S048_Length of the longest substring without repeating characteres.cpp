@@ -8,6 +8,11 @@ using namespace std;
 // O(N^3)
 
 // 2
+// using binary search on the lengths
+// validate if the string of mid length id valid or not
+// O(logN*N*26) (logN -> binary search , N -> for trying all the substrings of mid length, 26 -> for checking the frequency)
+
+// 2
 // O(N)
 // O(26)
 
@@ -38,12 +43,10 @@ class Solution{
                 l = mp[ele - 'a'] + 1;
             }
             
-            // either element does not exists or it's last occurence does not lies in 
-            // the range of l and r
-            else{
-                mp[ele - 'a'] = r;
-                r++;
-            }
+            // update the occurence of the current element
+            mp[ele - 'a'] = r;
+            r++;
+            
         }
         
         // when all the characters are different
