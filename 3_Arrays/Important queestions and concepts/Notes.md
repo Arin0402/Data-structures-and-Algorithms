@@ -17,6 +17,8 @@ contact: 7042263245
 - A026_U_Triplet multiplication in an array
 - A062_Koko Eating Bananas.cpp
 
+- if Time -> https://practice.geeksforgeeks.org/problems/distribute-n-candies/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
 
 - S024_Roti parata.cpp (Searching ans sorting)
 - S028_First occurence of element x after index y in an array.cpp

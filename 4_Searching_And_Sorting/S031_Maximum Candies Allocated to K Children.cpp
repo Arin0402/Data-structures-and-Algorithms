@@ -3,7 +3,7 @@ using namespace std;
 
 // https://leetcode.com/problems/maximum-candies-allocated-to-k-children/description/
 
-// O(NlogN)
+// O(NlogN) 
 class Solution {
 public:
 

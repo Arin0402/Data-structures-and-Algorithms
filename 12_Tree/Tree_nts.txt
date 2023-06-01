@@ -57,3 +57,16 @@ Types of trees
     These properties ensure that the tree remains balanced, which means that the time complexity of operations such as searching, inserting, and deleting elements from the tree remains logarithmic in the worst case.
 
     Red-black trees are commonly used in computer science applications such as compilers, database indexing, and memory allocation algorithms.
+
+12. What are the total number of different level order traversals of a given tree ?
+
+    - levels of a particular node can be written in n! ways where n is the number of nodes in that level
+    - so the total number of level order traversals 
+
+        - Multiplication of the factorials of size of each level
+
+        - for ex-  if a tree has 1 node (root node) at 0th level, 
+                                 2 nodes at the 1st level,
+                                 and 2 nodes on the last level
+
+                    then the answer would be 1! x 2! x 2!

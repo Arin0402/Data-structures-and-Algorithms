@@ -250,6 +250,7 @@ public:
 
 // 4
 // using binary search
+// https://youtu.be/MYHajVcnXSA?t=1614
 // O(nlogn)
 // O(n)
 class Solution
