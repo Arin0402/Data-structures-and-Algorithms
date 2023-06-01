@@ -25,6 +25,7 @@ contact: 7042263245
 - S029_First occurence of element x before index y in an array.cpp
 - S030_Find the number of occurences of element x in the range L and R.cpp
 - S031_Maximum Candies Allocated to K Children.cpp
+- S032_Equalize the Towers.cpp
 
 
 - Strings

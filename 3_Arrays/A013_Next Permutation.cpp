@@ -52,7 +52,7 @@ public:
             
         }
         
-        // after swapping , all the elements after breakpoingt will be in decreasing order.
+        // after swapping , all the elements after breakpoint will be in decreasing order.
         // so reverse them to get the smallest order.
         reverse(arr, breakpoint +1 );
         
