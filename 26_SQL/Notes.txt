@@ -441,6 +441,14 @@ ALTER VIEW customer_view AS select cus_name, pin_code from customer;
 -- dropping the view
 DROP VIEW IF EXISTS customer_view;
 
+-- FULL JOIN , SELF JOIN and INTERSECT are the operations which do not have keyword. These are emulated
+-- FULL JOIN is emaluated using UNION of LEFT AND RIGHT JOIN
+-- SELF JOIN is emaluated using INNER JOIN of a table with itself
+-- INTERSECT is emaluated using INNER JOIN of two tables.
+
+
+
+
 -- My helper commands 
 use org;
 drop table t1;

@@ -16,6 +16,17 @@ public:
         // to keep the track of marked and unmarked elements.
         vector<bool> arr(N+1, false);
         
+        // why i*i ?
+        // if we consider the dividsors of 30
+        // 2, 15 where the minimum of 2, 15 is 2 and it is less than sqrt of 30
+        // 3, 10 where the minimum of 3, 10 is 3 and it is less than sqrt of 30
+        // 5, 6 where the minimum of 5, 6 is 5 and it is less than sqrt of 30
+
+        // so the prime factors of 30 are less than sqrt of 30 and 15, 10, 6 will be marked by these numbers(2,3,5) 
+        // for a number which is greater than the sqrt of 30. if it is prime then it will be unmarked
+        // and if it is not not prime then it will get marked
+        // for example 7, 7 is prime so it will remain unmarked.
+
         for(int i = 2; i*i <= N; i++){
             
             // not marked

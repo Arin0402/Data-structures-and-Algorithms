@@ -70,3 +70,9 @@ Types of trees
                                  and 2 nodes on the last level
 
                     then the answer would be 1! x 2! x 2!
+
+13. For finding LCA of three numbers say a,b,c 
+
+    Lca(a,b,c) = LCA(a, LCA(b, c))
+
+    we first find LCA(b, c) and then we find the LCA of a with the result of LCA(b,c)

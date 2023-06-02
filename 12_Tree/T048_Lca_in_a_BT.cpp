@@ -40,3 +40,11 @@ public:
         return func(root, n1, n2);
     }
 };
+
+// !-------------------NoTE--------------------!
+
+// For finding LCA of three numbers say a,b,c 
+
+//     Lca(a,b,c) = LCA(a, LCA(b, c))
+
+//     we first find LCA(b, c) and then we find the LCA of a with the result of LCA(b,c)
