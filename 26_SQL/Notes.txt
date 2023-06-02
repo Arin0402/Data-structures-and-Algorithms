@@ -364,7 +364,7 @@ select * from customer, order_details where customer.cus_id = order_details.cur_
 	Values  (1, 'A'),
 			(2, 'B'),
             (3, 'D');
-            
+
 	select * from t1
     UNION
     select * from t2;
@@ -381,10 +381,14 @@ select * from customer, order_details where customer.cus_id = order_details.cur_
 	t2 using(id) ;
     
     -- OR
-    
+        
     select t1.* from t1	 
     INNER JOIN
 	t2 on t1.id = t2.id;
+    
+    -- OR
+    -- To match all the columns
+    select t1.* from t1, t2 where t1.id = t2.id and t1.name = t2.name;
     
 -- -----------------MINUS------------
 	
@@ -437,6 +441,7 @@ ALTER VIEW customer_view AS select cus_name, pin_code from customer;
 -- dropping the view
 DROP VIEW IF EXISTS customer_view;
 
+-- My helper commands 
 use org;
 drop table t1;
 select * from customer;
