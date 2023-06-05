@@ -76,3 +76,7 @@ Types of trees
     Lca(a,b,c) = LCA(a, LCA(b, c))
 
     we first find LCA(b, c) and then we find the LCA of a with the result of LCA(b,c)
+
+14. If ever confused in how to write recursive code without using refrence variable, then look at this question
+
+    
