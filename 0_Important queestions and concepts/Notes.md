@@ -16,6 +16,7 @@ contact: 7042263245
 - A034_Median of two sorted arrays of different size.cpp
 - A026_U_Triplet multiplication in an array
 - A062_Koko Eating Bananas.cpp
+- A080_Maximum Index.cpp
 
 - if Time -> https://practice.geeksforgeeks.org/problems/distribute-n-candies/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
@@ -26,7 +27,7 @@ contact: 7042263245
 - S030_Find the number of occurences of element x in the range L and R.cpp
 - S031_Maximum Candies Allocated to K Children.cpp
 - S032_Equalize the Towers.cpp
-
+- S033_Binary Searchable Numbers.cpp
 
 - Strings
 - S048_Length of the longest substring without repeating characteres.cpp
@@ -37,3 +38,9 @@ contact: 7042263245
 - T048_M_Lca of k nodes in a BT.cpp
 - T048_N_Lowest Common Ancestor of Deepest Leaves.cpp
 - T019_All_nodes_distance_k_binary_tree.cpp
+- T063_Minimum Time to Collect All Apples in a Tree.cpp
+
+- Graphs
+- Rotten Oranges -> https://practice.geeksforgeeks.org/problems/rotten-oranges2536/1
+- No. of islands -> https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+- G048_Monsters and escape.cpp

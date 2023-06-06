@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+using namespace std;
 // https://www.codingninjas.com/codestudio/problems/knight-tour_1170518?leftPanelTab=0
 
 bool check(int row, int col, int n, int m, vector<vector<int>> &board)
