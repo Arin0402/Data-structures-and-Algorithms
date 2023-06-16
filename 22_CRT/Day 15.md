@@ -319,14 +319,14 @@
     - It is a stable sort
 
     - Time complexity
-         O(n+k) time when elements are in the range from 1 to k.
+        O(n+k) time when elements are in the range from 1 to k.
 
     - Space complexity
         O(k) and k (range) can be very large
 
 # Radix sort
 
-    - counting sort take to mush extra space if the range is large.
+    - counting sort take to much extra space if the range is large.
 
     - The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. Radix sort uses counting sort as a subroutine to sort.
 

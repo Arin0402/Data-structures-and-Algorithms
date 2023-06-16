@@ -12,12 +12,12 @@ class Solution {
     vector<int> leastPrimeFactor(int n) {
         
         // array of the elements
-        int arr[1001];
-        for(int i = 0; i < 1001; i++) arr[i] = i;
+        vector<int> arr(n+1);
+        for(int i = 0; i <= n; i++) arr[i] = i;
         
         // sieve
-        bool sieve[1001];
-        for(int i = 0; i < 1001; i++) sieve[i] = false;
+        vector<int> sieve(n+1, false);
+        for(int i = 0; i <= n; i++) sieve[i] = false;
         
         for(int i = 2; i*i <= n; i++){
             
@@ -42,14 +42,6 @@ class Solution {
             }
         }
         
-        // push it into the answer.
-        vector<int> ans;
-        
-        // due to the NOTE given in the problem
-        ans.push_back(0);
-        
-        for(int i = 1; i <= n; i++) ans.push_back(arr[i]);
-        
-        return ans;
+        return arr;
     }
 };

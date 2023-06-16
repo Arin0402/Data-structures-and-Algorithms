@@ -4,6 +4,8 @@ using namespace std;
 // https://practice.geeksforgeeks.org/problems/e866d887f78664cdbf24c61ef9404691f4fb9e59/1?page=1&sortBy=newest&query=page1sortBynewest
 
 // same as printing the longest increasing subsequence.
+// we have to print the subset that's why we are using this method otherwise if we have to find only the length, then we
+// can use the normal method (recursion)
 // 1
 // O(n*2)
 // O(n*2)

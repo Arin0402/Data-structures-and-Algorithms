@@ -89,7 +89,7 @@ public:
 
         for (int i = 0; i < n; i++)
         {
-            maxi = max((right[i] - left[i] + 1) * heights[i], maxi);
+            maxi = max(( right[i] - left[i] + 1 ) * heights[i], maxi);
         }
 
         return maxi;

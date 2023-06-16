@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
+// https://leetcode.com/problems/minimum-cost-to-cut-a-stick/description/
 
 // 1
 // memo

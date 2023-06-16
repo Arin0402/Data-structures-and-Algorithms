@@ -52,6 +52,8 @@ public:
 
         for (int i = N - 1; i >= 1; i--)
         {
+
+            // j would always be on the right of i, that's why j = i + 1
             for (int j = i + 1; j < N; j++)
             {
 
