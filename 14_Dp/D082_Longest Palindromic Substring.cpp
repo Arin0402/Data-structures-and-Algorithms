@@ -1,50 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://leetcode.com/problems/longest-palindromic-substring/
+// https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string1956/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
 // 1
-// expand froom center
-class Solution
-{
+// expand from center
+class Solution{   
 public:
-    int expandAroundCenter(string s, int left, int right)
-    {
-
-        while (left >= 0 && right < s.size() && s[left] == s[right])
-        {
-            left--;
-            right++;
+    
+    void helper(string &s, int &start, int &end, int l, int r, int n){
+        
+        while(l >= 0 && r < n && s[l] == s[r]){
+                l--;
+                r++;
         }
-
-        return right - left - 1;
+        
+        l++;
+        r--;
+        
+        if(r - l > end - start) {
+            start = l;
+            end = r;
+        }   
     }
 
-    string longestPalindrome(string s)
-    {
-
-        if (s.size() < 1)
-            return "";
-
+    string longestPalindrome(string s){
+        
+        int n = s.size();
         int start = 0;
         int end = 0;
-
-        for (int i = 0; i < s.size(); i++)
-        {
-
-            int len1 = expandAroundCenter(s, i, i);     // "xyz"
-            int len2 = expandAroundCenter(s, i, i + 1); // "xyyz"
-
-            int len = max(len1, len2);
-
-            if (len > end - start + 1)
-            {
-
-                start = i - (len - 1) / 2;
-                end = i + (len) / 2;
-            }
+        
+        for(int i = 0; i < n; i++){
+            
+            helper(s, start, end, i, i, n); // include center // xyx
+            helper(s, start, end, i, i + 1, n); // exclude center // xyyx
+            
         }
-
-        return s.substr(start, end - start + 1);
+        
+        string ans = "";
+        
+        for(int i = start; i <= end; i++ ) ans += s[i];
+        
+        return ans;
     }
 };

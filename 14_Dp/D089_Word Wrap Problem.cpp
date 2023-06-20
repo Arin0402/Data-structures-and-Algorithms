@@ -14,7 +14,7 @@ public:
     int rec(int i, int rem, vector<int> &arr, int k)
     {
 
-        // last word.
+        // last word. will not count any cost of white space
         if (i == arr.size())
             return 0;
 

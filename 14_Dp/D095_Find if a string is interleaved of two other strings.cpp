@@ -49,8 +49,7 @@ class Solution{
 
 class Solution{
   public:
-    /*You are required to complete this method */
-    
+        
     bool helper(int i, int j, int k, string &A, string &B, string &C, vector<vector<int>> &dp){
         
         if(k == 0 ) return true;

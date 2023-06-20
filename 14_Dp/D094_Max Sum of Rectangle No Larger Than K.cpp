@@ -4,6 +4,8 @@ using namespace std;
 // https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/description/
 // https://www.youtube.com/watch?v=f3-Q3iQysR8
 
+// A038_M_Longest subarray with sum less than or equal to k.cpp
+
 class Solution
 {
 public:

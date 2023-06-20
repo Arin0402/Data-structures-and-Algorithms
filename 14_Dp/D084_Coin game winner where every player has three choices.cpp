@@ -8,7 +8,7 @@ using namespace std;
 // O(N)
 class Solution{
 	public:
-    // 	for n-1 or n-x or n-y coins , if A is losser, then for n coins A is winner.
+    // 	for n-1 or n-x or n-y coins , if B is losser, then for n coins A is winner.
 	int findWinner(int N, int X, int Y)
 	{
 		vector<bool> dp(N+1, 0);

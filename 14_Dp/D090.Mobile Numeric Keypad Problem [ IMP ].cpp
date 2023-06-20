@@ -41,7 +41,8 @@ public:
     }
 
     long long getCount(int n)
-    {
+    {   
+        // generating the keypad
         vector<vector<int>> nums(4, vector<int>(3, -1));
 
         for (int i = 0; i < 3; i++)
@@ -50,7 +51,6 @@ public:
             nums[1][i] = i + 4;
             nums[2][i] = i + 7;
         }
-
         nums[3][1] = 0;
 
         long long int count = 0;

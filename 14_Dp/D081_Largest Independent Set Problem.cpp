@@ -16,9 +16,11 @@ struct Node
 
 // https://practice.geeksforgeeks.org/problems/largest-independent-set-problem/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
-// for recursion the time complexity is exponential.
-
 // 1
+// recursive
+// exponential 
+
+// 2
 // O(n)
 int helper(Node *root, unordered_map<Node *, int> &mp)
 {
