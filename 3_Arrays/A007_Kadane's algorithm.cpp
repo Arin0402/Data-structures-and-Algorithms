@@ -117,7 +117,7 @@ int main(){
     // maximum sum
     int ans = arr[0];
 
-    // prefic sum till ith index
+    // prefix sum till ith index
     int prefSum = 0;
 
     // minimum prefix sum till ith index
@@ -131,7 +131,7 @@ int main(){
         // add to the prefix sum
         prefSum += arr[i];
 
-        // found maxi,mum subarray
+        // found maximum subarray
         if(prefSum - minPrefSum > ans){
             
             // update the value
@@ -153,6 +153,6 @@ int main(){
     }
 
     // printitng the subarray
-    for(int i=L ; i<=R; i++) cout<<arr[i]<<" ";
+    for(int i=L ; i<=R; i++) std::cout<<arr[i]<<" ";
     
 }

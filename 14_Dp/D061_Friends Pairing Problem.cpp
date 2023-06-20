@@ -22,7 +22,7 @@ public:
         // recur for the remaining friends.
         long long int staySingle = helper(n - 1, dp) % MOD;
 
-        // make pair with the remaoing friends in n-1 ways and one friend would be taken
+        // make pair with the remaining friends in n-1 ways and one friend would be taken
         // so recur for n-2 friends.
         long long int makePair = ((n - 1) % MOD * helper(n - 2, dp) % MOD) % MOD;
 

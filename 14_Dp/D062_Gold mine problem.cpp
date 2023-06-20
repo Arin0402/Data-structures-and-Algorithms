@@ -57,6 +57,7 @@ public:
         }
 
         // NOTICE here that column loop is outside and row loop is inside
+        // as we are buliding solution from backawrds for a single column of each row
         for (int j = m - 2; j >= 0; j--)
         {
             for (int i = n - 1; i >= 0; i--)

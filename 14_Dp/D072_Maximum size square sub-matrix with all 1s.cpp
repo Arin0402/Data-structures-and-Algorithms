@@ -3,110 +3,48 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/largest-square-formed-in-a-matrix0806/1
 
+// Same as D055 (count square matrices with all 1s)
+
 // 1
 // memo
-class Solution
-{
+// O(n*m)
+// O(n*m)
+class Solution{
 public:
-    int helper(int i, int j, int &maxi, vector<vector<int>> &mat, vector<vector<int>> &dp)
-    {
 
-        if (i >= mat.size() || j >= mat[0].size())
-            return 0;
-        if (dp[i][j] != -1)
-            return dp[i][j];
+    int maxSquare(int n, int m, vector<vector<int>> matrix){
+        
+        vector<vector<int>> dp(n, vector<int>(m, 0));
 
-        int right = helper(i, j + 1, maxi, mat, dp);
-        int diagonal = helper(i + 1, j + 1, maxi, mat, dp);
-        int down = helper(i + 1, j, maxi, mat, dp);
+        for (int j = 0; j < m; j++)
+            dp[0][j] = matrix[0][j];
+        for (int i = 0; i < n; i++)
+            dp[i][0] = matrix[i][0];
 
-        if (mat[i][j] == 1)
+        for (int i = 1; i < n; i++)
         {
-            int ans = 1 + min({right, diagonal, down});
-            maxi = max(maxi, ans);
-            return dp[i][j] = ans;
-        }
-        else
-            return dp[i][j] = 0;
-    }
-    int maxSquare(int n, int m, vector<vector<int>> mat)
-    {
-
-        int maxi = 0;
-
-        vector<vector<int>> dp(n, vector<int>(m, -1));
-        helper(0, 0, maxi, mat, dp);
-
-        return maxi;
-    }
-};
-
-// 2
-// tab
-class Solution
-{
-public:
-    int maxSquare(int n, int m, vector<vector<int>> mat)
-    {
-
-        int maxi = 0;
-        vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
-
-        for (int i = n - 1; i >= 0; i--)
-        {
-            for (int j = m - 1; j >= 0; j--)
+            for (int j = 1; j < m; j++)
             {
 
-                int right = dp[i][j + 1];
-                int diagonal = dp[i + 1][j + 1];
-                int down = dp[i + 1][j];
-
-                if (mat[i][j] == 1)
+                if (matrix[i][j] == 0)
+                    dp[i][j] = 0;
+                else
                 {
-                    int ans = 1 + min({right, diagonal, down});
-                    maxi = max(maxi, ans);
-                    dp[i][j] = ans;
+                    dp[i][j] = 1 + min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]});
                 }
             }
         }
 
-        return maxi;
-    }
-};
+        int sum = 0;
 
-// 3
-// space optimised
-class Solution
-{
-public:
-    int maxSquare(int n, int m, vector<vector<int>> mat)
-    {
-
-        int maxi = 0;
-        vector<int> prev(m + 1, 0);
-
-        for (int i = n - 1; i >= 0; i--)
+        for (int i = 0; i < n; i++)
         {
-
-            vector<int> temp(m + 1, 0);
-            for (int j = m - 1; j >= 0; j--)
+            for (int j = 0; j < m; j++)
             {
-
-                int right = temp[j + 1];
-                int diagonal = prev[j + 1];
-                int down = prev[j];
-
-                if (mat[i][j] == 1)
-                {
-                    int ans = 1 + min({right, diagonal, down});
-                    maxi = max(maxi, ans);
-                    temp[j] = ans;
-                }
+                sum = max(sum, dp[i][j]);
             }
-
-            prev = temp;
         }
-
-        return maxi;
+        
+        return sum;
     }
 };

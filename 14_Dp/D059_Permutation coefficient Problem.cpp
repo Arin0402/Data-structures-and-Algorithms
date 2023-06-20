@@ -11,10 +11,13 @@ public:
     {
 
         long long int ans = 1;
+        int count = 0;
 
-        for (int i = n; i > n - k; i--)
+        while(count < k)
         {
-            ans = (i * ans) % 1000000007;
+            ans = (n * ans) % 1000000007;
+            count++;
+            n--;
         }
 
         return ans;

@@ -33,7 +33,7 @@ public:
         vector<vector<int>> dp(N, vector<int>(K + 1, -1));
 
         // -1 because we do not have to include the empty subsequence(the product of the empty subsequence will be one
-        // because of the default value).
+        // because of the default value in the argument).
         return helper(N - 1, 1, K, arr, dp) - 1;
     }
 };

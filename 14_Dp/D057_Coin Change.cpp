@@ -45,8 +45,7 @@ public:
 // tab
 // O(n*sum)
 // O(n*sum)
-class Solution
-{
+class Solution{
 public:
     long long int count(int coins[], int N, int sum)
     {
@@ -55,6 +54,8 @@ public:
 
         for (int i = 0; i < N; i++)
             dp[i][0] = 1;
+
+        dp[0][0] = 1;
 
         for (int i = 1; i <= N; i++)
         {

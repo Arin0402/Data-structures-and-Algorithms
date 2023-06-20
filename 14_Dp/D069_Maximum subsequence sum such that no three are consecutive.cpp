@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 // https://practice.geeksforgeeks.org/problems/max-sum-without-adjacents-2/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
 // 1

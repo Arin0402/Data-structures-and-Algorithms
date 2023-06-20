@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://practice.geeksforgeeks.org/problems/egg-dropping-puzzle-1587115620/1
+// https://www.youtube.com/watch?v=UvksR0hR9nA
 // https://www.youtube.com/watch?v=S49zeUjeUL0.
 // Reason for maximum - watch pepcoding video
 
@@ -27,11 +27,11 @@ public:
 
         int mini = INT_MAX;
 
-        for (int k = 1; k <= floors; k++)
+        for (int i = 1; i <= floors; i++)
         {
 
-            int not_broke = 1 + helper(eggs, floors - k, dp);
-            int broke = 1 + helper(eggs - 1, k - 1, dp);
+            int not_broke = 1 + helper(eggs, floors - i, dp);
+            int broke = 1 + helper(eggs - 1, i - 1, dp);
 
             int temp = max(not_broke, broke);
 
