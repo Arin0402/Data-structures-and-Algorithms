@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1
+
+
 class Solution
 {
 
@@ -12,10 +15,14 @@ public:
         int n = grid.size();
         int m = grid[0].size();
 
-        vector<vector<int>> dis(n, vector<int>(m, 0));       // return distance matrix
-        vector<vector<bool>> vis(n, vector<bool>(m, false)); // visited matrix
+        // return distance matrix
+        vector<vector<int>> dis(n, vector<int>(m, 0));  
 
-        queue<pair<pair<int, int>, int>> q; // {{i, j}, val}
+        // visited matrix
+        vector<vector<bool>> vis(n, vector<bool>(m, false)); 
+
+        // {{i, j}, val}
+        queue<pair<pair<int, int>, int>> q; 
 
         for (int i = 0; i < n; i++)
         {

@@ -2,7 +2,7 @@
 using namespace std;
 
 // Using two vectors.
-// This is better solution as it has code readibility.
+// This is better solution as it has code readability.
 class Solution1 {
     public:
 
@@ -52,7 +52,7 @@ class Solution1 {
 
 
 // using siingle vector
-// Bod code quality and code readibility.
+// Bad code quality and code readibility.
 class Solution2{
 
     public:

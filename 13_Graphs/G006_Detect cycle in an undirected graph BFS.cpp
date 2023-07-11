@@ -4,6 +4,8 @@ using namespace std;
 // BFS solution.
 
 // TC - O (N + 2*E) + O(N).
+
+// store parent of the current node and comapre with the parent to check 
 class Solution{
 public:
     bool detect(int src, vector<int> adj[], vector<bool> &vis) // O (N + 2*E)

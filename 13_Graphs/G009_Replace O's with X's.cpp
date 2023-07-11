@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/replace-os-with-xs0052/1
+
 class Solution
 {
     void dfs(int r, int c, vector<vector<bool>> &vis, vector<vector<char>> &mat, int n, int m)

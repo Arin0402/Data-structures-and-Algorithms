@@ -3,6 +3,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// steps
+// 1 -> create adj list
+// 2 -> apply dfs on the components
+// 3 -> count the components
+
 class Solution1
 {
 public:

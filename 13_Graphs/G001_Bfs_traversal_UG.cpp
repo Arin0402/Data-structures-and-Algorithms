@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TC - O (N + 2*E); (E - edges)
+// TC - O (N + 2*E); (E - edges) (2*E -> total degree of the undirected graph)
 vector<int> bfsOfGraph(int V, vector<int> adj[])
 {
 
     queue<int> q;
 
     q.push(0);
-    vector<int> ans;
+    vector<int> ans;    
 
     vector<bool> visited(V, false);
 
