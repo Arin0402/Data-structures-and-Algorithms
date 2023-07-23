@@ -42,10 +42,8 @@ class Solution{
 	            
 	            if(indegree[ele] == 0) q.push(ele);
 	        }
-	        
-	        
+	        	        
 	    }
-	    
 	    
 	    return topo;
 	    

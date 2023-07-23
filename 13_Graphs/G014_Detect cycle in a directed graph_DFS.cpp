@@ -7,7 +7,7 @@ class Solution1 {
     public:
 
         // TC - O(V + E)
-        bool dfs(int node , vector<bool> &vis,vector<bool> &pathVis, vector<int> adj[] ){
+    bool dfs(int node , vector<bool> &vis,vector<bool> &pathVis, vector<int> adj[] ){
         
         vis[node] = true; // mark it visited. 
         pathVis[node] = true; // mark it path visited.
