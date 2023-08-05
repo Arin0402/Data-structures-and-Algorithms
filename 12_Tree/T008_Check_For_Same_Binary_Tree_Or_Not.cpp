@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/determine-if-two-trees-are-identical/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
 struct TreeNode
 {
     int val;
@@ -15,12 +17,9 @@ struct TreeNode
 
 bool isSameTree(TreeNode *p, TreeNode *q)
 {
-
-    if (p == NULL || q == NULL)
-    {
-        // return true if match, else false.
-        return p == q;
-    }
+    // either both or no one should be NULL
+    if(!p && !q) return true;
+    if(!p || !q) return false;
 
     if (p->val != q->val)
         return false;

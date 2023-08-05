@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/maximum-path-sum-from-any-node/1
+
 struct TreeNode
 {
     int val;
@@ -11,24 +13,30 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-int maxSum(TreeNode *root, int &ans)
-{
-
-    if (!root)
-        return 0;
-
-    int leftSum = max(0, maxSum(root->left, ans)); // maximum is taken to avoid negative sum.
-    int rightSum = max(0, maxSum(root->right, ans));
-
-    ans = max(ans, root->val + leftSum + rightSum);
-
-    return root->val + max(leftSum, rightSum);
-}
-int maxPathSum(TreeNode *root)
-{
-
-    int ans = INT_MIN;
-    maxSum(root, ans);
-
-    return ans;
-}
+class Solution {
+  public:
+    //Function to return maximum path sum from any node in a tree.
+    
+    int helper(TreeNode* root, int &ans){
+        
+        if(!root) return 0;
+        
+        int left = helper(root->left, ans);
+        int right = helper(root->right, ans);
+        
+        ans = max(ans, root->val + left + right);
+        
+        // the maximum path we are trying to return is neagative
+        if(root->val  + max(left, right) < 0) return 0;
+        
+        return root->val  + max(left, right);
+    }
+    
+    int findMaxSum(TreeNode* root)
+    {
+        
+        int ans = INT_MIN;        
+        helper(root, ans);        
+        return ans;            
+    }
+};

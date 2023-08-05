@@ -1,20 +1,22 @@
-1. Declare empty 2d vector = vector<vector<int> > arr(4, vector<int>(4, 0));
+1. 1<<k is same as 2^k    
 
-2. a x b = LCM(a, b) * GCD (a, b)
-
-3. 1<<k is same as 2^k    
-
-4. the “comparator” function returns a value; convertible to bool, which basically tells us whether the passed    “first” argument
+2. the “comparator” function returns a value; convertible to bool, which basically tells us whether the passed “first” argument
   should be placed before the passed “second” argument or not. 
 
-5. sort the matrix column wise
+3. sort the matrix column wise
 
-  void sortrows(vector<vector<int>>& matrix, int col) {    
-    std::sort(matrix.begin(), matrix.end(), [col](const vector<int>& lhs, const vector<int>& rhs) {
-              return lhs[col] > rhs[col];})
+  void sortrows(vector<vector<int>>& matrix, int col) {
+
+    sort(matrix.begin(), matrix.end(), 
+          [col](const vector<int>& lhs, const vector<int>& rhs)
+          {
+              return lhs[col] > rhs[col];
+          }
+    )
+
   }
 
-6. Comparator for min heap priority queue
+4. Comparator for min heap priority queue
 
   class myComparator
   {
@@ -26,11 +28,11 @@
 
   priority_queue<Node* , vector<Node*> , myComparator> pq;
 
-7. use of more than one data type in priority queue. (Heap 007)
+5. use of more than one data type in priority queue. (Heap 007)
 
   - priority_queue<pair<int, char>> pq
 
-  ! ---------ANOTHER METHOD -----------------!
+  ! ---------ANOTHER METHOD -----------------! // NOT SO IMPORTANT
 
   - struct Key {
 
@@ -43,22 +45,22 @@
       }
   };
 
-8. GCD of two numbers
+6. GCD of two numbers
   int gcd(int a, int b)
   {
       return b == 0 ? a : gcd(b, a % b);   
   }
 
-9. the key difference between push_back() and emplace_back() is that the former copies the object to be added to the vector, while the latter constructs the object in-place at the end of the vector. If you have a pre-existing object, you should use push_back(). If you want to construct the object at the end of the vector with constructor arguments, use emplace_back(). Push_back is slower and the emplace_back is faster.
+7. the key difference between push_back() and emplace_back() is that the former copies the object to be added to the vector, while the latter constructs the object in-place at the end of the vector. If you have a pre-existing object, you should use push_back(). If you want to construct the object at the end of the vector with constructor arguments, use emplace_back(). Push_back is slower and the emplace_back is faster.
 
-10. Difference b/w atoi() and stoi() in cpp
+8. Difference b/w atoi() and stoi() in cpp
 
   - both convert string to integer
   - if string is not convertible to integer, atoi() will return zero whereas stoi() will throw exception
   - NOTE (not related to above)
   - the output of atoi("100 welcome") OR  stoi("100 welcome") is 100.
 
-11. If you are declaring the array inside main():
+9. If you are declaring the array inside main():
 
     int, double,char array can have max size of 10^6
     bool array can have max size of 10^7
@@ -68,6 +70,9 @@
     int, double,char array can have max size of 10^7
     bool array can have max size of 10^8  
 
-12. the size() function is unsigned int in cpp , so when we do arr.size() - 1 and if the vector is empty, it will give undefined behaviour
+10. the size() function is unsigned int in cpp , so when we do arr.size() - 1 and if the vector is empty, it will give undefined behaviour
 
     So we have to typecast it into into int or long long int
+
+
+11.  10^8 operations per second are allowed, more than that will give TLE

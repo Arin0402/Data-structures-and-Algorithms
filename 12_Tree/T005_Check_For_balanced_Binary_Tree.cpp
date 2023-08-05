@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
+
 struct TreeNode
 {
     int val;

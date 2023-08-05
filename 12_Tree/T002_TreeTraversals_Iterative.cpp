@@ -76,6 +76,37 @@ vector<int> inOrder(TreeNode *root)
     return ans;
 }
 
+// Iterative PostOrder Traversal
+// It is just the reverse of the preorder traversal
+
+vector <int> postOrder(TreeNode* root)
+{
+    vector<int> ans;
+    
+    stack<TreeNode*> st;
+    
+    st.push(root);
+    
+    
+    while(!st.empty()){
+        
+        auto p = st.top();
+        st.pop();
+        
+        ans.push_back(p->val);
+        
+        if(p->left) st.push(p->left);
+        if(p->right) st.push(p->right);
+        
+    }
+    
+    reverse(ans.begin(), ans.end());
+    
+    return ans;
+    
+}
+
+
 // Iterative PostOrder Traversal using 2 stacks. TC - O(n), SC - O(2n).
 vector<int> postOrder(TreeNode *root)
 {

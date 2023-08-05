@@ -3,6 +3,8 @@ using namespace std;
 
 // Solution video of geeks for geeks editorial.
 
+// https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
+
 class Solution
 {
 public:

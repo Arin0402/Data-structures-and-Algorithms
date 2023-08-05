@@ -29,7 +29,7 @@ Node *inOrderSuccessor(Node *root, Node *x)
         }
         else
         {
-            root = root->right;
+            root = root->right; 
         }
     }
 

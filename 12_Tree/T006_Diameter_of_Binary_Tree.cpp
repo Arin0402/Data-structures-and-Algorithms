@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1
+
 struct TreeNode
 {
     int val;
@@ -58,27 +60,23 @@ int diameter(TreeNode *root, int &ans)
 
 class Solution {
   public:
+    // Function to return the diameter of a Binary Tree.
     
     int helper(Node* root, int &ans){
         
         if(!root) return 0;
         
-        int left = 0, right = 0;
-        
         // left height
-        if(root->left) left = helper(root->left, ans);
+        int left = helper(root->left, ans);
         
         // right height
-        if(root->right) right = helper(root->right, ans);
+        int right = helper(root->right, ans);
         
-        // find the max diameter
-        ans = max(ans, 1 + left + right);
+        ans  = max(ans, 1 + left + right);
         
-        // return the max of the heights
         return 1 + max(left, right);
         
     }
-    
     int diameter(Node* root) {
         
         int ans = 0;
@@ -86,6 +84,5 @@ class Solution {
         helper(root, ans);
         
         return ans;
-        
     }
 };

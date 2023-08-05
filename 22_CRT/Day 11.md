@@ -147,7 +147,7 @@
             A *p;
             p = &b;
 
-            p -> func(); // This will func() of class A due to compile time binding. At the run time the type of p is B
+            p -> func(); // This will call func() of class A due to compile time binding. At the run time the type of p is B
             
         }
 
@@ -183,7 +183,7 @@
                 A *p;
                 p = &b; // OR p = new B();
 
-                p -> func(); // This will func() of class B due to run time binding. At the run time the type of p is B
+                p -> func(); // This will call func() of class B due to run time binding. At the run time the type of p is B
                 
             }
         

@@ -3,6 +3,8 @@ using namespace std;
 
 // https://www.youtube.com/watch?v=29uyA4F9t5I
 
+// Very confusing
+
 class Solution {
   public:
     int getMinDiff(int arr[], int n, int k) {

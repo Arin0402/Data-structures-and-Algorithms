@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.youtube.com/watch?v=ySp2epYvgTE
+
 struct TreeNode
 {
     int val;
@@ -11,7 +13,7 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-//  Preorder Inorder Postorder Traversals in One Traversal
+//  Preorder,  Inorder and Postorder Traversals in One Traversal
 vector<int> traversal(TreeNode *root)
 {
 

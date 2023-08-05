@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+// https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
 using namespace std;
 
 struct TreeNode
@@ -63,3 +63,55 @@ vector<vector<int>> verticalTraversal(TreeNode *root)
 
     return verticalOrderTraversal(root);
 }
+
+
+// For GFG question -> simple
+// https://practice.geeksforgeeks.org/problems/print-a-binary-tree-in-vertical-order/1.
+
+
+struct Node{
+
+    int data;
+    Node* left;
+    Node* right;
+
+};
+
+class Solution
+{
+    public:
+    //Function to find the vertical order traversal of Binary Tree.
+    
+    vector<int> verticalOrder(Node *root)
+    {
+        map<int, vector<int>> mp;
+        
+        queue<pair<Node* , int>> q;
+        q.push({root, 0});
+        
+        while(!q.empty()){
+            
+            auto p = q.front();
+            q.pop();
+            
+            Node* node = p.first;
+            int col = p.second;
+            
+            mp[col].push_back(node->data);
+            
+            if(node->left) q.push({node->left, col - 1});
+            if(node->right) q.push({node->right, col + 1});
+            
+        }
+        
+        vector<int> ans;
+        
+        for(auto itr = mp.begin(); itr !=  mp.end(); itr++){
+            
+            for(auto x : itr->second ) ans.push_back(x);
+        }
+        
+        return ans;
+    }
+};
+

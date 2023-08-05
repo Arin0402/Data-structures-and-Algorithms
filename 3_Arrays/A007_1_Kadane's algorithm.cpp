@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
+
 // Q. Is Kadane’s algorithm Dynamic Programming?
 // A. Yes, It is an iterative dynamic programming algorithm.
 
@@ -107,7 +109,7 @@ class Solution{
 
 // !------------------------------------IMP----------------------------!
 
-// printiung the subbarray having the maximum sum
+// printing the subbarray having the maximum sum
 
 int main(){
         

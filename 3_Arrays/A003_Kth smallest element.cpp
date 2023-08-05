@@ -63,6 +63,7 @@ public:
         }
         swap(arr[i + 1], arr[high]);
         return (i + 1);
+        
     }
 
     int kthSmallest(int arr[], int l, int r, int k)
