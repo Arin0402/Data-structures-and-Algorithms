@@ -2,6 +2,7 @@
 using namespace std;
 
 // https://leetcode.com/problems/maximum-width-of-binary-tree/
+// easy
 
 struct TreeNode
 {
@@ -22,7 +23,7 @@ int width(TreeNode *root)
     {
 
         int size = q.size();
-        int min = q.front().second;
+        int min = q.front().second; // THis is important to avoid overflow
 
         int left = 0;
         int right = 0;
@@ -34,7 +35,7 @@ int width(TreeNode *root)
             q.pop();
 
             TreeNode *node = p.first;
-            int index = p.second - min;
+            int index = p.second - min; // THis is important to avoid overflow
 
             if (i == 0)
                 left = index;

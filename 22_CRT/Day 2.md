@@ -100,7 +100,7 @@
 
         - output -> False
         - 0.7 is of double type which takes 8 bytes
-        - flaot takes 4 bytes
+        - float takes 4 bytes
         - so when we try to store the double in float, then overflow occurs and the value is not 0.7.
         - It is like 0.69872
 

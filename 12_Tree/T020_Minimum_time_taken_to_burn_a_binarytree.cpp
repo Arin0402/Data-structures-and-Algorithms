@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.youtube.com/watch?v=2r5wLmQfD6g&list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk&index=32
+
 struct Node
 {
     int data;
@@ -8,6 +10,7 @@ struct Node
     Node *right;
 };
 
+// Node **targetNode -> this can be single pointer also
 void makeParent(Node *root, unordered_map<Node *, Node *> &parent_tracker, int target, Node **targetNode)
 {
 

@@ -8,10 +8,9 @@
 
     - Why don't we write return type of constructor
 
-        - This is due to security reasons. A constructor returns an object. The return type of constructor is fixed and if the  
-            user is given acces to write the return type of constructor, then User can by mistake return anything. So that's why we dont write return type of constructor so that the user cannot modify it.
+        - This is due to security reasons. A constructor returns an object. The return type of constructor is fixed and if the user is given acces to write the return type of constructor, then User can by mistake return anything. So that's why we dont write return type of constructor so that the user cannot modify it.
 
-    - We cannot create member function witrh same name as class name
+    - We cannot create member function with same name as class name
 
     - Different methods to call one parameterised constructor
 
@@ -252,7 +251,6 @@
             - output -> 100
 
 
-
 ### code 1
                 
         // parent class
@@ -469,4 +467,5 @@
     - Overall, encapsulation helps in achieving data abstraction, information hiding, code organization, and improved code maintainability. It ensures that the implementation details are hidden and only the necessary information and operations are exposed, promoting a more robust and secure design in object-oriented programming.
 
 
-    - Abstraction is the thought process and encapsuation is the implementation.
+    - Abstraction is the thought process and Encapsuation is the implementation.
+    - Encapsulation implements Abstraction.

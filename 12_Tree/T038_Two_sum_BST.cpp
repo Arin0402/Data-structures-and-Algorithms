@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
+
 struct TreeNode
 {
     int val;
@@ -12,7 +14,7 @@ struct TreeNode
         this->val = val;
     }
 };
-// Brute force is to get inorder traversal which will give sotrted array and find two elements using two pointer technique.
+// Brute force is to get inorder traversal which will give sorted array and find two elements using two pointer technique.
 
 class BSTIterator
 {

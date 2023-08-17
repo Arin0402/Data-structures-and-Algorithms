@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/insert-into-a-binary-search-tree/submissions/
 struct TreeNode
 {
     int val;
@@ -49,6 +50,7 @@ void insert(TreeNode *root, int val)
 TreeNode *insertIntoBST(TreeNode *root, int val)
 {
 
+    // tree is empty
     if (!root)
     {
         return new TreeNode(val);

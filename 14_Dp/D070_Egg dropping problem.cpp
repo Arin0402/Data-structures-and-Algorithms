@@ -2,7 +2,6 @@
 using namespace std;
 
 // https://www.youtube.com/watch?v=UvksR0hR9nA
-// https://www.youtube.com/watch?v=S49zeUjeUL0.
 // Reason for maximum - watch pepcoding video
 
 // 1
@@ -27,6 +26,7 @@ public:
 
         int mini = INT_MAX;
 
+        // https://youtu.be/S49zeUjeUL0?t=1458
         for (int i = 1; i <= floors; i++)
         {
 

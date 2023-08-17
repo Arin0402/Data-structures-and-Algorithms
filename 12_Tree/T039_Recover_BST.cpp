@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/recover-binary-search-tree/
+
 struct TreeNode
 {
     int val;
@@ -32,7 +34,7 @@ void check(TreeNode *root, TreeNode **prev, TreeNode **first, TreeNode **second)
 
     check(root->left, prev, first, second);
 
-    if (*prev != NULL && root->val <= (*prev)->val)
+    if (*prev != NULL && (*prev)->val >= root->val  )
     {
 
         if (*first == NULL)

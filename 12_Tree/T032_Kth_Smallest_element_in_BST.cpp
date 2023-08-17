@@ -79,7 +79,7 @@ class Solution {
                     temp->right = root;
                     root = root->left;
                 }
-                // link laready there so break it and go right
+                // link already there so break it and go right
                 else {
                     temp->right = NULL;
                     

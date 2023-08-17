@@ -21,8 +21,7 @@
         - a string is represented as an array of characters. The characters in the array are stored in contiguous memory locations,  although a string is represented as an array of characters, it is not the same thing as a C-style character array. Strings in C++ are dynamic data structures that can be resized and modified at runtime, while C-style character arrays have a fixed size and cannot be resized. Additionally, the string class provides many useful functions for working with strings that are not available for C-style character arrays.
 
     - Input
-        - In C++, you can input a string from the user using the standard input stream object (std::cin) and the getline()
-            function from the string library.
+        - In C++, you can input a string from the user using the standard input stream object (std::cin) and the  getline() function from the string library.
 
         -  Syntax
 

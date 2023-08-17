@@ -246,7 +246,7 @@
 
     - Rules
 
-        - one operand must bew user defined
+        - one operand must be user defined
         - precedency and associativity of the operator will not change
         - ::, size of, *, . , ->   (These operators will not be overloaded)
 
@@ -276,7 +276,7 @@
             Data signchange()
             {
                 Data temp;
-                temp.a=a*-1;
+                temp.a = a * -1;
                 return temp;
             }
             Data operator-()

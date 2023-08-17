@@ -5,7 +5,7 @@ _------------- These are the notes of linked list folder ----------------------_
     1.  This is correct
 
         int myvar;
-        int * myptr;
+        int *myptr;
         myptr = &myvar;
 
         OR

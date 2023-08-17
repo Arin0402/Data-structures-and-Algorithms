@@ -112,7 +112,7 @@
                 // printing the A
                 for( j = 1; j <= i*2-1 ; j++)
 
-                    // if it is first or last or the row is middle, then print *
+                    // if it is first or last element or the row is middle, then print *
                     if(j==1 || j==i*2-1 || i==(n+1)/2)
                         printf("*");
                     else

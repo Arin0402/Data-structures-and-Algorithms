@@ -11,7 +11,8 @@ struct TreeNode
 };
 
 // 1
-// This solution is generally not acceptyed in the interviews
+// This solution is generally not accepted in the interviews
+// convert the following tree into graph by storgin the parent pointers
 
 void makeParent(TreeNode *root, unordered_map<TreeNode *, TreeNode *> &parent_track)
 {
@@ -43,7 +44,7 @@ vector<int> distanceK(TreeNode *root, TreeNode *target, int k)
 
     unordered_map<TreeNode *, TreeNode *> parent_track;
 
-    makeParent(root, parent_track); // store parent of current node.
+    makeParent(root, parent_track); // make parent
 
     unordered_map<TreeNode *, bool> visited;
     queue<TreeNode *> q;
@@ -168,6 +169,14 @@ public:
         int mydist = min(left, right) + 1;
 
         // found the target in the left subtree. so we have to print the nodes of the right subtree of the current node. so print the nodes which are at the distance k - mydist - 1 from the current_node->right
+
+        // why k - mydist - 1 ?
+        // as we are calling for root->right or root->left instead of root;
+        // if we call for root, then it will create error as we are doing level order traversal in allTheNodesAtDistanceK function.
+        // we dont want to include the nodes of the current subtree, but by calling for root, it wiil automatically include both the subtrees.
+        // for ex: if the target is found in left subtree, then we want to search only in right subtree
+        // but by calling for root, the level order is implemented for both left and right parts
+        
         if(left < 1e9) allTheNodesAtDistanceK(root->right, k - mydist - 1, ans);
         else if(right < 1e9) allTheNodesAtDistanceK(root->left, k - mydist - 1, ans);
 

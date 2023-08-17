@@ -72,8 +72,6 @@
 
 ### code 2
 
-
-
     #include<iostream>
     using namespace std;
 
@@ -205,8 +203,7 @@
         cout<<sum(10.25f,7.5f)<<endl;
     }    
 
-    - NOTE -> if the compiler find the function the with same argument types as the calling function, then that function 
-        will be called
+    - NOTE -> if the compiler find the function the with same argument types as the calling function, then that function will be called
 
         
         #include<iostream>
