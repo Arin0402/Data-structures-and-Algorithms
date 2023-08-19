@@ -43,8 +43,23 @@ Questions
 
 12. Are you adaptable.
 
-13. What has been your biggest achievement
+13. biggest achievement
 
-14. Biggest strength
+14. Biggest failure - Jee 
+
+14. Biggest strength - GFG
 
 15. Biggest weakness
+
+16. Short term and long term goals
+
+	As a fresh graduate entering my first full-time job, my short-term goals are relatively simple. My short-term goal is to gain hands-on experience by working with an organization that provides challenging opportunities to apply my technical skills and knowledge. I would like to work on real-world projects that enable me to develop practical problem-solving skills and learn from experienced professionals in the field. Additionally, I aim to improve my technical abilities through continued learning, attending seminars, and participating in hackathons. My long-term goal as a computer science and engineering fresher is to establish myself as a successful software developer, with a focus on developing innovative solutions to real-world problems. 
+
+17. Do you have any questions for us
+
+	What does a typical day look like for a person in this position ?
+	What qualities do you look for in a candidate ?
+	What is the company culture like?
+	How many people are on the team I’d be part of?
+
+19. how do you handle stress

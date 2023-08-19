@@ -4,7 +4,7 @@
 
 # Laravel 
 
-    - a framework is a set of rules, ideas or beliefs which you use in order to deal woth the problems
+    - a framework is a set of rules, ideas or beliefs which you use in order to deal with the problems
 
     - a software framework is platform for developing software applications
 

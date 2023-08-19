@@ -278,7 +278,8 @@ Insert into order_details
             ( 3 , 100, 2),
             (7, 100, null); -- foreign key set to null
             
--- - Inner Join 
+-- -------- Inner Join 
+
 -- We merge the columns of the tables if we have common attribute in both the tables (example primary key and foreign key). See example below
 -- To apply Joins, there should be a common attribute
 -- Here c and o are alias
@@ -288,21 +289,24 @@ INNER JOIN
 order_details As o 
 ON c.cus_id = o.cur_ref_id ;
 
--- Left Join
+------- Left Join
+
 -- Get all the rows from the left table and the matching rows from the right table
 Select c.*, o.* from customer AS c 
 LEFT JOIN 
 order_details As o 
 ON c.cus_id = o.cur_ref_id ;
 
--- Right Join
+--------- Right Join
+
 -- Get all the rows from the right table and the matching rows from the left table
 Select c.*, o.* from customer AS c 
 RIGHT JOIN 
 order_details As o 
 ON c.cus_id = o.cur_ref_id ;
 
--- Full join
+--------- Full join
+
 -- Union of left and right table
 -- There is no keyword present naming FUll join
 -- we use Union of left and right join
@@ -395,7 +399,7 @@ select * from customer, order_details where customer.cus_id = order_details.cur_
     -- all the rows from the table 2 except the common rows
     
     select t2.* from t2
-    LEFT JOIN
+    RIGHT JOIN
     t1 using(id) where t1.id is null;
     
     -- we are using "where t1.id is null" this condition beacause we want the common rows to be removed. so if there are any common rows then they would not pass the condition.
@@ -406,7 +410,7 @@ select * from customer, order_details where customer.cus_id = order_details.cur_
 
 -- ---------------SUBQUERIES--------------------
 
-	-- These can be used as an alternative to the subqueries.
+	-- These can be used as an alternative to the joins.
 	-- When we run query insdie the query, then subqueries are used
     
     select * from customer where cus_id 
@@ -429,7 +433,7 @@ select * from customer, order_details where customer.cus_id = order_details.cur_
 
 -- view is a type of virtual table in which we can define what columns we want to display.
 
--- creating a view containing only two columns
+-- creating a view having two columns
 CREATE VIEW customer_view AS SELECT cus_id, pin_code from customer;	
 
 -- viewing from the view
