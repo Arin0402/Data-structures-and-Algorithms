@@ -15,9 +15,6 @@ using namespace std;
 // Q. What should be the maximum subarray sum if all the elements of the array are negative?
 // A. It depends if we are considering empty subarray or not. If we consider an empty subarray then the output should be 0 else, the output should be the maximum element of the array(the element closest to 0).
 
-// Q. What is the time complexity of Kadane’s algorithm?
-// A. The time complexity of Kadane’s algorithm is O(N) where N is the size of the array.
-
 class Solution
 {
 public:
@@ -74,7 +71,7 @@ public:
 
 // maximum subarray sum without using the kadane's algorithm with O(n) TC and O(1) SC.
 
-class Solution{
+class Solution{ 
     public:
     
     long long maxSubarraySum(int arr[], int n){

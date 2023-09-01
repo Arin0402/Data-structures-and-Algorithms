@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/count-pairs-with-given-sum5022/1
+
 // 1
 // brute force n^2
 

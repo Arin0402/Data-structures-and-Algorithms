@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://youtu.be/5MeI5Kk8KTQ?t=209
+// https://youtu.be/5MeI5Kk8KTQ?t=495
+// https://practice.geeksforgeeks.org/problems/array-of-alternate-ve-and-ve-nos1401/1
 // get intutiion by this video.
 
 

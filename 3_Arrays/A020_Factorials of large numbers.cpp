@@ -27,9 +27,7 @@ public:
             ans.push_back( carry%10);
             
             carry /= 10;
-        }
-        
-        
+        }                
     }
     
     vector<int> factorial(int N){
@@ -38,10 +36,8 @@ public:
         
         ans.push_back(1);
         
-        for(int i = 2; i <= N; i++ ){
-            
-            multiply(ans, i);
-            
+        for(int i = 2; i <= N; i++ ){            
+            multiply(ans, i);            
         }
         
         reverse(ans.begin() , ans.end());

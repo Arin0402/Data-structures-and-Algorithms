@@ -1,0 +1,262 @@
+Q. Father of DBMS   
+
+    Edgar Codd was an English computer scientist who, while working for IBM, invented the relational model for database management, the theoretical basis for relational databases and relational database 
+    management systems.
+    - 1970
+    - Earlier it was called SEQUEL (Simple english query language)
+
+
+- Truncate is faster than delete   
+- Truncate deletes all the tuples in one go whereas delete deletes one by one
+- Roll back is not possible in truncate because no logs are created whereas it is possible in delete
+
+1.What is SQL?
+
+    Structured query language (SQL) is a programming language for storing and processing information in a relational database. A relational database stores information in tabular form, with rows and columns representing different data attributes and the various relationships between the data values. You can use SQL statements to store, update, remove, search, and retrieve information from the database. You can also use SQL to maintain and optimize database performance.
+
+    SQL can be divided into several categories of statements:
+
+        DQL-> SELECT
+        DDL-> CREATE, ALTER, DROP, TRUNCATE, RENAME
+        DML-> INSERT, UPDATE, DELETE
+        DCL-> GRANT, REVOKE
+        TCl -> COMMIT, ROLLBACK, and SAVEPOINT
+
+            COMMIT is used to make changes permanent in the database.
+            ROLLBACK is used to undo changes in a transaction.
+            SAVEPOINT is used to set points within a transaction for later rollback.
+
+
+2. What are the subsets of SQL or types of SQL commands and briefly explain?
+
+    Data Query Language (DQL): DQL is used for retrieving data from one or more tables in a database.
+    Data Definition Language (DDL): DDL is used to define, modify, and manage the structure of the database objects.
+    Data Manipulation Language (DML): DML is used for manipulating data within the database.
+    Data Control Language (DCL): DCL is used to manage access to the data and database objects.
+    Transaction Control Language (TCL): TCL is used to manage transactions in the database.
+
+
+Q. What is CTE in sql ?
+
+    CTE stands for Common Table Expression in SQL. It's a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement. CTEs make complex queries more readable and manageable by breaking them down into smaller, modular parts.
+
+
+3. What is the sequence of execution in SQL?
+
+    from > join > where > group by > having > select > distinct > order by > limit
+
+4. Advantages & disadvantage of SQL
+
+    Advantages
+
+        Faster Query Processing – 
+        Large amount of data is retrieved quickly and efficiently. Operations like Insertion, deletion, manipulation of data is also done in almost no time. 
+        
+        No Coding Skills – 
+        For data retrieval, large number of lines of code is not required. All basic keywords such as SELECT, INSERT INTO, UPDATE, etc are used and also the syntactical rules are not complex in SQL, which makes it a user-friendly language. 
+
+        Scalability: SQL databases can handle large volumes of data and can be scaled up or down as per the requirements of the application.
+
+        Security: SQL databases have built-in security features that help protect data from unauthorized access, such as user authentication, encryption, and access control.
+
+        Data Integrity: SQL databases enforce data integrity by enforcing constraints such as unique keys, primary keys, and foreign keys, which help prevent data duplication and maintain data accuracy.
+
+
+        Disadvantages
+
+        Complex Interface – 
+        SQL has a difficult interface that makes few users uncomfortable while dealing with the database. 
+
+        Cost – 
+        Some versions are costly and hence, programmers cannot access it. 
+        
+        Partial Control – 
+        Due to hidden business rules, complete control is not given to the database. 
+
+        Limited Flexibility: SQL databases are less flexible than NoSQL databases when it comes to handling unstructured or semi-structured data, as they require data to be structured into tables and columns.
+
+        Lack of Real-Time Analytics: SQL databases are designed for batch processing and do not support real-time analytics, which can be a disadvantage for applications that require real-time data processing.
+
+
+5. What is Database? And how to create a database in SQL?
+
+    a database is an organized collection of data stored and accessed electronically through the use of a database management system. Small databases can be stored on a file system, while large databases are hosted on computer clusters or cloud storage
+
+    CREATE DATABASE databasename;
+
+
+6. What is DBMS?
+
+    Database Management Systems (DBMS) are software systems used to store, retrieve, and run queries on data. A DBMS serves as an interface between an end-user and a database, allowing users to create, read, update, and delete data in the database.
+
+    Types of DBMS
+    https://www.tutorialspoint.com/what-are-the-different-types-of-dbms
+
+7. What are Tables and Fields?
+
+    Table:
+    A table is a structured collection of data organized into rows and columns. Each row in a table represents a single record or data entry, while each column represents a specific attribute or piece of information related to those records. Tables provide a way to store and manage structured data in a relational database management system (RDBMS).
+
+    Field (Column):
+    A field, also referred to as a column, is a single data element within a table. Each column has a unique name and a specific data type that determines the type of information it can hold, such as text, numbers, dates, or binary data. 
+
+8. What are Constraints in SQL?
+
+    SQL constraints are used to specify rules for the data in a table.
+
+    Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraint and the data action, the action is aborted.
+
+    The following constraints are commonly used in SQL:
+
+    NOT NULL - Ensures that a column cannot have a NULL value
+    UNIQUE - Ensures that all values in a column are different
+    PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+    FOREIGN KEY - Prevents actions that would destroy links between tables
+    CHECK - Ensures that the values in a column satisfies a specific condition
+    DEFAULT - Sets a default value for a column if no value is specified
+    CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+
+9. What is a primary key and foreign key?
+
+    PRIMARY KEY
+
+        A primary key is used to ensure data in the specific column is unique.
+        It uniquely identifies a record in the relational database table.
+        Only one primary key is allowed in a table.	
+        It is a combination of UNIQUE and Not Null constraints.	
+        It does not allow NULL values
+    
+    FOREIGN KEY
+
+        A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables
+        It refers to the field in a table which is the primary key of another table.
+        Whereas more than one foreign key is allowed in a table.
+        It can contain duplicate values and a table in a relational database.
+        It can also contain NULL values.
+
+11.What is a "TRIGGER" in SQL?
+
+    An SQL trigger is a database object that is associated with a table and automatically executes a set of SQL statements when a specific event occurs on that table. Triggers are used to enforce business rules, maintain data integrity, and automate certain actions within a database.
+
+    The benefits of using SQL triggers include:
+
+    Data integrity: Triggers allow you to enforce complex business rules and constraints at the database level, ensuring that data remains consistent and accurate.
+
+    Automation: Triggers can automate repetitive or complex tasks by executing predefined actions whenever a specified event occurs. This reduces the need for manual intervention and improves efficiency.
+
+    Audit trails: Triggers can be used to track changes made to data, such as logging modifications in a separate audit table. This helps in auditing and maintaining a history of data changes.
+
+    Data validation: Triggers can perform additional validation checks on data before it is inserted, updated, or deleted, ensuring that only valid and conforming data is stored in the database.
+
+13. What is join in SQL? List its different types.
+
+    A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+    Different types of JOINS in SQL Server
+    INNER JOIN
+    LEFT OUTER JOIN
+    RIGHT OUTER JOIN
+    SELF JOIN
+    CROSS JOIN
+
+
+    IN order to give example, we can take customers and orders table
+
+14. What is Normalization in SQL?
+
+    Normalization is the process to eliminate data redundancy and enhance data integrity in the table. Normalization also helps to organize the data in the database. It is a multi-step process that sets the data into tabular form and removes the duplicated data from the relational tables.
+
+
+15. How to insert a date in SQL?
+
+    SQL Date Data Types
+
+    MySQL comes with the following data types for storing a date or a date/time value in the database:
+
+    DATE - format YYYY-MM-DD
+    DATETIME - format: YYYY-MM-DD HH:MI:SS
+    TIMESTAMP - format: YYYY-MM-DD HH:MI:SS
+    YEAR - format YYYY or YY
+
+
+17. What are the different types of SQL operators?
+
+    https://www.w3schools.com/sql/sql_operators.asp
+
+18. What are Aggregate and Scalar functions?    
+
+    Aggregate Functions:
+
+    Aggregate functions operate on a set of values and return a single value that summarizes or calculates information about the set. They are often used with the GROUP BY clause to perform calculations on groups of rows.
+
+    Common aggregate functions include:
+
+    SUM(): Calculates the sum of values in a column.
+    AVG(): Calculates the average of values in a column.
+    COUNT(): Counts the number of rows in a result set.
+    MAX(): Returns the maximum value in a column.
+    MIN(): Returns the minimum value in a column.
+
+    Scalar Functions:
+
+    Scalar functions operate on a single value and return a single value. They can be used within SQL expressions to manipulate or transform individual values.
+
+    Common scalar functions include:
+
+    UPPER(): Converts a string to uppercase.
+    LOWER(): Converts a string to lowercase.
+    CONCAT(): Concatenates two or more strings.
+    LENGTH(): Returns the length of a string.
+    ROUND(): Rounds a numeric value to a specified number of decimal places.
+
+    SELECT ProductName, Price, ROUND(Price, 2) AS RoundedPrice
+    FROM Products;
+
+19. What does a window function do in SQL?
+
+    window functions applies aggregate, ranking and analytic functions over a particular window(set of rows)
+    ans over clause is used with window function to define that window.
+
+    (rest in images)
+
+23. What is denormalisation?
+
+    Normalization is the technique of dividing the data into multiple tables to reduce data redundancy and inconsistency and to achieve data integrity. On the other hand, Denormalization is the technique of combining the data into a single table to make data retrieval faster
+
+24. difference b/w mysql, postgreeSql, oracle
+
+    I'll provide you with a tabular comparison of MySQL, PostgreSQL, and Oracle based on various factors:
+
+    | Aspect          | MySQL       | PostgreSQL  | Oracle      |
+    |-----------------|-------------|-------------|-------------|
+    |   Developer     | Oracle      | PostgreSQL  | Oracle      |
+
+    |   Licensing     | Open-source | Open-source | Proprietary |
+
+    |   Suitability   | Small to     | Small to    | Enterprise  |
+    |                 | medium-sized| large       |             |
+
+    |   Performance   | Good for    | Good for    | High        |
+    |                 | read-heavy  | concurrent  | performance |
+    |                 | workloads   | workloads   |             |
+
+    |   Features      | Basic       | Advanced    | Advanced    |
+    |                 | features    | features    | features    |
+
+    |   Data Types    | Standard    | Advanced    | Advanced    |
+    |                 | data types  | data types  | data types  |
+
+    |   Flexibility   | Limited     | Highly      | Highly      |
+    |                 |             | flexible    | flexible    |
+
+    |   Cost          | Free        | Free        | Paid        |
+    |                 | (Community) |             |             |
+
+    |   Scalability   | Good        | Good        | Excellent   |
+
+    |   Use Cases     | Web apps,   | Various     | Enterprise  |
+    |                 | small       | applications| systems     |
+    |                 | projects    |             |             |
+
+

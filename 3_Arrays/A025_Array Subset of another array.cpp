@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/array-subset-of-another-array2317/1
+
 // find if one array is subset of another or not.
 // Note - duplicates elements are allowed.
 
@@ -16,8 +18,6 @@ using namespace std;
 // use map;
 // TC - O(n + m)
 // SC - O(n)
-
-
 
 string isSubset(int a1[], int a2[], int n, int m) {
     

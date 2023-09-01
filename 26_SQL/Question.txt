@@ -1,6 +1,7 @@
 CREATE DATABASE practice;
 SHOW DATABASES;
 USE practice;
+show tables;
 
 CREATE TABLE Worker (
 	WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -67,10 +68,25 @@ INSERT INTO Title
  
  -- queries  
  
-
--- Q.45
-
 -- Questions Start
+
+-- Write a query to get the current date.
+SELECT GETDATE();
+
+--- Write a query to retrieve duplicate records from a table.
+
+SELECT EmpID, EmpFname, Department, COUNT(*) 
+FROM EmployeeInfo GROUP BY EmpID, EmpFname, Department 
+HAVING COUNT(*) > 1;
+
+-- Extract date , month and year from the date
+
+SELECT YEAR(sales_date) AS year,
+       MONTH(sales_date) AS month,
+       DAY(sales_date) AS day
+FROM sales;
+
+
 -- Q-1. Write an SQL query to fetch “FIRST_NAME” from Worker table using the alias name as <WORKER_NAME>.
 select first_name AS WORKER_NAME from worker;
 
@@ -164,6 +180,10 @@ select * from worker where MOD (WORKER_ID, 2) <> 0;
 select * from worker where MOD (WORKER_ID, 2) = 0;
 
 -- Q-28. Write an SQL query to clone a new table from another table.
+create table worker_clone as select * from worker;
+
+-- OR
+
 CREATE TABLE worker_clone LIKE worker;
 INSERT INTO worker_clone select * from worker;
 select * from worker_clone;
@@ -186,7 +206,11 @@ select * from worker order by salary desc limit 5;
 
 -- Q-33. Write an SQL query to determine the nth (say n=5) highest salary from a table.
 -- here limit is returninng first row after skipping 4 rows.
-select * from worker order by salary desc limit 4, 1;
+select * from worker order by salary desc limit 4 , 1;
+
+-- To return 4 rows after skipping the first row
+select * from worker order by salary desc limit 4 offset 1;
+
 
 -- Q-34. Write an SQL query to determine the 5th highest salary without using LIMIT keyword.
 select * from worker as w1 where 4 = (	 
@@ -199,7 +223,7 @@ select * from worker as w1 where 4 = (
 
 -- the worker id should not be same as it would return the mapping of the worker_id with the self
 -- try removing the " and w1.worker_id != w2.worker_id " part and then run and see the difference 																				
-select w1.*, w2.* from worker w1, worker w2 where w1.salary = w2.salary and w1.worker_id != w2.worker_id;
+select w1.* from worker w1, worker w2 where w1.salary = w2.salary and w1.worker_id != w2.worker_id;
 
 
 -- Q-36. Write an SQL query to show the second highest salary from a table using sub-query.
@@ -273,12 +297,8 @@ select distinct salary from worker w1
 where n >= (select count(distinct salary) from worker w2 where w1.salary <= w2.salary) order by w1.salary desc;
 
 -- Q-49. Write an SQL query to fetch departments along with the total salaries paid for each of them.
-select department , sum(salary) as depSal from worker group by department order by depSal desc;
+select department , sum(salary) as depSal from worker group by department;
 
 -- Q-50. Write an SQL query to fetch the names of workers who earn the highest salary.
 select first_name, salary from worker where salary = (select max(Salary) from worker);
-
-
-
-
 

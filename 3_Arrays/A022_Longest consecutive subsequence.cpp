@@ -55,3 +55,42 @@ class Solution{
        
     }
 };
+
+// 4
+// using map
+class Solution{
+  public:
+    // arr[] : the input array
+    // N : size of the array arr[]
+    
+    //Function to return length of longest subsequence of consecutive integers.
+    int findLongestConseqSubseq(int arr[], int n)
+    {
+        
+        unordered_map<int, int> mp;
+        
+        // insert all the elements in the map
+        for(int i  = 0; i < n; i++){
+            mp[arr[i]]++;
+        }
+        
+        // final ans
+        int maxi = 0;
+        
+        for(int i = 0; i < n; i++){
+            
+            // current element is the last element
+            if(mp.find(arr[i] - 1) == mp.end()){
+                
+                int val = 1;
+                
+                while(mp.find(arr[i] + val) != mp.end()) val++;
+                
+                maxi = max(maxi, val);
+            }
+        }
+        
+        return maxi;    
+        
+    }
+};

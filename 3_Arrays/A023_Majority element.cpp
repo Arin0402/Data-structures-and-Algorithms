@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-// https://leetcode.com/problems/majority-element/solution/
+// https://leetcode.com/problems/majority-element/description/
 // https://www.youtube.com/watch?v=AoX3BPWNnoE
 
 // 1

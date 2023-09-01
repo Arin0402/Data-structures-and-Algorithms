@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/merge-intervals/description/
 // naive solution is to compare each interval with rest of the intervals.
 
 // O(nlog(n)) due to sorting.

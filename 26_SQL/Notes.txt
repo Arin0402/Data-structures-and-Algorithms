@@ -3,7 +3,7 @@ USE org;
 
  CREATE TABLE Worker(
     WORKER_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    FIRST_NAME CHAR(25),
+    FIRST_NAME CHAR(25),z
     LAST_NAME CHAR(25),
     SALARY INT(15),
 	JOINING_DATE DATETIME,
@@ -34,6 +34,7 @@ SELECT 44 + 55;
 Select * from worker where Department = 'HR';
 
 #------- between clause
+#The BETWEEN operator is inclusive: begin and end values are included. 
 Select * from worker where salary BETWEEN 0 AND 500000;
 
 #------- In clause
@@ -80,7 +81,6 @@ select department, SUM(salary) from worker group by department;
 #------- Having keyword
 # used to apply filter in group by condition
 # only works with group by
-
 # ex - get the departments wherer the no. of workers are greater than 2
 select department, count(department) from worker GROUP BY department having count(department) > 2;
 
@@ -106,6 +106,7 @@ create table account(
     balance INT,
     CONSTRAINT acc_balance_chk CHECK(balance > 1000)
 );
+
 # This is allowed
 INSERT INTO account(id, name, balance) VALUES(1, 'A', 10000);
 
@@ -177,7 +178,7 @@ Insert into account (name)
 	Values  ('A'),
 			('B'),
 			('C');
-            		
+            			
 # --------- Update rows
 UPDATE account SET balance = 100 where id = 1;
 
@@ -195,7 +196,6 @@ UPDATE account set balance = balance + 1;
 # restoring the security
 SET SQl_SAFE_UPDATES = 1;
 
-select * from account;
 
 # ----------Delete 
 # delete rows
@@ -264,6 +264,7 @@ REPLACE INTO customer( cus_id, cus_name, pin_code)
     -- In order to apply a JOIN operation between two tables in a relational database, there must be a relationship between those tables.
 
 -- empty the customer and order_details table and insert the below data to understand joins
+
 Insert into customer 
 	Values  ('1','A', 1200),
 			('2','B', 1200),
@@ -278,8 +279,10 @@ Insert into order_details
             ( 3 , 100, 2),
             (7, 100, null); -- foreign key set to null
             
--- -------- Inner Join 
-
+select * from customer;
+select * from order_details;
+		
+-- - Inner Join 
 -- We merge the columns of the tables if we have common attribute in both the tables (example primary key and foreign key). See example below
 -- To apply Joins, there should be a common attribute
 -- Here c and o are alias
@@ -287,26 +290,23 @@ Insert into order_details
 Select c.*, o.* from customer AS c 
 INNER JOIN 
 order_details As o 
-ON c.cus_id = o.cur_ref_id ;
+ON c.cus_id = o.cur_ref_id;
 
-------- Left Join
-
+-- Left Join
 -- Get all the rows from the left table and the matching rows from the right table
 Select c.*, o.* from customer AS c 
 LEFT JOIN 
 order_details As o 
 ON c.cus_id = o.cur_ref_id ;
 
---------- Right Join
-
+-- Right Join
 -- Get all the rows from the right table and the matching rows from the left table
 Select c.*, o.* from customer AS c 
 RIGHT JOIN 
 order_details As o 
 ON c.cus_id = o.cur_ref_id ;
 
---------- Full join
-
+-- Full join
 -- Union of left and right table
 -- There is no keyword present naming FUll join
 -- we use Union of left and right join
@@ -328,7 +328,7 @@ Select c1.*, c2.* from customer AS c1
 INNER JOIN 
 customer AS c2 
 ON c1.cus_id = c2.cus_id;
--- both the tables are same
+-- both the tables are same 
 
 
 -- Important examples, here is the link
@@ -337,8 +337,6 @@ ON c1.cus_id = c2.cus_id;
 -- Can we use joins without using JOIN keyword
 -- Yes
 select * from customer, order_details where customer.cus_id = order_details.cur_ref_id;
-
-
 
 -- ------------ SET OPERATIONS--------------
 
@@ -399,7 +397,7 @@ select * from customer, order_details where customer.cus_id = order_details.cur_
     -- all the rows from the table 2 except the common rows
     
     select t2.* from t2
-    RIGHT JOIN
+    LEFT JOIN
     t1 using(id) where t1.id is null;
     
     -- we are using "where t1.id is null" this condition beacause we want the common rows to be removed. so if there are any common rows then they would not pass the condition.
@@ -433,7 +431,7 @@ select * from customer, order_details where customer.cus_id = order_details.cur_
 
 -- view is a type of virtual table in which we can define what columns we want to display.
 
--- creating a view having two columns
+-- creating a view containing only two columns
 CREATE VIEW customer_view AS SELECT cus_id, pin_code from customer;	
 
 -- viewing from the view
@@ -449,20 +447,3 @@ DROP VIEW IF EXISTS customer_view;
 -- FULL JOIN is emaluated using UNION of LEFT AND RIGHT JOIN
 -- SELF JOIN is emaluated using INNER JOIN of a table with itself
 -- INTERSECT is emaluated using INNER JOIN of two tables.
-
-
-
-
--- My helper commands 
-use org;
-drop table t1;
-select * from customer;
-select * from order_details; 
-
-Insert into customer 
-	Values  ('4','D', 1200),
-			('5','E', 1200),
-            ('6','F', 1200);
-            
-Insert into order_details 
-	Values  ( 3 , 100, 2);

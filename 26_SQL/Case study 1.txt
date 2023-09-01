@@ -1,0 +1,120 @@
+https://github.com/sharkawy98/sql-case-studies/blob/main/case_study_1/B)%20Bonus%20Questions.md
+https://8weeksqlchallenge.com/case-study-1/ 
+
+1. What is the total amount each customer spent at the restaurant?
+
+    select sales.customer_id, sum(menu.price) from dannys_diner.sales as sales
+    inner join
+    dannys_diner.menu as menu on sales.product_id = menu.product_id
+    group by customer_id;
+
+
+2. How many days has each customer visited the restaurant?
+
+    select customer_id,  count(distinct(order_date)) from dannys_diner.sales group by customer_id;
+
+3. What was the first item from the menu purchased by each customer?
+
+    with cte as (
+        select customer_id, order_date, product_id, product_name,
+        row_number() over (partition by customer_id order by order_date) as rn 
+        from dannys_diner.sales as sales
+        inner join
+        dannys_diner.menu as menu 
+        using(product_id)
+    ) 
+    
+    select customer_id, product_name from cte where rn = 1;
+    
+4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+
+    with cte as (
+    select product_id,  count(*) as freq from dannys_diner.sales group by product_id order by freq desc limit 1
+    ) 
+
+    select menu.product_name , cte.freq from cte
+    inner join 
+    dannys_diner.menu as menu using ( product_id);	
+
+5. Which item was the most popular for each customer?
+
+    with cte as (
+        select customer_id, product_id, freq, rank() over (partition by customer_id 		order by freq desc) as rn
+
+        from 	
+
+        (select customer_id, product_id, count(product_id) as freq from dannys_diner.sales 
+        group by customer_id, product_id ) as t 
+
+    )
+
+
+    select customer_id, product_name from cte 
+    inner join 
+    dannys_diner.menu using(product_id) where rn = 1 order by customer_id;
+
+6. Which item was purchased first by the customer after they became a member ?
+
+    with cte as
+    (
+        select customer_id, product_id, row_number() over( partition by customer_id) as rn from
+
+        (
+            select customer_id, product_id, order_date from dannys_diner.sales as sales
+            inner join 
+            dannys_diner.members as members
+            using (customer_id) where order_date >= join_date order by order_date
+        ) as t
+        
+    )
+
+    select customer_id, product_name from cte
+    inner join
+    dannys_diner.menu as menu
+    using(product_id)
+    where rn = 1 
+    order by customer_id;
+
+7. Which item was purchased just before the customer became a member?
+
+    same as previous 
+
+    just change   " where order_date >= join_date  " to this " where order_date < join_date "
+
+8. What is the total items and amount spent for each member before they became a member?
+
+    with cte as (
+        select customer_id, product_id, order_date from dannys_diner.sales as sales
+        inner join 
+        dannys_diner.members as members
+        using (customer_id) where order_date < join_date order by order_date
+    )
+
+    select customer_id, count(*),  sum(price) from cte
+    inner join 
+    dannys_diner.menu as menu
+    using(product_id) 
+    group by customer_id
+    order by customer_id;
+
+9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+
+    with cte as (
+        select customer_id, sales.product_id, price from dannys_diner.sales as sales
+        inner join 
+        dannys_diner.menu as menu using(product_id)
+    )
+
+    select customer_id, sum ( 
+        case
+        when product_id = 1 then price*20
+        else price*10
+        end
+    ) 
+        from cte group by customer_id;
+
+
+
+
+
+

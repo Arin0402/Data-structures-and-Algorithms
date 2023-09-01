@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
 // 1
 // Compare each element with others, get the max profit.
 // O(n^2);
