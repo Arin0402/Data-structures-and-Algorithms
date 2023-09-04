@@ -15,6 +15,9 @@ using namespace std;
 // O(nlogn) + O(n).
 
 // 3
+// sort one array and binary seaerch
+
+// 4
 // use map;
 // TC - O(n + m)
 // SC - O(n)

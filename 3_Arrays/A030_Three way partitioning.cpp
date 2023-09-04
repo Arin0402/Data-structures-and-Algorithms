@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/three-way-partitioning/1
+
 // 1  
 // sort the whole array.
 // O(nlogn)

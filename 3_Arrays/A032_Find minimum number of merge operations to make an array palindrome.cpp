@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://www.youtube.com/watch?v=wiDLcGxhh80
+// https://www.geeksforgeeks.org/find-minimum-number-of-merge-operations-to-make-an-array-palindrome/
+// No practice link available
 
 // 1
 // simple operation is to merge all the elements to form single element , this would form a single element

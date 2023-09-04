@@ -6,7 +6,7 @@ Research the company
 	- if there has been a recent news in the media, check it
 	- awareness about the sector
 	- not to be forgotten
-		- visit the website
+		- visit the website	
 		- know about their competition
 
 
@@ -16,52 +16,158 @@ Questions
 	- mostly strengths
 
 2. where do you see youself 5 years from now.
-	- more experienced and in terms of learning 
-	- do not mention position
+
+	- I see my self as a highly skilled professional who has gained valuable experience and contributed to the growth of the company. 
+	-  I see myself as a knowledgeable professional having an in-depth knowledge of the company and the industry.	
+	- I am also keen on taking on more leadership responsibilities and mentoring junior team members."
 
 3. Why should we hire you.
+
+	- give 100 %.
+	- I have a passion for innovation and problem-solving, and a dedication to continuous learning.
+	- Done internships -> experience and less training time as I adapt new things faster.
+	- I'm a team player who is always willing to collaborate with others, contribute my strengths and ideas, to support my colleagues in achieving our goals.
+
 	- mention the requirements and how strengths align with them
 
 4. Why do you wnat to join us
 	- company research
 
-5. Could you browse us through key highlights of your resume in minute
-
 6. What are the short commings in the resume
-	- trap
+	
+	In reviewing my resume, I can acknowledge a few areas where I see room for improvement. One of the shortcomings is that, although I have a strong academic background and relevant coursework, I may not have as much hands-on experience in certain specific tools or technologies that are frequently used in the industry.
 
 7. Are you a team player and why
+
+	Yes, I consider myself a strong team player. Throughout my career, I've had numerous opportunities to work collaboratively with colleagues and contribute to the success of various teams
+	- Effective Communication
+	- Leveraging Strengths
+	- Conflict Resolution
+	- Celebrating Achievements
+	- Continuous Improvement
+
+	My experience has taught me the value of teamwork, and I'm always eager to learn from my colleagues and contribute my skills to achieve our collective objectives.
 
 8. Do you have any questions
 	- about culture
 
-9. Hobbies
+Q. what are your goals
 
-10. Do you have any specific interests (can be technical and non technical)
+	Short term
 
-11. Are you flexible.
+	My short-term goal is to gain hands-on experience by working with an organization that provides challenging opportunities to apply my technical skills and knowledge. I would like to work on real-world projects that enable me to develop practical problem-solving skills and learn from experienced professionals in the field.
 
-12. Are you adaptable.
+	Long term
 
-13. biggest achievement
+	My long-term goal as a computer science and engineering fresher is to establish myself as a successful software developer, as an individual who has developed his skills and have gained insightful experience in the company and able to contibute in the continued success of the company with a focus on developing innovative -solutions to real-world problems. 
 
-14. Biggest failure - Jee 
 
-14. Biggest strength - GFG
+13. What has been your biggest achievement
+
+	- In my academic journey, I achieved a significant milestone by being the school topper in the 12th standard. This accomplishment reflects my dedication to excellence, strong work ethic, and ability to consistently perform at a high level
+	- time management, self-discipline, and the importance of setting and achieving goals
+	- The coursework in the 12th standard was challenging, and I had to develop effective study strategies and adapt to different teaching styles to succeed.
+	- In addition to my academic achievements, I've also achieved notable success in the field of computer science and programming. On the GeeksforGeeks platform, which is known for its rigorous coding challenges and assessments, I achieved the 2nd rank out of 1900 registered students.
+
+Q. Tell me five interesting facts
+
+	- escalator groves
+	- air curtain
+	- reason behind the name " Tic tac " of these famous mints.
+	- tiny pocket in jeans
+	- Margherita pizza was named after a queen. Pizza was considered as food for poor back then. Queen loved the mozerella pizza so much that it ended up being named after her. 
+	- It is a myth that dogs only see black and white	
+	- It is a myth that human uses only 10 % of the brain, humans uses virtually every part of the brain and most the part is active almost all the time.
+	
+
+14. Biggest strength - 
+
+	One of my strengths is my strong analytical and problem-solving skills. I enjoy tackling complex problems and finding creative 	solutions. Additionally, I am a fast learner and adapt well to new technologies and tools.
+	
+	Creative
+	fast learner
+	hard working	
+	Team player
+	Good problem solving skills	
+	Positive attitude towards problem
+	Balance between the things and management
+	Hardwork in doing smartwork
+	Discipline
+	Stress management
+	Read people
 
 15. Biggest weakness
 
-16. Short term and long term goals
+	- I think procastination is my greatest weakness but I am working upon it by setting up the schedule and tries to stick to it. I think twice thinking is the main cause of procastinaion so I am trying to kill it.
+	- fear of public speaking is also my weakness but I am trying to overcome it by mentoring my juniors and friends which also helps me in improving my communication skills and understand things properly.
+	- Getting affected of what others say about me due to which sometimes I cannot focus on my work but I am trying to overcome it by not paying attention to it and developing focus.
 
-	As a fresh graduate entering my first full-time job, my short-term goals are relatively simple. My short-term goal is to gain hands-on experience by working with an organization that provides challenging opportunities to apply my technical skills and knowledge. I would like to work on real-world projects that enable me to develop practical problem-solving skills and learn from experienced professionals in the field. Additionally, I aim to improve my technical abilities through continued learning, attending seminars, and participating in hackathons. My long-term goal as a computer science and engineering fresher is to establish myself as a successful software developer, with a focus on developing innovative solutions to real-world problems. 
+16. Why did you choose CSE
+	
+	I chose CSE because I have always been fascinated by computers and I used to wonder how humans could make such an intelligent machine and I always liked problem solving. I believe that this field offers tremendous opportunities for innovation and growth, and I am eager to contribute my skills and knowledge to make a meaningful impact in the industry.
 
-17. Do you have any questions for us
+Q. Why do you want to work for our company?
 
-	What does a typical day look like for a person in this position ?
-	What qualities do you look for in a candidate ?
-	What is the company culture like?
-	How many people are on the team I’d be part of?
+	Answer: "I have researched your company extensively and I am impressed by your commitment to innovation, your strong team culture, and your track record of delivering high-quality products/services. I am excited about the opportunity to learn and grow within your organization and contribute to its continued success."
 
-18. how do you handle stress
+Q. Tell me about a challenging project or situation you faced during your studies and how you handled it.
 
-19. Why you want to join our company ?
+	- hackathon project
+	- We had less time, and our project was not completed yet so I prioritized the tasks and divided the tasks among the team members again.
+	- Two team members started fighting, so I controled that situationa also
+
+	What did I do to control the situation	
+
+		- first talked to both of them and asked what was the matter and then calmed them down
+		- Told them that they are not kids and we are a team and aur only goal is to complete that project.
+		- It was just heat of the moment that they started fighthing because we were working late night and we were tired.
+
+	Answer: "During the hackathon project, our team faced tight deadlines and differing opinions on the project's direction. To address this, I took on the role of a mediator, facilitated effective communication among team members, and created a project timeline with clear responsibilities. This helped us successfully complete the project on time and exceed our professor's expectations."
+
+Q. How do you handle stress and tight deadlines?
+
+	I handle stress by staying organized and breaking tasks into manageable steps. I also prioritize my work, focusing on the most critical aspects first. Additionally, I find that taking short breaks and practicing mindfulness techniques helps me stay calm and focused under pressure.
+
+Q. How do you handle conflicts or disagreements within a team?
+
+	Answer: "I approach conflicts by promoting open and respectful communication. If a disagreement arises, I actively listen to all parties involved to understand their perspectives. Then, I work towards finding a compromise that aligns with our common goals. I believe that constructive conflict resolution can lead to better solutions and stronger teamwork."
+
+Q. Tell me about a time when you faced a setback or failure. How did you handle it?
+	
+	One setback I encountered was [describe the situation or failure]. To address it, I took a proactive approach by analyzing what went wrong, identifying areas for improvement, and creating a plan to prevent similar issues in the future. I believe that setbacks are opportunities for growth, and I always strive to learn from them."
+
+Q. How do you handle a situation where you don't know how to solve a technical problem?
+
+	Answer: "When I encounter a technical problem that I'm not immediately familiar with, I follow a systematic approach. First, I research the issue by consulting documentation, online resources, and colleagues. If I still cannot find a solution, I'm not hesitant to seek help from senior team members or supervisors. I believe in the importance of learning from those with more experience and expertise."
+
+Q. How do you prioritize multiple tasks or projects with tight deadlines?
+
+	Answer: "I prioritize tasks by first assessing their importance and urgency. I create a to-do list and allocate time based on these factors. I also break down larger tasks into smaller, manageable steps, allowing me to make steady progress. When faced with tight deadlines, I remain focused, avoid multitasking, and concentrate on one task at a time to ensure quality and efficiency."
+
+Q. What motivates you to excel in your career?
+
+	Answer: "I am motivated by the opportunity to make a meaningful impact through my work. I find satisfaction in solving challenging problems, contributing to projects that advance technology or society, and continuously improving my skills. Additionally, recognition and personal growth are strong motivators for me."
+
+Q. How do you handle feedback and criticism?
+
+	Answer: "I welcome feedback and criticism as valuable opportunities for growth. I listen attentively to feedback, whether it's positive or constructive, and I use it to improve my performance. I believe that continuous improvement is essential for personal and professional development."
+
+Q. How do you handle tight schedules and long working hours if required for the role?
+
+	Answer: "I am committed to delivering results and meeting deadlines, even if it means working extra hours when necessary. I understand that in certain roles and projects, tight schedules are part of the job. I ensure to manage my time efficiently, stay organized, and maintain a healthy work-life balance to handle such demands effectively."
+
+Q. How do you handle a situation where a team member is not contributing their fair share to a project?
+
+	Answer: "In such situations, I believe in open and honest communication. I would approach the team member privately to understand their perspective and any challenges they might be facing. I would offer assistance or suggest ways to help them catch up. If the issue persists, I would escalate it to the team leader or supervisor to ensure that the project's success is not compromised."
+
+Q. What do you think is the biggest challenge facing the tech industry today, and how would you address it?
+
+	Answer: "One of the biggest challenges in the tech industry today is the rapid pace of technological advancement, which can lead to issues like data privacy concerns and ethical dilemmas. To address this challenge, I believe in promoting responsible innovation by advocating for strong ethics in technology development and fostering a culture of responsible data handling and security."
+
+Q. Describe a situation where you had to work with a team member who had a different work style or approach. How   did you handle it?
+
+	Answer: "In a group project, I collaborated with a team member who had a different work style. To ensure smooth teamwork, I initiated a discussion to understand our differences and find common ground. We agreed on roles and responsibilities that played to our strengths, and we communicated openly throughout the project. This approach helped us achieve our goals effectively."
+
+Q. What do you believe are the most important qualities for a successful engineer in today's tech industry?
+
+	Answer: "In today's tech industry, I believe that adaptability, problem-solving skills, and the ability to work effectively in teams are crucial qualities for a successful engineer. The industry evolves rapidly, and engineers must continuously learn, adapt, and collaborate to deliver innovative solutions."

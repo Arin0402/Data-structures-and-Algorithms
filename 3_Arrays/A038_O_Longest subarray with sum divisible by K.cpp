@@ -53,9 +53,7 @@ public:
 	        // else keep the minimum index as we need the longest possible subarray
 	        
 	    }
-	    
-	    return maxi;
-	   
-	    
+			    
+	    return maxi;	   	    
 	}
 };

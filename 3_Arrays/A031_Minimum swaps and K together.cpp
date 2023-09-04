@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/minimum-swaps-required-to-bring-all-elements-less-than-or-equal-to-k-together4847/1
+
 // 1
 // count the elements which are  >= k, call this n.
 // for each subarray for size n, check the number of elements greater than k.
@@ -18,7 +20,7 @@ class Solution
     public:
         int minSwap(int arr[], int n, int k) {
             
-            int good = 0; // <= k
+            int good = 0; // <= k // this is the size of window
             int bad = 0; // > k
             
             // count elements <= k

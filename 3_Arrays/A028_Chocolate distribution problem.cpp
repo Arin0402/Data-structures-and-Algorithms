@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/chocolate-distribution-problem3825/1
+
 // 1
 // generate all the subsets of size m.
 

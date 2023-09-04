@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/triplet-sum-in-array-1587115621/1
+
 // 1
 // try all the triplets.
 // three for loops.
