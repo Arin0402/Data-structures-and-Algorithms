@@ -1,0 +1,92 @@
+Libraries used in Feedback process automation project
+
+    smtplib -> defines an SMTP client session object that can be used to send mail to any Internet machine with an SMTP or ESMTP listener daemon
+
+    OS module -> The OS module in Python provides functions for interacting with the operating system. This module provides a portable way of using operating system-dependent functionality
+
+    Pandas -> Pandas is an open source library in Python. · Pandas module runs on top of NumPy and it is popularly used for data science and data analytics.
+
+    Openpyxl -> Openpyxl is a Python library that is used to read from an Excel file or write to an Excel file.
+
+    xlwt -> Using xlwt module, one can perform multiple operations on spreadsheet
+
+    imbox -> Python library for reading IMAP mailboxes and converting email content to machine readable data.
+
+
+C++
+
+
+    What is C?
+        C is a structural or procedural programming language that was developed by Computer Scientist Dennis Ritchie in 1972 at Bell Laboratories. C is a basic programming language that can be used to develop an operating system such as Windows, Apple OS X to complex programs like Oracle Database, MySQL, Adobe, Python interpreter, Git, etc. Being procedural language C does not support Objects or Classes.
+    
+    What is C++?
+
+        C++ was also known as “C with Classes,” which is a general-purpose, object-oriented programming language. Bjarne Stroustrup developed this language in 1979. It is a multi-paradigm programming language as it supports both procedural and object-oriented programming languages. C++ has the property of the C programming language along with the classes and objects for user-defined data types. C++ is used with graphics applications, operating systems, smartwatches, game development, cloud distributed system, compilers, etc.
+
+    Advantages of C++:
+
+        Performance: C++ is known for its high performance. It allows low-level memory manipulation and efficient resource management, 
+
+        Portability: C++ code can be compiled for a wide range of platforms, making it a portable choice for cross-platform development.
+
+        Object-Oriented: C++ supports both procedural and object-oriented programming paradigms, which provides flexibility in design and development.
+
+        Standard Template Library (STL): C++ comes with a powerful standard library that includes data structures and algorithms (STL). 
+
+        Community and Resources: C++ has a large and active community, which means there is an abundance of resources, libraries, and frameworks available for developers.
+
+    Disadvantages of C++:
+
+        Complexity: C++ is known for its complexity, which can lead to more challenging code maintenance and debugging.
+
+        Steep Learning Curve: Learning C++ can be challenging, especially for beginners.
+
+        Memory Management: While giving control over memory can be an advantage, it can also lead to memory leaks, segmentation faults, and other memory-related issues if not handled correctly.
+
+        No Garbage Collection: Unlike some modern languages like Java or C#, C++ does not have automatic garbage collection. This means developers must manually manage memory, 
+
+        Lack of Modern Features: While C++ has evolved over the years, it still lacks some of the modern features found in newer languages, like built-in support for concurrency and advanced garbage collection.
+
+    Difference b/w C and C++
+
+
+        Programming Paradigm:
+
+        C: C is primarily a procedural programming language. It emphasizes a linear flow of execution and structured programming.
+        C++: C++ is a multi-paradigm language that supports both procedural and object-oriented programming. It allows you to define and use classes and objects.
+        Classes and Objects:
+
+        C: C does not support classes or objects. It relies on functions and structures for data organization.
+        C++: C++ introduces the concept of classes and objects, enabling you to create user-defined types with encapsulation, inheritance, and polymorphism.
+        Standard Template Library (STL):
+
+        C: C does not include a Standard Template Library. Developers must implement data structures and algorithms manually or use third-party libraries.
+        C++: C++ provides the Standard Template Library (STL), a powerful collection of data structures and algorithms, making it easier to work with complex data structures and perform common operations.
+        Memory Management:
+
+        C: In C, memory management is manual, and developers are responsible for allocating and deallocating memory using functions like malloc and free.
+        C++: C++ allows both manual memory management (using pointers) and automatic memory management through features like constructors, destructors, and smart pointers.
+        Complexity and Learning Curve:
+
+        C: C is known for its simplicity and minimalistic syntax, making it easier for beginners to learn and work with.
+        C++: C++ is more feature-rich and complex, with a steeper learning curve, especially for those new to programming. Its syntax includes additional concepts like classes, inheritance, and polymorphism.
+
+
+- In what language was React.JS written?
+    JavaScript
+
+- How is React.JS different from Angular.js?
+
+    React is a JavaScript library, whereas Angular is a front-end framework. React uses one-way data binding and virtual DOM, whereas Angular supports both one way and two way  data binding and real DOM. Moreover, React is faster than Angular as it has a smaller bundle size
+
+    Data binding is a way to synchronise the data between the model and view components automatically.
+
+    One-way binding 
+
+        - In one-way binding, the flow is one-directional.
+        - This means that the flow of code is from ts file to  Html file.
+
+    Two-way binding 
+
+        - In a two-way binding, the flow is two-directional.
+        - This means that the flow of code is from ts file to Html file as well as from Html file to ts file.

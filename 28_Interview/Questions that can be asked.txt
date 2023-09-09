@@ -12,13 +12,72 @@ Research the company
 
 Questions
 
+- Explain your project 
+
+	- so I have in total 5 projects in total in my portfolio including the internship projects, personal projects and team projects
+
+	Adimin Panel
+
+	- Talking about the internship project, I worked on a admin panel for analytics, inventory management, and daily work monitoring purposes along with two other people
+	- It included a dashboard for analytics including graphs, tables etc. 
+	- Inventory mamangement portion where the person can keep the track of 17000 skus and see which products are available and where 	they are available i.e the location
+	- dynamic forms were created to get the details of the work din ein the whole day and other features such as authntication, 	autohrization etc
+	- User management feature was also there to create, update  delete, formation of dymanic teams etc
+	
+	DormLife
+
+	- So I developed a hostel management app with features like a student can check the mess menu of all the seven days of a week, 
+	and a feedback forms where student can share their feed back about the food , complaints section where sturdents can lodge theor compalints and keep the track of the status, event details of what is happening in the college  , authentication and autohrization.
+	
+	why this project ?
+	
+	- So I heard from my friends that there is no management in the hostel, no one is there to listen to your complaints and if there 	is any information or update then it os not conveyed properly, so then this idea came to my mind of creating this app. 
+	- I asked for the requirements from my friends and then I started working on it.
+	- The plan is to deploy this project 
+	
+	Why not deployed yet ?
+
+	- beacuse of our end sem exam and after that our training started follwing with the placement season, soI didn't got much time but
+	now I gonna work on it
+
+
+	Sudoku solver app 	
+
+	Feedback process automation
+	
+	- team of 3 members
+	- our task was to automate the work of sending mails with attached feedback forms to the clients asking for their review. An excel sheet was given which had the list of employees along with their email ids.
+	- and then to get those feedbacks and put them into a new excel sheet, so we created two bots form them
+	
+	Hackathon project
+	
+	- team of 6 persons
+	- 3 persons -> frontend
+	- 2 persons -> backend
+	- 1 person -> data collection
+
+	- so we created a website called kisan helping hand. The main purpose of this website was to provide information to the farmers in 	their local language
+	- buy/sell portal, crops information, schemes information, fertilizer calcualtor etc
+
+
+- tell me one thing that you didn't like about your team member
+	- lazy, doing everything at the last moment
+
+- three things that you have learnt from btech
+	
+	- work presure
+    - teamwork
+    - communication skills, presentation skills
+    - project development
+
+
 1. Tell us something which is not in your resume.
 	- mostly strengths
 
 2. where do you see youself 5 years from now.
 
 	- I see my self as a highly skilled professional who has gained valuable experience and contributed to the growth of the company. 
-	-  I see myself as a knowledgeable professional having an in-depth knowledge of the company and the industry.	
+	- I see myself as a knowledgeable professional having an in-depth knowledge of the company and the industry.	
 	- I am also keen on taking on more leadership responsibilities and mentoring junior team members."
 
 3. Why should we hire you.
@@ -28,7 +87,7 @@ Questions
 	- Done internships -> experience and less training time as I adapt new things faster.
 	- I'm a team player who is always willing to collaborate with others, contribute my strengths and ideas, to support my colleagues in achieving our goals.
 
-	- mention the requirements and how strengths align with them
+	- mention the requirements and how strengths align with them.
 
 4. Why do you wnat to join us
 	- company research
@@ -88,13 +147,11 @@ Q. Tell me five interesting facts
 	fast learner
 	hard working	
 	Team player
-	Good problem solving skills	
+	Stress management	
 	Positive attitude towards problem
 	Balance between the things and management
 	Hardwork in doing smartwork
-	Discipline
-	Stress management
-	Read people
+	Discipline	
 
 15. Biggest weakness
 
@@ -171,3 +228,31 @@ Q. Describe a situation where you had to work with a team member who had a diffe
 Q. What do you believe are the most important qualities for a successful engineer in today's tech industry?
 
 	Answer: "In today's tech industry, I believe that adaptability, problem-solving skills, and the ability to work effectively in teams are crucial qualities for a successful engineer. The industry evolves rapidly, and engineers must continuously learn, adapt, and collaborate to deliver innovative solutions."
+
+
+Q. why this company ?
+	
+	I am excited to work at [Company name] because the company's reputation signifies it as a global leader in [Field names ex: consulting, technology services, and outsourcing ] and it is one of the most reputed companies in the world
+
+	as a fresher I need a platform to convert my theoritical knowledge to practical knowledge and I believe [company name] would be a great place because of the follwong reasons
+	
+	- work culture is employee-friendly that offers a suitable environment for professional growth.
+	- a great place to have my carrer a sky rocket growth 
+	- therefore I want to join [Company name] so that I can help the company to grow and contribute to the success of the company	
+
+- What are you looking for in a company?
+
+    potential for growth & professional development, good company culture, or recognition from your employer.
+
+- What do you do in your spare time?
+
+	In my spare time, I like to work on upgrading my skills and knowledge. For skills, I have enrolled in courses to upscale myself. I 	also like travelling, playing sports and spending time with my family and friends.	
+
+- what makes our comapany different from its competitors
+
+    - clients
+	- retention rate 
+	- So you can actually understand the quality of the organization and the methods of delivery.
+    - [Company] places a strong emphasis on teamwork and collaboration
+    - ethics (awards)
+    - recognises the effort of its employees

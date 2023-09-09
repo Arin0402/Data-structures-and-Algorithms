@@ -149,6 +149,23 @@ Q. What is CTE in sql ?
 
     Data validation: Triggers can perform additional validation checks on data before it is inserted, updated, or deleted, ensuring that only valid and conforming data is stored in the database.
 
+    -- Example 1
+    Create Trigger before_inser_studentage BEFORE INSERT ON student_age FOR EACH ROW
+    BEGIN
+    IF NEW.age < 0 THEN SET NEW.age = 0;
+    END IF;
+    END 
+
+    --Example 2
+
+    CREATE TRIGGER delete_trigger
+    AFTER DELETE ON main_table FOR EACH ROW
+    BEGIN
+        INSERT INTO backup_table (column1, column2, deleted_at)
+        VALUES (OLD.column1, OLD.column2, NOW());
+    END;
+
+
 13. What is join in SQL? List its different types.
 
     A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
@@ -259,4 +276,220 @@ Q. What is CTE in sql ?
     |                 | small       | applications| systems     |
     |                 | projects    |             |             |
 
+- Mysql is famous beacause it is open source so any compnay can modify its code and add their flavour to it according to their need
 
+- list of open soirce databases
+
+    - Mysql
+    - postgreSQl
+    - MariaDB
+    - mongoDB
+    - SQLite
+
+- FLoat -> decimal with precision of 23 digits
+- Double -> decimal with precision of 24 to 53 digits
+- decimal -> double stored as a string
+- CREATE DAATBASE IF NOT EXISTS [db_name]
+- DROP DATABASE IF EXISTS [db_name]
+- select now() -> time of server
+- select lcase("ARIN")
+- select Ucase("arin")
+
+- If you break the sequence of auto increment primary key then it would start after your inserted number
+
+- UPPER() -> to convert in upper case
+- LOWER() -> to convert in lower case
+
+-- difference between unique and primary key
+	-- 	 A unique key allows null values. A primary key does not allow null values. 
+    --   A table can have multiple unique keys. A table can have only one primary key.
+    --   A unique key can be referenced by foreign keys from other tables.  In fact, foreign keys typically reference the primary key of another table.
+
+# change column -rename the column
+# syntax - alter table table_name CHANGE COLUMN old_name new_name data_type
+alter table bonus CHANGE COLUMN interest saving_interest FLOAT NOT NULL DEFAULT 0;
+
+-- OR
+ 
+alter table bonus rename column interest to saving_interest;
+
+# adding primary key
+alter table bonus add primary key (bonus_amount);	
+
+# removing primary key
+alter table bonus drop primary key;	
+
+# ---------------Joins--------------
+-- 	- We set up relations between the tables using foreign key, so to fetch the data from the tables by using those relations , we use Joins.
+	-- Joins always returns a table
+    -- In order to apply a JOIN operation between two tables in a relational database, there must be a relationship between those tables.
+
+
+-- Natural Join
+NATURAL JOIN
+Natural Join in SQL joins two tables based on the same attribute name and datatypes. The resulting table will contain all the attributes of both tables but keep only one copy of each common column.
+-- The colmn name should be same.
+-- returns the common column one time only
+select ename from employee 
+Natural Join
+department;
+
+
+-- join is applied on the rows column wise whereas union is applied row wise
+	-- columns should be of same type and number in order to apply union, names of the column can be different
+    -- Union combines two or more select statements
+    -- all the common rows are written once + non matching rows from both the tables
+
+-- view is a type of virtual table in which we can define what columns we want to display.
+
+-- Q-4. Write an SQL query to print the first three characters of  FIRST_NAME from Worker table.
+select substring(first_name, 1, 3) from worker;
+
+-- Q-5. Write an SQL query to find the position of the alphabet (‘b’) in the first name column ‘Amitabh’ from Worker table.
+select INSTR(first_name, 'B') from worker where first_name = 'Amitabh';
+
+-- Q-9. Write an SQL query to print the FIRST_NAME from Worker table after replacing ‘a’ with ‘A’.
+select REPLACE(first_name, 'a', 'A')  from worker;
+
+-- Q-10. Write an SQL query to print the FIRST_NAME and LAST_NAME from Worker table into a single column COMPLETE_NAME.
+select CONCAT(first_name, ' ', last_name) AS COMPLETE_NAME from worker;
+
+-- Q-26. Write an SQL query to show only odd rows from a table.
+-- select * from worker where MOD (WORKER_ID, 2) != 0; 
+select * from worker where MOD (WORKER_ID, 2) <> 0;
+
+-- Q-28. Write an SQL query to clone a new table from another table.
+create table worker_clone as select * from worker;
+
+-- OR
+
+CREATE TABLE worker_clone LIKE worker;
+INSERT INTO worker_clone select * from worker;
+select * from worker_clone
+
+
+- It's important to note, that NULL doesn't equal NULL.
+
+    NULL is not a value, and therefore cannot be compared to another value.
+    where x is null checks whether x is a null value.
+    where x = null is checking whether x equals NULL, which will never be true
+
+-- Q-31. Write an SQL query to show the current date and time.
+
+select curdate();
+select curtime();
+select now();
+
+- nth highest salary
+    - corelated subquery
+    - limit
+    - dense_rank
+
+
+-- Q-36. Write an SQL query to show the second highest salary from a table using sub-query.
+
+    -- 1
+    select max(salary) from worker where salary not in (select max(salary) from worker);
+
+    -- 2
+    with cte as (select salary , DENSE_RANK() over ( order by salary desc) as rankk from worker)
+    select salary from cte where rankk = 2 group by rankk;
+
+    -- 3
+    select salary from worker w1 where 2 = ( 
+        select count(distinct(salary)) from worker w2 where w2.salary >= w1.salary
+    );
+
+    -- 4
+    select salary from worker GROUP BY salary order by salary desc limit 1, 1;
+
+    -- 5
+    select distinct(salary) from worker order by salary desc limit 1, 1;
+
+-- Q-37. Write an SQL query to show one row twice in results from a table.
+select * from worker
+UNION ALL
+select * from worker order by worker_id;
+
+
+-- Q-42. Write an SQL query to show the last record from a table.
+select * from worker where worker_id = (select max(worker_id) from worker);
+
+-- Q-44. Write an SQL query to fetch the last five records from a table.
+(select * from worker order by worker_id desc limit 5) order by worker_id;
+
+
+-- Q-45. Write an SQL query to print the name of employees having the highest salary in each department.
+
+with cte as (select *,  rank() over(partition by department order by salary desc) as rankk from worker)
+select * from cte where rankk = 1;
+
+OR
+
+with cte as (select department, max(salary) as sal from worker group by department)
+select * from worker w1 
+inner join 
+cte on w1.department = cte.department and w1.salary = cte.sal;
+
+
+-- Q-47. Write an SQL query to fetch three min salaries from a table using co-related subquery
+select distinct salary from worker w1
+where 3 >= (select count(distinct salary) from worker w2 where w1.salary >= w2.salary) order by w1.salary desc;
+
+--- Write a query to retrieve duplicate records from a table.
+
+SELECT EmpID, EmpFname, Department, COUNT(*) 
+FROM EmployeeInfo GROUP BY EmpID, EmpFname, Department 
+HAVING COUNT(*) > 1;
+
+-- delete duplicate rows
+	delete from emp where rowid not in ( select min(rowid) from emp group by name );
+
+	-- without using a temporary table.
+
+	DELETE E1 FROM EmployeeDetails E1
+	INNER JOIN EmployeeDetails E2 
+	WHERE E1.EmpId > E2.EmpId 
+	AND E1.FullName = E2.FullName 
+	AND E1.ManagerId = E2.ManagerId
+	AND E1.DateOfJoining = E2.DateOfJoining
+	AND E1.City = E2.City;
+
+
+-- https://www.youtube.com/watch?v=Pvk3019ZvNw&list=PLxCzCOWd7aiHqU4HKL7-SITyuSIcD93id&index=35
+-- Q. Select ids of the employees whose salary has been increased continuously for three years
+select id from 
+(select id, salary , year, LEAD(salary, 1, 0) over (partition by id order by year desc) as prev_salary) as temp 
+where temp.salary > temp.prev_salary group by id having count(*) = 3;
+
+
+-- trigger
+Create Trigger before_inser_studentage BEFORE INSERT ON student_age FOR EACH ROW
+BEGIN
+IF NEW.age < 0 THEN SET NEW.age = 0;
+END IF;
+END 
+
+
+-- Q Write an SQL query to find the count of the total occurrences of a particular character – ‘n’ in the FullName field.
+SELECT FullName, 
+LENGTH(FullName) - LENGTH(REPLACE(FullName, 'n', ''))
+FROM EmployeeDetails;
+
+- Q 
+-  https://www.youtube.com/watch?v=9gHIiuyySws&list=PLdOKnrf8EcP17p05q13WXbHO5Z_JfXNpw&index=19
+- remove reverse pairs
+
+    - greates and least method + group by
+    - self join + row_number + condition
+    - left join
+        select * from cities c1
+        left join
+        cities c2 on c1.source = c2.destination and c2.source = c1.destination
+        where  c2.destination is NULL or c1.source < c2.source;
+
+    if all the rows are repeated twice
+    - direct compared -> select * from cities where source > destination;
+
+- Q
+- select group_concat(first_name, ', '), department from worker group by department;		

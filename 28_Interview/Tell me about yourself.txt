@@ -2,7 +2,7 @@
 
 Tell me about yourself
 
--Hello, My name is Arin Goyal and I am a prefinal year B.tech student specializing in Computer science and engineering with 9.28 aggregate CGPA.
+-Hello, My name is Arin Goyal and I am a final year B.tech student specializing in Computer science and engineering with 9.28 aggregate CGPA.
 -I have done my schooling from Jaipur and I was the school topper among all the streams in 12th standard with 96.2 percent grade. 
 -I chose to pursue engineering because I love problem solving and I think problem solving skill is something which is required in each sector we see today.
 -I did my Internship last summer at a jaipur based startup as a Web developer intern where I developed an Admin panel and management solutions. That internship helped me to build a positive attitude to approach a problem because half of the problem is solved when you have a positive and a clear mindset.
