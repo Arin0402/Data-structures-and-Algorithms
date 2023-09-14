@@ -17,47 +17,45 @@ struct TreeNode
 // If we reach null, return 0
 // C++ note: 1 << n is the same as raising 2 to the power n, or 2^n
 
-int count(TreeNode *root)
-{
+class Solution {
+public:
 
-    if (!root)
-        return 0;
+    int leftHeight(TreeNode* root){
 
-    int lh = FindLeftheight(root);
-    int rh = FindRightheight(root); 
+        int count = 0;
 
-    if (lh == rh)
-        return (1 << lh) - 1;
+        while(root){
 
-    return 1 + count(root->left) + count(root->right);
-}
-
-int FindLeftheight(TreeNode *root)
-{
-    int count = 0;
-
-    while (root)
-    {
-        root = root->left;
-        count++;
+            count++;
+            root = root->left;
+        }
+        return count;
     }
 
-    return count;
-}
-int FindRightheight(TreeNode *root)
-{
-    int count = 0;
+    int rightHeight(TreeNode* root){
 
-    while (root)
-    {
-        root = root->right;
-        count++;
+        int count = 0;
+
+        while(root){
+
+            count++;
+            root = root->right;
+
+        }
+
+        return count;
     }
 
-    return count;
-}
-int countNodes(TreeNode *root)
-{
+    int countNodes(TreeNode* root) {
 
-    return count(root);
-}
+        if(!root) return 0;
+
+        int lh =  leftHeight(root);
+        int rh = rightHeight(root);
+
+        if(lh == rh) return (1<<lh) - 1;
+
+        return 1 + countNodes(root->left) + countNodes(root->right);
+
+    }
+};

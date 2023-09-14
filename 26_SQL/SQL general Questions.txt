@@ -9,6 +9,15 @@ Q. Father of DBMS
 - Truncate is faster than delete   
 - Truncate deletes all the tuples in one go whereas delete deletes one by one
 - Roll back is not possible in truncate because no logs are created whereas it is possible in delete
+- delete does not free the space containing the table and truncate free the space containing the table
+
+- T-SQL is SQL language for SYBASE
+
+- nchar and ntext are types of Unicode character strings datatypes in SQL.
+- SOUNDEX compares 2 strings and returns their similarity as a 4 character code.
+- NATURAL JOIN can also be termed as a combination of Projection and cartesian product.
+- The Candidate Key is also known as the minimal super key.
+- The NOLOCK in SQL is equivalent to READ UNCOMMITTED.
 
 1.What is SQL?
 
@@ -165,6 +174,10 @@ Q. What is CTE in sql ?
         VALUES (OLD.column1, OLD.column2, NOW());
     END;
 
+    - Delete a trigger
+
+        DROP TRIGGER statement
+
 
 13. What is join in SQL? List its different types.
 
@@ -233,7 +246,7 @@ Q. What is CTE in sql ?
 19. What does a window function do in SQL?
 
     window functions applies aggregate, ranking and analytic functions over a particular window(set of rows)
-    ans over clause is used with window function to define that window.
+    and over clause is used with window function to define that window.
 
     (rest in images)
 
@@ -278,7 +291,7 @@ Q. What is CTE in sql ?
 
 - Mysql is famous beacause it is open source so any compnay can modify its code and add their flavour to it according to their need
 
-- list of open soirce databases
+- list of open source databases
 
     - Mysql
     - postgreSQl
@@ -480,7 +493,7 @@ FROM EmployeeDetails;
 -  https://www.youtube.com/watch?v=9gHIiuyySws&list=PLdOKnrf8EcP17p05q13WXbHO5Z_JfXNpw&index=19
 - remove reverse pairs
 
-    - greates and least method + group by
+    - greatest and least method + group by
     - self join + row_number + condition
     - left join
         select * from cities c1

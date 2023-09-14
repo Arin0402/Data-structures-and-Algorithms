@@ -70,6 +70,7 @@
             - Run time
 
                 - virtiual functions
+                - function overriding
 
         - (---------- From GFG---------)
         https://www.geeksforgeeks.org/cpp-polymorphism/

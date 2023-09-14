@@ -23,7 +23,7 @@ public:
         if (!root->left && !root->right)
         { // leaf node
 
-            if (LeftMostleaflevel == 0)
+            if (LeftMostleaflevel == -1)
             {                              // left most leaf node
                 LeftMostleaflevel = level; // set the value.
                 return true;
@@ -37,7 +37,7 @@ public:
 
     bool check(Node *root)
     {
-        int LeftMostleaflevel = 0; // height of the left most node of the tree. This will be used for compariosn.
+        int LeftMostleaflevel = -1; // height of the left most node of the tree. This will be used for compariosn.
 
         return checkHelper(root, 0, LeftMostleaflevel);
     }

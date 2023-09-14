@@ -256,3 +256,233 @@ Q. why this company ?
     - [Company] places a strong emphasis on teamwork and collaboration
     - ethics (awards)
     - recognises the effort of its employees
+
+Behavioural
+
+# How do you set your goals?
+
+    - I approach goal-setting with a structured and disciplined process, which I believe is essential for both personal and professional growth.
+    - I begin by clearly defining the specific outcome I want to achieve. 
+    - requirements, time required etc
+    - I ensure that my goals are measurable, meaning I can quantify progress and success. 
+    - Setting achievable goals is crucial. I assess the resources, time, and skills required to accomplish the goal and ensure they are realistic. This prevents setting goals that are too ambitious or unattainable, which can lead to frustration.
+    - break down into smaller goals
+    - priortise
+
+# The right thing may not be the most desirable to a person, describe a situation where you did what was right even though it wasn’t desirable?
+
+    In my academic experience, there was a group project where we faced a situation where some team members suggested taking shortcuts to meet a tight deadline. These shortcuts involved compromising the quality of our work and potentially violating academic integrity policies.
+
+    Even though it wasn't the most desirable option, I made the decision to uphold academic integrity. I discussed my concerns with my teammates, explained the potential consequences of the shortcuts, and proposed an alternative plan that ensured the quality and integrity of our work. This decision required additional effort and meant extending the deadline, but it was the right thing to do. Ultimately, our project was well-received, and we learned the importance of ethical decision-making and the value of quality work.
+
+# Describe a time when you came as a role model to people ?
+
+    While I may not have extensive professional experience as a fresher, I can draw from my academic experience. In a group project during my final year of college, I was elected as the team leader. I recognized the importance of setting a positive example for my teammates.
+
+    I led by example in terms of dedication, work ethic, and collaboration. I ensured open communication, supported team members who needed assistance, and maintained a positive attitude, even during challenging times. As a result, I observed positive changes in the team's dynamics, and team members began to adopt similar behaviors. Our project was successful, and this experience taught me the impact of being a positive role model and leader.
+
+
+# Tell me an instance where you went overboard and went beyond expectations, or went out to help someone.
+
+    In one of my previous academic projects, a fellow classmate was facing personal challenges that made it difficult for them to keep up with their coursework. They were particularly struggling with a major assignment that was due soon, and it was clear they needed help.
+
+    Without hesitation, I offered to assist my classmate with the assignment. We spent extra hours in the library, discussing the project's requirements and working through the material together. I shared my notes, offered explanations, and provided guidance on structuring the assignment.
+
+    As we worked together, I realized that my classmate needed not only academic support but also emotional support and encouragement. I made an effort to be patient, understanding, and supportive throughout the process.
+
+    We completed the assignment, and my classmate was not only able to submit it on time but also gained a better understanding of the subject matter. This experience taught me the importance of empathy and going beyond academic help to support someone in need.
+
+    While this was a simple act of kindness, it reminded me of the impact we can have on others when we offer our assistance without expecting anything in return. It also reinforced my belief in the value of helping others whenever possible, both in academic settings and in the professional world."
+
+# There is a Project to be done in 4 weeks and 3 weeks have passed, the client comes up to you today and asks that he wants to present to his/her manager tomorrow regarding the progress. What would you do in this situation?
+
+    In this situation, I would start by assessing the current status of the project. This involves reviewing what has been accomplished in the first three weeks, identifying any outstanding tasks or issues, and determining the overall project health.
+
+    Next, I would have a conversation with the client to understand their specific expectations for the progress presentation. I would ask about the key points they want to cover and any specific concerns they may have. This would help me align our presentation with their needs.
+
+    I would then convene a meeting with the project team to discuss the client's request and the current status of the project. We would collectively assess whether it's feasible to provide a meaningful progress update in such a short time frame.
+
+    Based on this assessment, we would prioritize the most critical aspects of the project that can be confidently presented. This might include highlighting completed work, milestones achieved, challenges faced, and proposed solutions. We would create a clear agenda for the presentation.
+
+    Once we've prepared a presentation, I would promptly communicate with the client to confirm our understanding of their expectations and to provide a realistic overview of what can be presented tomorrow. It's important to manage the client's expectations and be transparent about any limitations due to the shortened timeline.
+
+    During the presentation, we would focus on showcasing the project's achievements, demonstrating our understanding of the challenges, and presenting our plan for the remaining work. We would aim for a concise and informative update.
+
+    After the presentation, I would engage in a discussion with the client about how we can better align communication and reporting in the future to avoid any last-minute requests. This would help set expectations for regular progress updates and ensure smoother project management.
+
+    In summary, my approach would involve a systematic assessment of the situation, clear communication with the client, and a commitment to delivering a meaningful progress update despite the time constraints.
+
+# Tell me an instance when you have done an end to end planning.    
+    - hackathon project
+
+
+# Will you be able to work for long hours ?
+
+    "Yes, I am fully prepared and willing to work long hours when the job demands it. I understand that certain projects, deadlines, or situations may require extra time and effort to ensure their successful completion. I am committed to delivering results and meeting objectives, and I see working extended hours as a part of that commitment.
+
+
+# How will you manage the long hours at ZS?
+
+    I will prioritize tasks, set clear goals, and plan my day efficiently
+    help me stay organized and maximize productivity during the workday.
+    It's essential to take short, regular breaks to recharge and maintain focus. 
+    refresh my mind
+
+
+# What is more important idea or approach?
+
+    I know what you're thinking ...
+
+    It's both!
+
+    Of course you're right. It takes an idea plus execution to create anything successful. 
+    
+    A terrible idea that is well executed has limited potential to actually provide a return on then investment of resources the execution required.
+    On the flip side, even the greatest idea will flounder (if it sees the light of day at all) in the face of incompetent execution.
+    
+
+# when was the last time you lose your temper
+
+    I don’t think anger is an appropriate emotion to display, especially when at work. Though some situations have been frustrating, I try to calm myself as much as I can and think of ways that can improve the situation. 
+
+    Breathe deeply and count to ten.
+    Talk to a trusted friend or colleague.
+    Write down your feelings.
+    Leave the room or building for a few minutes.
+    Reward yourself for calming down.
+    Ask clarifying questions.
+
+# what is your goal in life.
+    
+    - Goal is to  see my self as a highly skilled professional who has gained valuable experience and contributed to the growth of the company. 
+	- To see myself as a knowledgeable professional having an in-depth knowledge of the company and the industry.	
+	- I am also keen on taking on more leadership responsibilities and mentoring junior team members."
+    
+# Describe a situation when you were under pressure in work.
+
+    - hackathon
+    - last minute change
+
+# Describe a situation when you reached a goal and tell us how you achieved it.
+    - hackathon
+
+
+# What kind of environment you would like to work in?
+
+    I can be flexible when it comes to my work environment.
+    From your website, I have found that sometimes we have to work for longer hours but I understand that certain projects, deadlines, or situations may require extra time and effort to ensure their successful completion.
+    I like to work in a challenging and learning environment
+
+# If you are working on a project for the last 6 months and suddenly the project has some technical error and tomorrow is the launch day. What you’ll do? You have 3 options : (i) Go to the tech support team but this will take the whole process of 3-4 days, till then tell the client everything and ask them to postpone the launch day. (ii). you hide this issue from clients and work the whole day and night but there might be a chance that the issue isn’t resolved by you.
+
+    In both scenarios, the priority is to maintain open and honest communication with the client. However, option (i) places a stronger emphasis on client transparency and informed decision-making, which is typically the more ethical and professional approach. Option (ii) runs the risk of delivering a subpar product, damaging client trust, and negatively impacting the long-term relationship.
+
+# Do you have any plans for further studies?
+
+    While I don't have immediate plans for additional formal education, I remain open to the possibility of pursuing further studies if I identify a specific area or skill set that would significantly enhance my ability to excel in my role and contribute to the organization's goals.
+
+    In the meantime, I am committed to staying current with industry trends and continuously improving my skills through workshops, certifications, and self-paced learning. My goal is to ensure that I can provide the best possible value to my employer and continue to grow as a professional."
+
+
+# How does this Business technical solution associate’s role align with your goals?
+
+    I'm enthusiastic about enhancing my skills in technical problem-solving, business analysis, and project management. This role offers opportunities to work on diverse projects and apply both technical and business acumen, which is a valuable skill set I want to develop further.
+
+    I believe that the challenges and opportunities presented by the Business Technical Solution Associate role align perfectly with my career aspirations. I'm excited about the potential to make a meaningful impact, learn, and grow within this position while contributing to the success of the team and the organization
+
+# You have a short-tempered client and your work is not completed on time. How will you handle your client now?
+
+    Stay Calm and Professional:
+
+        It's crucial to remain calm and composed, even if the client is upset. Avoid reacting emotionally, and focus on addressing their concerns professionally.
+
+    Acknowledge the Issue:
+        Start the conversation by acknowledging the client's frustration and expressing understanding of their concerns. For example, you can say, "I understand that you are frustrated with the delay in the project."
+
+    Apologize Sincerely:
+
+        Offer a sincere apology for the delay, taking responsibility for any shortcomings on your end. A genuine apology can go a long way in diffusing tension.
+
+    Explain the Situation
+    Propose Solutions
+
+# Your deadline is approaching and your work is not complete yet. What will you do?
+
+    Assess the Situation:
+    Prioritize Tasks:
+    Break Down the Work:
+    Manage Time Wisely:
+    Seek Support and Resources:
+
+# If you have a conflict with someone, how would you make them consider your point of view?
+
+    Stay Calm and Emotionally Intelligent:
+    Active Listening:
+    Express Your Perspective Clearly:
+    Identify shared goals or interests that both parties can agree on. Emphasize areas of agreement and common ground as a starting point for resolving the conflict.
+
+# Share a life-changing experience.
+
+    - internship
+
+# The most difficult problem you have faced in your life. How did you come up with it? What was the outcome?
+
+    - end sem exam of second year
+    - heavy fever and a lot of my course was left
+    - priority to my health
+    - time management
+    - prioritised my topics
+    
+# You want to disagree with your teacher, How would you proceed?
+
+    Choose the Right Time and Place:
+
+    Wait for an appropriate moment, such as after class or during office hours, to express your disagreement. Avoid interrupting the teacher during a lecture.
+
+    Be Prepared:
+
+    Before discussing your disagreement, ensure that you have a clear understanding of the topic and have done your research. Gather evidence or examples that support your perspective.
+
+    Respectful Language:
+
+    Use respectful and polite language when expressing your disagreement. Avoid confrontational or disrespectful tone and words.
+
+    Listen Actively:
+
+    Begin the conversation by actively listening to the teacher's viewpoint. Ensure that you understand their perspective fully.
+
+    Express Your Viewpoint Clearly:
+
+    Clearly and concisely state your viewpoint, providing evidence or reasons that support your position. Use "I" statements to express your perspective, such as "I believe" or "I think.
+    
+
+# Explain the meaning of Forming, Norming, Storming, and Performing.
+
+    In the forming stage, a group of individuals comes together for a common purpose, such as working on a project or achieving a specific goal. During this stage, team members may be polite, cautious, and somewhat reserved as they get to know each other
+
+    The storming stage is marked by increased conflict and tension within the group. As team members begin to work together more closely, differences in opinions, personalities, and working styles become evident.
+
+    In the norming stage, the group starts to resolve its conflicts and establish a sense of cohesion. Team members develop a better understanding of each other's strengths and weaknesses.
+
+    The performing stage is the culmination of the group development process. At this point, the team has resolved most of its conflicts and operates as a high-functioning unit.
+
+# You decided to go for something, but you later anticipated it was wrong.
+
+    - all code in one file
+
+# How much amount of paint would be required to paint a wall of 10 * 12 meters.
+
+    - one coat thikness = .2 mm
+    - find area
+
+    - find volume in m^3
+
+    - 1 m^3 = 1000 l
+
+# What was the toughest decision you ever had to make ?
+    - chosing college
+
+# How would you rate yourself on a scale of 1 to 10?
+
+    “I would rate myself as a 7 on a scale of 1 to 10. I am still early in my career and I have much to learn but I have the potential to excel in my field. I am a quick learner, I am always willing to take on new challenges and I am passionate about my work.
+    

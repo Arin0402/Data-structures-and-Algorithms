@@ -2,6 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// easy
+
 struct Node
 {
     int data;

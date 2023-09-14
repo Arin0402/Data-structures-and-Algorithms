@@ -2,7 +2,7 @@ Libraries used in Feedback process automation project
 
     smtplib -> defines an SMTP client session object that can be used to send mail to any Internet machine with an SMTP or ESMTP listener daemon
 
-    OS module -> The OS module in Python provides functions for interacting with the operating system. This module provides a portable way of using operating system-dependent functionality
+    OS module -> The OS module in Python provides functions for interacting with the operating system. This module provides a portable way of using operating system-dependent functionalityp
 
     Pandas -> Pandas is an open source library in Python. · Pandas module runs on top of NumPy and it is popularly used for data science and data analytics.
 
@@ -90,3 +90,7 @@ C++
 
         - In a two-way binding, the flow is two-directional.
         - This means that the flow of code is from ts file to Html file as well as from Html file to ts file.
+
+React  -> one way data binding
+       -> virtual dom
+       -> server side rendering 

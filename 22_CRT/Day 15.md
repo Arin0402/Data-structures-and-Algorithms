@@ -6,8 +6,8 @@
 
     - The algorithm maintains two subarrays in a given array.
 
-        The subarray which already sorted.
-        The remaining subarray was unsorted.
+        The subarray which already sorted.   
+        The remaining subarray was unsorted.  
         In every iteration of the selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the beginning of the sorted subarray.
 
         After every iteration sorted subarray size increase by one and the unsorted subarray size decrease by one.

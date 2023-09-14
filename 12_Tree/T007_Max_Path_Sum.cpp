@@ -26,7 +26,7 @@ class Solution {
         
         ans = max(ans, root->val + left + right);
         
-        // the maximum path we are trying to return is neagative
+        // the maximum path we are trying to return is negative
         if(root->val  + max(left, right) < 0) return 0;
         
         return root->val  + max(left, right);
