@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/number-of-distinct-islands/1
+
 class Solution
 {
 
