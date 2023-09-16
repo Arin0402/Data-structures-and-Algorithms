@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1
+
 // 1
 // recursion
 // User function Template for C++
@@ -109,6 +111,7 @@ public:
             return 0;
         return helper(0, 0, N, total / 2, arr, dp);
     }
+};
 
     // 3
     // tabulation

@@ -22,8 +22,7 @@ class Solution{
                 indeg[i]++;
             }
         }
-        
-        
+                
         queue<int> q;
         
         for(int i =0 ; i < V; i++){

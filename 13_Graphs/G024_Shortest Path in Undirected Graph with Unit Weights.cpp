@@ -2,7 +2,6 @@
 using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/shortest-path-in-undirected-graph-having-unit-distance/1
-// https://www.youtube.com/watch?v=C4gxoTaI71U&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=19
 
 class Solution {
   public:
