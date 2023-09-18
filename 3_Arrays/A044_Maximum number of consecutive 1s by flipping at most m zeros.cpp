@@ -19,36 +19,54 @@ class Solution{
 public:
     // m is maximum of number zeroes allowed to flip
     // n is size of array
-    
     int findZeroes(int arr[], int n, int m) {
         
         int l = 0;
         int r = 0;
         
         int maxi = 0;
+        int count = 0;
         
         while(r < n){
             
-            // if right element is 0, then use it and decrease the count of m.
-            if(arr[r] == 0) m--;
-            
-            // count is less than zero.
-            if(m < 0){
-                // calculate the maximum length.
-                maxi = max(maxi, r - l);
+            if(arr[r] == 1){
+                count++;
+                r++;
+            }
+            else if(arr[r] == 0){
                 
-                // shift the window by 1 from left.
-                // if the left elemenrt is zero, increase the count.
-                if(arr[l] == 0) m++;
-                l++;
+                // can use spare zeros
+                if(m > 0){
+                    
+                    m--;
+                    count++;
+                    r++;
+                    
+                }
+                // no spare zeros
+                else{
+                    
+                    // arr[l] == 0
+                    if(arr[l] == 0){
+                        
+                        m++;
+                        count--;
+                        l++;
+                    }
+                    // arr[l] == 1
+                    else{
+                        
+                        count--;
+                        l++;
+                    }
+                    
+                }
             }
             
-            r++;
+            maxi = max(maxi, count);
+            
         }
         
-        maxi = max(maxi, r - l);
-        
-        return maxi;
-        
+        return maxi;    
     }  
 };

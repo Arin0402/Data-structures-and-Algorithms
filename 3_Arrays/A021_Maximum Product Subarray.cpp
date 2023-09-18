@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+// https://practice.geeksforgeeks.org/problems/maximum-product-subarray3604/1
 
 // 1
 // Naive - Traverse through all the sub arrays.

@@ -12,6 +12,9 @@ using namespace std;
 
 // 2
 // O(N^2)
+// only the intution
+// code is giving tle
+
 class Solution{
 public:
     

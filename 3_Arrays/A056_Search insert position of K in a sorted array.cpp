@@ -29,16 +29,20 @@ class Solution{
             if(v[mid] == x){
                 return mid;
             } 
-            else if(v[mid] > x) high = mid-1;
-            else{
+            else if(v[mid] > x){
                 
                 ind = mid;
+                high = mid-1;
+                
+            }
+            else{
+                
                 low = mid + 1 ;
                 
             }
         }
         
         
-        return ind+1;
+        return ind ;
     }
 };

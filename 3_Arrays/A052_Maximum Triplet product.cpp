@@ -41,7 +41,8 @@ class Solution {
     	       max3 = num;
     	   }
     	   
-    	   
+    	   // findind the top 2 minimum numbers
+		   
     	   if(num <= min1){
     	       min3 = min2;
     	       min2 = min1;

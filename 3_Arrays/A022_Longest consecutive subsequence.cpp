@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/longest-consecutive-subsequence2449/1
+
 // 1
 // sort all the elements
 // find max length by iterating.
@@ -79,7 +81,8 @@ class Solution{
         
         for(int i = 0; i < n; i++){
             
-            // current element is the last element
+            // current element is the first element of the subsequence as other element smaller than this 
+            // does not exist in the map
             if(mp.find(arr[i] - 1) == mp.end()){
                 
                 int val = 1;

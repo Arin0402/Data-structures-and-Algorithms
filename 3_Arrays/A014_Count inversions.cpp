@@ -34,6 +34,7 @@ class Solution{
         i = 0; // Initial index of first subarray
         j = 0; // Initial index of second subarray
         k = l; // Initial index of merged subarray
+        
         while (i < n1 && j < n2)
         {
             if (L[i] <= R[j])
@@ -73,13 +74,11 @@ class Solution{
         }
         
         return cnt;
-        
-        
+                
     }
     
     long long int inversionCount(long long arr[], long long N)
-    {
-        
+    {        
         return mergeSort(arr, 0, N -1);
     }
 

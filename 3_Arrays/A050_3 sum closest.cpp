@@ -5,6 +5,8 @@ using namespace std;
 
 // 1
 // O(N^2)
+// same as before
+
 class Solution{
     public:
     int closest3Sum(int A[], int N, int X)

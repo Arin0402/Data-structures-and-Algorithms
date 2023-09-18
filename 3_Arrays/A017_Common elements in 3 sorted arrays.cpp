@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/common-elements1132/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
 // 1
 // Find intersection of two arrays, store it in temp array,
 // the find the intersection of the third array with the temp array.

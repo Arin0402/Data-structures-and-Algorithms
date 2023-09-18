@@ -2,7 +2,6 @@
 using namespace std;
 
 // https://www.youtube.com/watch?v=FyJmnhqATko
-// https://practice.geeksforgeeks.org/problems/find-the-median0527/1
 
 // 1
 // using extra space
@@ -16,3 +15,5 @@ using namespace std;
 // or
 
 // solution defined in next problem.
+
+

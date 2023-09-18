@@ -7,6 +7,7 @@ using namespace std;
 // O(nlog(n)) due to sorting.
 class Solution {
 public:
+
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
             
         // sort to make comparisons.

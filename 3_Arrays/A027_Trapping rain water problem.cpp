@@ -69,7 +69,7 @@ class Solution{
         while(l < r){
             
             // left height less than right
-            if(height[l] <= height[r]){
+            if(leftmaxi <= rightmaxi){
                 
                 // height is less than leftmaxi and it is less than or equal to the height at right
                 // so we can store the water

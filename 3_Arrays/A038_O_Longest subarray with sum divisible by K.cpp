@@ -2,6 +2,7 @@
 using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/longest-subarray-with-sum-divisible-by-k1259/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+// https://www.youtube.com/watch?v=GrV3MTR_Uk0
 
 // 1
 // brute
