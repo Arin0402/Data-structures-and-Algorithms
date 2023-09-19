@@ -32,7 +32,7 @@ class Solution
               return mid;
         
             //If left ele is greater then ignore 2nd half of the elements
-            if (arr[mid] < arr[mid - 1])
+            if (arr[mid - 1] > arr[mid])
               end = mid - 1;
         
             //Else ignore first half of the elements

@@ -3,10 +3,11 @@ using namespace std;
 
 // Good question
 // https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/
-// https://www.youtube.com/watch?v=_sA1xI4XK0c
 
-// based on the problem sount inversion
+// based on the problem count inversion
 // based on merge sort
+// we just have to sort the array in descending order and apply the count inversions logic
+// dry run will help
 
 class Solution {
 public:

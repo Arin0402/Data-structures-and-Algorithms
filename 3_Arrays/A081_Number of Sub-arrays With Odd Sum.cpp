@@ -25,7 +25,7 @@ public:
             
             // - pref is even
             // - if we remove the subarray with odd sum from the current subarray, then the remaining subarray will have the 
-            // sum as odd. (current prefix sum id even)
+            // sum as odd. (current prefix sum is even)
             // - so if we can find out the count of subarrays having odd sum, we can remove them from the current subarray to 
             // get the sum as odd
             // - so the the total number of subarray whose count is odd is will be added to the answer

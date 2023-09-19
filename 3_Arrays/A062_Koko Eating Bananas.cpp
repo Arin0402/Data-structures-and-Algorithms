@@ -4,7 +4,7 @@ using namespace std;
 // https://practice.geeksforgeeks.org/problems/koko-eating-bananas/1
 
 // 1
-// usnig n=binary search
+// usnig binary search
 
 class Solution {
   public:
