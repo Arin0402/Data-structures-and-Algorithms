@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// application question of ternary search.
-// https://www.geeksforgeeks.org/optimum-location-point-minimize-total-distance/
-
 // Function to perform Ternary Search
 int ternarySearch(int l, int r, int key, int ar[])
 {

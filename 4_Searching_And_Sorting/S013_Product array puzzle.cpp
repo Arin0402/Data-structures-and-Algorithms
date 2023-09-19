@@ -70,36 +70,43 @@ vector<long long int> productExceptSelf(vector<long long int> &nums, int n)
 // store the product of all the elements in a variable.
 // divide by element to get the result.
 // handle the cases containing zero.
-vector<long long int> productExceptSelf(vector<long long int> &nums, int n)
-{
-
-    vector<long long int> ans(n, 0);
-
-    long long int var = 1;
-
-    long long numOfZeros = 0;
-
-    for (int i = 0; i < n; i++)
+class Solution{
+  public:
+    // nums: given vector
+    // return the Product vector P that hold product except self at each index
+    vector<long long int> productExceptSelf(vector<long long int> &nums, int n)
     {
-
-        if (nums[i] == 0)
-            numOfZeros++;
-        else
-            var *= nums[i];
+    
+        vector<long long int> ans(n, 0);
+    
+        long long int var = 1;
+    
+        long long numOfZeros = 0;
+    
+        for (int i = 0; i < n; i++)
+        {
+    
+            if (nums[i] == 0)
+                numOfZeros++;
+            else
+                var *= nums[i];
+                
+            if (numOfZeros > 1)
+                return ans;
+        }
+    
+    
+        for (int i = 0; i < n; i++)
+        {
+            
+            if (numOfZeros == 0)
+                ans[i] = var / nums[i];
+            else if (numOfZeros == 1 && nums[i] != 0)
+                ans[i] = 0;
+            else if (numOfZeros == 1 && nums[i] == 0)
+                ans[i] = var;
+        }
+    
+        return ans;
     }
-
-    for (int i = 0; i < n; i++)
-    {
-
-        if (numOfZeros > 1)
-            nums[i] = 0;
-        else if (numOfZeros == 0)
-            ans[i] = var / nums[i];
-        else if (numOfZeros == 1 && nums[i] != 0)
-            ans[i] = 0;
-        else if (numOfZeros == 1 && nums[i] == 0)
-            ans[i] = var;
-    }
-
-    return ans;
-}
+};

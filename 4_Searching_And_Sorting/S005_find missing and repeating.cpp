@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
+
 // 1
 // sorting and checking.
 

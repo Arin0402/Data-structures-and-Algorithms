@@ -52,7 +52,7 @@ int main(){
                 lo = mid+1;
             }
             else{
-                // possibel answer
+                // possible answer
                 ans = occ[x][mid];
                 hi = mid-1;
             }

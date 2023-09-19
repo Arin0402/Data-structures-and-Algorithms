@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+// https://practice.geeksforgeeks.org/problems/find-pair-given-difference1559/1
 
 // 1
 // two for loops

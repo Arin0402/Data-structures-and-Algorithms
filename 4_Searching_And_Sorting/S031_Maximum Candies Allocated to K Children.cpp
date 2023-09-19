@@ -24,11 +24,12 @@ public:
         
         int n = candies.size();
 
-        long long int sum = 0;
-        for(auto ele : candies) sum += ele;
+        int maxi = INT_MIN;
 
+        for(auto ele : candies) maxi = max(maxi, ele);                                
+        
         long long int low = 1;                
-        long long int high = sum/k ;
+        long long int high = maxi;
 
         long long int ans = 0;
 

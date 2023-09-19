@@ -15,7 +15,6 @@ public:
 
         while (n)
         {
-
             if (n & 1)
                 cnt++;
 

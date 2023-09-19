@@ -12,7 +12,7 @@ https://github.com/Arin0402/EcraftIndia-Admin-Panel
 
 
 Microsoft FRT Intern
-Microsoft
+Microsof
 Remote
 04/2021 - 05/2021
 
