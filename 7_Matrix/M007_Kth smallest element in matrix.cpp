@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/kth-element-in-matrix/1
+
 // 1
 // extra space , convert into array and then find kth element.
 

@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.geeksforgeeks.org/common-elements-in-all-rows-of-a-given-matrix/
+
 // 1
 // naive
 // search for every element in each row

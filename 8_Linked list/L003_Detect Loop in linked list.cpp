@@ -9,6 +9,8 @@ using namespace std;
 
 // 2
 // two pointer approach
+// why does this work ? 
+// https://youtu.be/354J83hX7RI?t=385
 
 struct Node
 {

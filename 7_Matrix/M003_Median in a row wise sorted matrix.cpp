@@ -9,7 +9,7 @@ using namespace std;
 
 // 2
 // O(32*N*logm)
-// using binary search.
+// using binary search. 
 // https://www.youtube.com/watch?v=63fPPOdIr2c
 class Solution
 {

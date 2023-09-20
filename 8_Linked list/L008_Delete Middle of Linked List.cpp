@@ -28,9 +28,8 @@ Node* deleteMid(Node* head)
         
         prev = slow;
         slow = slow->next;
-        if(fast->next) fast = fast->next->next;
-        else fast = fast->next;
-        
+        fast = fast->next->next;
+            
     }
     
     if(prev == NULL) return NULL;

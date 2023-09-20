@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// This question is different on leetcode and gfg.
-// watch this for gfg solution.
 // https://www.youtube.com/watch?v=ZYpYur0znng
 
 // 1
@@ -58,33 +56,24 @@ public:
 };
 
 // 3
-// apply binary search to the whole matrix.
-// O(log(N*M))
-class Solution
-{
-public:
-    bool searchMatrix(vector<vector<int>> &matrix, int target)
-    {
-
-        int r = matrix.size();
-        int c = matrix[0].size();
-
-        int low = 0;
-        int high = r * c - 1;
-
-        while (low <= high)
-        {
-
-            int mid = low + (high - low) / 2;
-
-            if (matrix[mid / c][mid % c] == target)
-                return true;
-            else if (matrix[mid / c][mid % c] > target)
-                high = mid - 1;
-            else
-                low = mid + 1;
-        }
-
-        return false;
-    }
+class Solution{
+public:	
+	int matSearch (vector <vector <int>> &mat, int N, int M, int X)
+	{
+	    
+	    int i = 0, j = M - 1;
+	    
+	    while(i < N && j >= 0){
+	        
+	        
+	        if(mat[i][j] == X) return 1;
+	        else if (mat[i][j]  < X) i++;
+	        else j--;
+	        
+	    }
+	    
+	    return 0;
+        	    
+	    
+	}
 };

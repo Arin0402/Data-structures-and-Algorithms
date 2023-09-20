@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://practice.geeksforgeeks.org/problems/clone-a-linked-list-with-next-and-random-pointer/1
+// https://leetcode.com/problems/copy-list-with-random-pointer/
 // https://www.youtube.com/watch?v=VNf6VynfpdM
 
 struct Node{
