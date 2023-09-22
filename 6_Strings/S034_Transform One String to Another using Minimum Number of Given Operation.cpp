@@ -1,61 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/transform-string5648/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
 // 1
-// C++ program to find minimum number of operations required
-// to transform one string to other
-#include <bits/stdc++.h>
-using namespace std;
-
-// Function to find minimum number of operations required to
-// transform A to B.
-int minOps(string &A, string &B)
+class Solution
 {
-    int m = A.length(), n = B.length();
-
-    // This parts checks whether conversion is possible or not
-    if (n != m)
-        return -1;
-    int count[256];
-    memset(count, 0, sizeof(count));
-    // count characters in A
-    for (int i = 0; i < n; i++)
-        count[A[i]]++;
-    // subtract count for every character in B
-    for (int i = 0; i < n; i++)
-        count[B[i]]--;
-    // Check if all counts become 0
-    for (int i = 0; i < 256; i++)
-        if (count[i])
-            return -1;
-
-    // This part calculates the number of operations
-    // required
-    int res = 0;
-    for (int i = n - 1, j = n - 1; i >= 0;)
+    public:
+    int transform (string A, string B)
     {
-        // If there is a mismatch, then keep incrementing
-        // result 'res' until B[j] is not found in A[0..i]
-        while (i >= 0 && A[i] != B[j])
-        {
-            i--;
-            res++;
+        int n = A.size();
+        
+        
+        // checking if the characters are same or not in the both the strings
+        vector<int> count(256, 0);
+        
+        for(auto ele : A) count[ (int)ele ]++;
+        for(auto ele : B) count[ (int)ele ]--;
+        
+        
+        for(int i = 0; i < 256; i++){
+            if(count[i] !=  0) return -1;
         }
-        // If A[i] and B[j] match
-        if (i >= 0)
-        {
-            i--;
-            j--;
+        
+        
+        // we will start from the back
+        int i = n-1;
+        int j = n-1;
+        
+        int res = 0;
+        
+        while(i >= 0){
+            
+            // if the characters mismatch then we will decrease the pointer in A
+            // and increase the count
+            if(A[i] != B[j]){
+                
+                i--;
+                res++;
+                
+            }
+            // chracters match
+            else {
+                i--;
+                j--;
+                
+            }
+            
         }
+        
+        return res;
+        
+        
+        
     }
-    return res;
-}
-
-// Driver program
-int main()
-{
-    string A = "EACBD";
-    string B = "EABCD";
-    cout << "Minimum number of operations required is " << minOps(A, B);
-    return 0;
-}
+};

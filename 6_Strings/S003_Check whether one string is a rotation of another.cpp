@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/check-if-strings-are-rotations-of-each-other-or-not-1587115620/1
+
 // 1
 // Naive.
 // Try out every rotation for the first string and compare.

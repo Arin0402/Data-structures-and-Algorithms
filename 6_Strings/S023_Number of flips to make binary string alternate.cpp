@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/min-number-of-flips3210/1
+
 // Only 2 possibilities are there. First to have a sequence "010101..." and second to have a sequence "1010101...".
 // Calculate the flips required to convert the string into both and return the minimum.
 

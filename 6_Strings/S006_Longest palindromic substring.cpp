@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string3411/1
+
 // 1
 // TC - O(n^2)
 // SC - O(1)

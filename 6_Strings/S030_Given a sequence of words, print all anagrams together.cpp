@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/print-anagrams-together/1
+
 // 1
 // using map
 // TC - O(n*mlogm) (m - avaearge length of words.)
@@ -20,7 +22,7 @@ public:
 
             string s = string_list[i];
 
-            // sort the string.  O(mlogm)
+            // sort the individual string.  O(mlogm)
             sort(s.begin(), s.end());
 
             // store the original string for this key.
@@ -49,7 +51,7 @@ public:
 
         int n = string_list.size();
 
-        // map to strore the frequencies.
+        // map to store the frequencies.
         map<vector<int>, vector<string>> mp;
 
         for (int i = 0; i < n; i++)

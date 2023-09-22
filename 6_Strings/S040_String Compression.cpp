@@ -4,55 +4,73 @@ using namespace std;
 // IMP
 // https://leetcode.com/problems/string-compression/description/
 
-
 class Solution {
 public:
     int compress(vector<char>& chars) {
-        
-        int i = 0; // left pointer
-        int j = 0; // right pointer
-        int ind = 0; // index at which we have to update.
-        int n = chars.size();
 
-        while( j <= n){
-            // character same.
-            if(j < n && chars[i] == chars[j]) j++;
-            else {
+        int n = chars.size();        
+        if(n == 1) return 1;
 
-                int count = j-i; // count of characters                                 
-                ind++; // increase the updation index.                
+        int master = 0;
+        int temp = 0;
 
-                // Two cases.
-                if(count > 1 && count <= 9){
+        int count = 0;
 
-                    // update the index
-                    chars[ind] = count + '0';                  
-                    ind++; // move to next index.
-                }
-                else if(count > 9 ){                    
+        while(temp < n){
+
+            while(temp < n && chars[temp] == chars[master]){
+                count++;
+                temp++;                
+            }
+            
+            if(temp == n) break;
+
+            if(count > 1){
+                
+                master++;                
+                if(count < 9){
+                    chars[master] = count + '0';
+                    master++;
+                }                    
+                else{
                     
-                    // convert the count into string and then update.
                     string val = to_string(count);                    
                     for(auto c : val){
-                        chars[ind] = c;
-                        ind++;
+                        chars[master] = c;
+                        master++;
                     }
-                }
+                }                                
 
-                // make i and j equal so that we can start for new alphabet.
-                i = j; 
-
-                // j out of bound.
-                if(j == n) break;
-
-                // for case ["a","a","a","b","b","a","a"]
-                if(ind < i){
-                    chars[ind] = chars[i];
-                }
-                
             }
-        }        
+            else {
+                master++;                                
+            }
 
-        return ind;
+            chars[master] = chars[temp];
+            count = 0;
+
+        }
+
+        // for last window
+        if(count > 1){                
+            master++;                
+            
+            if(count < 9)
+                chars[master] = count + '0';
+            else{
+                
+                string val = to_string(count);                    
+                for(auto c : val){
+                    chars[master] = c;
+                    master++;
+                }
+
+                master--;
+            }
+        }
+
+        return master + 1;
+
+
     }
 };

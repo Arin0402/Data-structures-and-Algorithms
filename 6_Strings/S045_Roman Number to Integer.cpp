@@ -25,8 +25,7 @@ class Solution {
             // if the first value is less than its succeding chararcter, then subtract it from the answer.
             if( mp[s[i]] < mp[s[i+1]] ){
                 ans -= mp[s[i]];
-            }
-            
+            }            
             else ans += mp[s[i]];
         }
         

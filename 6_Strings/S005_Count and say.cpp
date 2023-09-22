@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/count-and-say/description/
+
 class Solution {
 public:
     

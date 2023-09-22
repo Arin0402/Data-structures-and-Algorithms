@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.geeksforgeeks.org/print-subsequences-string/
+
 
 // 1
 // using recursion

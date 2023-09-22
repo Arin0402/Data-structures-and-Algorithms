@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/count-the-reversals0401/1
+
+// easy
 // 1
 // using extra space.
 // TC - O(n)

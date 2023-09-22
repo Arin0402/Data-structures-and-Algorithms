@@ -28,14 +28,10 @@ class Solution {
             if(s[i] == '(') st.push('(');
             else if(s[i] == ')'){
                 
-                int count = 0;
-                
-                // stack has some number of '(' 
-                if(!st.empty()) {
-                    count = st.size(); // update count
-                    st.pop(); // remove one '(' for a ')'
-                }
-                
+                int count = 0;                                
+                count = st.size(); // update count
+                st.pop(); // remove one '(' for a ')'
+                        
                 // update maxi
                 maxi = max(count, maxi);
             }

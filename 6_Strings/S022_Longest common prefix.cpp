@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://leetcode.com/problems/longest-common-prefix/editorial/
+
 // 1
 // vertical scanning.
 // TC -O(m*n)

@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/minimum-characters-to-be-added-at-front-to-make-string-palindrome/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
 // 1
 // naive
 // start checking if the string is palindromic or not by deleting last character each time.
