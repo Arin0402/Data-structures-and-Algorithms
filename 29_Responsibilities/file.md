@@ -12,7 +12,7 @@ https://github.com/Arin0402/EcraftIndia-Admin-Panel
 
 
 Microsoft FRT Intern
-Microsof
+Microsoft
 Remote
 04/2021 - 05/2021
 
@@ -21,7 +21,6 @@ Remote
 - Managed the codebase using GitHub, facilitating version control, collaboration, and seamless deployment of updates and enhancements to the chat bot application.
 
 https://github.com/Arin0402/MonkeyPox-ChatBot
-
 
 Jaipur Engineering College and Research Center, Jaipur
 Computer Science and Engineering

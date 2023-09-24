@@ -29,7 +29,7 @@ class Solution {
         vector<int> left_smaller(N, 0);
         vector<int> right_smaller(N, 0);
         
-        // push the defalut values for the left and right stack respectively
+        // push the default values for the left and right stack respectively
         s1.push(0);
         s2.push(N-1);
         

@@ -3,6 +3,7 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/e015cb4d3f354b035d9665e7c8a54a7aefb1901b/1
 
+// easy
 // 1
 // O(N)
 // O(N)

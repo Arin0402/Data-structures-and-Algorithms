@@ -49,7 +49,6 @@ class Solution
 // Run a loop while there are more than 1 element in the stack.
 // Pop top two element from the stack (represent them as A and B)
 // If A knows B, then A can't be a celebrity and push B in stack. Else if A doesn't know B, then B can't be a celebrity push A in stack.
-// Assign the remaining element in the stack as the celebrity.
 // Run a loop from 0 to n-1 and find the count of persons who knows the celebrity and the number of people whom the celebrity knows. if the count of persons who knows the celebrity is n-1 and the count of people whom the celebrity knows is 0 then return the id of celebrity else return -1.
 class Solution 
 {
