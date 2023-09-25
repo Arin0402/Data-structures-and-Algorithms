@@ -54,8 +54,10 @@ class Solution
 public:
     int getMaxPathSum(vector<vector<int>> &matrix)
     {
+
         int n = matrix.size();
         int m = matrix[0].size();
+
         vector<vector<int>> dp(n, vector<int>(m, -1));
 
         for (int i = 0; i < m; i++)
@@ -71,7 +73,9 @@ public:
                 int choice1 = -1e8, choice2 = -1e8, choice3 = -1e8;
                 if (j - 1 >= 0)
                     choice1 = matrix[i][j] + dp[i - 1][j - 1];
+
                 choice2 = matrix[i][j] + dp[i - 1][j];
+                
                 if (j + 1 < m)
                     choice3 = matrix[i][j] + dp[i - 1][j + 1];
 

@@ -53,7 +53,7 @@ public:
     int maximizeTheCuts(int n, int x, int y, int z)
     {
 
-        vector<int> dp(n + 1, -1e9);
+        vector<int> dp(n + 1, -1);
         dp[0] = 0;
 
         for (int i = 1; i <= n; i++)

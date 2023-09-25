@@ -13,11 +13,16 @@ public:
     int helper(int ind, int amount, vector<int> &coins, vector<vector<int>> &dp)
     {
 
-        if (ind == 0)
+        // if (ind == 0)
+        // {
+        //     if (amount % coins[0] == 0)
+        //         return 1;
+        //     return 0;
+        // }
+
+        if (ind < 0)
         {
-            if (amount % coins[0] == 0)
-                return 1;
-            return 0;
+            return (amount == 0);                
         }
 
         if (dp[ind][amount] != -1)

@@ -10,40 +10,37 @@ using namespace std;
 class Solution {
 public:
 
-    int helper(int ind, int canBuy, vector<int>& prices, int n, vector<vector<int>> &dp){
+    int helper(int ind, int canbuy, vector<int>& prices, int n, vector<vector<int>> &dp){
 
         if(ind == n) return 0;
-        if(dp[ind][canBuy] != -1) return dp[ind][canBuy];
 
-        int profit = 0;
+        if(dp[ind][canbuy] != -1) return dp[ind][canbuy];
 
-        // buying
-        if(canBuy == 1){
-
+        if(canbuy == 1){
+            
             int choice1 = -prices[ind] + helper(ind + 1, 0, prices, n, dp);
-            int choice2 = 0 + helper(ind + 1, 1, prices, n, dp);
+            int choice2 = helper(ind + 1, 1, prices, n, dp);
 
-            profit = max(choice1, choice2);            
+            return dp[ind][canbuy] = max(choice1, choice2);
+            
         }
-        // selling
-        else {
+        else{
 
             int choice1 = prices[ind] + helper(ind + 1, 1, prices, n, dp);
-            int choice2 = 0 + helper(ind + 1, 0, prices, n, dp);
+            int choice2 = helper(ind + 1, 0, prices, n, dp);
 
-            profit = max(choice1, choice2);
+            return dp[ind][canbuy] = max(choice1, choice2);
         }
-        
-        return dp[ind][canBuy] = profit;
+
+
     }
 
     int maxProfit(vector<int>& prices) {
-        
+
         int n = prices.size();
-        vector<vector<int>> dp(n, vector<int>(2, -1)); 
 
+        vector<vector<int>> dp(n, vector<int>(2, -1));
         return helper(0, 1, prices, n, dp);
-
     }
 };
 

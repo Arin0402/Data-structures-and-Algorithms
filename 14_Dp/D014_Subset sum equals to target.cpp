@@ -14,10 +14,15 @@ class Solution
     bool helper(int ind, int target, vector<int> &arr, vector<vector<int>> &dp)
     {
 
-        if (target == 0)
-            return true;
-        if (ind == 0)
-            return (arr[0] == target);
+        if (ind < 0)
+            return (target == 0);
+
+        // OR
+
+        // if (target == 0)
+        //     return true;
+        // if (ind == 0)
+        //     return (arr[0] == target);
 
         if (dp[ind][target] != -1)
             return dp[ind][target];

@@ -24,7 +24,7 @@ public:
         
         long long int ways = 0;
         
-        for(int ind = i + 1; ind < j ; ind += 2){
+        for(int ind = i + 1; ind < j ; ind += 2){   
             
             int LT = helper(i, ind-1, 1, s, dp);
             int LF = helper(i, ind-1, 0, s, dp);

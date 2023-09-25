@@ -18,7 +18,7 @@ public:
 
         if (ind == 0)
         {
-
+ 
             return W * val[0];
 
             // OR  (but ind + 1  in this case would be equal to 1, so it boils down to return W*val[0])

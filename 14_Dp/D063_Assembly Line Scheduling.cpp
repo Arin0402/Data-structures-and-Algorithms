@@ -33,6 +33,7 @@ public:
 
             choice2 = T[i][j + 1];
 
+            // switch
             if (i == 0)
                 choice2 += helper(1, j + 1, a, T, x, n, dp);
             else

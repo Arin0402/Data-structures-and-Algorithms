@@ -13,10 +13,14 @@ public:
     int helper(int ind, int W, int val[], int wt[], vector<vector<int>> &dp)
     {
 
-        if (ind == 0)
-        {
-            return (W / wt[0]) * val[0];
-        }
+        if (ind < 0)                    
+            return 0;
+        
+
+        // if (ind == 0)
+        // {
+        //     return (W / wt[0]) * val[0];
+        // }
 
         if (dp[ind][W] != -1)
             return dp[ind][W];

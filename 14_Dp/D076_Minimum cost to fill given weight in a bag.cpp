@@ -14,14 +14,12 @@ public:
     int helper(int ind, int W, int cost[], int N, vector<vector<int>> &dp)
     {
 
-        if (ind == 0)
+        if (ind < 0)
         {
-            if (cost[0] != -1)
-                return W * cost[0];
+            if (W == 0)
+                return 0;
             return 1e9;
         }
-        if (W == 0)
-            return 0;
 
         if (dp[ind][W] != -1)
             return dp[ind][W];

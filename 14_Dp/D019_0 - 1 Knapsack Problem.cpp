@@ -14,12 +14,15 @@ public:
     int helper(int ind, int W, int wt[], int val[], vector<vector<int>> &dp)
     {
 
-        if (ind == 0)
-        {
-            if (wt[0] <= W)
-                return val[0];
+        if (ind < 0)
             return 0;
-        }
+
+        // if (ind == 0)
+        // {
+        //     if (wt[0] <= W)
+        //         return val[0];
+        //     return 0;
+        // }
 
         if (dp[ind][W] != -1)
             return dp[ind][W];
