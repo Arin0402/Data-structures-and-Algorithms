@@ -60,15 +60,13 @@ class Solution {
                         
                         usedOnLevel.push_back(word); // insert new word in usedOnLevel.
                         vec.pop_back(); // remove the last word of vec to try other words also.
-                        
-                        
+                                            
                     }
                 }
                 
                 word[i] = ori;
             }
-            
-            
+                        
         }
         
         return ans;

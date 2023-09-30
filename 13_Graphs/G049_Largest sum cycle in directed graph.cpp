@@ -4,7 +4,7 @@ using namespace std;
 // https://practice.geeksforgeeks.org/problems/51afa710a708c0681748445b509696dd588d5c40/1
 
 // 1
-// using the concept of cycel detection algorithm in directed graph using DFS (G014)
+// using the concept of cycle detection algorithm in directed graph using DFS (G014)
 
 class Solution
 {

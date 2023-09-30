@@ -9,6 +9,7 @@ public:
     void Helper(int r, int c, vector<vector<int>>& image, int newColor, int startingColor, 
                 int rowLength, int colLength ){
         
+        image[r][c] = newColor;
         
         int rows[4] = {-1,0,1,0};
         int cols[4] = {0,1,0,-1};
@@ -20,7 +21,6 @@ public:
             
             if( nrow >= 0 && nrow < rowLength && ncol >= 0 && ncol < colLength && image[nrow][ncol] == startingColor ){
                 
-                image[nrow][ncol] = newColor;
                 Helper(nrow , ncol , image , newColor, startingColor, rowLength, colLength);    
             }
             
@@ -37,8 +37,6 @@ public:
         int startingColor = image[sr][sc];
         
         if(startingColor == newColor) return image;
-        
-        image[sr][sc] = newColor;
         
         Helper(sr, sc, image, newColor, startingColor, rowLength, colLength );
         

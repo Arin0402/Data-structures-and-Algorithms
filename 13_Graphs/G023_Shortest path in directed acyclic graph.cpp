@@ -66,8 +66,8 @@ public:
         }
 
         // distance for each node in topo vector
-
         vector<int> dist(N, 1e9);
+        
         dist[0] = 0;
 
         for (int i = 0; i < N; i++)

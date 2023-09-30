@@ -40,16 +40,13 @@ public:
     }
     
     int numProvinces(vector<vector<int>> adj, int V) {
-        
-        
-        vector<int> visited(V, false );
-        
+                
+        vector<int> visited(V, false );        
         int ans = 0;
         
         vector<int> *list = createList(adj, V);
         
-        for(int i = 0 ;i < V; i++){
-            
+        for(int i = 0 ;i < V; i++){            
             ans += !visited[i] ? dfs(i, list, visited, V), 1: 0;
         }
         

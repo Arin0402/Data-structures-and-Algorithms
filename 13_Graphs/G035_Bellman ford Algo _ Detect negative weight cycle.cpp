@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://youtube.com/watch?v=0vVofAhAYjc
+
 class Solution
 {
 public:

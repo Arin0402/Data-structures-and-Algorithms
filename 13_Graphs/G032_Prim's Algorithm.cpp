@@ -5,8 +5,7 @@ typedef pair<int,int> ipair;
 
 class Solution
 {
-	public:
-	
+	public:	
 	// TC - O(V + E) + LogV
     int spanningTree(int V, vector<vector<int>> adj[])
     {

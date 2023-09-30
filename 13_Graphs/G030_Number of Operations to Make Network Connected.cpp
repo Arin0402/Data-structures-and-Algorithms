@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/connecting-the-graph/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=connecting-the-graph
+
 class Solution {
 public:
     
@@ -26,9 +28,7 @@ public:
                 }
             }                        
             
-        }
-        
-        
+        }                
     }
     
     int makeConnected(int n, vector<vector<int>>& connections) {
@@ -58,9 +58,7 @@ public:
                 
             }
         }
-        
-        
-        return components -1;
-            
+
+        return components -1;            
     }
 };

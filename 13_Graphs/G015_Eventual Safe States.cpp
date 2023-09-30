@@ -36,10 +36,8 @@ class Solution{
         
         vector<int> ans;
         
-        for(int i =0 ; i < V; i++){
-            
-            if(vis[i] == -1) dfs(i, vis, pathVis, adj); // check for all the nodes.
-            
+        for(int i =0 ; i < V; i++){            
+            if(vis[i] == -1) dfs(i, vis, pathVis, adj); // check for all the nodes.            
         }
         
         // if a node is in a cycle or a node is connected to a cycle then it will have its path visited as 1.

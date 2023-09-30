@@ -14,7 +14,6 @@ public:
 
         for (auto it : prerequisites)
         {
-
             adj[it[1]].push_back(it[0]);
         }
 

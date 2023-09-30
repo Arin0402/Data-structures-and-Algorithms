@@ -3,6 +3,8 @@ using namespace std;
 
 typedef pair<int, int> iPair;
 
+// TC -> https://www.youtube.com/watch?v=3dINsjyfooY&t=488s
+
 // implementation using priority queue.
 class Solution
 {

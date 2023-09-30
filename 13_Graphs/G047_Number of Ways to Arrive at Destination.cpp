@@ -64,10 +64,7 @@ class Solution {
         }
         
         return ways[n-1]%(1000000007);
-        
-        
-        
-        
+                            
         
     }
 };

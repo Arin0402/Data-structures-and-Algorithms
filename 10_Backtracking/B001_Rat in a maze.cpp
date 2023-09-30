@@ -32,10 +32,11 @@ public:
         if (row == n - 1 && col == n - 1)
         {
 
-            ans.push_back(s);
-            // visited[row][col] = false;
+            ans.push_back(s);            
             return;
         }
+
+        visited[row][col] = true;
 
         int rows[4] = {-1, 0, 1, 0};
         int cols[4] = {0, -1, 0, 1};
@@ -48,17 +49,14 @@ public:
             int ncol = cols[i] + col;
 
             if (check(nrow, ncol, m, n, visited))
-            {
-
-                visited[nrow][ncol] = true;
+            {                
                 s.push_back(direc[i]);
-
                 possiblePaths(nrow, ncol, s, m, n, ans, visited);
-
-                s.pop_back();
-                visited[nrow][ncol] = false;
+                s.pop_back();                
             }
         }
+
+        visited[row][col] = false;
     }
 
     vector<string> findPath(vector<vector<int>> &m, int n)
@@ -71,8 +69,7 @@ public:
         if (m[n - 1][n - 1] == 0)
             return ans; // can not go if ending position is zero.
 
-        vector<vector<bool>> visited(n, vector<bool>(n, false));
-        visited[0][0] = true;
+        vector<vector<bool>> visited(n, vector<bool>(n, false));        
 
         string s = "";
 
