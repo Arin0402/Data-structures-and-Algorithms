@@ -231,8 +231,6 @@ my_function(fname = "Tobias", lname = "Refsnes")
 
 - It does not have to be named self , you can call it whatever you like, but it has to be the first parameter of any function in the class:
 
-
-
 - The try block lets you test a block of code for errors.
 
 -The except block lets you handle the error.

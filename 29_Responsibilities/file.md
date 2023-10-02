@@ -37,3 +37,4 @@ https://leetcode.com/Arin2290/
 
 
 find out important keywords from this for being ats friendly
+now create a resume summary out of this for it being ats friendly

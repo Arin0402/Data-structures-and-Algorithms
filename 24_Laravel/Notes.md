@@ -1,5 +1,4 @@
 ## paths
-
     - C:\xampp\htdocs\hostel_managemnt_app
 
 # Laravel 

@@ -31,7 +31,7 @@ Questions
 	
 	why this project ?
 	
-	- So I heard from my friends that there is no management in the hostel, no one is there to listen to your complaints and if there 	is any information or update then it os not conveyed properly, so then this idea came to my mind of creating this app. 
+	- So I heard from my friends that there is no management in the hostel, no one is there to listen to your complaints and if there is any information or update then it os not conveyed properly, so then this idea came to my mind of creating this app. 
 	- I asked for the requirements from my friends and then I started working on it.
 	- The plan is to deploy this project 
 	
@@ -153,12 +153,6 @@ Q. Tell me five interesting facts
 	Hardwork in doing smartwork
 	Discipline	
 
-15. Biggest weakness
-
-	- I think procastination is my greatest weakness but I am working upon it by setting up the schedule and tries to stick to it. I think twice thinking is the main cause of procastinaion so I am trying to kill it.
-	- fear of public speaking is also my weakness but I am trying to overcome it by mentoring my juniors and friends which also helps me in improving my communication skills and understand things properly.
-	- Getting affected of what others say about me due to which sometimes I cannot focus on my work but I am trying to overcome it by not paying attention to it and developing focus.
-
 16. Why did you choose CSE
 	
 	I chose CSE because I have always been fascinated by computers and I used to wonder how humans could make such an intelligent machine and I always liked problem solving. I believe that this field offers tremendous opportunities for innovation and growth, and I am eager to contribute my skills and knowledge to make a meaningful impact in the industry.
@@ -171,7 +165,7 @@ Q. Tell me about a challenging project or situation you faced during your studie
 
 	- hackathon project
 	- We had less time, and our project was not completed yet so I prioritized the tasks and divided the tasks among the team members again.
-	- Two team members started fighting, so I controled that situationa also
+	- Two team members started fighting, so I controled that situation also
 
 	What did I do to control the situation	
 
@@ -321,7 +315,7 @@ Behavioural
     "Yes, I am fully prepared and willing to work long hours when the job demands it. I understand that certain projects, deadlines, or situations may require extra time and effort to ensure their successful completion. I am committed to delivering results and meeting objectives, and I see working extended hours as a part of that commitment.
 
 
-# How will you manage the long hours at ZS?
+# How will you manage the long hours ?
 
     I will prioritize tasks, set clear goals, and plan my day efficiently
     help me stay organized and maximize productivity during the workday.
@@ -352,11 +346,6 @@ Behavioural
     Reward yourself for calming down.
     Ask clarifying questions.
 
-# what is your goal in life.
-    
-    - Goal is to  see my self as a highly skilled professional who has gained valuable experience and contributed to the growth of the company. 
-	- To see myself as a knowledgeable professional having an in-depth knowledge of the company and the industry.	
-	- I am also keen on taking on more leadership responsibilities and mentoring junior team members."
     
 # Describe a situation when you were under pressure in work.
 
@@ -382,13 +371,6 @@ Behavioural
     While I don't have immediate plans for additional formal education, I remain open to the possibility of pursuing further studies if I identify a specific area or skill set that would significantly enhance my ability to excel in my role and contribute to the organization's goals.
 
     In the meantime, I am committed to staying current with industry trends and continuously improving my skills through workshops, certifications, and self-paced learning. My goal is to ensure that I can provide the best possible value to my employer and continue to grow as a professional."
-
-
-# How does this Business technical solution associate’s role align with your goals?
-
-    I'm enthusiastic about enhancing my skills in technical problem-solving, business analysis, and project management. This role offers opportunities to work on diverse projects and apply both technical and business acumen, which is a valuable skill set I want to develop further.
-
-    I believe that the challenges and opportunities presented by the Business Technical Solution Associate role align perfectly with my career aspirations. I'm excited about the potential to make a meaningful impact, learn, and grow within this position while contributing to the success of the team and the organization
 
 # You have a short-tempered client and your work is not completed on time. How will you handle your client now?
 
@@ -467,7 +449,6 @@ Behavioural
     The performing stage is the culmination of the group development process. At this point, the team has resolved most of its conflicts and operates as a high-functioning unit.
 
 # You decided to go for something, but you later anticipated it was wrong.
-
     - all code in one file
 
 # How much amount of paint would be required to paint a wall of 10 * 12 meters.

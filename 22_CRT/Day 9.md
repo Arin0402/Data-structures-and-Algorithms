@@ -71,7 +71,6 @@
         - syntax
 
             class student {
-
                 void func();
             }
 
