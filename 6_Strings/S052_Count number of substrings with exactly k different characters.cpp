@@ -7,7 +7,7 @@ using namespace std;
 // naive
 // O(N^2)
 
-// 2
+// 2  
 // same as before (S051)
 // we will count the substrings with at most k different characters
 // then we will count the substrings with at most k - 1 different characters

@@ -9,7 +9,7 @@ Remote
 
 https://github.com/Arin0402/MonkeyPox-ChatBot
 
-Web Development Intern
+Full stack web development Intern
 Intellozene
 Jaipur
 04/2022 - 09/2022
@@ -22,7 +22,7 @@ Jaipur
 https://github.com/Arin0402/EcraftIndia-Admin-Panel
 
 
-Jaipur Engineering College and Research Center, Jaipur
+Jaipur Engineering College and Research Center
 Computer Science and Engineering
 Sand Dunes Academy
 
@@ -30,7 +30,7 @@ Sand Dunes Academy
 C++, Object-Oriented Programming (OOP) Concepts, Data Structures and Algorithms, Problem Solving, Flutter , Laravel, React JS, MySQL, Redux
 
 https://www.linkedin.com/in/arin-goyal/
-https://github.com/Arin0402?tab=repositories
+https://github.com/Arin0402
 https://auth.geeksforgeeks.org/user/aringoyal0402/
 https://www.hackerearth.com/@aringoyal0402
 https://leetcode.com/Arin2290/

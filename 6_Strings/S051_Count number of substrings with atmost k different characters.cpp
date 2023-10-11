@@ -20,7 +20,7 @@ class Solution
         int n = s.size();
         
         // pointers
-        int l = 0;
+        int l = 0;  
         int r = 0;
         
         long long int count = 0;
