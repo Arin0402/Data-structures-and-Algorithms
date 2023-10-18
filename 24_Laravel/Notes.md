@@ -1,7 +1,18 @@
 ## paths
-    - C:\xampp\htdocs\hostel_managemnt_app
+
+    - C:\xampp\htdocs\hostel_management_app
+
+## Resources
+
+    - To learn laravel
+        https://www.youtube.com/watch?v=0yVDMcGp97g&list=PLjVLYmrlmjGfh2rwJjrmKNHzGxCZwBsqj
+
+    - To make APIs
+        https://www.youtube.com/playlist?list=PL8p2I9GklV45xlp9M1NKOqwJxDAXBrCuf
+
 
 # Laravel 
+
 
     - a framework is a set of rules, ideas or beliefs which you use in order to deal with the problems
 
@@ -65,3 +76,304 @@
         - factories -> to create fake data for testing purpose
         - migrations -> to create tables in the database
         
+    - public 
+
+        - index.php -> first file which is loaded when the app runs
+
+    - resources 
+
+        - to create the views (the frontend part)
+
+    - routes 
+
+        - api.php -> handles the routes of the apis
+        - web.php -> handles the routes of the website
+
+    - storage 
+
+        - to store the files that are being uploaded and downloaded from the website
+
+    - test 
+
+        - for writing tests
+
+    - vendor
+
+        - provides packages for various services
+
+
+    - composer.json 
+
+        - it stores information about all the packages like version etc.
+    
+## Controlers
+
+    - controllers are class based php files
+
+    - controllers can group related request handling logic into a single class.
+        - for ex -> a user class can be created and all the logic related to action on user such as registration, updation etc 
+            can be written in a single class.
+
+    - Types of controllers
+
+        - Basic controllers -> We have to write our own logic
+        - Single action controllers -> Whenever we want handle only single request
+        - Resource controllers -> For CRUD (Dabatase operations) operations i.e database related operations
+    
+    - Syntax to make controller
+
+        - Basic
+
+            php artisan make:controller controler_name
+
+        - Single Action 
+
+            php artisan make:controller controller_name --invokable
+
+        - Resource
+
+            https://youtu.be/ejOWLTUIo8w?list=PLjVLYmrlmjGfh2rwJjrmKNHzGxCZwBsqj&t=859
+            php artisan make:controller controller_name --resource
+
+    - In Basic and Single Action controller, we have to define our own routes to call a particular function in controller but in Resource controller, all the routes are predefined i.e which route will call which function.    
+
+## Components
+
+    - It's like function that can be used multiple times
+
+    - Syntax
+
+        php artisan make:component Component_Name 
+
+    - When a component is created, two files are created, one is in app->view->components and other one is resources->views->components
+
+## cache config
+
+    - To config the cache, we did it when we updated the env file.
+
+        php artisan config:Cache
+
+    - cache stores information to boost the application
+
+## Migrations
+
+    - In the database->migrations, these are the migrations which are basically the code files which laravel runs to create tables in the database
+
+    - syntax to execute these migrations i.e create table in database
+        - php artisan migrate
+
+    - Create migration using command
+
+        php artisan make:migration create_table_name_table
+
+        - This command will create a migration that will be stored in database->migrations folder
+
+    - rollback the last migration
+
+        php artisan migrate:rollback
+
+    - To delete all the tables and rexucute the migrations
+
+        php artisan migrate:refresh
+
+    - add columns to a existing table
+
+        php artisan make:migration add_columns_to_TABLE_NAME_table
+
+## Model 
+
+    - app->Models
+    - Models are class based PHP files
+    - Laravel includes Eloquent, an object-relational mapper (ORM) that makes it enjoyable to interact with your database
+    - Each database table has a corresponding "Model" that is used to interact with the table
+    - This helps to rum queries on table
+
+    - Syntax to make model  
+
+        php artisan make:model Model_name
+
+        - Here Model_name should start with capital letter as it is going to be a class
+    
+    - make model with migration
+    
+        -  php artisan make:model Model_name --migration
+
+## insert , select, update, delete queries
+
+    - using controllers
+
+        - for ex -> see CustomerController.php
+
+
+## Custom helper
+
+    - This will store the code that is used repeatedly acrros the app    
+    - Created the file naming helper.php in app folder
+
+    - Configure the composer.json
+
+        added this code in the autoload block
+
+            "files": [
+                "app/helper.php"
+            ],    
+ 
+        after this, run -> composer dump-autoload
+
+    - After configuring the composer, this helper file will be included in every file in the directory.
+    - We can use the functions mentioned in this file across the directory
+
+
+## Accessors and mutators
+
+    - These helps to perfom modifications on data coming and going into database
+
+    - Mutator helps to modify data going into the database
+
+    - Accessor helps to modify the data coming from the database
+
+    - https://www.youtube.com/watch?v=najrEQjOWEA&list=PLjVLYmrlmjGfh2rwJjrmKNHzGxCZwBsqj&index=19
+
+## session
+
+    - Session is a temporary data storing element so that the data can be accessed through out the website and when the page changes from one to another
+
+## Database seeder and faker
+
+    - database->seeders
+    - To store fake data in the database
+
+    - php artisan make:seeder Seeder_Name
+
+    - seeder puts the data into database
+    - faker generates the fake data
+
+    - we call the seeder from DatabaseSeeder.php
+    
+    - To run the seeder
+        php artisan db:seed 
+
+    - we can also run seeder independently
+
+        ex:-  php artisan db:seed --class=UsersTableSeeder
+
+## Stub
+
+    - stubs contains the data which artisan commands use to create migration, controllers etc
+    - when we create a controller, from where does the initial code comes from ?
+        - It comes from stub.
+        - There is a controller stub file which has the initial code written in it.
+        - artisan uses that file to create controller
+
+    - we can edit the stub files to get the initial code according to our choice.
+
+## foreign key 
+
+    - create_groups_table and create_members_table migrations.
+    - These explain how to create tables with foreign key relation
+
+## one to one relationship
+
+    - indexCOntroller
+    - Models -> Members.php
+
+    - each enrty in one table is associated to only one entry in another table
+
+## one to many relationship
+
+    - indexCOntroller
+    - Models -> Members.php
+    - Models -> Groups.php
+
+    - each entry in one table is associated to many entries in another table
+
+## MiddleWare
+
+    - Middleware provides a convenient meachanism for inspecting and filtering HTTP requests entering your application
+
+    - syntax 
+
+        - php artisan make:middleware Name
+        - The first letter should be capital as it is going to be a class file
+
+    - if you want to run the middleware during every HTTP request to your application, then list the middleware in 
+        the $middleware property of your app/Http/Kernel.php class.
+
+    - app->Http->Middleware->WebGuard.php
+
+    - Route middleware
+
+        https://www.youtube.com/watch?v=GFl9treG81g&list=PLjVLYmrlmjGfh2rwJjrmKNHzGxCZwBsqj&index=35
+
+    - Group Middleware
+
+        https://www.youtube.com/watch?v=Q24bbCFPTDo&list=PLjVLYmrlmjGfh2rwJjrmKNHzGxCZwBsqj&index=36&pp=iAQB
+
+## Create artisan command
+
+    https://www.youtube.com/watch?v=CXsJ-LGKjpE&list=PLjVLYmrlmjGfh2rwJjrmKNHzGxCZwBsqj&index=37
+
+## Route model binding
+
+    https://www.youtube.com/watch?v=9cduPLxZ-RA&list=PLjVLYmrlmjGfh2rwJjrmKNHzGxCZwBsqj&index=38
+
+
+# API making
+
+    https://www.youtube.com/playlist?list=PL8p2I9GklV45xlp9M1NKOqwJxDAXBrCuf
+
+    - first of all make controller (dummyAPI)
+    - we will make apis in api.php (routes->api.php)
+
+## Interview question -> Why we write APIs seperately ?
+
+    - we can define apis in web.php file also. There is no hard and fast rule that apis should only be declared in api.php
+    - we define APIs in api.php to organise the APIs and laravel has created seperate middlewares for web.php and api.php
+
+    -   There is rate limiting configured for api routes.
+        Api routes use the api middleware group where web routes use the web middleware group.
+        Api have the api prefix, thus routes from the api.php are prefixed with api/
+
+## Interview question -> Can we return data of more than one table through single API?
+
+    - yes, we can
+    - demostrated in Controllers -> dummyAPI.php -> getData
+
+## Interview question -> Get the data by passing country as a parameter.
+
+    - getDataWithName (This funciton demonsrates it)
+    
+## Interview question -> Can we use post method to update the data ?
+
+    - Yes you can also use POST for updating and it will work. However post is normally used for inserting data and when updating we usually use PUT. This makes it easier and quicker to review the code and know what it does.
+
+## Case sensitivity of the data in mysql
+- On operating systems with case-insensitive file systems (e.g., Windows), table and column names are not case-sensitive. This means that "mytable", "MyTable", and "MYTABLE" would be considered the same table name.
+
+- On operating systems with case-sensitive file systems (e.g., Linux, Unix), table and column names are case-sensitive. In this case, "mytable", "MyTable", and "MYTABLE" would be treated as different table names.
+
+
+## Interview question -> how can we delete multiple ids using a delete api
+
+    - dummyAPI.php -> deleteMultiple
+
+
+## API Authentication
+
+    https://www.youtube.com/watch?v=P2dfXpUHy6U&list=PL8p2I9GklV45xlp9M1NKOqwJxDAXBrCuf&index=11
+
+## Difference between token, JWT and sancstum and whrn to use them ?
+
+    Tokens, including JWTs, are useful when you want to implement stateless authentication and enable users to access protected resources without sending their credentials with every request. They are commonly used in web APIs and distributed systems.
+
+    Sanctum, being a specific implementation in Laravel, is suitable when you are building a Laravel-based application (such as a SPA or mobile app) and need a simple way to issue and authenticate API tokens. It provides a higher-level abstraction and simplifies the integration process within the Laravel ecosystem.
+
+    In summary, JWT is a specific type of token that provides a standardized way of representing authentication and authorization information. Tokens, in general, are used to authenticate users without sending credentials with every request. Sanctum is a Laravel package that facilitates token-based authentication in Laravel applications, providing a convenient way to generate and authenticate tokens.
+
+## Upload file using API
+
+    https://www.youtube.com/watch?v=k7aXBY0HPCE&list=PL8p2I9GklV45xlp9M1NKOqwJxDAXBrCuf&index=12
+
+## Upload laravel project on CPanel
+
+    https://www.youtube.com/watch?v=bJzlalYt-Lk&list=PL8p2I9GklV45xlp9M1NKOqwJxDAXBrCuf&index=13
