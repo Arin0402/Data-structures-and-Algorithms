@@ -14,6 +14,8 @@ public:
         // B - number to be checked
         // C - difference.
 
+        // Note - -16 % 4  is equal to 0
+
         if (C == 0)
             return (B == A);
 
