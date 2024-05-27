@@ -11,81 +11,81 @@ using namespace std;
 class Solution 
 {
     public:
-    int minof(int A[], int N){
-        
-        int mini = A[0];
-        
-        for(int i =1 ; i < N; i++) mini = min(mini, A[i]);
-        
-        return mini;
-    }
     
-    int sumof(int A[], int N){
+    int countStudentsAllocated(int arr[], int n, int m, int pages){
         
-        int sum = 0;
-        for(int i =0 ; i < N; i++) sum += A[i];
-        
-        return sum;
-        
-    }
-    
-    bool isPossible(int A[], int N, int M, int mid){
-        
-        int studentsAlloted = 0;
         int temp = 0;
         
-        for(int i =0; i< N; i++){
+        int i = 0;
+        
+        int studentAllocated = 0;
+        
+        while(i < n){
             
-            // every book has to be alloted.
-            // if A[i] > mid then not possible
-            if(A[i] > mid) return false;
             
-            if(temp + A[i] <= mid){
-                temp += A[i];
+            if(temp + arr[i] <= pages){
+                temp += arr[i];
+                
             }
             else{
-                studentsAlloted++;
-                temp = A[i];
+                studentAllocated++;
+                temp = arr[i];
             }
+            
+            i++;
+        
         }
         
-        // for last allocation
-        if(temp != 0) studentsAlloted++;
+          // for last allocation
+        if(temp != 0) studentAllocated++;
         
-        return studentsAlloted <= M;
+        return studentAllocated ;
         
     }
-    
     //Function to find minimum number of pages.
-    int findPages(int A[], int N, int M) 
+    int findPages(int arr[], int n, int m) 
     {
-        // low will be the minimum of pages available.
-        int low = minof(A,N);
         
-        // high will be the sum of all the pages. 
-        int high = sumof(A, N);
+        if(m > n) return -1;
         
-        int res = -1;
         
-        // number of students are greater than number of books. so not possible.
-        if(M > N) return -1;
+        // low would be the maximum of all the books
+        // why ? -> https://youtu.be/Z0hwjftStI4?t=407
+        int low = INT_MIN;
+        
+        // high would be the sum of all the books
+        int high = 0;
+        
+        for(int i = 0; i < n; i++){
+            low = max(low, arr[i]);
+        }
+        
+        for(int i = 0; i < n; i++){
+            high += arr[i];
+        }
+        
+        int ans = -1;
+        
         
         while(low <= high){
             
-            int mid = low + (high - low) /2;
+            int mid = low + (high - low)/2;
             
-            if(isPossible(A, N, M, mid)){
+            // count students allocated if they can be alloted at max mid pages   
+            int students = countStudentsAllocated(arr, n, m, mid);  
+            
+            
+            // less students are alloted so reduce the amount of pages so that the students can increase 
+            if(students <= m){
                 
-                res = mid;
-                
-                // check if allocation is possible for the pages lesser than mid.
+                ans = mid;
                 high = mid - 1;
             }
             else low = mid + 1;
+            
         }
         
-        return res;
-        
+        return ans;
         
     }
 };
