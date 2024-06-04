@@ -12,6 +12,7 @@ using namespace std;
 
 // 2
 // Binary search for a single row
+// leetcode
 // O(n) + O(logM)
 class Solution
 {
@@ -59,6 +60,34 @@ public:
 };
 
 // 3
+// leetcode
+// applying binary search on whole matrix
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+
+        int r = matrix.size();
+        int c = matrix[0].size();
+
+        int low =0;
+        int high = r*c - 1;
+
+        while(low <= high){
+
+            int mid = (low + high)/2;
+
+            if(matrix[mid/c][mid%c] == target) return true;
+            else if (matrix[mid/c][mid%c] > target) high = mid -1;
+            else low = mid + 1;
+
+        }
+
+        return false;  
+    }
+};
+
+// 4
+// gfg
 class Solution{
 public:	
 	int matSearch (vector <vector <int>> &mat, int N, int M, int X)
