@@ -59,3 +59,42 @@ int kthSmallest(int mat[1000][1000], int n, int k)
 
     return low;
 }
+
+// or
+
+int helper(int arr[], int n, int k, int ele){
+    
+    return lower_bound(arr, arr + n, ele) - arr;
+}
+
+int kthSmallest(int mat[MAX][MAX], int n, int k)
+{
+    
+    int low = 0;
+    int high = mat[n-1][n-1];
+    
+    int ans = -1;
+    
+    while(low <= high){
+        
+        int mid = low + (high - low)/2;
+        
+        int count = 0;
+        
+        for(int i =0; i < n; i++){
+            
+            if(mid >= mat[i][0])
+                count += helper(mat[i], n, k, mid);
+            else break;
+        }
+        
+        if(count <= k -1 ){
+            ans = mid;
+            low = mid + 1;
+        }
+        else high = mid -1;
+    }
+    
+    return ans;
+}
+
