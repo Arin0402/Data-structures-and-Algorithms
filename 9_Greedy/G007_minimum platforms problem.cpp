@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
 // https://www.youtube.com/watch?v=eiM8LGi4h_g
 
 // 1;
