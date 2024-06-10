@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://www.spoj.com/problems/GERGOVIA/
+// https://www.geeksforgeeks.org/problems/wine-buying-and-selling/1
 
 // person will purchase the item from the shop which is closest possible.
 int main()
