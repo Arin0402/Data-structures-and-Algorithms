@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.spoj.com/problems/GERGOVIA/
+
 // person will purchase the item from the shop which is closest possible.
 int main()
 {
