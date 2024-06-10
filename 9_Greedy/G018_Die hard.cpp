@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+// https://www.spoj.com/problems/DIEHARD/
 
 int dp[1001][1001];
 
