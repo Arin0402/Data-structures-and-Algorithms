@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/smallest-subset-with-greater-sum/1
+
 #include <bits/stdc++.h>
 using namespace std;
 
