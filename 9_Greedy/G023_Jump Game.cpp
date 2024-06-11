@@ -13,6 +13,7 @@ using namespace std;
 // we will iterate in the backward direction and check from which index, we can reach the 
 // lastreach index ( for the first case, lastreach is the last index of the array)
 // if we can reach the last reach index, then we will update the lastreach to curr.
+// https://www.youtube.com/watch?v=tZAa_jJ3SwQ
 class Solution {
   public:
     int canReach(int a[], int n) {
