@@ -2,10 +2,11 @@
 using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/candy/1
+// https://www.youtube.com/watch?v=IIqVFvKE6RY
 
 // 1
-// O(N)
-// O(N)
+// O(3N)
+// O(2N)
 
 class Solution {
   public:
@@ -42,5 +43,40 @@ class Solution {
         }
         
         return ans;
+    }
+};
+
+// 2
+// O(2N)
+// O(N)
+// by eliminating the right array
+class Solution {
+  public:
+    int minCandy(int N, vector<int> &arr) {
+        
+        vector<int> count(N, 1);
+        
+        int sum = 0;
+        
+        for(int i = 1; i < N; i++){
+            if(arr[i] > arr[i-1]) count[i] = 1 + count[i-1];
+        }
+        
+        int curr = count[N-1];
+        sum += count[N-1];
+        
+        
+        for(int i = N-2; i >= 0; i--){
+            
+            if(arr[i] > arr[i + 1]){
+                curr++;
+                count[i] = max(count[i], curr);
+            }
+            else curr = 1;
+            
+            sum += count[i];
+        }
+        
+        return sum;
     }
 };
