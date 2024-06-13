@@ -15,7 +15,7 @@ class Solution{
         // power is even        
         if(R%2 == 0){
             
-            long long temp = helper(N, R/2)%1000000007;
+            long long temp = helper(N, R/2);
             return ((temp*temp)%1000000007);
         }
         
