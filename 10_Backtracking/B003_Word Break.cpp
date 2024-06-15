@@ -62,8 +62,7 @@ public:
     }
 };
 // DP
-// memoization
-// O(N^2)
+// memoizationThe time complexity is O(s^2), where s is the length of the input string line. This is due to the recursive exploration of substrings and the memoization.
 // top down
 
 class Solution
