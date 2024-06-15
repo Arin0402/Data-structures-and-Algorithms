@@ -98,7 +98,7 @@ public:
 };
 
 // 2
-// O(n)
+// O(n!)
 // without using  extra space.
 class Solution
 {
