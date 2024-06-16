@@ -24,16 +24,15 @@ public:
                 return false;
         }
 
-        int nRow = row / 3;
-        int nCol = col / 3;
+        // square
+        row = 3*(row/3);
+        col = 3*(col/3);
 
-        for (int i = 0; i < N; i++)
-        {
-
-            if (grid[nRow * 3 + i / 3][nCol * 3 + i % 3] == val)
-                return false;
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(grid[row + i][col + j] == val) return false;
+            }
         }
-
         return true;
     }
 
