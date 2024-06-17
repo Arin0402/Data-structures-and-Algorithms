@@ -2,7 +2,7 @@
 using namespace std;
 
 // 1
-// TC -  O(2^(N * K)).
+// TC -  O(k^N) -> for each element, we have k choices as we can put that element into any of the bucket .
 // SC - O(N)
 class Solution
 {
