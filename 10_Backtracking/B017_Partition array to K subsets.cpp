@@ -77,7 +77,7 @@ public:
 
 // 2
 // TC - k*O(2^N)
-// SC - O(2^N)
+// SC - O(N)
 
 class Solution{
   public:
