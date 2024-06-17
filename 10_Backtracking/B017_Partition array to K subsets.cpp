@@ -2,6 +2,7 @@
 using namespace std;
 
 // https://www.youtube.com/watch?v=mBk4I0X46oI
+// https://www.geeksforgeeks.org/problems/partition-array-to-k-subsets/1
 
 // 1
 // TC -  O(k^N) -> for each element, we have k choices as we can put that element into any of the bucket .
