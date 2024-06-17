@@ -2,7 +2,8 @@
 using namespace std;
 
 // https://www.geeksforgeeks.org/problems/path-of-greater-than-equal-to-k-length1034/1
-
+// TC - O(N!), where ‘N’ is the number of nodes (vertices) in the graph.
+// Since here, from the source node, we are visiting all the paths and checking if the total weight is greater than ‘K’ for each path. So, the worst case will be when the number of possible paths is maximum i.e. when every node is connected to every other node. So the time complexity becomes O(N!).
 class Solution
 {
 public:
