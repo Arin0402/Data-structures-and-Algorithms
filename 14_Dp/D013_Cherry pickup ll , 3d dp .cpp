@@ -6,117 +6,122 @@ using namespace std;
 // 1
 // memo
 // top down
-// O(n*m*m)*9 -> https://youtu.be/QGfn7JeXK54?t=1364
+// O(n*m*m)
 // O(n*m*m) + O(n)
 
 class Solution
 {
 public:
-    int helper(int i, int j1, int j2, int r, int c, vector<vector<int>> &grid, vector<vector<vector<int>>> &dp)
-    {
-
-        if (j1 < 0 || j1 >= c || j2 < 0 || j2 >= c)
-            return 0;
-        if (i == r - 1)
-        {
-            if (j1 == j2)
-                return grid[i][j1];
-            else
-                return grid[i][j1] + grid[i][j2];
+    
+    int helper(int row, int col1, int col2, vector<vector<int>> &grid, vector<vector<vector<int>>> &dp, int n, int m){
+    
+        if(row == n-1){
+            if(col1 == col2) return grid[row][col1];
+            return grid[row][col1] + grid[row][col2];
         }
-
-        if (dp[i][j1][j2] != -1)
-            return dp[i][j1][j2];
-
+    
+        if(dp[row][col1][col2] != -1) return dp[row][col1][col2];
+    
         int maxi = INT_MIN;
-        for (int a = -1; a < 2; a++)
-        {
-            for (int b = -1; b < 2; b++)
-            {
-
-                int chocolates = INT_MIN;
-                if (j1 == j2)
-                    chocolates = grid[i][j1] + helper(i + 1, j1 + a, j2 + b, r, c, grid, dp);
-                else
-                    chocolates = grid[i][j1] + grid[i][j2] + helper(i + 1, j1 + a, j2 + b, r, c, grid, dp);
-                maxi = max(maxi, chocolates);
+    
+        for(int i = -1 ; i < 2; i++){
+            int ncol1 = col1 + i;
+    
+            if(ncol1 >= 0 && ncol1 < m){
+    
+              for (int j = -1; j < 2; j++) {
+    
+                int ncol2 = col2 + j;
+    
+                if (ncol2 >= 0 && ncol2 < m){                
+                    maxi = max(maxi, helper(row + 1, ncol1, ncol2, grid, dp, n, m));
+                }
+    
+              }
+    
             }
         }
-
-        return dp[i][j1][j2] = maxi;
+    
+        if(col1 != col2) return dp[row][col1][col2] = grid[row][col1] + grid[row][col2] + maxi;
+        return dp[row][col1][col2] = grid[row][col1] + maxi;
+    
+    
     }
-    int maximumChocolates(int r, int c, vector<vector<int>> &grid)
-    {
-
+    
+    int maximumChocolates(int r, int c, vector<vector<int>> &grid) {
+        
         vector<vector<vector<int>>> dp(r, vector<vector<int>>(c, vector<int>(c, -1)));
-
-        return helper(0, 0, c - 1, r, c, grid, dp);
+    
+        return helper(0, 0, c - 1, grid, dp, r, c);
+    
     }
 };
 
 // 2
 // tab
 // bottom up
-// O(n*m*m)*9
+// O(n*m*m)
 // O(n*m*m)
 class Solution
 {
 public:
-    int maximumChocolates(int r, int c, vector<vector<int>> &grid)
-    {
-
-        vector<vector<vector<int>>> dp(r, vector<vector<int>>(c, vector<int>(c, -1)));
-
-        // base case.
-        for (int j1 = 0; j1 < c; j1++)
-        {
-            for (int j2 = 0; j2 < c; j2++)
-            {
-
-                if (j1 == j2)
-                    dp[r - 1][j1][j2] = grid[r - 1][j1];
-                else
-                    dp[r - 1][j1][j2] = grid[r - 1][j1] + grid[r - 1][j2];
+    
+    int maximumChocolates(int r, int c, vector<vector<int>> &grid) {
+        
+        vector<vector<vector<int>>> dp(r, vector<vector<int>>(c, vector<int>(c, 0)));
+    
+        for(int i = 0; i < c; i++){
+            for(int j = 0; j < c; j++){
+                if(i == j){
+                    dp[r-1][i][j] = grid[r-1][i];
+                }
+                else dp[r-1][i][j] = grid[r-1][i] + grid[r-1][j];
             }
         }
-
-        for (int i = r - 2; i >= 0; i--)
-        {
-            for (int j1 = 0; j1 < c; j1++)
-            {
-                for (int j2 = 0; j2 < c; j2++)
-                {
-
+    
+        for(int row = r-2; row >= 0; row--){
+            for(int col1 = 0; col1 < c; col1++){
+                for(int col2 = 0; col2 < c; col2++){
+                    
                     int maxi = INT_MIN;
-                    for (int a = -1; a < 2; a++)
-                    {
-                        for (int b = -1; b < 2; b++)
-                        {
-
-                            int chocolates = INT_MIN;
-                            if (j1 + a >= 0 && j1 + a < c && j2 + b >= 0 && j2 + b < c)
-                            {
-                                if (j1 == j2)
-                                    chocolates = grid[i][j1] + dp[i + 1][j1 + a][j2 + b];
-                                else
-                                    chocolates = grid[i][j1] + grid[i][j2] + dp[i + 1][j1 + a][j2 + b];
+    
+                    for(int i = -1 ; i < 2; i++){
+                        int ncol1 = col1 + i;
+    
+                        if(ncol1 >= 0 && ncol1 < c){
+    
+                        for (int j = -1; j < 2; j++) {
+    
+                            int ncol2 = col2 + j;
+    
+                            if (ncol2 >= 0 && ncol2 < c){                
+                                maxi = max(maxi, dp[row + 1][ncol1][ncol2]);
                             }
-                            maxi = max(maxi, chocolates);
+    
+                        }
+    
                         }
                     }
-
-                    dp[i][j1][j2] = maxi;
+    
+                    if(col1 != col2) dp[row][col1][col2] = grid[row][col1] + grid[row][col2] + maxi;
+                    else dp[row][col1][col2] = grid[row][col1] + maxi;
+    
+    
                 }
             }
         }
-
+    
+    
         return dp[0][0][c - 1];
+    
+    
+    
     }
 };
 
 // 3
 // space optimised
-// O(n*m*m)*9
+// O(n*m*m)
 // O(2*m*m)
 
 class Solution
