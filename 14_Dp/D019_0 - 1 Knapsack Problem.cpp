@@ -57,9 +57,9 @@ public:
 
         vector<vector<int>> dp(n, vector<int>(W + 1, 0));
 
-        for (int i = 0; i <= W; i++)
+        // we will directly start from wt[0] to eliminate the if condition        
+        for (int i = wt[0]; i <= W; i++)
         {
-            if (wt[0] <= i)
                 dp[0][i] = val[0];
         }
 
@@ -93,10 +93,9 @@ public:
     {
         vector<int> prev(W + 1, 0);
 
-        for (int i = 0; i <= W; i++)
+        for (int i = wt[0]; i <= W; i++)
         {
-            if (wt[0] <= i)
-                prev[i] = val[0];
+            dp[0][i] = val[0];
         }
 
         for (int i = 1; i < n; i++)
@@ -132,10 +131,9 @@ public:
     {
         vector<int> prev(W + 1, 0);
 
-        for (int i = 0; i <= W; i++)
+        for (int i = wt[0]; i <= W; i++)
         {
-            if (wt[0] <= i)
-                prev[i] = val[0];
+                dp[0][i] = val[0];
         }
 
         for (int i = 1; i < n; i++)
