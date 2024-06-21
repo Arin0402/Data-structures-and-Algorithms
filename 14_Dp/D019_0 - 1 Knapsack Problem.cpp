@@ -95,7 +95,7 @@ public:
 
         for (int i = wt[0]; i <= W; i++)
         {
-            dp[0][i] = val[0];
+            prev[i] = val[0];
         }
 
         for (int i = 1; i < n; i++)
@@ -133,7 +133,7 @@ public:
 
         for (int i = wt[0]; i <= W; i++)
         {
-                dp[0][i] = val[0];
+                prev[i] = val[0];
         }
 
         for (int i = 1; i < n; i++)
