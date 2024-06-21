@@ -53,6 +53,48 @@ int countPartitions(int n, int d, vector<int> &arr)
 // 2
 // O(N*target)
 // O(N*target)
+
+int countPartitions(int n, int d, vector<int> &arr) {
+    
+    int total = 0;
+    for(int i = 0; i < n; i++) total += arr[i];
+
+
+    int target = (d + total);
+
+    if(target%2 != 0) return 0;
+
+    target /= 2;
+
+    vector<vector<int>> dp(n, vector<int>(target + 1, 0));
+
+    if(arr[0] == 0) dp[0][0] = 2;
+    else {
+        dp[0][0] = 1;
+        if(arr[0] <= target) dp[0][arr[0]] = 1;
+    }
+
+    for(int i = 1; i < n; i++){
+        for(int j = 0; j <= target; j++){
+
+            // not_take
+            int choice1 = dp[i - 1][j];
+
+            // take
+            int choice2 = 0;
+            if(arr[i] <= j) choice2 = dp[i - 1][j - arr[i]];
+
+            dp[i][j] = (choice1 + choice2)%MOD;   
+        }
+    }
+
+    return dp[n - 1][target];
+    
+
+}
+
+// OR
+
 class Solution {
   public:
     int countPartitions(int n, int d, vector<int> &arr)
