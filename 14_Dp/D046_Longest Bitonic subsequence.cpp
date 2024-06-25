@@ -48,7 +48,20 @@ public:
 
         for (int i = 0; i < n; i++)
         {
-            ans = max(ans, dp1[i] + dp2[i] - 1);
+            // this is the extra condition. This condtion is not there in striver's code because question has been updated.
+            // now strictly increasing or decreasing subsequences are not considered as bitonic subsequence.
+            // this condition will prevent that.
+
+            // but how ?
+            // ex -  1 4 2 7 9 10
+            // dp1 - 1 2 2 3 4 5
+            // dp2 - 1 2 1 1 1 1
+
+            // now consider for element 9, we have dp1 = 4 and dp2 = 1. that means we couldn't find any element smaller than 9
+            // on the right hand side, that's why dp2 is 1. So we cannot consider this as it would count in strictly increasing
+            // subsequence
+            if(dp1[i] != 1 && dp2[i] != 1)
+                ans = max(ans, dp1[i] + dp2[i] - 1);
         }
 
         return ans;
