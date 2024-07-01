@@ -29,6 +29,8 @@ public:
 
 	        // maxVal and minVal stores the
 	        // product of subarray ending at arr[i].
+
+			// compairing it with arr[i] as we can start a new subarray from ith index.
 	        maxVal = max((long long)arr[i], maxVal * arr[i]);
 	        minVal = min((long long)arr[i], minVal * arr[i]);
 

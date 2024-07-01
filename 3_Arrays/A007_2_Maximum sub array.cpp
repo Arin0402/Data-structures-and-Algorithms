@@ -35,6 +35,7 @@ public:
 	                l = khamila;
 	                
 	            }
+				// sum is same but length is different
 	            else if(temp == maxi && i - khamila > maxlen){
 	                maxlen = i - khamila;
 	                l = khamila;
