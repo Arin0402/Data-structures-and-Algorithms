@@ -24,7 +24,7 @@ _------------- These are the notes of linked list folder ----------------------_
 
     2.  Only addition and subtraction can be performed on pointers
 
-    3. *p++   // same as *(p++): increment pointer, and dereference unincremented address
+    3. *p++   // same as *(p)++: dereference pointer, and increment the value it points to
         *++p   // same as *(++p): increment pointer, and dereference incremented address
         ++*p   // same as ++(*p): dereference pointer, and increment the value it points to
         (*p)++ // dereference pointer, and post-increment the value it points to
