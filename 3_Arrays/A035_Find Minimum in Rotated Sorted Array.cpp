@@ -23,6 +23,7 @@ public:
                 low = mid + 1;
         }
 
+        // or arr[high] (both are correct)
         return arr[low];
     }
 };

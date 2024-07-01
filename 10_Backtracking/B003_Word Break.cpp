@@ -5,7 +5,9 @@ using namespace std;
 
 // 1
 // recursive
-// O(2^n) // for very index , we have two choices , whether to take that index in partiton or not.
+// In the worst case, the function explores all possible substrings, which is O(n^2).
+// For each substring, it may take up to O(n) time to check if it exists in the wordDict and call the solve function recursively.
+// So, the overall time complexity is O(n^3).
 
 class Solution
 {
@@ -60,8 +62,7 @@ public:
     }
 };
 // DP
-// memoization
-// O(N^2)
+// memoizationThe time complexity is O(s^2), where s is the length of the input string line. This is due to the recursive exploration of substrings and the memoization.
 // top down
 
 class Solution

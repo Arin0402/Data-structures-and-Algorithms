@@ -17,8 +17,10 @@ class Solution
     {
        
         int start = 0, end = n - 1;
+
+        if(n  == 1) return 0;
         
-          while (start < end) {
+          while (start <= end) {
             int mid = (start + end) / 2;
         
             if (mid == 0)

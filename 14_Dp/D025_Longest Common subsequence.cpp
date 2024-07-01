@@ -3,6 +3,10 @@ using namespace std;
 
 // https://leetcode.com/problems/longest-common-subsequence/description/
 
+// very naive solution would be generate all the possible subsequences of both the strings and then compare each string with another.
+
+// Time complexity for recursive solution - 2^n * 2^m
+
 // 1
 // memo
 // O(n*m)

@@ -16,7 +16,7 @@ class Solution
     
     Node* helper(Node* head){
         
-        if(!head || !head->next){
+        if(!head->next){
             return head;
         }
         

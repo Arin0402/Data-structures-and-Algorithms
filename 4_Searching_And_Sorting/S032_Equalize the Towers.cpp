@@ -49,7 +49,7 @@ class Solution{
 		// answer
 		long long int ans = LONG_LONG_MAX;
 		
-		while(low >= 0 && low <= high){
+		while( low <= high){
 		    
 		    long long mid = low + (high - low)/2;
 		    

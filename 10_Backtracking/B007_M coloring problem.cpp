@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// TC - O(no. of colors)^(no. of vertices)
+
 class Solution
 {
 public:

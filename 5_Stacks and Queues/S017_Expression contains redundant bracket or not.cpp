@@ -9,36 +9,31 @@ using namespace std;
 // O(N)
 class Solution {
   public:
-  
-    // avoid pushing operands into the stack.
     int checkRedundancy(string s) {
         
         int n = s.size();
-        stack<char> st;
         
-        for(int i =0; i < n; i++){
+        stack<char> st;
+    
+        for(int i =0; i < n; i++ ){
             
-            if(st.empty()){
-                if(s[i] == '(') st.push(s[i]);
-            }
-            else if(s[i] == ')'){
+            if(s[i] == ')'){
                 
-                // number of operators between opening and closing bracket.
-                int len = 0;
+                // if directly open bracket is there and nothing in between then 
+                // it is redundant    
+                if(st.top() == '(') return 1;
                 
-                while(!st.empty() && st.top() != '('){
+                // remove the operators in between
+                while(st.top() != '('){
                     st.pop();
-                    len++;
                 }
                 
-                // if no operator, then there is redundancy.
-                if(len == 0 ) return 1;
+                // remove the open bracket
                 st.pop();
                 
             }
-            else if(s[i] == '(') st.push(s[i]);
-            // only push if it is an operator.
-            else if(s[i] == '+' || s[i] == '-' || s[i] == '*' || s[i] == '/') st.push(s[i]);
+            // push only if it is a operator or open bracket.
+            else if(s[i] == '(' || s[i] == '+' || s[i] == '-' || s[i] == '*' || s[i] == '/') st.push(s[i]);
             
         }
         

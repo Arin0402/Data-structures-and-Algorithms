@@ -13,34 +13,31 @@ using namespace std;
 
 class Solution {
   public:
+  
+    vector<vector<int>> ans;
+    vector<int> temp;
     
-    void helper(int ind, int start, int K, int target, vector<int> &ds, vector<vector<int>> &ans){
-        
-        if(ind == K){
-            
-            if(target == 0)
-                ans.push_back(ds);
+    void helper(int start, int sum, int K, int N){
+ 
+        if(K == 0){
+            if(sum == N) ans.push_back(temp);
             return;
         }
-                
+        
+        
         for(int i = start; i <= 9; i++){
             
-            if(i > target) break;
-            
-            ds.push_back(i);
-            helper(ind + 1, i + 1, K, target - i, ds, ans);
-            ds.pop_back();
+            temp.push_back(i);
+            helper(i + 1, sum + i, K - 1 , N);
+            temp.pop_back();
         }
-        
-           
+                
     }
+    
+  
     vector<vector<int>> combinationSum(int K, int N) {
-        
-        vector<vector<int>> ans;
-        vector<int> ds;
-        
-        helper(0,1, K , N, ds, ans);
-        
+    
+        helper(1, 0, K, N);
         return ans;
     }
 };

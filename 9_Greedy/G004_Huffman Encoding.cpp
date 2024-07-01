@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.geeksforgeeks.org/problems/huffman-encoding3345/1
+
 // TO UNDERSTAND HUFFMAN ENCODING
 // https://www.youtube.com/watch?v=uDS8AkTAcIU
 

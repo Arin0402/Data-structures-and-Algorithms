@@ -2,6 +2,7 @@
 using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
+// https://www.youtube.com/watch?v=7SBVnw7GSTk
 
 // 1
 // dp
@@ -10,42 +11,38 @@ using namespace std;
 // 2
 // O(n)
 // O(1)
-class Solution
-{
-public:
-    int minJumps(int arr[], int n)
-    {
-
-        if (n == 1)
-            return 0; // only one element
-        if (arr[0] == 0)
-            return -1; // can not move forward.
-
-        int maxReach = arr[0]; // maximum index to which we can reach.
-        int steps = arr[0];    // steps can be taken in a jump.
-
-        int jumps = 1; // initial jump.
-
-        for (int i = 1; i < n; i++)
-        {
-
-            if (i == n - 1)
-                return jumps; // reached the end, return jumps.
-
-            maxReach = max(maxReach, i + arr[i]); // update the maxReach
-            steps--;                              // decrease the step.
-
-            if (steps == 0)
-            { // steps for a jump are over, we have to jump now.
-
-                if (i == maxReach)
-                    return -1; // can not move further, as maxReach is same as i.
-
-                steps = maxReach - i; // steps wiil be increased to maxreach minus the current index.
-                jumps++;              // increase jump.
+class Solution{
+  public:
+    int minJumps(int arr[], int n){
+        
+        // indexes of the range
+        int l = 0;
+        int r = 0;
+        
+        int jumps = 0;
+        
+        while( r < n-1){
+            
+            // farthest index that can be reached in that range
+            int farthest = 0;
+            
+            for(int i = l; i <= r; i++){
+                farthest = max(farthest, arr[i] + i);
             }
+            
+            // move the left index
+            l = r + 1;
+            
+            // update r only if the range can be moved further, otherwise if range can not be moved further, then it is not possible
+            if(farthest > r)
+                r = farthest;
+            else return -1;
+            
+            jumps++;
+     
         }
-
-        return -1;
+        
+        return jumps;
+        
     }
 };

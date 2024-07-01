@@ -4,127 +4,155 @@ using namespace std;
 // O(2^n)
 // recursion
 
-// this code is getting accepted as well as giving TLE also.
-class Solution
-{
+// this code is giving Memory limit exceded error
+class Solution {
 public:
-    int minimumToRemove(string s)
-    {
 
-        int rightCnt = 0;
-        int leftCnt = 0;
+    vector<string> ans;
+    unordered_set<string> st;
 
-        for (int i = 0; i < s.size(); i++)
-        {
-
-            if (s[i] == '(')
-            {
-                leftCnt++;
-            }
-            else if (s[i] == ')')
-            {
-                if (leftCnt == 0)
-                    rightCnt++;
-                else
-                    leftCnt--;
-            }
-        }
-
-        return rightCnt + leftCnt;
-    }
-
-    void helper(int pos, string temp, int removed, int leftCnt, int rightCnt, int n, int toRemove, string &s, vector<string> &ans, unordered_map<string, int> &mp)
-    {
-
-        if (mp[temp] > 0)
-            return; // string is already present in the ans.
-
-        // number of brackets removed is greater than the minimum number of brackets to be removed.
-        if (removed > toRemove)
-            return;
-
-        // base case.
-        if (pos == n)
-        {
-
-            // brackets are balanced and size is equal to n - minimum to be removed.
-            if (leftCnt == 0 && rightCnt == 0 && temp.size() == n - toRemove)
-            {
-
-                mp[temp]++; // update.
-                ans.push_back(temp);
-            }
-
-            return;
-        }
-
-        // if rightCnt increases then return.
-        if (rightCnt > 0)
-            return;
-
-        char c = s[pos];
-
-        // pick.
-        if (c == '(' || c == ')')
-        {
-            if (c == '(')
-            {
-
-                // increase leftCnt.
-                helper(pos + 1, temp + c, removed, leftCnt + 1, rightCnt, n, toRemove, s, ans, mp);
-            }
-            else if (c == ')')
-            {
-
-                // decrease leftCnt.
-                if (leftCnt > 0)
-                    helper(pos + 1, temp + c, removed, leftCnt - 1, rightCnt, n, toRemove, s, ans, mp);
-
-                // increase rightCnt.
-                else
-                    helper(pos + 1, temp + c, removed, leftCnt, rightCnt + 1, n, toRemove, s, ans, mp);
-                ;
-            }
-
-            // not pick
-            // increase removed cnt.
-            helper(pos + 1, temp, removed + 1, leftCnt, rightCnt, n, toRemove, s, ans, mp);
-        }
-
-        // alphabet
-        else
-        {
-
-            // pick and go to next index.
-            helper(pos + 1, temp + c, removed, leftCnt, rightCnt, n, toRemove, s, ans, mp);
-        }
-    }
-
-    vector<string> removeInvalidParentheses(string s)
-    {
+    int minToRemove(string s){
 
         int n = s.size();
-        vector<string> ans;
+        int leftCount = 0;
+        int rightCount = 0;
 
-        // to avoid duplicate strings in the answer.
-        unordered_map<string, int> mp;
-
-        // minimum number of parenthesis required to be removed.
-        int toRemove = minimumToRemove(s);
-
-        // if the string is already valid then return.
-        if (toRemove == 0)
-        {
-            ans.push_back(s);
-            return ans;
+        for(int i = 0; i < n; i++){
+            if(s[i] == '(') rightCount++;
+            else if(s[i] == ')'){
+                if(rightCount > 0) rightCount--;
+                else leftCount++;
+            }            
         }
 
-        int leftCnt = 0;  // count of '(' till now.
-        int rightCnt = 0; // count of ')' till now.
-        int removed = 0;  // number of brackets removed till now (not pick case).
+        return rightCount + leftCount;
 
-        helper(0, "", removed, leftCnt, rightCnt, n, toRemove, s, ans, mp);
+    }
+
+
+    void helper(int ind, int rightCount, int toBeRemoved, string temp, string &s, int n){
+
+        if(st.find(temp) != st.end()) return;
+
+        if(ind == n){
+            if(rightCount == 0 && toBeRemoved == 0 && st.find(temp) == st.end()){
+                ans.push_back(temp);
+                st.insert(temp);
+            }
+            return;
+        }
+
+        if(toBeRemoved < 0) return;
+
+        if(rightCount < 0 ) return;
+
+        if(s[ind] == '('){
+            
+            // pick
+            helper(ind + 1, rightCount + 1,toBeRemoved, temp + '(', s, n);
+
+            // not pick
+            helper(ind + 1, rightCount, toBeRemoved - 1, temp, s, n);
+
+        }
+        else if(s[ind] == ')'){
+            // pick
+            if(rightCount > 0)
+                helper(ind + 1, rightCount - 1 ,toBeRemoved, temp + ')', s, n);
+
+            // not pick
+            helper(ind + 1, rightCount, toBeRemoved - 1, temp, s, n);
+        }
+        // character
+        else{
+
+            helper(ind + 1, rightCount ,toBeRemoved, temp + s[ind], s, n);
+        }
+    }
+
+    vector<string> removeInvalidParentheses(string s) {
+
+        
+                
+        int n = s.size();
+
+        int toBeRemoved = minToRemove(s);
+
+        string temp = "";
+
+        helper(0, 0, toBeRemoved, temp, s, n);
 
         return ans;
+
+    }
+};
+// 2
+// TC - 2^N
+
+class Solution {
+public:
+
+    // count the number of invalid parenthesis to be removed
+    int minToRemove(string s){
+
+        int n = s.size();
+        int leftCount = 0;
+        int rightCount = 0;
+
+        for(int i = 0; i < n; i++){
+            if(s[i] == '(') rightCount++;
+            else if(s[i] == ')'){
+                if(rightCount > 0) rightCount--;
+                else leftCount++;
+            }            
+        }
+
+        return rightCount + leftCount;
+
+    }
+
+
+    vector<string> ans;
+    unordered_set<string> st;
+
+    void helper(int toBeRemoved, string s){
+
+        // the string has already occured, so we would not process it again
+        if(st.find(s) != st.end()) return;
+        st.insert(s);
+
+        // check if valid
+        if(toBeRemoved == 0) {
+            if(minToRemove(s) == 0){
+                ans.push_back(s);
+                return;
+            }
+        }
+
+        // try to remove one character.
+        for(int i = 0; i < s.size(); i++){
+
+            // left part from the current character
+            string left = s.substr(0, i);
+            // right part from the current character
+            string right = s.substr(i + 1);
+
+            // check for the string after escaping the current character
+            helper(toBeRemoved - 1, left + right);
+
+        }
+        
+    }
+
+    vector<string> removeInvalidParentheses(string s) {
+        
+        int n = s.size();
+
+        int toBeRemoved = minToRemove(s);
+
+        helper( toBeRemoved, s);
+
+        return ans;
+
     }
 };

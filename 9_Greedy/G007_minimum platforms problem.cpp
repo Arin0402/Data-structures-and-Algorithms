@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://www.youtube.com/watch?v=eiM8LGi4h_g
+// https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
+// https://www.youtube.com/watch?v=AsGzwR_FWok&list=PLgUwDviBIf0rF1w2Koyh78zafB0cz7tea&index=10
 
 // 1;
 // naive

@@ -5,8 +5,8 @@ using namespace std;
 
 // 1
 // using extra space.
-// TC - 3^(N^2) , for every cell at most three calls will be made.
-// SC - 3^(N^2) , due to visited matrix.
+// TC - 4^(N^2) , form every cell, we have the option to move in 4 directions.
+// SC - O(N^2) + O(N^2), due to visited matrix + auxilary stack space.
 
 class Solution
 {

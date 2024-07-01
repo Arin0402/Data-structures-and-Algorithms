@@ -36,3 +36,8 @@ class Solution {
         return ans;
     }
 };
+
+// 2
+// O(N)
+// same as S036.
+// answer would be ans = sum of subarrays maximum - sum of subarrays minimum.

@@ -10,13 +10,14 @@ using namespace std;
 // 2
 // O(N)
 // o(N)
-// count the number of element greater than the arr[i] on the left;
-// count the number of element greater than or equal to the arr[i] on the right;
+// find the index of next smaller element on left for every index
+// find the index of the next smaller element on the the right for every index
 
-// total number of subarrays in which arr[i] would be minimum is equal to
-// (count_left + 1)(count_right + 1)
-// so for a particular index, arr[i]*(count_left + 1)(count_right + 1)
-// would be added to the answer.
+// by this we will get the number of contiguous elements greater than the index on both left and right side.
+// to calculate the number of subarrays in which the ith element is smaller  = (i - nextSmallerElementIndex on left) (nextSmallerElementIndex on right - i).
+// and sum would be ans*(i - nextSmallerElementIndex on left) (nextSmallerElementIndex on right - i)
+
+// Note: we may have duplicate elements so to avoid that, we will the condition ( > instead of  <= ) on any of the one side.
 
 class Solution {
   public:

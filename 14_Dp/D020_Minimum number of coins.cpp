@@ -3,46 +3,59 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/number-of-coins1824/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
+// Why greedy fails ?
+// https://www.youtube.com/watch?v=mVg9CfJvayM
+
 // 1
 // memo
 // O(n*V)
 // O(n*V) + O(n)
-class Solution
-{
+class Solution{
 
-public:
-	int helper(int ind, int V, int coins[], vector<vector<int>> &dp)
-	{
-
-		if (ind == 0)
-		{
-
-			if (V % coins[0] == 0)
-				return V / coins[0];
-			return 1e9;
-		}
-
-		if (dp[ind][V] != -1)
-			return dp[ind][V];
-
-		int not_take = helper(ind - 1, V, coins, dp);
-		int take = INT_MAX;
-
-		if (coins[ind] <= V)
-			take = 1 + helper(ind, V - coins[ind], coins, dp);
-
-		return dp[ind][V] = min(take, not_take);
+	public:
+	
+	int helper(int ind, int target, vector<int> &coins, vector<vector<int>> &dp){
+	    
+	    if(target == 0) return 0;
+	    
+	    if(ind == 0){
+	        
+	        if(target%coins[ind] == 0) return target/coins[ind];
+	        
+	        // Not possible
+	        return INT_MAX;
+	    }
+	    
+	    if(dp[ind][target] != -1) return dp[ind][target];
+	    
+	    // not_take
+	    int choice1 = helper(ind - 1, target, coins, dp);
+	    
+	    
+	    // take
+	    int choice2 = INT_MAX;
+	    if(coins[ind] <= target){
+	        
+	        int val = helper(ind , target - coins[ind], coins, dp); 
+	        
+	        if(val != INT_MAX) choice2 = 1 + val;
+	        
+	    }
+	    
+	    return dp[ind][target] = min(choice1, choice2);
+	    
 	}
-
-	int minCoins(int coins[], int M, int V)
-	{
-
-		vector<vector<int>> dp(M, vector<int>(V + 1, -1));
-
-		int ans = helper(M - 1, V, coins, dp);
-		return ans < 1e9 ? ans : -1;
-	}
+	
+	int minCoins(vector<int> &coins, int M, int target) 
+	{ 
+	    vector<vector<int>> dp(M, vector<int>(target + 1, -1));
+	    
+	    int ans = helper(M-1, target, coins, dp); 
+        return ans == INT_MAX ? -1: ans ;
+	} 
+	  
 };
+
 
 // 2
 // tab

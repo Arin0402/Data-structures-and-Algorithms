@@ -3,6 +3,8 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/find-all-possible-palindromic-partitions-of-a-string/1
 
+// TC  The worst-case time complexity is O(N*2^n), where n is the length of the input string. This is because the algorithm explores all possible partitions, and for each partition, it explores all possible substrings to check if they are palindromes.
+
 class Solution
 {
 public:
