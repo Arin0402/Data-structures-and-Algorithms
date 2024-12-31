@@ -3,6 +3,8 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/connecting-the-graph/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=connecting-the-graph
 
+// easy
+
 class Solution {
 public:
     

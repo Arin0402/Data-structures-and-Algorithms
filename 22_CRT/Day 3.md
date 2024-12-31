@@ -124,28 +124,9 @@
             return 0;
         }
 
-    5. for loop
-
-        - for( ; ; ){
-                print("Hello")
-          }
-        - Output -> Infinite times hello
-        - the empty condition is always true
+    
 
     6. Fibonacci starts with 1
 
         - Fibonacci series -> sum of previous 2 elements
         - Lucas series -> sum of previous 3 elements
-
-    7. Jump statements
-
-        - break -> used to terminate loop or switch
-
-            if(i == 5)
-                break;
-
-            - this will give error
-
-        - continue -> used to skip all the remaining statements and jump to the next step of the loop
-
-        - return -> It is used to transfer control from called function to the calling function

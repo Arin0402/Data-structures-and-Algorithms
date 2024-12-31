@@ -13,36 +13,30 @@ struct Node
     }
 };
 
-void inorder(Node *curr, Node *&prev)
+class Solution
 {
-    // Base case
-    if (curr == NULL)
-        return;
-    inorder(curr->left, prev);
-    prev->left = NULL;
-    prev->right = curr;
-    prev = curr;
-    inorder(curr->right, prev);
-}
+public:
+    
+    void helper(Node* root, Node** prev){
+        
+        if(!root) return;
+        
+        helper(root->right, prev);
+        
+        root->right = *prev;
+        *prev = root;
+        
+        helper(root->left, prev);
+        
+        root->left = NULL;
+        
+    }
 
-// Function to flatten binary tree using
-// level order traversal
-Node *flatten(Node *parent)
-{
-    // Dummy Node
-    Node *dummy = new Node(-1);
-
-    // Pointer to previous element
-    Node *prev = dummy;
-
-    // Calling in-order traversal
-    inorder(parent, prev);
-
-    prev->left = NULL;
-    prev->right = NULL;
-    Node *ret = dummy->right;
-
-    // Delete dummy Node
-    delete dummy;
-    return ret;
-}
+    Node *flattenBST(Node *root)
+    {
+        Node* prev = NULL;
+        helper(root, &prev);
+        
+        return prev;
+    }
+};

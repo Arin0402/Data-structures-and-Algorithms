@@ -7,3 +7,4 @@ using namespace std;
 // push -> 2*curr - mini;
 // pop  -> 2*mini - curr
 
+ 

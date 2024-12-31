@@ -38,6 +38,11 @@ public:
 
         vector<int> topo;
 
+        // distance for each node in topo vector
+        vector<int> dist(N, 1e9);
+
+        dist[0] = 0;
+
         // topological sort
         queue<int> q;
 
@@ -55,36 +60,21 @@ public:
 
             topo.push_back(node);
 
-            for (auto ele : adj[node])
-            {
-
-                indegree[ele.first]--;
-
-                if (indegree[ele.first] == 0)
-                    q.push(ele.first);
-            }
-        }
-
-        // distance for each node in topo vector
-        vector<int> dist(N, 1e9);
-        
-        dist[0] = 0;
-
-        for (int i = 0; i < N; i++)
-        {
-
-            int node = topo[i];
-
             for (auto p : adj[node])
             {
 
                 int ele = p.first;
                 int weight = p.second;
 
+                indegree[ele]--;
+
                 if (dist[node] + weight < dist[ele])
                 {
                     dist[ele] = dist[node] + weight;
                 }
+
+                if (indegree[ele] == 0)
+                    q.push(ele);
             }
         }
 

@@ -16,7 +16,7 @@ struct TreeNode
 // When we have our left and right heights, we do (1 + left + right)
 // If we reach null, return 0
 // C++ note: 1 << n is the same as raising 2 to the power n, or 2^n
-
+ 
 class Solution {
 public:
 

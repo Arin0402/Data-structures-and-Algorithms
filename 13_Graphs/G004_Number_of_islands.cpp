@@ -85,6 +85,8 @@ public:
         int r = grid.size();
         int c = grid[0].size();
 
+        vis[row][col] = true;
+
         for (int delrow = -1; delrow <= 1; delrow++)
         {
 
@@ -95,8 +97,7 @@ public:
                 int ncol = col + delcol;
 
                 if (nrow >= 0 && nrow < r && ncol >= 0 && ncol < c && !vis[nrow][ncol] && grid[nrow][ncol] == '1')
-                {
-                    vis[nrow][ncol] = true;
+                {                    
                     dfs(nrow, ncol, vis, grid);
                 }
             }

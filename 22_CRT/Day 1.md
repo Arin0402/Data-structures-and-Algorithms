@@ -1,24 +1,12 @@
 ### Day 1
 
-    1. C language - created by Dennis ritchie (1972)
-                  - at At & T labs (American Telephone and Telegraph )
-
     2. What is compiler
 
         - converts source code into machine code
         - converts source code into executable file which can be run by the OS
 
     3. Main function is a special user defined function
-
         - user can not change the name of it, but can define the working of it
-
-    4. printf function returns the length of the input
-
-        - n = printf("hello world");
-        - output -> 11
-
-        - n = printf("%d" , 10);
-        - output -> 2
 
     5. space print using printf
 
@@ -58,15 +46,6 @@
         - a = a ^ b
           b = a ^ b
           a = a ^ b
-
-    9. Types of condition
-
-        - if else
-        - nested if else
-        - only if
-        - else if else
-        - switch case
-        - conditional operator( ? : ) 
 
     10. characters and ascii range
             

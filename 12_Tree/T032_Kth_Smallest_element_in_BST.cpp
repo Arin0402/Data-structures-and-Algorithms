@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.geeksforgeeks.org/problems/find-k-th-smallest-element-in-bst/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card
+
 struct Node {
     int data;
     Node *left;

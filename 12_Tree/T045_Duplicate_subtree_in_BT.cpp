@@ -12,7 +12,7 @@ class Solution
 {
 public:
     /*This function returns true if the tree contains
-    a duplicate subtree of size 2 or more else returns false*/
+    a duplicate subtree of size 2 or more else re<<turns false*/
 
     string dupSubHelper(Node *root, unordered_map<string, int> &mp)
     {

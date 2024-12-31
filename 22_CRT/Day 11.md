@@ -237,7 +237,7 @@
         
         - Because the pure virtual functions have no implementation in the abstract class, the derived classes must provide their own implementation to be instantiated.
 
-        - if a class contains atleast one virtual function then it becomes the abstract class.
+        - if a class contains atleast one pure virtual function then it becomes the abstract class.
 
 
 ## operator overloading
@@ -248,7 +248,7 @@
 
         - one operand must be user defined
         - precedency and associativity of the operator will not change
-        - ::, size of, *, . , ->   (These operators will not be overloaded)
+        - ?:, ::, sizeof, .* , . , sizeof, typeid, alignof, noexcept, decltype, New and Delete operators((new, new[], delete, delete[]))   (These operators will not be overloaded)
 
 
     - unary operators 

@@ -15,7 +15,7 @@ class Solution
 	    
 	    vis[node] = true;
 	    
-	    for(auto ele : adj[node]){
+	    for(auto ele : adj[node]){ 
 	        
 	        if(vis[ele] == false){
 	            dfs(ele, vis, order, adj);

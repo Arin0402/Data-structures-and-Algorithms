@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TC - O (N + 2*E); (E - edges) (2*E -> total degree of the undirected graph)
+// TC - O (V + E); (E - edges) 
+     
 vector<int> bfsOfGraph(int V, vector<int> adj[])
 {
 

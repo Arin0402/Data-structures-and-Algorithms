@@ -10,7 +10,7 @@ struct Node
     Node *right;
 };
 
-// Node **targetNode -> this can be single pointer also
+
 void makeParent(Node *root, unordered_map<Node *, Node *> &parent_tracker, int target, Node **targetNode)
 {
 

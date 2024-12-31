@@ -338,16 +338,6 @@ alter table bonus drop primary key;
     -- In order to apply a JOIN operation between two tables in a relational database, there must be a relationship between those tables.
 
 
--- Natural Join
-NATURAL JOIN
-Natural Join in SQL joins two tables based on the same attribute name and datatypes. The resulting table will contain all the attributes of both tables but keep only one copy of each common column.
--- The colmn name should be same.
--- returns the common column one time only
-select ename from employee 
-Natural Join
-department;
-
-
 -- join is applied on the rows column wise whereas union is applied row wise
 	-- columns should be of same type and number in order to apply union, names of the column can be different
     -- Union combines two or more select statements
@@ -474,14 +464,6 @@ HAVING COUNT(*) > 1;
 select id from 
 (select id, salary , year, LEAD(salary, 1, 0) over (partition by id order by year desc) as prev_salary) as temp 
 where temp.salary > temp.prev_salary group by id having count(*) = 3;
-
-
--- trigger
-Create Trigger before_inser_studentage BEFORE INSERT ON student_age FOR EACH ROW
-BEGIN
-IF NEW.age < 0 THEN SET NEW.age = 0;
-END IF;
-END 
 
 
 -- Q Write an SQL query to find the count of the total occurrences of a particular character – ‘n’ in the FullName field.

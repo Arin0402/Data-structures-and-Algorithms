@@ -4,6 +4,7 @@ using namespace std;
 typedef pair<int, int> iPair;
 
 // TC -> https://www.youtube.com/watch?v=3dINsjyfooY&t=488s
+// TC - O(ElogV)
 
 // implementation using priority queue.
 class Solution
@@ -13,10 +14,10 @@ public:
     // from the source vertex S.
 
     // TC  O(E* logV)
-    vector<int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    vector<int> dijkstra(int V, vector<vector<int>> adj[], int S) 
     {
         // min heap priority queue.
-        priority_queue<iPair, vector<iPair>, greater<iPair>> pq;
+        priority_queue<iPair, vector<iPair>, greater<iPair>> pq ;
 
         // distance vector.
         vector<int> dis(V, INT_MAX);

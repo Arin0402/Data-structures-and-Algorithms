@@ -6,10 +6,10 @@ using namespace std;
 // Solution 1
 // Intution based on BFS.
 class Solution {
-public:
-    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+  public:
+    int CheapestFLight(int n, vector<vector<int>>& flights, int src, int dst, int k)  {
         
-        // create adjacency list.
+         // create adjacency list.
         vector<pair<int , int>> adj[n];
         
         for(auto row : flights){            
@@ -29,7 +29,6 @@ public:
         vector<int> prices(n, INT_MAX);
         prices[src] = 0;
                 
-        int minPrice = INT_MAX;        
                         
         while(!q.empty()){
             
@@ -48,15 +47,16 @@ public:
                     prices[ele] =  price_node + price;
                     int totalPrice = price_node + price;                    
                     
-                    if(ele == dst) minPrice = min(minPrice, totalPrice);// if destination is reached, then there is no point in finding distance for its adjacent nodes. So don't push.                                                                        
-                    else q.push({ele, {totalPrice, stops + 1}});                    
+                    // if destination is reached, then there is no point in finding distance for its adjacent nodes. So don't push.                                                                        
+                    if(ele != dst) 
+                        q.push({ele, {totalPrice, stops + 1}});                    
                                         
                 }                
             }
             
         }
                         
-        if(minPrice != INT_MAX) return minPrice;
+        if(prices[dst] != INT_MAX) return prices[dst];
         return -1;
     
     }

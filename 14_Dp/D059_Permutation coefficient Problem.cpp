@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://practice.geeksforgeeks.org/problems/calculate-the-coefficient/0?page=1&sortBy=newest&query=page1sortBynewest
+// https://practice.geeksforgeeks.o rg/problems/calculate-the-coefficient/0?page=1&sortBy=newest&query=page1sortBynewest
 // https://www.youtube.com/watch?v=Ebj83h76VUU
 
 class Solution

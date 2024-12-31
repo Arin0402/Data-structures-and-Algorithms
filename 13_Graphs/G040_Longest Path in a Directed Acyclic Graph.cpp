@@ -7,6 +7,7 @@ class Solution
 {
     public:
     
+    // just do the reverse of Dijkstra's algorithm
     // Do a bfs and traverse to all the adjacent nodes starting from the source node.
     // update the distance if it is greater.
     vector <int> maximumDistance(vector<vector<int>> edges,int v,int e,int src)
@@ -28,12 +29,12 @@ class Solution
         vector<int> dis(v, INT_MIN); // distance vector
         dis[src] = 0; // distance of source is zero.
         
-        queue<int> q;
+         priority_queue<int> q;
         q.push(src);
         
         while(!q.empty()){
             
-            int node = q.front();
+            int node = q.top();
             q.pop();
             
             for(auto p : adj[node]){

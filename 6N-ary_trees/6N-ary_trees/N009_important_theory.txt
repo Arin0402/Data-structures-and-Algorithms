@@ -1,0 +1,122 @@
+
+// DIFFERENCE BETWEEN A CPU AND A CORE
+
+-- > https://www.baeldung.com/cs/core-vs-cpu
+
+When we host a big party, we typically have several tasks to accomplish. Besides actually doing the work in the party location, 
+we also have to organize all the work, talk with suppliers for food, drinks, and decoration, and deal with the guest list.
+Hosting a big party involves a lot of work. So, it would be nice having many people working on it. But, of course, we still need the
+figure of the party host to make decisions and manage the other people working. But, with multiple people, it’s possible to 
+divide all the required tasks and do them in parallel.
+Hosting a party is an analogy to how a modern computer CPU works. The CPU is our party host.
+ It deals with several requests and messages and divides the processing work among the available cores.
+  The cores, in turn, are the people working at the party. They listen to the host (CPU) instructions and
+   execute the required tasks
+   
+Early computer systems, before the 70s, used limited processing units due to the complex integration of transistors and 
+logical gates on a large scale in a single chip. Thus, CPUs required connected chips to work together to process a single task.
+
+After, in the 70s, the Large-Scale Integration (LSI) enabled the creation of microprocessors with data processing and control 
+logic in the same chip. LSI allowed the coexistence of tens of thousands of transistors and up to ten thousand logical ports in 
+the same chip for the same CPU.
+
+
+=== > 
+A core is a processing unit of the CPU. It is responsible for executing programs and multiple other actions on a computer.
+In general, we can divide a core into three main parts: control unit, arithmetic-logic unit, and memory. Each part of the core is responsible for particular tasks:
+
+Control Unit (CU): This unit enables the communication of the core with other components of a computer system.
+ So, for example, it requires instructions processing, sends signals for the computer system hardware, and manages the
+  computer system data. In this way, the control unit communicates with both the arithmetic-logic unit and the memory
+Arithmetic-Logic Unit (ALU): This unit consists of electronic circuits that execute arithmetic and logical operations. 
+Usually, the ALU executes four arithmetic operations – addition, subtraction, multiplication, and division. Furthermore,
+ it typically executes three logical operations – equal-to, less-than, and grater-than
+Memory: The memory built within the core consists of registers and cache. Registers are portions of memory used to,
+ for example, keep addresses, instructions, and results of calculations for the core processing.
+  Cache, in turn, is a high-speed random access memory that holds data that the core probably will (re)use
+
+
+=> https://www.baeldung.com/cs/advanced-cpu-designs#superscalar-processors-and-multi-core-processors
+nstruction pipelining is another mechanism that is employed by the CPU designers to increase the throughput of the CPU.
+ Let’s get back to our analogy where we have a furniture company, so in order to build furniture, we need some operations right. 
+Like getting the wood, cutting the wood into pieces, and assemble them somehow. Instead of getting all the wood and 
+cutting all the wood processes separately, we can parallelize them.
+
+Like in the furniture example, the CPU should follow the instruction cycle which simply includes, fetch, decode, and execute.
+ We can finish all three stages and start the new cycle after that. However, we have another choice right after the fetch of
+  the first instruction: we can fetch another instruction. Since each stage uses a different part of the CPU we can parallelize
+   them.
+
+==>>
+Threads are the virtual components or codes, which divides the physical core of a CPU into virtual multiple cores. 
+A single CPU core can have up-to 2 threads per core.
+
+For example, if a CPU is dual core (i.e., 2 cores) it will have 4 threads. And if a CPU is Octal core (i.e., 8 core) it will have 16 threads and vice-versa.
+
+//https://www.geeksforgeeks.org/what-are-threads-in-computer-processor-or-cpu/#:~:text=A%20single%20CPU%20core%20can,it%20will%20have%204%20threads.
+
+Multiprocessing:
+Multiprocessing is a system that has more than one or two processors. In Multiprocessing, CPUs are added for increasing 
+computing speed of the system. Because of Multiprocessing, There are many processes are executed simultaneously. 
+Multiprocessing are classified into two categories:
+
+Multithreading:
+Multithreading is a system in which multiple threads are created of a process for increasing the computing speed of the system.
+ In multithreading, many threads of a process are executed simultaneously and process creation in multithreading is done 
+ according to economical.
+
+//https://www.youtube.com/watch?v=px4W-HXRWKk
+
+Semaphores and Race condition
+What's A Mutex?
+Mutex stands for mutual exclusion and it's the most basic form of synchronization between processes.
+ Mutexes guarantee that only one thread can lock a given mutex. If a code section is surrounded by a mutex locking and unlocking, 
+ it's guaranteed that only a thread at a time executes that section of code. When that thread unlocks the mutex, 
+ other threads can enter to that code region:
+
+//The mutex has been previously constructed
+lock_the_mutex();
+
+//This code will be executed only by one thread
+//at a time.
+
+unlock_the_mutex();
+https://live.boost.org/doc/libs/1_37_0/doc/html/interprocess/synchronization_mechanisms.html
+
+Critical Section: When more than one processes access the same code segment that segment is known as the critical section.
+ The critical section contains shared variables or resources which are needed to be synchronized to maintain the consistency 
+ of data variables. In simple terms, a critical section is a group of instructions/statements or region of code that need to 
+ be executed atomically (read this post for atomicity), such as accessing a resource (file, input or output port, global data,
+  etc.). In concurrent programming, if one thread tries to change the value of shared data at the same time as another thread 
+  tries to read the value (i.e. data race across threads), the result is unpredictable. The access to such shared variables 
+  (shared memory, shared files, shared port, etc…) is to be synchronized. Few programming languages have built-in support for
+   synchronization. It is critical to understand the importance of race conditions while writing kernel-mode programming 
+   (a device driver, kernel thread, etc.). since the programmer can directly access and modify kernel data structures.
+
+
+It could be visualized using the pseudo-code below:-
+
+do{
+    flag=1;
+    while(flag); // (entry section)
+        // critical section
+    if (!flag)
+        // remainder section
+} while(true);
+A simple solution to the critical section can be thought of as shown below,
+
+acquireLock();
+Process Critical Section
+releaseLock();
+A thread must acquire a lock prior to executing a critical section. The lock can be acquired by only one thread. 
+There are various ways to implement locks in the above pseudo-code. Let us discuss them in future articles. 
+Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above.
+
+2. Race Condition
+By definition, a race condition is a condition of a program where its behavior depends on relative timing or interleaving of 
+multiple threads or processes. One or more possible outcomes may be undesirable, resulting in a bug. We refer to this kind 
+of behavior as nondeterministic.
+https://www.baeldung.com/cs/race-conditions
+
+https://www.geeksforgeeks.org/semaphores-in-process-synchronization/
+https://www.youtube.com/watch?v=1mTGZHcs7zw

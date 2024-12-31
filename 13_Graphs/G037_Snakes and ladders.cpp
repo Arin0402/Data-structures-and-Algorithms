@@ -24,7 +24,7 @@ public:
         q.push({1, 0});
 
         vis[1] = true;
-
+ 
         while (!q.empty())
         {
 

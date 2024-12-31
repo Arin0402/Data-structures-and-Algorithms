@@ -88,7 +88,7 @@
     - Private Mode -   If we derive a subclass from a Private base class. Then both public members and protected members of the base class will become Private in the derived class.
 
 ## Types Of Inheritance:-
-
+    
     - Single inheritance -  In single inheritance, a class is allowed to inherit from only one class. i.e. one subclass is inherited by one base class only.
 
 

@@ -123,12 +123,3 @@
         - Exit control loop
 
             - do while loop
-
-
-    12. While loop
-
-        - Syntax
-            - Initialization
-            - condition
-            - statement
-            - inc/dec

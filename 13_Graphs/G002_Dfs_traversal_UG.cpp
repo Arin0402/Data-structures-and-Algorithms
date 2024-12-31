@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// TC - O (N + 2*E); (E - edges)
+// TC - O (V + E); (E - edges)
 class Solution
 {
     void Helper(int ind, vector<int> adj[], vector<int> &ans, vector<int> &visited)

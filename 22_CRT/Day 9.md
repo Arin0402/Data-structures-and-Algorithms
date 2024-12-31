@@ -10,19 +10,6 @@
 
     - this pointer contains the address of the calling object. Its datatype is class name
 
-    - class {
-
-            int a, b;
-
-
-            void func(int a, int b){
-
-                a = a;
-                b = b;
-            }
-
-            // Here both the a's and both the b's are local varible inside the function
-        }
     
     - class student{
 

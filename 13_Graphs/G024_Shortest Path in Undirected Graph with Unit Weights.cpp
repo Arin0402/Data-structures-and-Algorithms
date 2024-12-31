@@ -18,30 +18,32 @@ class Solution {
             
         }
         
-        vector<int> ans(N, -1);
-        queue<pair<int, int>> q;
+        vector<int> ans(N, INT_MAX);
+        queue<int> q;
         
         ans[src] = 0;
-        q.push({src,0});
+        q.push(src);
         
         while(!q.empty()){
             
-            auto p = q.front();
+            int node = q.front();
             q.pop();
-            
-            int node = p.first;
-            int dist = p.second;
             
             for(auto ele : adj[node]){
                 
-                if(ans[ele] == -1 || ans[node] + 1  < ans[ele]) {
+                if( ans[node] + 1  < ans[ele]) {
                     ans[ele] = ans[node] + 1;
-                    q.push({ele, ans[ele]});
+                    q.push(ele);
                 }
             }
+        }
+        
+        for (int i = 0; i < N; i++)
+        {
+            if (ans[i] == INT_MAX)
+                ans[i] = -1;
         }
         
         return ans;
     }
 };
-

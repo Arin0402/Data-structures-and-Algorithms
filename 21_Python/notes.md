@@ -70,7 +70,6 @@
     Python can connect to database systems. It can also read and modify files.  
     Python can be used to handle big data and perform complex mathematics.
 
-
 - To change the value of a global variable inside a function, refer to the variable by using the global keyword:
 
     x = "awesome"
@@ -82,7 +81,6 @@
     myfunc()
 
     print("Python is " + x) -> Python is fantastic
-
 
 - Python does not have a character data type, a single character is simply a string with a length of 1.
 

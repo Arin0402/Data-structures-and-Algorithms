@@ -1,0 +1,49 @@
+so we have been given an n-ary tree and three operations are allowed on it
+
+- first operation is lock operation. It takes two parameters ( Node name and the user id of the user that would lock the node)
+
+	- so lock operation can not be performed on a node that is already locked. This is the first thing
+	- If a node already has a locked ancestor or descendant than we can not lock it.
+	
+- the second operation is unlock. It also takes two parameters ( Node name and the user id of the user that would lock the node)
+
+	- unlock operation on a node is successful only when the node is already locked and it has been locked by the same user before
+
+
+- the third operation is Upgrade. It also takes two parameters ( Node name and the user id of the user that would lock the node)
+
+	- it helps the user to upgrade their descendants lock to the current node.
+	- this is only possible only when the current node which is passed as a parameter should already have locked descendants and all of them should have been locked by the current user only.
+
+	- Upgrade lock operation on node having no locked descendants should fail and upgrade lock on already locked node should also fail
+
+	- if there is any node in the descendants that has been locked by another user then this operation fails.
+	- if there is any node in the ancestors that is locked by any user, then this operation fails.		
+
+	- upon successful completion of this operation, the current node gets locked and the descendants get unlocked
+
+
+- Time complexity	
+	
+	m = no. of children per node
+	n = no. of nodes
+	
+	- Lock - log m N
+	- Unlock - log m N
+	- Upgrade - no. of locked nodes* log m N
+
+
+- in which cases will there be a race condition
+	
+	-  Particular node will inform all its ancestor about its locking and 2 descendants are locked at same time and informing the same ancestor (this may cause race condition)
+
+- are we taking context switching into account ?	
+
+- code similar to my code
+	https://www.algostreak.com/post/locking-unlocking-of-n-ary-tree
+
+
+- flag variable
+- busy waiting using single variable
+
+

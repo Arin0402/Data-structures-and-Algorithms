@@ -2,12 +2,13 @@
 using namespace std;
 
 // https://youtube.com/watch?v=0vVofAhAYjc
+// easy
+// TC - O(n)*O(E);
 
 class Solution
 {
 public:
-	// easy
-	// TC - O(n)*O(E);
+	
 	int isNegativeWeightCycle(int n, vector<vector<int>> edges)
 	{
 

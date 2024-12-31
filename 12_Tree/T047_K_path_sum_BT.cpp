@@ -50,3 +50,40 @@ public:
         return ans;
     }
 };
+
+// or using map
+
+class Solution {
+  public:
+  
+    unordered_map<int, int> mp;
+    
+    void helper(Node* root, int &ans, int &sum, int k){
+        
+        if(!root) return;
+        
+        sum += root->data;
+        if(mp.find(sum - k) != mp.end()) ans += mp[sum - k];
+        
+        mp[sum]++;
+        
+        helper(root->left, ans, sum, k);
+        helper(root->right, ans, sum, k);
+        
+        mp[sum]--;
+        sum -= root->data;
+        
+    }
+  
+    int sumK(Node *root, int k) {
+        
+        int ans = 0;
+        int sum = 0;
+        
+        mp[0] = 1;
+        
+        helper(root, ans, sum, k);
+        
+        return ans;
+    }
+};
