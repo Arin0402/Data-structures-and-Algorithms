@@ -101,3 +101,41 @@
     - Cons
 
         - The code may become more complicated since you need to introduce a lot of new subclasses to implement the pattern. The best case scenario is when you’re introducing the pattern into an existing hierarchy of creator classes.
+
+# Difference bw Factory pattern and abstract factory
+
+    - Factory Method Pattern (One Type of Product, Different Variants)
+
+        Imagine a Burger Restaurant that serves different types of burgers (Veg Burger, Chicken Burger, etc.).
+        The kitchen (factory method) knows how to make a burger, but the specific type of burger depends on which chef (subclass) is working.
+        
+        🔹 Example:
+
+            McDonald's kitchen makes only burgers, but different branches might serve Veg Burger or Chicken Burger based on the location.
+
+        📌 Key Takeaway: The Factory Method is used when you need to create one type of product but allow subclasses to define which version (variant) to create.
+
+    - Abstract Factory Pattern (Multiple Related Products)
+
+        Now, imagine a Fast Food Restaurant that serves both Burgers and Fries.
+
+        There are two types of meals:
+
+        Veg Meal → (Veg Burger + Veg Fries)
+        Non-Veg Meal → (Chicken Burger + Chicken Fries)
+        
+        If you order a Veg Meal, you get a Veg Burger & Veg Fries (matching set).
+
+        If you order a Non-Veg Meal, you get a Chicken Burger & Chicken Fries (another matching set).
+
+        🔹 Example:
+
+        KFC or McDonald's offers combo meals where the burger and fries come together, ensuring they are compatible.
+
+        📌 Key Takeaway: The Abstract Factory is used when you need to create multiple related products together, ensuring they match (like a meal combo).
+
+    - Main Difference in One Line:
+
+        ✔ Factory Method = Creates one type of product (Burger, but different variants).
+        ✔ Abstract Factory = Creates a family of related products (Burger + Fries combo).
+        
