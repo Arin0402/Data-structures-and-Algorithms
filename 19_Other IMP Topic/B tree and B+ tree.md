@@ -14,7 +14,7 @@
 
     - Only keys are stored in internal nodes; actual data (values) are stored only in leaf nodes.
     - Internal nodes are used only for indexing.
-    - Leaf nodes are linked together using pointers (forming a linked list), making range queries more efficient.
+    - Leaf nodes are linked together using pointers (forming a linked list), making range queries more efficient. (e.g., WHERE age BETWEEN 30 AND 40).
     - All leaf nodes are at the same level.
     - Search always goes to the leaf level, where actual data is stored.
     - Faster lookup for range queries due to linked leaf nodes.

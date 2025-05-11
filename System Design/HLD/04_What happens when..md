@@ -17,23 +17,21 @@
     - The browser needs to translate "google.com" into an IP address
 
         1. Browser asks the OS for google.com's IP
-        2. OS checks its local cache
-        3. OS queries the configured DNS server (usually provided by ISP, Google DNS 8.8.8.8, Cloudflare 1.1.1.1)
-        4. DNS server responds with Google's IP address (e.g., 142.250.183.14)
 
-## Step 3: Establish a TCP Connection (3-Way Handshake)
+        2. OS checks its local cache, if found then return
 
-    - Now that the browser has Google’s IP, it establishes a connection using TCP (Transmission Control Protocol):
+        3. OS asks the Resolver (or Internet Service Provider) server to look up its cache to see if it knows the IP Address, if the Resolver does not know then it asks the root server to ask the .COM TLD (Top Level Domain) server - if your URL ends in .net then the TLD server would be .NET and so on - the TLD server will again check in its cache to see if the requested IP Address is there. 
+        
+        4. If not, then it will have at least one of the authoritative name servers associated with that URL, and after going to the Name Server, it will return the IP Address associated with your URL. All this was done in a matter of milliseconds WOW!
+        
+## Step 3: 
 
-        1. Client (your browser) sends SYN (synchronize) packet
-        2. Server (Google) responds with SYN-ACK (synchronize-acknowledge) packet
-        3. Client replies with ACK (acknowledge) packet
+    - After the OS has the IP Address and gives it to the browser, it then makes a GET (a type of HTTP Method) to said IP Address. When the request is made the browser again makes the request to the OS which then, in turn, packs the request in the TCP traffic protocol we discussed earlier, and it is sent to the IP Address. 
 
-    ✅ Connection established!
 
-## Step 4: TLS Handshake (if HTTPS)
+## Step 4: Establish a TCP Connection TLS Handshake (if HTTPS)
 
-    - Since google.com uses HTTPS, a TLS (Transport Layer Security) handshake happens to establish a secure connection:
+    - On its way, it is checked by both the OS' and the server's firewall to make sure that there are no security violations. And upon receiving the request the server (usually a load balancer that directs traffic to all available servers for that website) sends a response with the IP Address of the chosen server along with the SSL (Secure Sockets Layer) certificate to initiate a secure session (HTTPS). 
 
     1. Client sends "Client Hello" → Advertises supported encryption methods
     2. Server responds with "Server Hello" → Chooses encryption method and sends certificate

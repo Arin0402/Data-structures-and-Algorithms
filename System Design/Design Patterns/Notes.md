@@ -17,12 +17,37 @@
 
 # Types od design patterns
 
-    - Creational patterns provide object creation mechanisms that increase flexibility and reuse of existing code.
+    - Creational Design Patterns – “How to create objects?”        
+        - Deal with object creation mechanisms, trying to create objects in a manner that is suitable to the situation.
+        - Think of this like ways to build a house.
 
-    - Structural patterns explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
+            Example: You want to build a house.
 
-    - Behavioral patterns take care of effective communication and the assignment of responsibilities between objects.
+            You can build it yourself (manual creation).
+            You can hire a contractor (Factory).
+            You can buy a ready-made house (Prototype).
+            You can use a blueprint and builder (Builder pattern).
+            You can make sure only one house exists (Singleton).
 
+    - Structural Design Patterns – “How to connect objects?”
+        - Deal with object composition, i.e., how classes and objects are composed to form larger structures.
+        - Think of this like ways to build structures with LEGO blocks.
+
+            Example: You have LEGO pieces (classes/objects).
+
+            You can wrap one inside another to add more features (Decorator).
+            You can convert one block to fit another (Adapter).
+            You can hide the complexity by using a remote control instead of many buttons (Facade).        
+
+    -  Behavioral Design Patterns – “How do objects talk to each other?”
+        - Focus on communication between objects, what goes on between objects.
+
+            Example: In a classroom:
+
+            Students raise their hand to speak (Observer).
+            A teacher gives instructions to students (Command).
+            Each student solves the same problem in their own way (Strategy).
+            If one student changes the slide, others update their notes (Observer).        
 
 # Abstract class and interface
 
@@ -95,6 +120,33 @@
                 public function area();
             }
 
+        - ex:   
+
+            interface Shape {
+                double area();
+            }
+
+            class Rectangle implements Shape {
+                double length, width;
+                public double area() {
+                    return length * width;
+                }
+            }
+
+            class Circle implements Shape {
+                double radius;
+                public double area() {
+                    return Math.PI * radius * radius;
+                }
+            }
+
+            class AreaCalculator {
+                public double calculate(Shape shape) {
+                    return shape.area();
+                }
+            }
+
+
     - Liskov substitution principle
         
         - Derived classes should be usable in place of their parent class without unexpected behavior. This helps avoid unpredictable consequences of changes.
@@ -105,12 +157,16 @@
 
         - No class should be forced to implement interfaces or methods that it will not use. It's better to have specific interfaces, rather than a single general interface.
 
-        - https://youtu.be/XI7zep97c-Y?t=773
+        - https://www.youtube.com/watch?v=Kv7Twu66LuM
 
     - Dependency inversion principle
 
-        - Classes should depend on interfaces rather than concrete classes
+        - High-level modules should not depend on low-level modules. Both should depend on abstractions.
+          Abstractions should not depend on details. Details should depend on abstractions.
 
-        - https://youtu.be/XI7zep97c-Y?t=923
+        - In simple words
+            - "Don’t make your main code rely on specific things. Make it rely on general rules or interfaces, so you can swap the parts easily."
+
+        - https://www.youtube.com/watch?v=aGym5w0qomk
 
 
