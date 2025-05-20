@@ -24,7 +24,7 @@ class NodeValue
 public:
     int maxNode, minNode, maxSize;
 
-    NodeValue(int minNode, int maxNode, int maxSize)
+    NodeValue(int minNode, int maxNode, int maxSize) 
     {
 
         this->minNode = minNode;

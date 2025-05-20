@@ -26,6 +26,7 @@ public:
 
             right--;
 
+            // Print bottom row from right to left (if exists)
             if (top <= bottom) {
                 for (int i = right; i >= left; i--)                
                     ans.push_back(matrix[bottom][i]);
@@ -33,6 +34,7 @@ public:
                 bottom--;
             }
 
+            // Print left column from bottom to top (if exists)
             if (left <= right) {
                 for (int i = bottom; i >= top; i--)                    
                     ans.push_back(matrix[i][left]);

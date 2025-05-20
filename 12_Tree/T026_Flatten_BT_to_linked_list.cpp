@@ -29,7 +29,7 @@ void func(TreeNode *root, TreeNode **prev)
     root->right = *prev; // assign right to prev;
     root->left = NULL;   // change left = null, as it is gonna be right skewed BT;
 
-    *prev = root; // change prev to root;
+    *prev = root; // change prev to root;   
 }
 
 void flatten(TreeNode *root)

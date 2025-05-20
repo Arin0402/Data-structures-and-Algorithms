@@ -17,23 +17,35 @@ struct Node
 };
 
 // O(H)
-Node *inOrderSuccessor(Node *root, Node *x)
+int inOrderSuccessor(Node *root, Node *x)
 {
 
-    Node *succ = NULL;
-    while (root)
-    {
+    int succ = -1;
 
+    // find the x
+    while (root != x)
+    {
         if (root->data > x->data)
         {
-            succ = root;
+            succ = root->data;
             root = root->left;
         }
         else
-        {
-            root = root->right; 
-        }
+            root = root->right;
     }
 
+    // if nothing is present on the rigt then the x's parent is the inorder successor
+    if (root->right == NULL)
+        return succ;
+
+    // go to right
+    root = root->right;
+
+    // The left most element of the right subtree
+    while (root->left)
+        root = root->left;
+
+    succ = root->data;
+
     return succ;
-} 
+}

@@ -90,3 +90,30 @@ class Solution{
             
     }
 };
+
+// Using set
+// O(NLogN)
+// For each element, we are finding the least greater element in O(log N) time, So the time complexity is O(N*Log(N));
+
+
+class Solution {
+  public:
+    vector<int> findLeastGreater(vector<int>& arr, int n) {
+        
+        set<int> st;
+        
+        vector<int> ans(n, -1);
+        
+        for(int i = n-1; i >= 0; i--){
+            
+            st.insert(arr[i]);
+            
+            auto itr = st.upper_bound(arr[i]);
+            
+            if(itr != st.end()) ans[i] = *itr;
+        }
+        
+        return ans;
+        
+    }
+};

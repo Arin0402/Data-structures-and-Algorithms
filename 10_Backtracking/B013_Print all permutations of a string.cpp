@@ -62,7 +62,7 @@ public:
 
         vector<vector<int>> ans;
         vector<int> ds;
-        vector<int> indexes(nums.size(), 0);
+        vector<int> indexes (nums.size(), 0);
 
         permutations_approach_1(ds, indexes, nums, ans, nums.size());
 

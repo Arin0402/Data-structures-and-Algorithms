@@ -35,14 +35,6 @@ public:
         
         arr[l] = t;
     }
-    
-    void print(int arr[], int n){
-        
-        for(int i =0 ; i < n; i++){
-            cout<<arr[i]<<" ";
-        }
-        cout<<endl;
-    }
 
 	void rearrange(int arr[], int n) {
 	    

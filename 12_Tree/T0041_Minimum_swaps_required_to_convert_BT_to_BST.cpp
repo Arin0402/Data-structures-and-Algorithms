@@ -2,6 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// https://www.youtube.com/watch?v=-2_c4lG7k_M
+
 class Solution
 {
 public:
@@ -19,7 +21,6 @@ public:
     }
 
     // pass the inorder traversal in this to get the minimum number of swaps;
-    // https://www.youtube.com/watch?v=-2_c4lG7k_M
     int minSwapsHelper(vector<int> &nums)
     {
         int n = nums.size();

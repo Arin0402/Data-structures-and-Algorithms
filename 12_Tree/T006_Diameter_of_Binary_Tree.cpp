@@ -3,6 +3,8 @@ using namespace std;
 
 // https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1
 
+// The question has been updated. So just retrun ans - 1 at the end
+
 struct TreeNode
 {
     int val;

@@ -14,15 +14,15 @@ class Solution{
   public:
     
     long long int merge(long long int arr[], long long int l,long long int m,  long long int r)
-    {
-        
-        long long int i, j, k;
+    {                
         long long int n1 = m - l + 1;
         long long int n2 =  r - m;
         
         long long int count = 0;
         /* create temp arrays */
         long long int L[n1], R[n2];
+
+        long long int i, j, k;
     
         /* Copy data to temp arrays L[] and R[] */
         for (i = 0; i < n1; i++)

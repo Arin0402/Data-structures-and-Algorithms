@@ -1,4 +1,4 @@
-// https://practice.geeksforgeeks.org/problems/sum-tree/1
+// https://practice.geeksforgeeks.org/problems/s    um-tree/1
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,33 +14,28 @@ struct Node
 class Solution
 {
 public:
-    int check(Node *root)
+    int helper(Node *root)
     {
 
         if (!root)
-            return 0; // returns 0 if null;
+            return 0;
         if (!root->left && !root->right)
-            return root->data; // return root data if leaf node;
+            return root->data;
 
-        int left = check(root->left);
-        int right = check(root->right);
-
-        if (left == INT_MIN || right == INT_MIN)
-            return INT_MIN; // condition fails so return;
+        int left = helper(root->left);
+        int right = helper(root->right);
 
         if (root->data == left + right)
             return root->data + left + right;
         else
-            return INT_MIN; // condition fails.
+            return 0;
     }
+
     bool isSumTree(Node *root)
     {
 
-        if (!root)
-            return true;
+        int val = helper(root);
 
-        if (check(root) == INT_MIN)
-            return false;
-        return true;
+        return val;
     }
 };

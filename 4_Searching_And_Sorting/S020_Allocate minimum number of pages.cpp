@@ -21,8 +21,7 @@ class Solution
         int studentAllocated = 0;
         
         while(i < n){
-            
-            
+                        
             if(temp + arr[i] <= pages){
                 temp += arr[i];
                 

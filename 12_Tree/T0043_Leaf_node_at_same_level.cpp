@@ -12,33 +12,44 @@ struct Node
 class Solution
 {
 public:
-    /*You are required to complete this method*/
-
-    bool checkHelper(Node *root, int level, int &LeftMostleaflevel)
+    bool helper(Node *root, int &FirstLeafHeight, int tempHeight)
     {
 
         if (!root)
             return true;
 
+        // left node
         if (!root->left && !root->right)
-        { // leaf node
+        {
 
-            if (LeftMostleaflevel == -1)
-            {                              // left most leaf node
-                LeftMostleaflevel = level; // set the value.
+            // this is the first leaf node
+            if (FirstLeafHeight == INT_MIN)
+            {
+                FirstLeafHeight = tempHeight;
                 return true;
             }
-
-            return (LeftMostleaflevel == level); // else compare the level with left most node height.
+            // check if the height is same or not
+            else
+                return FirstLeafHeight == tempHeight;
         }
 
-        return checkHelper(root->left, level + 1, LeftMostleaflevel) && checkHelper(root->right, level + 1, LeftMostleaflevel);
-    }
+        // at any point if tempheight becomes greater than the FirstLeafHeight then not possible
+        if (FirstLeafHeight != INT_MIN && tempHeight > FirstLeafHeight)
+            return false;
 
+        if (helper(root->left, FirstLeafHeight, tempHeight + 1) == false)
+            return false;
+        if (helper(root->right, FirstLeafHeight, tempHeight + 1) == false)
+            return false;
+
+        return true;
+    }
     bool check(Node *root)
     {
-        int LeftMostleaflevel = -1; // height of the left most node of the tree. This will be used for compariosn.
 
-        return checkHelper(root, 0, LeftMostleaflevel);
+        // The first leaf node height
+        int FirstLeafHeight = INT_MIN;
+
+        return helper(root, FirstLeafHeight, 0);
     }
 };
