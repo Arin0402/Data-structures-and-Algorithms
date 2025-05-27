@@ -5,6 +5,10 @@ using namespace std;
 // easy
 // TC - O(n)*O(E);
 
+// Helps to detect negative cycles
+// Works only with Directed graphs
+// If there is undirected graph then
+
 class Solution
 {
 public:

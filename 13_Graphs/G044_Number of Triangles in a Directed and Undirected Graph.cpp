@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// https://www.geeksforgeeks.org/number-of-triangles-in-directed-and-undirected-graphs/
+// https://www.geeksforgeeks.o rg/number-of-triangles-in-directed-and-undirected-graphs/
 
 class Solution
 {
