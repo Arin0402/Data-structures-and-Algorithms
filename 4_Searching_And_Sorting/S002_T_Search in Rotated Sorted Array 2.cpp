@@ -9,7 +9,9 @@ using namespace std;
 // O(logn)
 class Solution {
   public:
-    bool Search(int N, vector<int>& arr, int key) {
+    bool Search(vector<int>& arr, int key) {
+        
+        int N = arr.size();
         
         int low = 0;
         int high = N -1;
@@ -29,7 +31,7 @@ class Solution {
             else if(arr[low] <= arr[mid]){
                 
                 // lies in the range
-                if(key >= arr[low] && key <= arr[mid]) high = mid-1;
+                if(key >= arr[low] && key < arr[mid]) high = mid-1;
                 else low = mid + 1;
                 
             }
@@ -38,7 +40,7 @@ class Solution {
             else{
                 
                 // lies in the range
-                if(key >= arr[mid] && key <= arr[high]) low = mid + 1;
+                if(key > arr[mid] && key <= arr[high]) low = mid + 1;
                 else high = mid-1;
                     
             }

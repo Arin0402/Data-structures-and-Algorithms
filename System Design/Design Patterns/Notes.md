@@ -170,3 +170,9 @@
         - https://www.youtube.com/watch?v=aGym5w0qomk
 
 
+# When solving design problem
+
+    - interview is looking at 
+
+        - How good are you at requirementes gahering
+        - How good are the OOPS concepts
