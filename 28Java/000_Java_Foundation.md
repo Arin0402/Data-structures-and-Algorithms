@@ -1,8 +1,8 @@
 # Rules to Declare a Variable
 
-    A variable name can consist of 
+    A variable name can consist of
     A-Z, a-z, 0-9, _ , $
-    
+
     The first character must not be a digit.
     Blank spaces cannot be used in variable names.
     Java keywords cannot be used as variable names.
@@ -17,7 +17,8 @@
     transient -  is used to indicate that a field should not be serialized.
 
     - * -> not used
-        
+
+
 ## Type of languages
 
     - low level languages (Machine lang, assembly lang)
@@ -50,11 +51,11 @@
     - In Java, true and false are not considered as 1 and 0
     - char size in java is 2bytes(16bits) but in c/cpp it is 1 byte. It is because java supports Unicode whereas lateral supports ascii.
 
-    - in Java 10 and later, Java allows local variables to be declared with var, where the compiler infers the type. variables can primitive data types, arrays, user defined classes etc.var cannot be used for fields (class or instance variables), method parameters, or return types. It is only for local variables inside methods, constructors, and initialization blocks.  
+    - in Java 10 and later, Java allows local variables to be declared with var, where the compiler infers the type. variables can primitive data types, arrays, user defined classes etc.var cannot be used for fields (class or instance variables), method parameters, or return types. It is only for local variables inside methods, constructors, and initialization blocks.
 
-    - Autoboxing is the automatic conversion of a primitive type to its corresponding wrapper class, and unboxing is the reverse process.  
+    - Autoboxing is the automatic conversion of a primitive type to its corresponding wrapper class, and unboxing is the reverse process.
 
-    - Wrapper classes in Java are classes that encapsulate primitive data types into objects. This allows primitives to be used in contexts where objects are required, such as in collections and generics.  
+    - Wrapper classes in Java are classes that encapsulate primitive data types into objects. This allows primitives to be used in contexts where objects are required, such as in collections and generics.
 
 # Typecasting
 
@@ -108,7 +109,7 @@
 # History of JAVA
 
     - start from 1991
-    - company name - sun microsystems    
+    - company name - sun microsystems
     - current version - JDK24
     - stable version - JDK21
 
@@ -156,7 +157,8 @@
 - command to run byte code -> java CLASS_NAME
 
 - NOTE: filename and class name can be different only if the class is non public. we compile using file name and we riun the compiled code using classname
-    - if the class is public like public test {}, then file name and class name should be same
+
+  - if the class is public like public test {}, then file name and class name should be same
 
 - if there are 5 classes in a program then 5 .class files would be formed but .exe file would be single only
 
@@ -174,7 +176,7 @@
     - For overloading, Parameters should be differnt and name shoudld be same
     - Overlaoding is not considered when only the return type is changed
     - public, private, etc. don’t affect the method signature
-    - static, final, modifiers like these are not considered part of the signature        
+    - static, final, modifiers like these are not considered part of the signature
     - throws IOException, etc., are ignored for method signature
 
 - class names can start with both capital and small
@@ -182,6 +184,7 @@
 # c# is both procedural and object oriented
 
 # Marker interface
+
     - An interface with no methods defined in it.
     - It just marks a class with a special property.
 
@@ -200,13 +203,13 @@
     - in cpp
 
         className obj1 = obj would create new object obj1 with shallow copy
-    
+
     - but in java, this would only create a new reference variable that would store the address.
-        
+
         - to create a new object, we can do
 
             - ClassName obj1 = new ClassName(obj);
-            
+
             - (implement copy constructor in class)
 
     - In Java, constructors themselves cannot directly have default values for parameters like in C++.
@@ -217,13 +220,13 @@
               - not accessible in other package
     - private - accessible in class only
     - public - everywhere
-    - protected 
+    - protected
         - accessible in class
         - Same package
         - Subclass in another package
-                    
 
-# Java does not have destructor because Java relies on a garbage collector (GC) 
+
+# Java does not have destructor because Java relies on a garbage collector (GC)
 
 # static keyword
 
@@ -299,7 +302,7 @@
 
     - Final or constant class
         - class declared with final keyword
-        - Member variables are not final by default                        
+        - Member variables are not final by default
         - final methods can not be overridden
         - can not be inherited by another subclass
         - In Java, declaring a class as final means that the class cannot be subclassed (i.e., no other class can extend this class).
@@ -321,11 +324,11 @@
 
 
     - Abstract
-        
+
         - Note: we can not define abstract methods in normal class
         - have to be overridden
         - cannot create objects
-        - can have constructor        
+        - can have constructor
         - can extend another abstract class but cannot override methods
 
         - varaibles, constructor and inner class can not be abstract
@@ -339,18 +342,18 @@
                 Final variables
 
                 Any access modifier (private, protected, public)
-            
-            - If we declare the variable with the same name in child class. It is hidden, not ovverridden. 
-            - It means that binding is done at the compile time. So if we call the variable using the Parent's reference, then the variable of parent class would be called. Here parent is an Abstract class.        
 
-        - What kind of methods can Abstract class have ? 
+            - If we declare the variable with the same name in child class. It is hidden, not ovverridden.
+            - It means that binding is done at the compile time. So if we call the variable using the Parent's reference, then the variable of parent class would be called. Here parent is an Abstract class.
+
+        - What kind of methods can Abstract class have ?
 
             -   Abstract                =  declared with abstract keyword
-                Concrete (with body)	= 
-                Static	
-                Final	
-                Private	
-                Protected	
+                Concrete (with body)	=
+                Static
+                Final
+                Private
+                Protected
                 Public
 
         - Java does not have a keyword explicitly called virtual like C++. However, all non-static methods in Java behave as virtual functions by default. This means that they support runtime polymorphism, where the method that is invoked is determined at runtime based on the object's actual type, not the reference type.
@@ -403,7 +406,7 @@
         - when we want to create the copies of the object
 
         A obj1 = (A)obj.clone();
-                
+
         - using clone() method, a new object is created without using constructor
 
     - 4 using deserializarion
@@ -452,7 +455,6 @@
     A literal is a fixed value that you directly type into your code — it represents constant data that Java understands at compile time.
 
 # String is not a datatype, it is a class type/reference type
-
 
 ## Explaining System.out.println("");
 
@@ -503,7 +505,7 @@ class Test{
 
     - Scanner s = new Scanner(System.in)
 
-#  Why System.in.nextInt() doesn't work:
+# Why System.in.nextInt() doesn't work:
 
     - System.in is of type InputStream
 
@@ -584,7 +586,8 @@ class Test{
             SOP(obj instanceof B) // o.p = false
 
         }
-        
+
+
 # control statement
 
         - switch control statement
@@ -592,8 +595,8 @@ class Test{
             NOTE: - only byte, int, short, char and string literals are allowed in switch. ( switch( HERE ) )
                   - Floating literal is not allowed
                   - duplicate cases are not allowed
-                  - input literal and cases literal should be of same data type 
-                  
+                  - input literal and cases literal should be of same data type
+
 
                   ex -
                     switch('A'){
@@ -675,7 +678,6 @@ class Test{
     1. length = It is a final varaible which holds the length of the array
     2. length() = It is s method of String class. Returns the length of the string
 
-
 # declaration and initialization
 
     - This is correct =>
@@ -705,8 +707,7 @@ class Test{
 
     int arr[] = m();
 
-
-# In Java, everything is pass by value. When we pass the object into a function, it's reference(address) is passed which it self is a value. Changing the refernce will change the original object. 
+# In Java, everything is pass by value. When we pass the object into a function, it's reference(address) is passed which it self is a value. Changing the refernce will change the original object.
 
     - if assign the reference to a nwew object in the function, then it would not affect the original object.
 
@@ -731,10 +732,10 @@ class Test{
 # OOPS conscepts
 
 # constructor
-  
+
     - it can not be declared as final, static, abstract and synchronised.
     - private constructor can not initialize object outside the class but inside it can be done.
-    
+
     - types
         - default
         - parameterised
@@ -755,7 +756,7 @@ class Test{
 
      - Important Points
         Increasing Visibility: When overriding a method, you can change the access modifier to one with greater visibility. Thus, protected can be overridden to public.
-        
+
         Decreasing Visibility: You cannot override a method and reduce its visibility. For instance, a public method in the base class cannot be overridden with a protected or private method in the derived class.
 
     - Constructor is not inherited
@@ -764,33 +765,32 @@ class Test{
         - code reusablity
         - runtime polymorphism
         - abstraction
-    
+
     - types
 
         there are 5 types but java directly supports only 3 and indirectly supprots 2
 
-        - single lvl        
+        - single lvl
         - multi lvl
         - multiple/multipath (not supported)
 
             - in cpp we have scope resolution operator to avoid the ambiguity but in Java, we don't have.
-            - It can be achieved through interface  
+            - It can be achieved through interface
 
         - hybrid (not supported)
-         
+
             - not supported due to diamond problem
             - can be done through interface
             -                        interface
                                     /       \
                     (extends)     /          \ (extends)
-                            interface       interface        
+                            interface       interface
                                   \         /
                                    \       /
                                     class (implements)
-                                    
+
 
         - hierarchal
-
 
 # super or super()
 
@@ -801,7 +801,7 @@ class Test{
     - if we have only parameterised const. in base class then it is mandatory to call it in child class's const. using super(arg). and in order to call the default one, we need to declare it and call using super() (without arg).
 
     - if we do not have parameterised const. in base class, then the default one would be called automatically.
-    
+
     - if we declare both default and parametrized, and do not call anything in the child class, then default wouold be called.
 
     - a default constructor is not always provided automatically by the compiler. A default constructor is only automatically provided by the compiler if no other constructors (parameterized constructors) are defined. If any constructor is defined (e.g., a parameterized constructor), the compiler does not provide a default constructor unless you explicitly define it.
@@ -817,36 +817,34 @@ class Test{
             - achieved through methods
         - interface (data hiding 100%)
 
-# Overriding 
+# Overriding
 
     NOTE: in overriding, the squence of arguments should also be SAME.
 
-
 # Interface
 
-    - interface is a blue print of a class 
+    - interface is a blue print of a class
     - a class have non-prototype members but the interface have prototype members
     - cannot have constructor
     - it does not have any type like final, static etc..
     - it is a pure abstract class
     - Interface doesn't have synchronised methods
-    - used for light weight coding 
+    - used for light weight coding
     -  All variables in an interface are constants (public, static, and final).
 
     - prototype members
 
         - prototype method
-            
-            - same as abstract method   
+
+            - same as abstract method
             - we have to use access modifiers with them
-    
+
     - one interface extends another interface(not implements)
 
     - interface represents loose coupling
 
-
 # Interface in JDk 8 version
- 
+
     - updates were made in java interface like
     - interface can have non prototype method as well.
     NOTE: they have to be decalred with default keyword
@@ -863,10 +861,10 @@ class Test{
     - can have final variable
 
 # Serialization and deserialization
-    
+
     Serialization
-        
-        - conversion of object into byte stream 
+
+        - conversion of object into byte stream
         - it is done through serializable interface which is defined in io package
 
     Deserialization
@@ -874,11 +872,10 @@ class Test{
         - conversion of byte stream into object
         - it is done through deserializable interface which is defined in io package
 
-    Note: methods(non-prototype) are not defined in serializable interface 
+    Note: methods(non-prototype) are not defined in serializable interface
 
     Advantage
         - object save/object persist
-
 
 # Polymorphism
 
@@ -887,10 +884,10 @@ class Test{
         - method overloading
         Note: Java does not support operator overloading to avoid complexity but '+' is allowed to add to strings as it is a exception
 
-    - Runtime 
+    - Runtime
 
         - method overriding
-        
+
         NOTE: acc. to c++, function overriding using virtual function and pure virtual function
 
 # Factory method
@@ -900,8 +897,8 @@ class Test{
     - In a class, when the method is declared as static and type of the method is class then it is called factory method
 
 # Object casting
-    
-    - upcasting (widening) (implicit casting)   
+
+    - upcasting (widening) (implicit casting)
         - when child class object is initialised in parent class reference variable
 
     - downcasting (Narrowing) (explicit casting)
@@ -929,15 +926,12 @@ class Test{
             Parent obj = new Child();   // Upcasting
             ((Child)obj).childMethod(); // ✅ Now you can access child methods
 
-
-
-# Encapsulation 
+# Encapsulation
 
     - Encapsulation is the process of hiding the internal details of an object and only exposing what is necessary.
     - It means wrapping data (variables) and methods (functions) together in a single unit — a class — and restricting direct access to some parts of it.
     - data members are dcalred private and public methods are exposed to access them. (getter and setter metods)
 
-    
 # String in Java
 
     - two ways of creating
@@ -968,10 +962,10 @@ class Test{
         - indexOf()
         - toUpperCase()
         - toLowerCase()
-        - split() 
-            
+        - split()
+
             - to break the string based on certain character
-            
+
             string s1 = "I am programner";
 
             string s2 = s1.split("\\s");
@@ -988,7 +982,7 @@ class Test{
 
         - compareTo()
 
-            - compares lexicographically 
+            - compares lexicographically
             - returns ans in zero (string matches) and non zero (not match (-ve and +ve based on ASCII values)).
 
         - lastIndexOf(char/word, indexbefore (optional))
@@ -1016,15 +1010,15 @@ class Test{
 
     - StringBuffer and StringBuilder are mutable
 
-    - StringBuffer 
+    - StringBuffer
         - It is synchronised means thread safe.
         - It means two threads can not call the methods of stringBuffer at the same time
-        - less efficient 
+        - less efficient
         - introduced in java 1.0
         - ex  StringBuffer s = new StringBuffer("Hello");
               s.append("Ram");
 
-              time taken = 200 ms   
+              time taken = 200 ms
 
 
     - StringBuilder
@@ -1035,9 +1029,9 @@ class Test{
         - ex  StringBuilder s = new StringBuilder("Hello");
               s.append("Ram");
 
-              time taken = 20 ms   
+              time taken = 20 ms
 
-    
+
     - advantage of immutable string
 
         - classloader
@@ -1045,43 +1039,59 @@ class Test{
         - heap space efficiency
         - security
 
-
 # Exception handling
 
     There are two types of abnormalities that can occur
 
-    - Exception 
+    - Exception
+        - An Exception is a problem that happens while a program is running, but it's something the program can potentially handle and recover from.
+
+        - Analogy: Think of it like a flat tire while driving. It's a problem that stops your normal progress, but you have a plan to deal with it (pull over, change the tire) and then continue your journey.
+
+        - Examples: A file not being found, a network connection being lost, or invalid input from a
+        user.
+
     - Error
+        - An Error is a critical, system-level failure that the program usually cannot recover from
 
-    - these are classes which are inherited from Throwable class (java.lang package)    
+        - Analogy: Think of it like your car's engine block cracking while you're driving. It's a catastrophic failure. There's nothing you can do on the side of the road to fix it; the car is stopped for good.
 
-    java.lang.Object
-    └── java.lang.Throwable
-        ├── java.lang.Error
-        └── java.lang.Exception
-                ├── java.lang.RuntimeException
-                └── other checked exceptions
+        - Examples: The system running out of memory (OutOfMemoryError) or the program's memory getting corrupted.
 
+    - these are classes which are inherited from Throwable class (java.lang package)
+
+    Throwable
+    ├── Error
+    │   ├── OutOfMemoryError
+    │   ├── StackOverflowError
+    │   └── VirtualMachineError
+    │
+    └── Exception
+        ├── Checked Exceptions
+        │   ├──FileNotFoundException
+        │   ├──ClassNotFoundException
+        │   ├──IOFoundException
+        │   ├──InstantiationException
+        │   ├──SQLException
+        │   └── EOFException
+        │
+        │
+        └── RuntimeException (Unchecked)
+            ├── NullPointerException
+            ├── IllegalArgumentException
+            ├── ArithmeticException
+            ├── ClassCastException
+            ├── ArrayIndexOutOfBoundsException
+            └── StringIndexOutOfBoundsException
 
 # Types of exception
-    
-    - checked 
-        - those exceptions which are directly inherited from Exception class
-        - RuntimeException      
-        - IOException
-        - SQLException
-        - ClassNotFoundException
+
+    - checked
+        - Checked exceptions are called compile-time exceptions because these exceptions are checked at compile-time by the compiler.
 
     - unchecked
 
-        - those exceptions which are not directly inherited from Exception class
-        - these are inherited from RuntimeException class       
-        - Airthmetic Exc.
-        - Nullpointer Exc.
-        - Numberformat Exc.
-        - Indexoutofbound Exc.
-            - ArrayIndexout Exc.
-            - StirngIndexout Exc.
+        - The unchecked exceptions are just opposite to the checked exceptions. The compiler will not check these exceptions at compile time. In simple words, if a program throws an unchecked exception, and even if we did not handle or declare it, the program would not give a compilation error.
 
 # Types of error
 
@@ -1090,20 +1100,66 @@ class Test{
     - Virtiualmachine error
     - outofmemory error
 
+# How Does JVM Handle an Exception?
+
+    When an Exception occurs, the JVM creates an exception object containing the error name, description, and program state. Creating the exception object and handling it in the run-time system is called throwing an exception. There might be a list of the methods that had been called to get to the method where an exception occurred. This ordered list of methods is called call stack. Now the following procedure will happen:
+
+        - The run-time system searches the call stack for an exception handler
+        - It starts searching from the method where the exception occurred and proceeds backward through the call stack.
+        - If a handler is found, the exception is passed to it.
+        - If no handler is found, the default exception handler terminates the program and prints the stack trace.
+
+# Which exceptions should be catched and which are not
+
+    ✅ Exceptions you should catch (Recoverable)
+
+        - These are typically checked exceptions or expected situations where you can recover or handle gracefully.
+
+    ❌ Exceptions you should NOT catch (Unrecoverable)
+
+        - These are mostly unchecked exceptions (subclasses of RuntimeException or Error) and usually indicate bugs, logic errors, or serious issues that shouldn't be silently handled.
+
+
+    🤔 Is a checked exception a bug?
+
+        Not necessarily.
+
+        A checked exception usually does not represent a bug — instead, it represents a recoverable, expected abnormal situation that the program should handle.
+
+        ✅ Checked exceptions are not bugs, they're:
+        Signals that something might go wrong due to external or unpredictable conditions.
+
+        Meant to be handled by the programmer.
+
+        📦 Examples:
+            IOException	            File/network might not be available
+            SQLException	        Database query might fail due to constraints
+            FileNotFoundException	File might not exist
+            ParseException	        Bad format in input string (like a date)
+
+    ❌ Bugs are usually represented by unchecked exceptions
+
+        These come from programming mistakes or logic errors, and should usually be fixed in code, not caught and handled.
+
+        NullPointerException	    You accessed an object that is null
+        IndexOutOfBoundsException	You accessed outside an array/list's bounds
+        IllegalArgumentException	You passed a bad value to a method
+        ClassCastException	        You cast an object to the wrong type
+
 # Exception handling keywords in Java
 
     - try
     - catch
     - finally
     - throw
-        
+
         - It is used to explicitly throw a single exception from a block of code (can be a method)
-        -ex:  
+        -ex:
 
         void x(){
             throw new ArithmeticException("some text");
         }
-        
+
     - throws
 
         - The throws keyword in Java is used in the method signature to declare that a method might throw one or more exceptions.
@@ -1116,7 +1172,7 @@ class Test{
                     }
                 }
 
-        NOTE: 
+        NOTE:
             - We cannot directly throw multiple types of checked exceptions from a method without using the throws keyword in the method signature. In Java, if a method can throw checked exceptions (subclasses of Exception), you must declare them using throws. This informs the caller of the method that they need to handle those exceptions.
 
             - We can throw multiple unchecked exceptions without using throws:
@@ -1135,7 +1191,7 @@ class Test{
     }
 
     NOTE: - We can't write in the middle of the try , catch, finally blocks.
-        like 
+        like
             try{
 
             }
@@ -1145,35 +1201,442 @@ class Test{
             }
 
             this is not allowed
- 
+
         - If we do not use the catch block, then the code after finally will not be executed.
         - If we use the catch block, then the code after finally will be executed.
 
         - order should be same of try, catch and finally
 
-
 # Multithreading
 
-    - Multithreading in java is a process of executing multiple threads simultaneously
+    - Multithreading is an important concept in Java that allows a program to do many things at the same time. Instead of running tasks one after another, a multithreaded program can run multiple tasks in parallel, making better use of system resources and improving performanc
 
     - A thread is a light weight, subprocess, the smallest unit of processing .
 
-    - Multi tasking is achieved either by multithreading or multiprocessing 
+    - Multi tasking is achieved either by multithreading or multiprocessing
 
-# Advantages of Java multithreading
+    - In simple terms, multithreading means running multiple “threads” of execution within a single program. A thread is like a small, independent path of execution. Think of a thread as one person doing a task: if you have multiple threads, it’s like having several people working together on different parts of a job.
 
-    - It does not block the user
-    - you can perform many operations together and save time and memory(share memory)
-    - threads are independent
-    - threads use context switching
+    - Java supports multithreading through built-in features. Each thread runs separately but shares the same memory space, which allows them to work together efficiently, but also means they need to coordinate carefully to avoid conflicts.
+
+# Why Use Multithreading in Java?
+
+    Multithreading offers several key advantages:
+
+        Improved Performance: Threads can run in parallel on multi-core processors, making efficient use of system resources.
+
+        Responsive Applications: Multithreading helps keep user interfaces responsive by offloading
+        long-running tasks to background threads.
+
+        Resource Sharing: Threads share memory and resources, enabling faster context switching and inter-thread communication.
+
+        Asynchronous Processing: Tasks like file I/O, network requests, or database operations can run independently of the main application flow.
+
+# Real-World Use Cases of Multithreading
+
+    Multithreading is widely used in modern Java applications across many domains:
+
+        Web Servers: Handle multiple client requests concurrently.
+        GUI Applications: Keep the UI responsive during background operations.
+        Games: Manage rendering, physics calculations, and input handling in parallel.
+        Real-Time Systems: Perform time-sensitive tasks simultaneously.
+        Data Processing Pipelines: Parallelize large-scale data computations and I/O operations
+
+# Concurrency and parallelism
+
+    - Concurrency is about dealing with multiple tasks at once.
+
+    - Parallelism is about doing multiple tasks at once.
+
+# A Simple Analogy: Making Breakfast
+
+    Imagine you need to make a cup of coffee and a piece of toast.
+
+    - Concurrency 🧠 (One Person Juggling Tasks)
+
+        You are alone in the kitchen. You can only do one physical action at a time, but you can manage both tasks to get them done in roughly the same time period.
+
+        You put bread in the toaster and press the button.
+
+        While the toast is cooking (you are free), you start scooping coffee into the coffee machine.
+
+        You add water and press the brew button.
+
+        While the coffee is brewing, the toast pops up. You take it out.
+
+        The coffee finishes brewing.
+
+    You were concurrently making breakfast. You handled two tasks by intelligently switching between them whenever one was busy. You created an illusion of doing them at the same time, but at any given microsecond, you were only doing one thing. This is concurrency.
+
+    - Parallelism 💪 (Multiple People Working at Once)
+
+        Now, imagine a friend joins you in the kitchen. You have two people now.
+
+        At the exact same time: You put bread in the toaster, and your friend scoops coffee into the coffee machine.
+
+        Both tasks are progressing simultaneously because you have two "workers."
+
+        This is parallelism. You are physically doing multiple tasks at the exact same instant because you have multiple resources (people/CPU cores) to do them.
+
+
+    - Concurrency can happen on a single CPU core through rapid task switching.
+    - Paralleism requires multiple CPU cores to happen.
+
+# Relationship bw concurrency and parallelism
+
+    - You write concurrent code (e.g., using multiple threads in Java) to make your application capable of handling multiple tasks.
+
+    - If you run that concurrent code on a computer with a multi-core processor, the operating system can assign different threads to different cores, achieving true parallelism.
+
+    - You can have concurrency without parallelism (one person juggling tasks in the kitchen), but you cannot have parallelism without a concurrent design (you need multiple tasks before you can assign them to multiple workers).
+
+# What is a Thread in Java?
+
+    A thread in Java is a lightweight unit of execution. It represents a single path of code that runs independently but shares memory and system resources with other threads in the same program. Threads are used to perform tasks in parallel, allowing your program to do multiple things at once.
+
+    Java makes it easy to work with threads using the built-in Thread class and other concurrency tools in the java.util.concurrent package. By default, every Java application starts with one main thread, which begins executing the main() method. From there, you can create additional threads to run tasks concurrently.
+
+    For example, you can create a thread to download a file while the main thread continues updating the user interface.
+
+# Lifecycle of thread
+
+    A Java thread goes through several stages in its lifetime. These stages are managed by the JVM and the operating system.
+
+    Here are the main stages in the thread lifecycle:
+
+    1. New: The thread is created but hasn’t started yet. It’s like assigning a worker to a task, but they haven’t begun the work.
+
+        Thread thread = new Thread();
+
+    2. Runnable: The thread is ready to run and waiting for CPU time. It’s like the worker is standing by, ready to work when given the chance.
+
+        thread.start(); // Moves to Runnable
+
+    3. Running: The thread is actively executing code. Only one thread per CPU core can be in this state at a time. From the JVM’s perspective, a thread that is actively running is still in the RUNNABLE state. We separate them here conceptually to distinguish between a thread that is ready to run and one that is currently executing on a CPU.
+
+    4. Blocked / Waiting / Timed Waiting: The thread is temporarily inactive:
+
+        Blocked: Waiting for a resource (like a lock held by another thread)
+
+        Waiting: Waiting indefinitely for another thread’s action (e.g., using wait())
+
+        Timed Waiting: Waiting for a specified time (e.g., sleep(1000))
+
+        These states help threads pause without consuming CPU resources.
+
+    5. Terminated (Dead): The thread has finished executing or has been stopped. It cannot be restarted.
+
+
+
+    - Synchronization is essential to avoid race conditions and ensure thread safety when accessing shared resources, using synchronized, wait(), notify(), or concurrent utilities.
+
+    - The ExecutorService framework is preferred over raw thread creation for efficient, scalable, and reusable task execution via thread pools.
 
 # Implementaion on multithreading
 
-    - two ways
-        - Thread class
-        - Runnable interface
+    - Three ways
+        - Extending the Thread class
+        - Implementing the Runnable interface
+        - Using lambda expressions (Java 8 and later)
 
-    - difference bw Thread class and RUnnable interface
+    1. Extending the Thread Class
+
+        One of the simplest ways to create a thread in Java is by extending the built-in Thread class and overriding its run() method. This method contains the code that should run in the new thread
+
+        Here's an example
+
+```java
+            public class MyThread extends Thread {
+                public void run() {
+                    System.out.println("Thread is running...");
+                }
+
+                public static void main(String[] args) {
+                    MyThread thread = new MyThread();
+                    thread.start(); // Start the thread
+                }
+            }
+```
+
+        The run() method defines the task the thread will perform. The start() method tells the JVM to start a new thread and execute run() in parallel with the main thread.
+
+        Use this approach when you don’t need to extend another class (since Java supports single inheritance).
+
+    2. Implementing the Runnable Interface
+
+        A more flexible way to create threads is to implement the Runnable interface. This separates the task from the thread itself, which is useful when you want your class to extend another class.
+
+        Let’s see an example:
+
+```java
+
+        public class MyRunnable implements Runnable {
+            public void run() {
+                System.out.println("Runnable thread is running...");
+            }
+
+            public static void main(String[] args) {
+                Thread thread = new Thread(new MyRunnable());
+                thread.start();
+            }
+        }
+
+        This method is more flexible than extending Thread. It encourages better separation of concerns and allows you to reuse the same task with different threads
+```
+
+    3. Using Lambda Expressions (Java 8+)
+
+        If you’re using Java 8 or later, you can simplify thread creation using lambda expressions. This is ideal for short, one-off tasks where you don’t want to write a full class.
+
+```java
+
+        public class LambdaThread {
+            public static void main(String[] args) {
+                Thread thread = new Thread(() -> {
+                    System.out.println("Thread running with lambda!");
+                });
+                thread.start();
+            }
+        }
+
+        This method has the following advantages:
+
+            Cleaner and more concise code
+            Useful for quick background tasks
+            Ideal when using thread pools or executor services
+```
+
+# thread.start() and thread.run()
+
+    Excellent question. This is the core concept of starting a new thread in Java.
+
+        Calling thread.start() does not directly call thread.run() in your code. Instead, start() tells the Java Virtual Machine (JVM) to do the following:
+
+        Create a New Thread of Execution: It signals to the underlying operating system to create a new, native thread. This new thread gets its own call stack and resources.
+
+        Register the Thread: The JVM registers this new thread with the thread scheduler.
+
+        Execute the run() Method: Once the thread scheduler decides to run this new thread, the JVM invokes the run() method of your MyThread object within that new, separate thread.
+
+    Think of start() as the "manager" who prepares a new workspace and tells a new employee to begin their job. The run() method is the actual list of tasks that the new employee performs.
+
+## The Crucial Difference: start() vs. run()
+
+    This is a very common interview question, and understanding the difference is key.
+
+        thread.start() (Correct way to start a thread)
+
+            - Creates a new thread.
+            - The code inside run() is executed in this new thread.
+            - The main thread and your MyThread run concurrently (at the same time).
+
+        thread.run() (Incorrect way - just a normal method call)
+
+            - Does not create a new thread.
+            - The code inside run() is executed in the current thread (the main thread in your example).
+            - The main thread will execute the run() method completely and only then move on. No multithreading occurs.
+
+# Analogy
+
+    thread.start(): You are a manager. You tell your assistant, "Please go and prepare this report." Your assistant goes off to their own desk and works on the report while you continue doing your own work. This is multithreading.
+
+    thread.run(): You are a manager. You say, "I will now do the tasks of my assistant." You stop your own work, do the entire report yourself, and only when you are finished do you resume your original tasks. This is just a regular sequence of events, not multithreading.
+
+# How does run method is being called ?
+
+    The run() method is not called by your code directly. It is called by the Java Virtual Machine (JVM) after a new, real thread has been created and started by the operating system.
+
+    Let's break it down into a simple sequence of events:
+
+        You Call thread.start(): Your code in the main thread calls the start() method. This is like giving an order.
+
+        start() Notifies the JVM: The start() method is a special instruction. It doesn't call run(). Instead, it tells the JVM: "Please create a new, independent thread of execution."
+
+        The JVM Works with the Operating System: The JVM takes your request and asks the underlying operating system (like Windows or Linux) to create a real, native thread.
+
+        The OS Schedules the Thread: The operating system's thread scheduler decides when to give this new thread a slice of CPU time.
+
+        The JVM Calls run(): As soon as the new thread begins its life on the CPU, the very first thing the JVM instructs it to do is to execute the run() method of the Thread object you created.
+
+# When I extend the Thread class, I don't pass anything but when I implement the runnabale interface, I pass the object in Thread class
+
+    You have made a perfect observation, and the reason for this difference gets to the heart of object-oriented design in Java.
+
+    The simple answer is:
+
+    * When you **`extend Thread`**, your object **IS** the worker thread.
+    * When you **`implement Runnable`**, your object is just the **TASK**, so you need to give that task to a separate worker (`Thread`) object.
+
+    Let's break that down.
+
+    ---
+
+    ### 1. The `extends Thread` Approach ("I am the worker")
+
+        When your class extends `Thread`, you are creating a specialized type of `Thread`. It's an **"is-a"** relationship. Your object is both the worker and holds the task to be done.
+
+        * **Analogy:** This is like a highly specialized employee, for example, a "Marketing Manager." Their job title *is* the worker (Manager), and the task (marketing) is built directly into their role. They don't need separate instructions.
+
+    **How the code works:**
+
+```java
+        class MyThread extends Thread {
+            public void run() {
+                // My task is defined here
+            }
+        }
+
+        MyThread worker = new MyThread();
+
+        Here, the worker object itself inherits all the machinery to be a thread from the Thread class. When you call worker.start(), the JVM knows to look for the run() method on that same object because worker is a Thread. You don't need to pass anything because the worker and the task are the same object.
+
+
+```
+
+    ### 2. The implements Runnable Approach ("I have a task")
+
+        When your class implements Runnable, you are only defining a task. It's a "has-a" relationship (achieved through composition). Your object has a task, but it is not a worker itself.
+
+        Analogy: This is like having a generic "Employee" (the Thread) and a separate "To-Do List" (the Runnable). The employee is the worker, but they need to be handed the to-do list to know what to do.
+
+```java
+
+        class MyRunnable implements Runnable {
+            public void run() {
+                // My task is defined here
+            }
+        }
+
+        // Create the task (the to-do list)
+        Runnable task = new MyRunnable();
+        // Create the worker and give it the task
+        Thread worker = new Thread(task);
+
+        Here, you are creating two different objects:
+
+            task: An object that only knows about the work to be done (its run() method).
+
+            worker: A generic Thread object.
+
+            You must pass the task object to the worker's constructor so the worker knows which run() method to execute when you call worker.start(). The Thread constructor is specifically designed to accept a Runnable target for this purpose.
+```
+
+# When to use Thread class, Runnable Interface and Lambda expression
+
+    ## The General Rule of Thumb
+
+        Default Choice: Start with a Lambda Expression. It's the cleanest and most common way.
+
+        If it gets complex: If your task logic is too long for a lambda, use implements Runnable with a separate class.
+
+        Generally Avoid: Only use extends Thread for very specific, legacy, or academic reasons.
+
+    ## 1. Lambda Expression: The Modern Default
+
+        This is the go-to choice for most situations in modern Java development.
+
+        ✅ When to use it:
+
+            When your task is simple, straightforward, and can be expressed in a few lines of code.
+
+            For "fire and forget" tasks where you just need to run a small piece of code in the background.
+
+        Why:
+
+            Concise & Readable: It's the shortest and cleanest way to write the code, reducing boilerplate.
+
+            Functional Style: It aligns with modern functional programming practices in Java.
+
+        Example:
+
+```java
+            // Perfect for a simple, one-off task.
+            Thread loggerThread = new Thread(() -> {
+                System.out.println("Logging data from sensor at " + System.currentTimeMillis());
+                // ... a few more lines of logic ...
+            });
+            loggerThread.start();
+```
+
+    ## 2. implements Runnable: For Complex or Reusable Tasks
+
+        This is the classic, robust, object-oriented approach.
+
+        ✅ When to use it:
+
+            When the task logic is complex and requires multiple methods or its own state (instance variables).
+
+            When you need your task class to inherit from another class (class MyTask extends SomeBaseClass implements Runnable).
+
+            When you want to reuse the same task logic in multiple places or with an ExecutorService.
+
+        Why:
+
+            Good Design: It perfectly separates the task (the Runnable) from the worker (Thread), which is a core OOP principle (composition over inheritance).
+
+            Flexible: It doesn't use up your class's one chance to extend something else.
+
+        Example:
+
+```java
+
+            // Good for a complex task that needs its own data and helper methods.
+            class FileDownloader implements Runnable {
+                private String url;
+                private String destinationFile;
+
+                public FileDownloader(String url, String file) {
+                    this.url = url;
+                    this.destinationFile = file;
+                }
+
+                public void run() {
+                    // Complex logic: connect, download, save, check integrity...
+                    connectToUrl();
+                    downloadData();
+                    saveToFile();
+                }
+
+                private void connectToUrl() { /*...*/ }
+                private void downloadData() { /*...*/ }
+                private void saveToFile() { /*...*/ }
+            }
+
+            Thread downloadThread = new Thread(new FileDownloader("http://example.com/data.zip", "data.zip"));
+            downloadThread.start();
+```
+
+    ## 3. extends Thread: The Old Way (Generally Avoid)
+
+        This approach is rarely used in modern professional code.
+
+        ✅ When to use it:
+
+            Mostly for academic purposes when first learning about threads.
+
+            In the very rare case where you need to fundamentally change the behavior of the Thread class itself by overriding its methods (not just run()).
+
+        Why to avoid it:
+
+            Single Inheritance Limitation: This is the biggest reason. If your class extends Thread, it cannot extend any other class. This is a major design constraint.
+
+            Bad Design: It tightly couples your task with the execution mechanism. Your object is a thread, which is often not what you mean. You usually mean your object has a task to be run
+
+        Example:
+
+```java
+        // Generally not recommended for application code.
+        class LegacyWorker extends Thread {
+            public void run() {
+                System.out.println("Doing work the old way.");
+            }
+        }
+
+        LegacyWorker worker = new LegacyWorker();
+        worker.start();
+```
+
+# difference bw Thread class and Runnable interface
 
         - if we extend the Thread class then our class can not extend other class because java does not support multiple/multipath inheritance
 
@@ -1182,7 +1645,7 @@ class Test{
         - using Runnable will give you an object that can be shared amongst multiple threads
 
 # Thread class
-    
+
     - predefined class in Java
     - present in java.lang package
 
@@ -1190,14 +1653,14 @@ class Test{
 
         - it is used to create a new thread().
         - it is a class method
-        
+
     - start() method
 
-        - it is used to run a thread 
+        - it is used to run a thread
         - it is a class method
 
-    - ex: 
-                  
+    - ex:
+
         class A extends Thread {
 
             public void run(){
@@ -1210,8 +1673,8 @@ class Test{
 
                 A obj = new A();
                 obj.start();
-                        
-            } 
+
+            }
         }
 
 # Thread lifecycle methods
@@ -1223,7 +1686,7 @@ class Test{
 
     - Runnable: The thread is ready to run and waiting for the CPU to allocate time for its execution.
 
-    - Blocked/Waiting: The thread is waiting for a monitor lock or waiting indefinitely for another thread to 
+    - Blocked/Waiting: The thread is waiting for a monitor lock or waiting indefinitely for another thread to
     perform a particular action.
 
     - Timed Waiting: The thread is waiting for another thread to perform an action for a specified waiting time.
@@ -1237,27 +1700,27 @@ class Test{
 
     - Creating New Thread Instances: To run a task multiple times, create new thread instances each time you need to execute the task.
 
-    - Exception Handling: Calling start() on a terminated thread will result in an IllegalThreadStateException.   
+    - Exception Handling: Calling start() on a terminated thread will result in an IllegalThreadStateException.
 
-    - In the above example, we can not call obj.start() multiple times. 
+    - In the above example, we can not call obj.start() multiple times.
 
 # Thread methods
 
     - run()
     - start()
-    - sleep()        
+    - sleep()
     - yield()
-        
+
         - yield() is a way to suggest to the thread scheduler that the current thread is willing to pause and allow other threads to execute.
-        - The scheduler might ignore this hint, so yield() is not guaranteed to have any effect. 
+        - The scheduler might ignore this hint, so yield() is not guaranteed to have any effect.
 
     - getId()
 
-        - deprecated 
+        - deprecated
 
     - setPriority()
     - getPriority()
-        
+
         - set the priority of the thread
         - on the scale of 1(Thread.MIN_PRIORITY) to 10(Thread.MAX_PRIORITY)
         - normal(default) is 5 (Thread.NORM_PRIORITY)
@@ -1269,14 +1732,14 @@ class Test{
         - returns a reference to currently executing thread object
 
         class A extends Thread {
-            public void run(){                
-                System.out.println(Thread.currentThread().getName());        
+            public void run(){
+                System.out.println(Thread.currentThread().getName());
             }
         }
 
         PSVM(){
-            A obj = new A();        
-            obj.start();                
+            A obj = new A();
+            obj.start();
         }
 
 
@@ -1290,23 +1753,23 @@ class Test{
         - a thread is considered to be alive when the start() method of the thread has been called and the thread is not yet dead.
         -  a thread is not considered alive after it has completed its execution. Once a thread has finished executing its run() method, it enters the TERMINATED state and is no longer alive
 
-    - stop()    
+    - stop()
 
-        - deprecated 
+        - deprecated
         - stop a particular thred
-        
+
 
     - destroy()
 
-        - deprecated 
-        - it has never been part of the Java Thread class. Instead, it was part of the ThreadGroup class 
+        - deprecated
+        - it has never been part of the Java Thread class. Instead, it was part of the ThreadGroup class
 
     - suspend()
 
         - Deprecated
         - The suspend() method in Java was used to pause the execution of a thread, but it is deprecated due to the potential for deadlocks and other synchronization issues.
 
-    - resume()  
+    - resume()
 
         - deprecated
         - The resume() method in Java was used to resume a suspended thread, but it is deprecated due to the same concerns as suspend()
@@ -1335,7 +1798,7 @@ class Test{
         - The notifyAll() method in Java is used to wake up all threads that are waiting on the object's monitor. This is part of Java's thread synchronization mechanism and is essential for coordinating the execution of multiple threads.
 
     Note: It is must to use exception handling while usign multithreading.
-        The wait(), notify(), and notifyAll() methods are provided by the Object class in Java. 
+        The wait(), notify(), and notifyAll() methods are provided by the Object class in Java.
 
 # create thread using runnable interface
 
@@ -1353,7 +1816,7 @@ class Test{
     class Main {
         public static void main(String[] args) {
 
-            // pass the object of MyRunnable class into thread class because Runnable interface does not have start() method 
+            // pass the object of MyRunnable class into thread class because Runnable interface does not have start() method
 
             Thread thread1 = new Thread(new MyRunnable(), "Thread-1");
             thread1.start();
@@ -1391,31 +1854,30 @@ class Test{
         - math package - for mathematics related operations
         - sql package - for database connectivity and implementation
 
-
 # awt package
 
     - stands for abstract window toolkit
-    - awt is a API which is used to create GUI application/desktop App/console app. 
+    - awt is a API which is used to create GUI application/desktop App/console app.
     - Applications made through awt are heavy in nature and OS dependent
     - some of the components are BUtton, Label, checkBox, list etc
     - Container is a component which holds another components
         - types (4)
             - window
-            - Frame 
+            - Frame
             - Dialog
             - Panel
-                - Applet 
+                - Applet
 
         - window container does not support border & menubar
         - panel does not support border, menubar and title
         - frame supports border, menubar and title
-        - Dialog 
+        - Dialog
 
 # Methods for creating GUI app
 
     - setTitle()
     - setLayout() - for customization of layout
-    - setSize(int width, int height) - set height/width of Layout 
+    - setSize(int width, int height) - set height/width of Layout
     - setVisible() - for visibility (individual app)
     - add() - add components to container
     - setBounds(x-coordinate, y-coordinate, width, height)
@@ -1433,8 +1895,8 @@ class Test{
         - the class used is ActionEvent
         - the interface used is ActionListener
         - the method used is actionPerformed
-        
-    -ex 
+
+    -ex
 
         class My extends Frame implements ActionListner{
 
@@ -1451,24 +1913,25 @@ class Test{
 
             }
         }
-        
+
+
 # Checkbox
 
-    - ItemListner is used to perform event handling on checkbox 
+    - ItemListner is used to perform event handling on checkbox
 
     - ItemListner is an Interface
     - ItemEvent is a class
     - method used is itemStateChanged(ItemEvent e)
 
     - types
-     
+
         - Checkbox()
         - Checkbox(name, state(true/false))
         - Checkbox(name, groupname state(true/false))
 
 # TextArea
 
-    - Event - KeyEvent 
+    - Event - KeyEvent
                 L KeyTyped
                 L KeyReleased
                 L KeyPressed
@@ -1478,7 +1941,7 @@ class Test{
 # RadioButton
 
     - types
-     
+
         - RadioButton()
         - RadioButton(name, state(true/false))
         - RadioButton(name, groupname state(true/false))
@@ -1498,7 +1961,7 @@ class Test{
 
     - OS independent applications
     - light weight
-    - WindowListener is present 
+    - WindowListener is present
     - All event class, listners, containers and components are acquired by AWT
 
     - Some events
@@ -1510,7 +1973,7 @@ class Test{
 
         - WindowListener
           WindowEvent
-          - methods 
+          - methods
                 - windowOpened
                 - windowClosing
                 - windowClosed
@@ -1520,8 +1983,8 @@ class Test{
                 - windowDeactivated
 
         - MouseListener
-          MouseEvent 
-          - methods 
+          MouseEvent
+          - methods
                 - mouseClicked
                 - mousePressed
                 - mouseReleased
@@ -1529,37 +1992,37 @@ class Test{
                 - mouseExited
 
         - FocusListener
-          FocusEvent  
-          - methods 
+          FocusEvent
+          - methods
                 - focusGained
                 - focusLoss
 
 
         - ContainerListener
           ContainerEvent
-          - methods 
+          - methods
                 - componentAdded
                 - componentRemoved
-                
+
         - ComponentListener
           ComponentEvent
           - methods
                 - componentHidden
                 - componentMoved
                 - componentResized
-                - componentShown  
+                - componentShown
 
         - WheelListener
           WheelEvent
           - methods
-                - mouseWheelMoved 
+                - mouseWheelMoved
 
 # JDBC (Java Database connectivity)
 
     - package java.sql.*
     - it is used to establish connection with database and execute query
     - it is an API
-    
+
     - Architecture
 
            Java application
@@ -1568,9 +2031,9 @@ class Test{
                 |
             JDBC Driver
                 |
-            Databases      
+            Databases
 
-    - JDBC steps 
+    - JDBC steps
 
         - Register driver
         - create connection
@@ -1586,7 +2049,7 @@ class Test{
 
     - JDBC driver runs on client machine
     - JDBC driver understands the protocols and helps to interact with database
-    - It acts as a bridge between the application and the database, translating Java calls into database-specific calls and vice versa. 
+    - It acts as a bridge between the application and the database, translating Java calls into database-specific calls and vice versa.
 
     - types
 
@@ -1596,9 +2059,9 @@ class Test{
         - thin driver
 
     - working steps of JDBC
-     
-        - step 1. Register driver 
-            
+
+        - step 1. Register driver
+
             - class used = Class
             - method used = forName
 
@@ -1612,7 +2075,7 @@ class Test{
 
             like Connection obj = DriverManager.getConnection();
 
-        - step 3. create statement  
+        - step 3. create statement
             (Exchange data bw app & database with sql queries)
 
             - interface = Statement
@@ -1662,7 +2125,7 @@ class Test{
     - It is a program that runs on server which is used to create dynamic webpages/websites.
 
 
-    - CGI Shell 
+    - CGI Shell
 
         - stands for Common Gateway Interface
         - before servlet, CGI was used.
@@ -1678,9 +2141,9 @@ class Test{
             - platform dependent
             - response time is maximum
 
-    
+
     - Advantages of Servlet
-     
+
         - high performance
         - for each request, a new thread is created. All these threads are part of a single process. This single process is handled by servlet program
         - portability
@@ -1689,7 +2152,7 @@ class Test{
 
     - servlet provides many classes and interfaces
 
-    - packages  
+    - packages
 
         - javax.servlet.*
         - javax.servlet.http.*
@@ -1706,9 +2169,9 @@ class Test{
         - Filter                     (interface) (javax.servlet.http)
         - ServletConfig              (interface) (javax.servlet.http)
 
-    - servlet is created using 
+    - servlet is created using
 
-        - Servlet                    (interface) (javax.servlet)        
+        - Servlet                    (interface) (javax.servlet)
         - GenericServlet             (class)     (javax.servlet)
         - HttpServlet                (class)     (javax.servlet.http)
 
@@ -1728,7 +2191,6 @@ class Test{
 
             }
 
-
 # Servlet architecture
 
     - webbrowser sends request to webserver
@@ -1738,7 +2200,7 @@ class Test{
     - it send back response to the webserver
     - webserver sends back response to web browser
 
-    
+
     - servlet container
 
         - it is also called servlet engine/web container
@@ -1748,7 +2210,7 @@ class Test{
 
         1. Network service
 
-            - Load servlet class or servlet        
+            - Load servlet class or servlet
             - load file system
             - provides network services and manage request & respose at the network
 
@@ -1769,7 +2231,7 @@ class Test{
 
 
     - these are the methods which are used in the lifecyle of servlet. These are called inside servlet container
-        - init()    
+        - init()
             - called once after the object has been initialized
 
             public void init() throws ServerException {
@@ -1777,20 +2239,20 @@ class Test{
             }
 
 
-        - service()              
+        - service()
             - called many times
             - it checks the request method types in the request.
             - doGet() and doPost() methods are called by service method
 
-            public void service(HttpServletRequest request, HttpServletResponse response) throws ServerException{                
+            public void service(HttpServletRequest request, HttpServletResponse response) throws ServerException{
                 // servlet coding is done in this part
             }
 
             - it is the main method of the servlet.
 
 
-        - destroy() 
-            
+        - destroy()
+
             - called once by servlet container
             - destroys the servlet object
 
@@ -1806,7 +2268,7 @@ class Test{
     - Http is a TCP/IP based protocol
     - it is request or response protocol
     - it is stateless protocol
-    - it is application layer base protocol 
+    - it is application layer base protocol
 
 
     - follwing information is included with http protocol when request is made
@@ -1814,13 +2276,13 @@ class Test{
         - Analysis source ip address, post, proxy
         - Analysis destination IP address, port no, proxy and protocol
         - the request URI (Uniform resource identifier)
-        - the request method and content type 
+        - the request method and content type
         - the user agent header
         - the connection control header
 
     - client requestin methods
 
-        - get 
+        - get
         - post
         - delete
         - trace
@@ -1830,13 +2292,13 @@ class Test{
 
 # Differnce bw get and post
 
-    - get 
+    - get
         - large amount of data can not be sent because data is sent in header
         - get request is not secured bcz data can be explored in URL
         - get request can be bookmarked
         - get request can be idempotent (meaning second request can't be made untill first request has received the response)
         - More efficient
-    
+
     - post
         - large amount of data can be sent because data is sent in body
         - post request is secured bcz data can not be explored in URL
@@ -1844,32 +2306,32 @@ class Test{
         - post request is not idempotent
 
     NOTE: doGet() and doPost() methods are called by service methods
-        
+
     ex: of doGet()
 
-        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServerException{                
-                // coding 
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServerException{
+                // coding
         }
 
     ex: of doPost()
 
-        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServerException{                
-                // coding 
+        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServerException{
+                // coding
         }
 
 # Software requirements
 
     - Server (Apache Tomcat server)
     - JDK
-    
+
     NOTE: Jar file = Servlet-API (This jar file is important)
-    
-    NOTE: 
+
+    NOTE:
         - Web.xml file is used for the mapping of the servlet. without doing thi, servlet wouldn't get called.
         - mapping of all the servlets is compulsory
 
 
-    - web.xml 
+    - web.xml
 
         - it is mapping file
         - it is also called servlet configuration file
@@ -1911,8 +2373,7 @@ class Test{
 
     - getParameter() - to read the single value (ex. from textfield)
     - getParameterValue() - to read multiple values (ex. checkboxGroup)
-    - getParameterName() - to read the value from list conroller 
-
+    - getParameterName() - to read the value from list conroller
 
 # Session tracking
 
@@ -1931,7 +2392,7 @@ class Test{
         - URL re-writting
         - Cokkie session tracking
         - Session or http session
-        - Hidden form field  
+        - Hidden form field
 
 # 1. URI
 
@@ -1950,16 +2411,15 @@ class Test{
     - A URN is a type of URI that names a resource so that it can be identified in a persistent, location-independent manner.
     - Example: urn:isbn:0451450523
 
+# 2. Cookie
 
-# 2. Cookie 
-    
     - a cookie is a small text file
     - a cookie is used to track/store/save the user's information
     - it is stored on client side
     - it is craeted on browser
     - it is sent by server
 
-    - ex:  
+    - ex:
 
         Cookie obj = new Cookie(name, value)
 
@@ -1972,7 +2432,7 @@ class Test{
         - setmaxAge() = set the max age of the cookie
         - setname() = set name of the cookie
         - setValue() = set value of the cookie
-        - getName() 
+        - getName()
         - getValue()
         - addCookie() = add cookie in browser
 
@@ -2003,23 +2463,23 @@ class Test{
         - upon closing the browser, this gets deleted
         - User needs to login in again and again.
 
-    - Persistent    
+    - Persistent
         - permanent cookie
         - it is valid for multiple seessions
-        - it remains even after closing the browser        
+        - it remains even after closing the browser
 
     - Third party
-        - it is also called tracking cookie        
-        - tracks user behaviour        
+        - it is also called tracking cookie
+        - tracks user behaviour
 
     - Zombie
         - it is a auto generated cookie
-        - it gets autogenerated even after deleting it 
+        - it gets autogenerated even after deleting it
 
     - Flash cookie
         - it is also called super cookie
         - it is also called shared object cookie
-        - created using Adobe Flash software 
+        - created using Adobe Flash software
         - it is independent of browser
 
 # Disadvantage of cookie
@@ -2027,12 +2487,11 @@ class Test{
     - if cookies are disabled on browser then session tarcking won't happen
     - only textual information is saved in cookie
 
-
 # 3. Hidden form field
 
     - session trackign technique
     - in order to track user information, hidden field is used inside the form
-    
+
     - advantage
         - does not depend on cookie
 
@@ -2083,7 +2542,7 @@ class Test{
             - to retrieve single attribute
 
         - getAttributesNames
-            - to retriueve all the attributes  
+            - to retriueve all the attributes
 
         - removeAttribute(name)
 
@@ -2092,7 +2551,7 @@ class Test{
 
     - advantages
         - more secure
-        - does not depend on cookie 
+        - does not depend on cookie
         - session maintained by server
 
     - disadvantage
@@ -2143,7 +2602,7 @@ class Test{
         - public int size()
 
         - public void clean()
-            - The clear() method is used to remove all elements from a collection, making it empty. 
+            - The clear() method is used to remove all elements from a collection, making it empty.
 
         - public boolean contains(Collection object)
             - search
@@ -2172,7 +2631,7 @@ class Test{
 
         - public boolean hasNext()
             Returns true if the iteration has more elements.
-        - next()    
+        - next()
             - Returns the next element in the iteration.
             - Throws: NoSuchElementException if the iteration has no more elements.
 
@@ -2189,10 +2648,10 @@ class Test{
     - Linked list
 
         - It provides a doubly linked list implementation.
-        - It is not synchronized. This means it is not thread-safe    
+        - It is not synchronized. This means it is not thread-safe
 
         - methods
-         
+
             - public boolean addFirst()
                 - insert node at first position
 
@@ -2204,19 +2663,18 @@ class Test{
 
             - pubic ElementType get(index)
 
-# Vector 
+# Vector
 
     - it is implemented usign dynamic array
     - Vector is similar to ArrayList
 
     NOTE: It is synchronized in nature.
-    
 
 # Stack
 
     - it is synchronized and therefore thread-safe for use in concurrent environments.
 
-    methods        
+    methods
         - push(E item): Pushes an item onto the top of the stack.
         - pop(): Removes and returns the item at the top of the stack.
         - peek(): Returns the item at the top of the stack without removing it.
@@ -2237,7 +2695,7 @@ class Test{
                 - Scriplet Tag
                 - JSP expression
                 - Java comments
-                
+
 
     - JSP-API or technology is server side
     - File extension is .jsp
@@ -2245,7 +2703,7 @@ class Test{
 
     - How JSP more advantageous than servlet
 
-        - JSP is easy to maintain 
+        - JSP is easy to maintain
             - When we create dynamic webpage using servlet, HTML/XML is used inside java code which is hard to maintain
             - When we create dynamic webpage using JSP, Java code is used inside HTML/XML code which is easy to maintain
 
@@ -2260,15 +2718,13 @@ class Test{
         - JSP supports entire APIs of Java
             - servlet does not
 
-
 # Feature of JSP
 
     - easy to maintain
     - easy coding
     - reduce code length
-    - easy database connectivity    
+    - easy database connectivity
     - powerful, portable, flexible
-    
 
 # JSP life cycle
 
@@ -2287,14 +2743,15 @@ class Test{
 
     6. Request Processing
         - _JSPService() method is called by web container in this phase (called multiple times)
-        - it is similar to servlet service method        
+        - it is similar to servlet service method
 
     7. Destroy of JSP
         - JSPDestroy() method is called by web container (called only once)
-        
+
+
 # JSP packages
 
-    - javax.servlet.jsp   
+    - javax.servlet.jsp
         - it consists of two interfaces
 
             - JspPage interface
@@ -2328,7 +2785,7 @@ class Test{
 # JSP scripting elements
 
     - Jsp scripting elements are used to write java code inside html file.
-    
+
     - types
 
         - 3 types
@@ -2351,9 +2808,9 @@ class Test{
                     -  For embedding Java expressions that are evaluated and included in the HTML output.
                     - we can call method also.
                     NOTE: Semicolon is not used in expression tag.
-                    
+
                     - ex <% = "this is my first jsp prog." %>
- 
+
             - Declaration Tag OR JSP Declaration Tag
 
                 - syntax
@@ -2363,7 +2820,7 @@ class Test{
                     - it is used to declare variable and method.
                     -  For declaring variables and methods that persist for the life of the servlet instance.
 
-                    - ex 
+                    - ex
                         <% ! String name = "Rakesh" %>
                         <% = "Welcome = " + name %>
 
@@ -2378,11 +2835,11 @@ class Test{
 
                         <%
                             int x = getId();
-                            out.println(x);                            
+                            out.println(x);
                         %>
 
-                        <% = 
-                            "My id = " + getId() 
+                        <% =
+                            "My id = " + getId()
                         %>
 
 # Difference bw Scriplet tag and declaration tag
@@ -2416,7 +2873,7 @@ class Test{
 
     - out
         - it is used to print web information
-        
+
         ex: PrintWriter out = getWriter();
 
         <% out.println("Hi") %>
@@ -2448,21 +2905,21 @@ class Test{
 
     - page
         - it is used to store the reference of autgenerated servlet object
-        
+
         ex: Object page = this (ref. of servlet object)
 
     - exception
         - it is used to define or show exception on jsp page
         - it can only be used in error pages
 
-        <%@ page isErrorPage="true" %>  
-        <html>  
-        <body>  
-        
-            Sorry following exception occured:<%= exception %>  
-        
-        </body>  
-        </html>  
+        <%@ page isErrorPage="true" %>
+        <html>
+        <body>
+
+            Sorry following exception occured:<%= exception %>
+
+        </body>
+        </html>
 
     - application
 
@@ -2472,15 +2929,14 @@ class Test{
 
         - This object can be used to get initialization parameter from configuaration file (web.xml). It can also be used to get, set or remove attribute from the application scope.
 
-
 # JSP directives
 
     - a JSP directive is a message that tells the web container how to translate a JSP page into the corresponding servlet.
 
-    - syntax 
+    - syntax
 
         <% @ directive_name attribute_name = "value" %>
-    
+
     - types of JSP directives
 
         - 3 types
@@ -2491,21 +2947,21 @@ class Test{
                 - import
                     - The import attribute is used to import class,interface or all the members of a package.It is similar to import keyword in java class or interface.
 
-                    - <%@ page import="java.util.Date" %>  
-                      Today is: <%= new Date() %>    
+                    - <%@ page import="java.util.Date" %>
+                      Today is: <%= new Date() %>
 
                 - contentType
                     - define content type on jsp page
-                    - - <%@ page contentType="text/Html" %>  
+                    - - <%@ page contentType="text/Html" %>
 
                 extends
                     - The extends attribute defines the parent class that will be inherited by the generated servlet
-                    - <%@ page extends="Date" %>  
+                    - <%@ page extends="Date" %>
 
 
-                -info              
+                -info
                     - This attribute simply sets the information of the JSP page which is retrieved later by using getServletInfo() method of Servlet interface.
-                    - <%@ page info="composed by Sonoo Jaiswal" %> 
+                    - <%@ page info="composed by Sonoo Jaiswal" %>
 
                 -buffer
                     - The buffer attribute sets the buffer size in kilobytes to handle output generated by the JSP page.
@@ -2516,7 +2972,7 @@ class Test{
 
                 -isELIgnored
                     - We can ignore the Expression Language (EL) in jsp by the isELIgnored attribute. By default its value is false i.e. Expression Language is enabled by default.
-                    - <%@ page isELIgnored="true" %>//Now EL will be ignored  
+                    - <%@ page isELIgnored="true" %>//Now EL will be ignored
 
                 -isThreadSafe
                     - Servlet and JSP both are multithreaded
@@ -2540,18 +2996,18 @@ class Test{
                 -errorPage
                     - The errorPage attribute is used to define the error page, if exception occurs in the current page, it will be redirected to the error page.
 
-                    - <%@ page errorPage="myerrorpage.jsp" %>  
-  
+                    - <%@ page errorPage="myerrorpage.jsp" %>
 
-                -isErrorPage 
+
+                -isErrorPage
                     - The isErrorPage attribute is used to declare that the current page is the error page.
                     Note: The exception object can only be used in the error page.
 
-                    <%@ page isErrorPage="true" %>  
-                    The exception is: <%= exception %>  
+                    <%@ page isErrorPage="true" %>
+                    The exception is: <%= exception %>
 
-        - include directive 
-            - The include directive is used to include the contents of any resource it may be jsp file, html file or text file. 
+        - include directive
+            - The include directive is used to include the contents of any resource it may be jsp file, html file or text file.
             - The include directive includes the original content of the included resource at page translation time (the jsp page is translated only once so it will be better to include static resource).
 
 
@@ -2559,9 +3015,9 @@ class Test{
             - The JSP taglib directive is used to define a tag library that defines many tags.
             - We use the TLD (Tag Library Descriptor) file to define the tags
 
-            <%@ taglib uri="http://www.javatpoint.com/tags" prefix="mytag" %>  
-  
-            <mytag:currentDate/>  
+            <%@ taglib uri="http://www.javatpoint.com/tags" prefix="mytag" %>
+
+            <mytag:currentDate/>
 
 # JSP Action Tags
 
@@ -2569,16 +3025,16 @@ class Test{
     - The action tags are used to control the flow between pages and to use Java Bean
 
     - jsp:forward	    - forwards the request and response to another resource.
-                        - <jsp:forward page="printdate.jsp" />  
-  
-                    
-    - jsp:include       - includes another resource.
-                        - The jsp include action tag includes the resource at request time so it is better for dynamic pages 
-                        - <jsp:include page="printdate.jsp" />  
+                        - <jsp:forward page="printdate.jsp" />
 
-        
+
+    - jsp:include       - includes another resource.
+                        - The jsp include action tag includes the resource at request time so it is better for dynamic pages
+                        - <jsp:include page="printdate.jsp" />
+
+
     - jsp:useBean       - creates or locates bean object.
-                        
+
 
     - jsp:setProperty   sets the value of property in bean object.
     - jsp:getProperty   prints the value of property of the bean.
@@ -2604,7 +3060,7 @@ class Test{
 
     - id: is used to identify the bean in the specified scope.
 
-    - scope: represents the scope of the bean. It may be page, request, session or application. The default 
+    - scope: represents the scope of the bean. It may be page, request, session or application. The default
     scope is page.
 
     - class: instantiates the specified bean class (i.e. creates an object of the bean class) but it must have no-arg or no constructor and must not be abstract.
@@ -2624,7 +3080,7 @@ class Test{
 
     - Drawback of Applet
         - Plugin is required at client browser to execute applet.
-     
+
 
     Note: Jsp:plugin action tag is used in order to use applet in Jsp page
 
@@ -2640,7 +3096,7 @@ class Test{
             |
           Applet
             |
-          JApplet 
+          JApplet
 
     - package =  java.applet.Applet
 
@@ -2654,19 +3110,19 @@ class Test{
 
     - methods
 
-        - java.applet.Applet provides 4 life cycle methods 
-            
+        - java.applet.Applet provides 4 life cycle methods
+
             - public void init(): is used to initialized the Applet. It is invoked only once.
 
             - public void start(): is invoked after the init() method or browser is maximized. It is used to start the Applet.
 
             - public void stop(): is used to stop the Applet. It is invoked when Applet is stop or browser is minimized.
-            
+
             - public void destroy(): is used to destroy the Applet. It is invoked only once.
 
         - java.awt.Component class provides 1 life cycle method
 
-            - public void paint(Graphics g): is used to paint the Applet. It provides Graphics class object that can be used for drawing oval, rectangle, arc etc.            
+            - public void paint(Graphics g): is used to paint the Applet. It provides Graphics class object that can be used for drawing oval, rectangle, arc etc.
 
         - Who is responsible to manage the life cycle of an applet?
             Java Plug-in software.
@@ -2675,7 +3131,6 @@ class Test{
 
             By html file.
             By appletViewer tool (for testing purpose).
-
 
 # Java I/O
 
@@ -2693,29 +3148,29 @@ class Test{
 
     - Useful methods of OutputStream
 
-        - public void write(int)throws IOException	
+        - public void write(int)throws IOException
             is used to write a byte to the current output stream.
 
-        - public void write(byte[])throws IOException	
+        - public void write(byte[])throws IOException
             is used to write an array of byte to the current output stream.
 
-        - public void flush()throws IOException	
+        - public void flush()throws IOException
             flushes the current output stream.
 
-        - public void close()throws IOException	
+        - public void close()throws IOException
             is used to close the current output stream.
 
     - InputStream class is an abstract class. It is the superclass of all classes representing an input stream of bytes.
 
     - Useful methods of InputStream
 
-        - public abstract int read()throws IOException	
+        - public abstract int read()throws IOException
             reads the next byte of data from the input  stream. It returns -1 at the end of the file.
 
-        - public int available()throws IOException	
+        - public int available()throws IOException
             returns an estimate of the number of bytes that can be read from the current input stream.
 
-        - public void close()throws IOException	
+        - public void close()throws IOException
             is used to close the current input stream.
 
     - Heirarchical diagrams - https://www.javatpoint.com/java-io
@@ -2725,27 +3180,27 @@ class Test{
     - used for writing data to a file.
     - You can write byte-oriented as well as character-oriented data through FileOutputStream class. But, for character-oriented data, it is preferred to use FileWriter than FileOutputStream.
 
-    - public class FileOutputStream extends OutputStream  
+    - public class FileOutputStream extends OutputStream
 
-    - ex 1 
+    - ex 1
 
-        FileOutputStream fout=new FileOutputStream("D:\\testout.txt");    
-        fout.write(65);    
-        fout.close();    
+        FileOutputStream fout=new FileOutputStream("D:\\testout.txt");
+        fout.write(65);
+        fout.close();
 
         - output
 
             - A
 
-    - ex 2  
+    - ex 2
 
-        FileOutputStream fout=new FileOutputStream("D:\\testout.txt");    
-        String s="Welcome to javaTpoint.";    
+        FileOutputStream fout=new FileOutputStream("D:\\testout.txt");
+        String s="Welcome to javaTpoint.";
 
-        byte b[] = s.getBytes(); //converting string into byte array    
+        byte b[] = s.getBytes(); //converting string into byte array
 
-        fout.write(b);    
-        fout.close();  
+        fout.write(b);
+        fout.close();
 
         - output
 
@@ -2759,7 +3214,7 @@ class Test{
     - Java FileInputStream class obtains input bytes from a file
     -  It is used for reading byte-oriented data (streams of raw bytes) such as image data, audio, video etc. You can also read character-stream data. But, for reading streams of characters, it is recommended to use FileReader class.
 
-    - public class FileInputStream extends InputStream  
+    - public class FileInputStream extends InputStream
 
     - methods
 
@@ -2767,11 +3222,11 @@ class Test{
 
     - ex 1
 
-        FileInputStream fin = new FileInputStream("D:\\testout.txt");    
-        int i=fin.read();  
-        System.out.print((char)i);    
+        FileInputStream fin = new FileInputStream("D:\\testout.txt");
+        int i=fin.read();
+        System.out.print((char)i);
 
-        fin.close();    
+        fin.close();
 
         - the file contains = Welcome to javatpoint.
 
@@ -2780,12 +3235,12 @@ class Test{
 
     - ex 2
 
-        FileInputStream fin = new FileInputStream("D:\\testout.txt");    
-        int i=0;    
-        while((i=fin.read())!=-1){    
-            System.out.print((char)i);    
-        }    
-        fin.close();    
+        FileInputStream fin = new FileInputStream("D:\\testout.txt");
+        int i=0;
+        while((i=fin.read())!=-1){
+            System.out.print((char)i);
+        }
+        fin.close();
 
         - output
             Welcome to javaTpoint
@@ -2794,7 +3249,7 @@ class Test{
 
     - Java BufferedOutputStream class is used for buffering an output stream. It internally uses buffer to store data. It adds more efficiency than to write data directly into a stream. So, it makes the performance fast.
 
-    - OutputStream os = new BufferedOutputStream(new FileOutputStream("D:\\IO Package\\testout.txt"));  
+    - OutputStream os = new BufferedOutputStream(new FileOutputStream("D:\\IO Package\\testout.txt"));
 
 # BufferedInputStream Class
 
@@ -2803,7 +3258,7 @@ class Test{
     - The important points about BufferedInputStream are:
 
         - When the bytes from the stream are skipped or read, the internal buffer automatically refilled from the contained input stream, many bytes at a time.
-        
+
         - When a BufferedInputStream is created, an internal buffer array is created.
 
 # SequenceInputStream Class
@@ -2870,15 +3325,15 @@ class Test{
 
     - Unlike FileOutputStream class, you don't need to convert string into byte array because it provides method to write string directly.
 
-    - public class FileWriter extends OutputStreamWriter  
+    - public class FileWriter extends OutputStreamWriter
 
     - methods https://www.javatpoint.com/java-filewriter-class
 
-    - ex    
+    - ex
 
-        FileWriter fw=new FileWriter("D:\\testout.txt");    
-        fw.write("Welcome to javaTpoint.");    
-        fw.close();  
+        FileWriter fw=new FileWriter("D:\\testout.txt");
+        fw.write("Welcome to javaTpoint.");
+        fw.close();
 
 # Java FileReader Class
 
@@ -2886,41 +3341,41 @@ class Test{
 
     - It is character-oriented class which is used for file handling in java.
 
-    - public class FileReader extends InputStreamReader  
+    - public class FileReader extends InputStreamReader
 
     - methods  https://www.javatpoint.com/java-filereader-class
 
-    - ex    
+    - ex
 
-        FileReader fr=new FileReader("D:\\testout.txt");    
-        int i;    
-        while((i=fr.read())!=-1)    
-        System.out.print((char)i);    
-        fr.close();    
+        FileReader fr=new FileReader("D:\\testout.txt");
+        int i;
+        while((i=fr.read())!=-1)
+        System.out.print((char)i);
+        fr.close();
 
 # Java CharArrayReader Class
 
     - The CharArrayReader is composed of two words: CharArray and Reader. The CharArrayReader class is used to read character array as a reader (stream). It inherits Reader class.
 
-    - public class CharArrayReader extends Reader  
+    - public class CharArrayReader extends Reader
 
     - methods  https://www.javatpoint.com/java-chararrayreader-class
 
-    - ex    
+    - ex
 
-        char[] ary = { 'j', 'a', 'v', 'a', 't', 'p', 'o', 'i', 'n', 't' };  
+        char[] ary = { 'j', 'a', 'v', 'a', 't', 'p', 'o', 'i', 'n', 't' };
 
-        CharArrayReader reader = new CharArrayReader(ary);  
+        CharArrayReader reader = new CharArrayReader(ary);
 
-        int k = 0;  
+        int k = 0;
 
-        // Read until the end of a file  
+        // Read until the end of a file
 
-        while ((k = reader.read()) != -1) {  
-            char ch = (char) k;  
-            System.out.print(ch + " : ");  
-            System.out.println(k);  
-        }  
+        while ((k = reader.read()) != -1) {
+            char ch = (char) k;
+            System.out.print(ch + " : ");
+            System.out.println(k);
+        }
 
 # Java CharArrayWriter Class
 
@@ -2938,7 +3393,7 @@ class Test{
 
 # InputStreamReader
 
-    - An InputStreamReader is a bridge from byte streams to character streams: It reads bytes and decodes them into characters using a specified charset. 
+    - An InputStreamReader is a bridge from byte streams to character streams: It reads bytes and decodes them into characters using a specified charset.
 
 # PipedWriter
 
@@ -2957,9 +3412,6 @@ class Test{
 # Java - RandomAccessFile
 
     - This class is used for reading and writing to random access file. A random access file behaves like a large array of bytes. There is a cursor implied to the array called file pointer, by moving the cursor we do the read write operations. If end-of-file is reached before the desired number of byte has been read than EOFException is thrown. It is a type of IOException.
-
-
-
 
 # RMI (Remote Method Invocation)
 
