@@ -10,44 +10,18 @@
     There is no limit on the length of a variable name but by convention, it should be between 4 to 15 chars.
     Variable names always should exist on the left-hand side of assignment operators.
 
-    - lst of java keywords (Total 50)
+    Total java keywords = 50
 
     const *
     goto *
-    assert ***
-    package
-    synchronized
-    boolean
-    enum ****
-    instanceof
     transient -  is used to indicate that a field should not be serialized.
-    final
-    strictfp **
-    volatile
-    native
-    super
 
     - * -> not used
-    - ** -> added 1.2
-    - *** -> added 1.4
-    - **** -> added 1.5
-
-    NOTE: all keywords are in small letters
-
+        
 ## Type of languages
 
     - low level languages (Machine lang, assembly lang)
     - high level languages (c, c++, Java etc)
-    - first HLL - COBOL(common business oriented language)
-    - first widely HLL - forton(formula translation) - used for mathematics
-
-# types of programming generations
-
-    1GL - machine lang
-    2Gl - assembly lang
-    3Gl - COBOL, FORTON, C, CPP, JAVA etc
-    4GL - pyhton, sql, ruby , perl etc
-    5GL - prolog, marcury, ops5 etc
 
 # datatypes
 
@@ -123,15 +97,6 @@
 
                 System.out.println(b); = 14  (270%256)
 
-# Translator
-
-    - converts program into lll
-
-    types
-    - assembler - assembly lng source code to machine code
-    - compiler - HLL to LLL
-    - interpreter -  HLL to LLL
-
 # Errors
 
     - syntax error
@@ -143,15 +108,9 @@
 # History of JAVA
 
     - start from 1991
-    - company name - sun microsystems
-    - team name - greenteam
-    - team leader - james Gosling
-
-    - it was first time introduced with greentalk name
-    - rename greentalk name with oak
-    - oak renmed to JAVA (1995)
-    - first version - JDK1.0 - 23 JUn 1996
-    - current version - JDK22
+    - company name - sun microsystems    
+    - current version - JDK24
+    - stable version - JDK21
 
 # Java editions
 
@@ -170,11 +129,14 @@
     - Portable
     - Java is an architecture neutral language
 
-# Hardware requirement to run java application
+# When we say Java is platform independent, what de we mean ?
 
-    - Ram - min 4GB
-    - SSd/HDD - min 120GB
-    - processor - i3 with latest generation
+    - Basically when we compile the Java code, the java compiler converts it to byre code which is just as .class file.
+    - There are two compilers. Java compiler and JIT compiler
+    - The Jit compiler present in JVM converts the bytecode to machine code.
+    - The Java byte code is platform independent but the JVM is platform dependent.
+    - For each OS, we need different JVM.
+    - thus we can run the byte code on any machine
 
 # Java Virtual Machine (JVM)
 
@@ -209,11 +171,28 @@
 
     - In Java, a method signature consists of the method's name and the parameter list (types and order of parameters). The method signature does not include the return type, access modifiers, or exception declarations.
 
+    - For overloading, Parameters should be differnt and name shoudld be same
+    - Overlaoding is not considered when only the return type is changed
+    - public, private, etc. don’t affect the method signature
+    - static, final, modifiers like these are not considered part of the signature        
+    - throws IOException, etc., are ignored for method signature
+
 - class names can start with both capital and small
 
 # c# is both procedural and object oriented
 
-# Serializable interface has zero methods defined in it
+# Marker interface
+    - An interface with no methods defined in it.
+    - It just marks a class with a special property.
+
+# Serializable interface has zero methods defined in it so it is a marker interfce
+
+    The Serializable interface in Java is a marker interface that allows an object to be converted into a byte stream, which can then be:
+
+        saved to a file
+        sent over a network
+        stored in memory
+        or later reconstructed (deserialized) into the same object
 
 # Java does not support copy constructor ditectly because it does not have pointers
 
@@ -238,10 +217,13 @@
               - not accessible in other package
     - private - accessible in class only
     - public - everywhere
-    - protected - accessible in class, other class (inherited class) and same package(inherited class)
-                - not accessible in other package
+    - protected 
+        - accessible in class
+        - Same package
+        - Subclass in another package
+                    
 
-# Java does not have destructor
+# Java does not have destructor because Java relies on a garbage collector (GC) 
 
 # static keyword
 
@@ -278,7 +260,7 @@
 
         - static method
 
-            - a static methhod can not have static variables
+            - a static methhod can not have static variables Because static means "exists once per class" But local variables exist only during method execution.
             - static method can not be overridden. Static methods belong to the class rather than any instance, so they are not subject to polymorphism.
             - However, you can hide static methods in a subclass by defining a static method with the same signature in the subclass. This is known as method hiding.
 
@@ -317,15 +299,17 @@
 
     - Final or constant class
         - class declared with final keyword
-        - members are also declared with final keyword
+        - Member variables are not final by default                        
         - final methods can not be overridden
         - can not be inherited by another subclass
-        - In Java, declaring a class as final means that the class cannot be subclassed (i.e., no other class can extend this class). This does not automatically make the data members of the class immutable.
+        - In Java, declaring a class as final means that the class cannot be subclassed (i.e., no other class can extend this class).
         - If you want to prevent the data members of a class from being changed, you need to declare each data member as final. This ensures that once a data member is assigned a value, it cannot be reassigned.
 
         NOTE - It is mandatory to initialze the final variable
              - final int pi = 31.4; (correct)
              - final int pi; (wrong)
+
+             - We can intialize it in constructor also but only once
 
         - final variable can be inherited.
 
@@ -337,17 +321,37 @@
 
 
     - Abstract
-
-        - declared with abstract keyword
-        - can have abtract methods and non abstract methods
+        
         - Note: we can not define abstract methods in normal class
         - have to be overridden
         - cannot create objects
-        - can have constructor
-        - can have static methods
+        - can have constructor        
         - can extend another abstract class but cannot override methods
 
         - varaibles, constructor and inner class can not be abstract
+
+        - What kind of variables Abstract class have ?
+
+            - An abstract class can include:
+
+                Instance variables
+                Static variables
+                Final variables
+
+                Any access modifier (private, protected, public)
+            
+            - If we declare the variable with the same name in child class. It is hidden, not ovverridden. 
+            - It means that binding is done at the compile time. So if we call the variable using the Parent's reference, then the variable of parent class would be called. Here parent is an Abstract class.        
+
+        - What kind of methods can Abstract class have ? 
+
+            -   Abstract                =  declared with abstract keyword
+                Concrete (with body)	= 
+                Static	
+                Final	
+                Private	
+                Protected	
+                Public
 
         - Java does not have a keyword explicitly called virtual like C++. However, all non-static methods in Java behave as virtual functions by default. This means that they support runtime polymorphism, where the method that is invoked is determined at runtime based on the object's actual type, not the reference type.
 
@@ -377,9 +381,10 @@
     - Singleton
         - When only one object of class is formed
 
-# Object
+# What is an Object
 
-    - Having property and behaviour
+    - An object is an instance of a class
+    - It represents a real-word entity having property and behaviour
     - state and identity denotes the property
         - state -> attributes of object (color, mileage etc are state of car object)
         - identity -> unique name of the object (fortuner)
@@ -442,57 +447,12 @@
 
     Note: there is no global variable in java
 
-# literals/constants
+# What is literal
 
-## integer
+    A literal is a fixed value that you directly type into your code — it represents constant data that Java understands at compile time.
 
-    - int
-    - short
-    - long
+# String is not a datatype, it is a class type/reference type
 
-    - to define octal value using integer
-
-        int a = 016;
-        - 0 as prefix is used to denote octal value
-
-    - to define binary value
-
-        - int a = 0b111;
-        - 0b/0B as prefix is used
-
-    - to define hexadecimal value
-
-        int c = 0x123;
-        - 0x as prefix is used
-
-## character literal
-
-    - char p = 'a';
-
-    - unicode literal
-        - char r = '\u061';
-        - prefic \u
-
-## floating literal
-
-    - float
-    - double
-
-    - by default -> double
-
-## boolean literal
-
-    - boolean x = false;
-
-## String literal
-
-    - String r = "Hello"
-    - String is not a datatype, it is a class type/reference type
-
-# Program
-
-    - We cannot write print statement directly in the class body(both cpp & java)
-    - We can write only in static block , methods and constructor
 
 ## Explaining System.out.println("");
 
@@ -543,6 +503,18 @@ class Test{
 
     - Scanner s = new Scanner(System.in)
 
+#  Why System.in.nextInt() doesn't work:
+
+    - System.in is of type InputStream
+
+    - InputStream only provides byte-level methods like:
+
+    - read(), read(byte[]), close()
+
+    - It does not have high-level parsing methods like nextInt().
+
+    - To get methods like nextInt(), you must use a parser class like Scanner:
+
 # operators
 
     - Unary operators (1 operand)
@@ -572,18 +544,6 @@ class Test{
                     SOP(n) // output = -13
 
             - if the no. is negative then answer is positive and vice versa
-
-
-            - left shift (formula = n*(2^m))
-
-                - int x = 2;
-                - int y = 3;
-
-                SOP(x << y) // o.p = 16 (x*(2^y) )
-
-            - right shift (n / 2^m)
-
-
 
 
     - NOTE: precedence of these operators (https://www.javatpoint.com/java-operator-precedence)
@@ -624,23 +584,10 @@ class Test{
             SOP(obj instanceof B) // o.p = false
 
         }
+        
+# control statement
 
-# control statements
-
-    - used to control the flow of the program
-
-    - types
-
-        - decision making control statement
-
-            - if
-            - if else
-            - else if
-            - nested if else
-
-        - selection control statement
-
-            - switch control statement
+        - switch control statement
 
             NOTE: - only byte, int, short, char and string literals are allowed in switch. ( switch( HERE ) )
                   - Floating literal is not allowed
@@ -775,117 +722,13 @@ class Test{
 
     - this same goes wiht cpp, when we create object using new keyword.
 
-
-# indexing schemes (Total 3)    
-
-    - 0 based
-    - 1 based
-    - N based
-
 # Wild pointer in c/cpp
 
     A wild pointer in C or C++ is a pointer that has not been initialized to a valid memory address. Using a wild pointer can lead to undefined behavior, including program crashes or data corruption, as it may point to an arbitrary and potentially restricted memory location.
 
     int* ptr; // Wild pointer, uninitialized
 
-# structure in c/cpp
-
-    - structure can be defined inside and outside of main function
-    - memebers of structure can't be intialised in c. It is allowed in c++ after version 11
-
-    - ways of initialization
-
-        struct Emp {
-            int id;
-            char name[20];
-            double salary;
-        }
-
-        struct Emp p = {10, "RAM", 20.34}; (initialised order wise as per the declaration)
-
-            or
-
-        struct Emp p = { p.name = "RAM", p.salary =  20.34, [].id = 10}; (Order is different)
-
-# union
-
-    - used in c
-    - works on shared memory, the size of the union is equal to it's largest data member
-    - we cannot initialize or access more than one data memnber at a time 
-    - declared inside or outside the main function
-
-    - unoin m {
-        int a; (2 byte)
-        char b; (1 byte)
-        int arr[10] (20 byte)
-    }
-    
-        so the size would be 20 byte
-
-    NOTE - unoin m r = {1,'a', {1,4}};
-
-        this is not allowed as we are trying to use 23 bytes of memory but we only have 20 bytes.
-
-
-    - ex What is the size of structure
-
-    struct P {
-        int x;
-        int y[3];
-        char z[20];
-
-        union Q {
-            int r[20];
-            int s;            
-        } a, b, c
-    } d
-
-    = a, b, c would get different memories so 3* (2 bytes * 20) = 120 bytes
-    = 120 + 2 + (3*2) + 20*1
-    = 148 bytes
-
-# enumeration in C
-
-    - collection of integral constant is called enumeration
-
-    - enum m {
-        a,b,c,d
-    }
-
-    here the values of a is 0, b = 1, c = 2 and d = 3.
-
-    - declared inside or outside the main function
-
-    - ex 
-
-        enum P {a,b,c,d,e};
-
-        void main(){
-            enum p r;
-            r = e
-            
-            printf("%d", r); // o.p = 4
-        }
-
-        // IMP
-
-        - enum P {a, b = 2, c, d, e = 20, f}
-
-            default values would be
-            a = 0
-            b = 2
-            c = 3
-            d = 4
-            e = 20
-            f = 21
-
-    - It is not allowed to initialize integral constants out of enum 
-    - floating point constants are not allowed
-    - integral constants are defined through alphabets, word.
-    - we can directly use the varibles of enum
-
 # OOPS conscepts
-
 
 # constructor
   
@@ -913,8 +756,7 @@ class Test{
      - Important Points
         Increasing Visibility: When overriding a method, you can change the access modifier to one with greater visibility. Thus, protected can be overridden to public.
         
-        Decreasing Visibility: You cannot override a method and reduce its visibility. For instance, a public 
-        method in the base class cannot be overridden with a protected or private method in the derived class.
+        Decreasing Visibility: You cannot override a method and reduce its visibility. For instance, a public method in the base class cannot be overridden with a protected or private method in the derived class.
 
     - Constructor is not inherited
 
@@ -984,7 +826,6 @@ class Test{
 
     - interface is a blue print of a class 
     - a class have non-prototype members but the interface have prototype members
-    - cannot create object
     - cannot have constructor
     - it does not have any type like final, static etc..
     - it is a pure abstract class
@@ -1014,11 +855,11 @@ class Test{
 
     - can have static method
 
-    NOTE: in interface, static memnbers are only called by interface name, not by the object of the class that implemets that.
+    NOTE: in interface, static memnbers are only called by interface name, not by the object of the class that implemets that
 
     - do not declare default and static together
 
-    - can have privte method
+    - can have private method
     - can have final variable
 
 # Serialization and deserialization
@@ -1075,35 +916,28 @@ class Test{
 
         - it used to reuse the property of parent class
 
+    NOTE: WE can not call the new methods declared in the child class using the reference of parent class.
 
-# operator overloading  in c++
+        - Parent obj = new Child();
+        obj.parentMethod();   // OK
+        obj.childMethod();    // ❌ Compile-time error (not visible to Parent)
+
+        - Here childMethod() is declared in child class only
+
+        - Inorder to call the child class method, we have to type cast it
+
+            Parent obj = new Child();   // Upcasting
+            ((Child)obj).childMethod(); // ✅ Now you can access child methods
 
 
-    - These operators will not be overloaded
-
-        - ?: 
-        - ::
-        - sizeof
-        -  .* 
-        - . 
-        - typeid
-        - alignof
-        - noexcept
-        - decltype
-        - New and Delete operators((new, new[], delete, delete[]))   
 
 # Encapsulation 
 
-    - hiding of the data
+    - Encapsulation is the process of hiding the internal details of an object and only exposing what is necessary.
+    - It means wrapping data (variables) and methods (functions) together in a single unit — a class — and restricting direct access to some parts of it.
     - data members are dcalred private and public methods are exposed to access them. (getter and setter metods)
 
-    - advantages 
-        - data hiding
-        - increase flexibility
-        - reusability
-        - easy testing code
-
-
+    
 # String in Java
 
     - two ways of creating

@@ -7,7 +7,7 @@ class A {
 
 };
 
-class B extends A {
+class B extends Practice {
 
     // To give compile time error if this method is not overloading the method of
     // the super class.

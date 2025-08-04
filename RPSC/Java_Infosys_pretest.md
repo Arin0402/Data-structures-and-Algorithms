@@ -20,11 +20,20 @@ Variable names always should exist on the left-hand side of assignment operators
                 - double(8)
         - Non-numeric
             - char(2) (0 to 65535) (It is unsigned)
-            - boolean(1)
+            - boolean(1) 
 
 - In Java, true and false are not considered as 1 and 0
+- java does not suppport long double data type
+- String is user defined datatype
+- char size in java is 2bytes(16bits) but in c/cpp it is 1 byte. It is because java supports Unicode whereas lateral supports ascii.
+
+- in Java 10 and later, Java allows local variables to be declared with var, where the compiler infers the type. variables can primitive data types, arrays, user defined classes etc.var cannot be used for fields (class or instance variables), method parameters, or return types. It is only for local variables inside methods, constructors, and initialization blocks.  
+
 
 - Autoboxing is the automatic conversion of a primitive type to its corresponding wrapper class, and unboxing is the reverse process.  
+
+- Wrapper classes in Java are classes that encapsulate primitive data types into objects. This allows primitives to be used in contexts where objects are required, such as in collections and generics.  
+
 
 -1 Widening (automatic casting) / implicit casting (small datattype to big datatype)
 
