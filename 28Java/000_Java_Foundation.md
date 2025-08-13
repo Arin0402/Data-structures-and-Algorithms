@@ -1644,81 +1644,133 @@ class Test{
 
         - using Runnable will give you an object that can be shared amongst multiple threads
 
-# Thread class
-
-    - predefined class in Java
-    - present in java.lang package
-
-    - run() method
-
-        - it is used to create a new thread().
-        - it is a class method
-
-    - start() method
-
-        - it is used to run a thread
-        - it is a class method
-
-    - ex:
-
-        class A extends Thread {
-
-            public void run(){
-                System.out.println("Hello");
-            }
-        }
-
-        class B {
-            public static void main(String[] args) {
-
-                A obj = new A();
-                obj.start();
-
-            }
-        }
-
-# Thread lifecycle methods
-
-    Thread Lifecycle
-    A thread in Java goes through various stages during its lifecycle:
-
-    - New: A thread is in this state after being created, but before the start() method is called.
-
-    - Runnable: The thread is ready to run and waiting for the CPU to allocate time for its execution.
-
-    - Blocked/Waiting: The thread is waiting for a monitor lock or waiting indefinitely for another thread to
-    perform a particular action.
-
-    - Timed Waiting: The thread is waiting for another thread to perform an action for a specified waiting time.
-
-    - Terminated: The thread has exited, either because it has completed its task or because an exception has terminated it.
-
-
-    Key Points
-
-    - Thread Lifecycle: Once a thread has completed its task, it transitions to the TERMINATED state and cannot be restarted.
+# Key Points
 
     - Creating New Thread Instances: To run a task multiple times, create new thread instances each time you need to execute the task.
 
-    - Exception Handling: Calling start() on a terminated thread will result in an IllegalThreadStateException.
-
-    - In the above example, we can not call obj.start() multiple times.
+    - Exception Handling: Calling start() on a terminated thread will result in an IllegalThreadStateException.    
 
 # Thread methods
 
     - run()
+
+        What it does: This is the heart of the thread. The code inside the run() method is what executes in the new thread. You must override this method in a class that extends Thread or provide a Runnable object to the thread's constructor.
+
+        Key point: You never call run() directly. Calling run() just executes the code in the current thread, not a new one.
+        
     - start()
-    - sleep()
+
+        What it does: This method starts the thread's execution. It tells the Java Virtual Machine (JVM) to create a new thread and call its run() method.
+
+        Key point: A thread can only be started once. Calling start() on a thread that has already been started will throw an IllegalThreadStateException.
+
+    - static void sleep(long millis) (**IMP**)
+
+        What it does: Pauses the currently executing thread for a specified number of milliseconds.
+
+        Key point: sleep() is a static method. It always affects the current thread, not the instance you call it on. It does not release any locks the thread holds.
+
+        The Thread.sleep() method is static, which means it always affects the currently executing thread, regardless of which thread object you try to call it on.
+
+        This is one of the most common points of confusion for developers new to Java concurrency.
+
+## Why sleep() Works This Way: The static Keyword
+
+        Because sleep() is a static method of the Thread class, it belongs to the class itself, not to any specific instance (object) of a thread.
+
+        When you write code like someOtherThread.sleep(1000);, the Java compiler knows sleep() is static and interprets it as a call to Thread.sleep(1000). The result is that the thread currently running that line of code is the one that pauses.
+
+        Think of it like this: sleep() is a command that means "pause the current process," not "tell that other process to pause."
+
+        Code Demonstration
+
+        This example makes the behavior crystal clear. We will try to make the workerThread sleep from 
+        the main thread, but you'll see that the main thread is the one that actually sleeps.        
+
+```java
+
+    public class SleepMisconception {
+
+        public static void main(String[] args) {
+            // Create a new thread that will print dots continuously
+            Thread workerThread = new Thread(() -> {
+                for (int i = 0; i < 10; i++) {
+                    System.out.print(".");
+                    try {
+                        // This is the correct way for a thread to sleep
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            workerThread.start();
+
+            System.out.println("Main thread will now try to make workerThread sleep for 2 seconds.");
+
+            try {
+                // MISTAKE: This looks like it targets workerThread...
+                workerThread.sleep(2000); // ...but it will actually pause the MAIN thread!
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("\nMain thread has woken up.");
+        }
+    }
+
+    Output
+
+        Main thread will now try to make workerThread sleep for 2 seconds.
+        ..........
+        Main thread has woken up.
+    
+    
+        When the line Thread.sleep(200); is placed inside the run() method of the workerThread, it is the workerThread that will sleep.
+    
+
+```        
+        So, How Do You Control Other Threads?
+
+            You can't forcefully command another thread to sleep. Modern concurrent programming relies on a cooperative model. You signal your intent to another thread, and that thread must be programmed to respond accordingly.
+
+                interrupt(): This is the standard way to signal another thread. You call otherThread.interrupt(), which sets an "interrupted" flag on otherThread. The code inside otherThread's run() method must then periodically check this flag (isInterrupted()) and decide what to do, such as pausing or stopping its work.
+
+                join(): This method allows the current thread to wait for another thread to finish its execution. For example, workerThread.join() would pause the main thread until workerThread is done.
+
+
     - yield()
 
         - yield() is a way to suggest to the thread scheduler that the current thread is willing to pause and allow other threads to execute.
         - The scheduler might ignore this hint, so yield() is not guaranteed to have any effect.
 
     - getId()
+        
+        Returns the identifier of this Thread
 
-        - deprecated
+        Uniqueness: No two threads have the same ID at the same time. However, once a thread is terminated, its ID may be reused for new threads created later.
+
+        Stability: The thread's ID does not change for the life of the thread, even if its name is 
+        changed.
+
+```java
+
+    Thread t1 = new Thread(() -> {
+        System.out.println("Thread t1 ID: " + Thread.currentThread().getId());
+    });
+    t1.start();
+
+    // OR
+
+    t1.getId(); // This would work only if t1 is an instance of Thread class. If t1 is an instance of MyThread which only implemts Runnable then this can't be called
+
+```        
 
     - setPriority()
+        
+        - Changes the priority of this thread
+        
     - getPriority()
 
         - set the priority of the thread
@@ -1745,7 +1797,43 @@ class Test{
 
     - join()
 
-        - The join() method in Java is used to pause the execution of the current thread until the thread on which join() is called has completed its execution. This is useful for ensuring that one thread waits for another to finish before proceeding.
+        The join() method is used to make one thread wait until another thread finishes its execution.
+
+        If you call t.join() (where t is a Thread object), the current thread will stop and wait until t finishes (dies).
+
+        This is useful when you want threads to run in a specific order or need to make sure something finishes before moving on.
+
+        - Example
+
+```java
+            Thread t1 = new Thread(() -> {
+                System.out.println("Thread t1 is running");
+            });
+            t1.start();
+
+            // main thread waits until t1 finishes
+            t1.join();
+
+            System.out.println("t1 finished, now main thread continues");
+``` 
+
+        In this example, the main thread will wait for t1 to finish before printing the last line.
+
+            Why use join()?
+                Synchronization: Ensures one thread completes before another starts or continues.
+
+            Order: Useful when some tasks depend on results from other threads.
+
+        Types of join()
+            join(): Waits until the thread dies.
+
+            join(long millis): Waits up to a given number of milliseconds for the thread to die.
+
+            join(long millis, int nanos): Waits for the specified time (milliseconds + nanoseconds).
+
+        In Simple Words:
+            join() is like telling your program, "Wait here until this other thread is done, then continue."
+
 
     - isAlive()
 
@@ -1778,17 +1866,120 @@ class Test{
 
         - The interrupt() method in Java is used to interrupt a thread. Interrupting a thread is a way to signal that the thread should stop what it's doing and do something else. However, it's up to the thread to handle the interruption properly, as the interrupt() method does not forcibly terminate the thread.
 
+        interrupt() is a way to politely ask a thread to stop what it’s doing.
+
+        It does not forcibly kill the thread — it simply sets an internal interrupted flag on that 
+        thread.
+
+        The target thread must cooperate by checking this flag and deciding what to do.
+
+## How `interrupt()` Works
+
+- **Calling `interrupt()`**  
+
+  ```java
+  someThread.interrupt();
+  ```  
+  Sets the thread's **interrupted status** to `true`.
+
+- **If the thread is:**
+  - Sleeping → `Thread.sleep()`
+  - Waiting → `Object.wait()`
+  - Blocked on I/O (in some cases)  
+  **Then:**  
+    - Throws `InterruptedException`
+    - Clears the interrupted flag
+
+- **If the thread is NOT blocked:**  
+  - It keeps running normally
+  - You must **manually check** the flag:
+    ```java
+    if (Thread.currentThread().isInterrupted()) {
+        // cleanup and exit
+    }
+    ```
+
+---
+
+## Example 1 — Interrupting a Sleeping Thread
+```java
+public class InterruptExample {
+    public static void main(String[] args) throws InterruptedException {
+        Thread worker = new Thread(() -> {
+            try {
+                System.out.println("Worker sleeping...");
+                Thread.sleep(5000);
+                System.out.println("Worker woke up naturally.");
+            } catch (InterruptedException e) {
+                System.out.println("Worker was interrupted!");
+            }
+        });
+
+        worker.start();
+
+        Thread.sleep(1000); // give it a second
+        worker.interrupt(); // ask it to wake up early
+    }
+}
+```
+**Output:**
+```
+Worker sleeping...
+Worker was interrupted!
+```
+
+---
+
 
     - activeCount()
+
+        Thread.activeCount() is a static method that returns an estimate of how many active threads are currently running in the same thread group as the calling thread.
+
     - checkAccess()
+
+        checkAccess() is a security-related method that ensures the calling thread has permission to modify another thread.
+        
+        Calls the security manager (if one is installed) to check if the current thread can modify the thread on which checkAccess() is called.
+
+        If the security manager denies access, it throws a SecurityException.        
+
     - holdsLock()
 
         - The holdsLock() method is a static method that checks if the current thread holds the monitor lock on a specified object.
 
         - Returns true if the current thread holds the lock, otherwise false.
 
+    - isDaemon()
+
+        - Checks if thread is daemon.
+
+        boolean d = t.isDaemon();
+
+# What is a Daemon thread
+
+    A daemon thread in Java is a background service thread that runs in the JVM to perform supporting tasks — and it doesn’t prevent the JVM from exiting when all non-daemon (user) threads have finished.
+    
+    Support work for other threads (e.g., garbage collection, background monitoring, housekeeping).
+    
+    JVM will terminate daemon threads automatically when no user threads are running.
+
+    Threads are non-daemon unless explicitly set to daemon before start() is called.\
+
+    Once all user threads are done, JVM stops immediately — even if daemon threads still have work to do.
+
+
+    - setDaemon(boolean on)
+
+        t.setDaemon(true);
+
+
     - dumpStack()
+        - Prints the current thread’s stack trace.
+
     - getState()
+        
+        - Returns the thread’s current state (NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED). 
+
     - notify()
 
         - The notify() method in Java is used to wake up a single thread that is waiting on the object's monitor. This is part of Java's thread synchronization mechanism and is essential for coordinating the execution of multiple threads.
@@ -1845,12 +2036,9 @@ class Test{
 
     - list of pre defined package
 
-        - lang package - use for all primitive data types
+        - lang package - use for all primitive data types (all classes in java.lang are automatically imported by the Java compiler.)
         - io package
         - util package - for utility classes like LinkedList or collection classes
-        - awt package - for components/containers
-        - applet package - for creating applet
-        - net package - for supporting networking classes
         - math package - for mathematics related operations
         - sql package - for database connectivity and implementation
 
@@ -1858,100 +2046,6 @@ class Test{
 
     - stands for abstract window toolkit
     - awt is a API which is used to create GUI application/desktop App/console app.
-    - Applications made through awt are heavy in nature and OS dependent
-    - some of the components are BUtton, Label, checkBox, list etc
-    - Container is a component which holds another components
-        - types (4)
-            - window
-            - Frame
-            - Dialog
-            - Panel
-                - Applet
-
-        - window container does not support border & menubar
-        - panel does not support border, menubar and title
-        - frame supports border, menubar and title
-        - Dialog
-
-# Methods for creating GUI app
-
-    - setTitle()
-    - setLayout() - for customization of layout
-    - setSize(int width, int height) - set height/width of Layout
-    - setVisible() - for visibility (individual app)
-    - add() - add components to container
-    - setBounds(x-coordinate, y-coordinate, width, height)
-
-# eventhandling
-
-    - It is performed by classes or interfaces
-    - the packageName of event handling is event
-
-    - import java.awt.event.className
-                or
-    - import java.awt.event.*
-
-    - for buttons, list, Choice(dropdown)
-        - the class used is ActionEvent
-        - the interface used is ActionListener
-        - the method used is actionPerformed
-
-    -ex
-
-        class My extends Frame implements ActionListner{
-
-            Button b1 = new Button("Submit")
-            Label l1 = new Label();
-
-            b1.addActionListner(this);
-
-            public void actionPerformed(ActionEvent e){
-
-                if(e.getSource() == b1){
-                    l.setText("Infique")
-                }
-
-            }
-        }
-
-
-# Checkbox
-
-    - ItemListner is used to perform event handling on checkbox
-
-    - ItemListner is an Interface
-    - ItemEvent is a class
-    - method used is itemStateChanged(ItemEvent e)
-
-    - types
-
-        - Checkbox()
-        - Checkbox(name, state(true/false))
-        - Checkbox(name, groupname state(true/false))
-
-# TextArea
-
-    - Event - KeyEvent
-                L KeyTyped
-                L KeyReleased
-                L KeyPressed
-
-    - Listner = KeyListener
-
-# RadioButton
-
-    - types
-
-        - RadioButton()
-        - RadioButton(name, state(true/false))
-        - RadioButton(name, groupname state(true/false))
-
-    - some methods
-
-        - getText()
-        - setText()
-        - setEnabled()
-        - setIcon()
 
 # Swing
 
@@ -1959,67 +2053,8 @@ class Test{
 
     NOTE: It is a subpackage of javax. ( import javax.swing.className or javax.swing.*)
 
-    - OS independent applications
-    - light weight
-    - WindowListener is present
-    - All event class, listners, containers and components are acquired by AWT
-
-    - Some events
-
-        - TextListener - interface
-          Textevent - class
-          textValueChanged - method
-          - used in textfield/textarea
-
-        - WindowListener
-          WindowEvent
-          - methods
-                - windowOpened
-                - windowClosing
-                - windowClosed
-                - windowIconified
-                - windowDeiconified
-                - windowActivated
-                - windowDeactivated
-
-        - MouseListener
-          MouseEvent
-          - methods
-                - mouseClicked
-                - mousePressed
-                - mouseReleased
-                - mouseEntered
-                - mouseExited
-
-        - FocusListener
-          FocusEvent
-          - methods
-                - focusGained
-                - focusLoss
-
-
-        - ContainerListener
-          ContainerEvent
-          - methods
-                - componentAdded
-                - componentRemoved
-
-        - ComponentListener
-          ComponentEvent
-          - methods
-                - componentHidden
-                - componentMoved
-                - componentResized
-                - componentShown
-
-        - WheelListener
-          WheelEvent
-          - methods
-                - mouseWheelMoved
-
 # JDBC (Java Database connectivity)
-
-    - package java.sql.*
+    
     - it is used to establish connection with database and execute query
     - it is an API
 
@@ -2051,13 +2086,7 @@ class Test{
     - JDBC driver understands the protocols and helps to interact with database
     - It acts as a bridge between the application and the database, translating Java calls into database-specific calls and vice versa.
 
-    - types
-
-        - JDBC - ODBC (open database activity) driver
-        - Native-API driver
-        - Network protocol driver
-        - thin driver
-
+        
     - working steps of JDBC
 
         - step 1. Register driver
@@ -2090,31 +2119,6 @@ class Test{
             like obj.close()
                  s.close()
 
-# create statement methods
-
-    1. boolean execute("sql query")
-
-        - DDL successfully executed or not
-        - returns True/False
-
-        - used for creating structure/table
-
-    2. ResultSet executeQuery("sql query")
-
-        - for DQL queries
-        - used for select queries
-        - returns data as a ResultSet
-
-    3. int executeUpdate("sql query")
-
-        - for DML (insert, update, delete)
-
-# JDBC applications
-
-    - Java desktop applications (windowm, GUI, console)
-    - Servlet - application
-    - JSP appliction
-    - EJB - Enterprise Java Bean application
 
 # Servlet
 
@@ -2123,142 +2127,6 @@ class Test{
     - Servlet is a java API which is used to create dynamic webpages/websites.
         or
     - It is a program that runs on server which is used to create dynamic webpages/websites.
-
-
-    - CGI Shell
-
-        - stands for Common Gateway Interface
-        - before servlet, CGI was used.
-        - it is used to create dynamic response.
-        - it is a scripting program
-        - it is platform dependent. written in c/c++ or perl lang.
-
-        - Disadvantage
-
-            - low performance
-            - for each request, a new process is created and each process is handled by a seperate CGI program
-            - max cpu load
-            - platform dependent
-            - response time is maximum
-
-
-    - Advantages of Servlet
-
-        - high performance
-        - for each request, a new thread is created. All these threads are part of a single process. This single process is handled by servlet program
-        - portability
-        - security
-        - robust
-
-    - servlet provides many classes and interfaces
-
-    - packages
-
-        - javax.servlet.*
-        - javax.servlet.http.*
-
-    - various classes and interfaces are present in these packages as folowing
-
-        - Servlet                    (interface) (javax.servlet)
-        - ServletRequest             (interface) (javax.servlet)
-        - ServletResponse            (interface) (javax.servlet)
-        - GenericServlet             (class)     (javax.servlet)
-        - HttpServlet                (class)     (javax.servlet.http)
-        - HttpServletRequest         (interface) (javax.servlet.http)
-        - HttpServletResponse        (interface) (javax.servlet.http)
-        - Filter                     (interface) (javax.servlet.http)
-        - ServletConfig              (interface) (javax.servlet.http)
-
-    - servlet is created using
-
-        - Servlet                    (interface) (javax.servlet)
-        - GenericServlet             (class)     (javax.servlet)
-        - HttpServlet                (class)     (javax.servlet.http)
-
-        ex -
-
-            class MyServlet implements Servlet{
-
-            }
-                OR
-
-            class MyServlet extends GenericServlet{
-
-            }
-                OR
-
-            class MyServlet extends HttpServlet{
-
-            }
-
-# Servlet architecture
-
-    - webbrowser sends request to webserver
-    - webserver sends request to servlet container
-    - many programs are running in servlet container
-    - any one of the program caters the request
-    - it send back response to the webserver
-    - webserver sends back response to web browser
-
-
-    - servlet container
-
-        - it is also called servlet engine/web container
-        - servlet engine provides runtime environment
-
-    - services provided by servlet container
-
-        1. Network service
-
-            - Load servlet class or servlet
-            - load file system
-            - provides network services and manage request & respose at the network
-
-        2. Encoding or decoding
-
-        3. Manage servlet life cycle
-
-        4. Security services
-
-        5. Session management
-
-# life cycle of servlet
-
-    - Load servlet or load servlet class
-    - initialization servlet or initialization object
-    - Request handlling
-    - Destroying servlet or object
-
-
-    - these are the methods which are used in the lifecyle of servlet. These are called inside servlet container
-        - init()
-            - called once after the object has been initialized
-
-            public void init() throws ServerException {
-                // code
-            }
-
-
-        - service()
-            - called many times
-            - it checks the request method types in the request.
-            - doGet() and doPost() methods are called by service method
-
-            public void service(HttpServletRequest request, HttpServletResponse response) throws ServerException{
-                // servlet coding is done in this part
-            }
-
-            - it is the main method of the servlet.
-
-
-        - destroy()
-
-            - called once by servlet container
-            - destroys the servlet object
-
-            public void destroy() throws servletException{
-                //code
-            }
 
 # HTTP protocol
 
@@ -2305,257 +2173,6 @@ class Test{
         - post request can not be bookmarked
         - post request is not idempotent
 
-    NOTE: doGet() and doPost() methods are called by service methods
-
-    ex: of doGet()
-
-        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServerException{
-                // coding
-        }
-
-    ex: of doPost()
-
-        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServerException{
-                // coding
-        }
-
-# Software requirements
-
-    - Server (Apache Tomcat server)
-    - JDK
-
-    NOTE: Jar file = Servlet-API (This jar file is important)
-
-    NOTE:
-        - Web.xml file is used for the mapping of the servlet. without doing thi, servlet wouldn't get called.
-        - mapping of all the servlets is compulsory
-
-
-    - web.xml
-
-        - it is mapping file
-        - it is also called servlet configuration file
-
-# Servlet Http response codes
-
-    - start from 100
-    - last code 505
-
-    - 100  continue (request received but response not generated)
-    - 101  switching protocols ( server switching the protocols)
-    - 200  ok (success)
-    - 202  Accepted (request accepted, response processing in progress)
-    - 203  Non authentic information (client information is not authentic)
-    - 204  No content
-    - 205  Reset content
-    - 206  Partially content
-    - 300  Multiple choice (respone has multiple choice)
-    - 301  move permanently (switching links, meaning request link is switched with another link)
-    - 302  found (same as 301 but temporary)
-    - 303  see other (the request page is found)
-    - 305  use proxy (define client request proxy)
-    - 307  Temporary redirect
-    - 400  bad request (server cannot understand request)
-    - 401  unauthorized
-    - 402  payment required
-    - 403  forbidden
-    - 404  page not found
-    - 405  method not allowed
-    - 408  request timeout
-    - 413  request entity too long
-    - 414  request url too long
-    - 500  Internal server error
-    - 502  Bad gateway
-    - 504  gateway timeout
-    - 505  Http version not supported
-
-# Form methods
-
-    - getParameter() - to read the single value (ex. from textfield)
-    - getParameterValue() - to read multiple values (ex. checkboxGroup)
-    - getParameterName() - to read the value from list conroller
-
-# Session tracking
-
-    - In order to establish stateful relationship between client and server, session tracking is used
-    - It is used to track information/data record of the client
-
-    - why session tracking ?
-
-        - client and server generally has stateless relationship because they use HTTP protocol
-        - Session tracking establishes state relationship
-
-    - sessions are created on server
-    - Acc. to Java, session is a object
-
-    - types
-        - URL re-writting
-        - Cokkie session tracking
-        - Session or http session
-        - Hidden form field
-
-# 1. URI
-
-    - uri stands for uniform resource identifier
-    - it represent complete link
-    - URI is a suerset of URL and URN
-    - URI = URL + URN
-
-    - A URI is a string of characters used to identify a resource either by location, name, or both.
-    - Example: http://example.com,
-
-    - A URL (Uniform Resource Locator) is a specific type of URI that provides the means to locate a resource  by describing its primary access mechanism,
-    - Includes the protocol (scheme), domain, path, and sometimes a query and fragment.
-    - Example: http://www.example.com/index.html
-
-    - A URN is a type of URI that names a resource so that it can be identified in a persistent, location-independent manner.
-    - Example: urn:isbn:0451450523
-
-# 2. Cookie
-
-    - a cookie is a small text file
-    - a cookie is used to track/store/save the user's information
-    - it is stored on client side
-    - it is craeted on browser
-    - it is sent by server
-
-    - ex:
-
-        Cookie obj = new Cookie(name, value)
-
-            or
-
-        Cookie obj = new Cookie(name)
-
-    - methods
-
-        - setmaxAge() = set the max age of the cookie
-        - setname() = set name of the cookie
-        - setValue() = set value of the cookie
-        - getName()
-        - getValue()
-        - addCookie() = add cookie in browser
-
-    - Cookie text file size is 4kb
-    - browser supports 20 cookies at a time
-    - server can send 300 cookies at a time
-
-# Attributes of cookie
-
-    - name
-    - value
-    - domain
-    - path = Specifies the path within the domain for which the cookie is valid. If not set, the cookie is valid for the entire domain.
-    - max age = Specifies the maximum age of the cookie in seconds. If set to a negative value, the cookie is not stored persistently and will be deleted when the browser closes.
-    - secure
-    - HttpOnly
-    - version
-    - comment (optional)
-
-# Types of cookie
-
-    - total 5
-
-    - Non-persistent
-        - it is temporary cookie
-        - it is also called sessin cookie
-        - it is only vaild for a single session
-        - upon closing the browser, this gets deleted
-        - User needs to login in again and again.
-
-    - Persistent
-        - permanent cookie
-        - it is valid for multiple seessions
-        - it remains even after closing the browser
-
-    - Third party
-        - it is also called tracking cookie
-        - tracks user behaviour
-
-    - Zombie
-        - it is a auto generated cookie
-        - it gets autogenerated even after deleting it
-
-    - Flash cookie
-        - it is also called super cookie
-        - it is also called shared object cookie
-        - created using Adobe Flash software
-        - it is independent of browser
-
-# Disadvantage of cookie
-
-    - if cookies are disabled on browser then session tarcking won't happen
-    - only textual information is saved in cookie
-
-# 3. Hidden form field
-
-    - session trackign technique
-    - in order to track user information, hidden field is used inside the form
-
-    - advantage
-        - does not depend on cookie
-
-    - disasvantage
-        - session tarcking maintained by server
-        - Hidden form field technique demands from on every page
-        - track only textual information
-
-# 4. Http session Interface
-
-    - session always creates on server
-    - every user has unique id
-
-    - How to get session ?
-
-        - sesison get by public HttpSession getSession()
-                        OR
-                        get session(boolean)
-
-        - request object is used in order to get the session
-
-            - HttpSession x = request.getSession()
-
-        - set attributes of session
-
-            - x.setAttributes("AB", "RAM");
-
-                AB is name
-                RAM is value
-
-    - methods of HTTP Session
-
-        - getId()
-            - return the id of the sesison
-
-        - getCreationTime() or public long getCreationTime()
-            - return creation time of a particular session
-
-        - getLastAccessedTime() or public long getLastAccessedTime()
-            - return the last accessed time of the particular session
-
-        - invalidate() or public void invalidate()
-            - return situation of particular session delete or not
-
-        - setAttribute()
-
-        - getAttribute(name)
-            - to retrieve single attribute
-
-        - getAttributesNames
-            - to retriueve all the attributes
-
-        - removeAttribute(name)
-
-        - getMaxInteractiveInterval()
-
-
-    - advantages
-        - more secure
-        - does not depend on cookie
-        - session maintained by server
-
-    - disadvantage
-        -  stores information in text format
 
 # Collections in java
 
@@ -2681,762 +2298,6 @@ class Test{
         - empty(): Tests if the stack is empty.
         - search(Object o): Returns the 1-based position from the top of the stack where the specified object is located; returns -1 if the object is not found
 
-# JSP
-
-    - Java Server Pages
-    - JSP is used to create Dynamic website/pages
-    - JSP is an extension of Servlet
-
-        - why ?
-
-            - JSP uses implicit objects like out.psint()
-            - implicit tags are used in JSP
-                - Declaration tag
-                - Scriplet Tag
-                - JSP expression
-                - Java comments
-
-
-    - JSP-API or technology is server side
-    - File extension is .jsp
-    - JSP tag or custom tag are used in this
-
-    - How JSP more advantageous than servlet
-
-        - JSP is easy to maintain
-            - When we create dynamic webpage using servlet, HTML/XML is used inside java code which is hard to maintain
-            - When we create dynamic webpage using JSP, Java code is used inside HTML/XML code which is easy to maintain
-
-        - no need of recompilation or deployment in JSP
-            - servlet is compiled again n agin
-
-        - less coding required in JSP
-
-            - Servlet use explicit coding
-            - JSP use implicit coding
-
-        - JSP supports entire APIs of Java
-            - servlet does not
-
-# Feature of JSP
-
-    - easy to maintain
-    - easy coding
-    - reduce code length
-    - easy database connectivity
-    - powerful, portable, flexible
-
-# JSP life cycle
-
-    1. Translation of JSP
-    2. Compilation of JSP
-    3. Class loading
-        - class loader loads the java files
-
-    4. Instantiation
-        - Servlet object is created
-
-    5. Initialization
-        - Servlet object gets initialized
-        - Web container calls the JSPInit() method
-        - JSPInit() method is similar to servlet init() method (called only once)
-
-    6. Request Processing
-        - _JSPService() method is called by web container in this phase (called multiple times)
-        - it is similar to servlet service method
-
-    7. Destroy of JSP
-        - JSPDestroy() method is called by web container (called only once)
-
-
-# JSP packages
-
-    - javax.servlet.jsp
-        - it consists of two interfaces
-
-            - JspPage interface
-                - HttpJspPage (sub interface of JspPage)
-
-            NOTE: Servlet is the parent of JspPage
-
-            - JspPage has JspInit() and JspDestroy() methods
-            - HttpJspPage has _JspService() method ( underscore means do not override method)
-
-        - it consists of two classes
-
-            - JspWriter
-            - JspContext
-            - JspFactory
-            - JspEngineInfo
-            - JspException
-            - JspError
-
-
-    - javax.servlet.jsp.tagext
-
-# Example of Jsp with using scripting elements
-
-    <html>
-    <body>
-    <% out.println("Hello") %>
-    </body>
-    </html>
-
-# JSP scripting elements
-
-    - Jsp scripting elements are used to write java code inside html file.
-
-    - types
-
-        - 3 types
-
-            - Scriplet Tag OR JSP Scriplet Tag
-
-                - syntax
-                    <%  source code %>
-
-                    - it is use for the implementation of Java source in HTML file
-                    - For embedding Java code that is executed each time the JSP page is requested.
-                    - Variables are declared in Scriplet tag and objects and methods are used.
-
-            - Expression Tag OR JSP Expression Tag
-
-                - syntax
-                    <% = statement %>
-
-                    - It is used to define expression or statement
-                    -  For embedding Java expressions that are evaluated and included in the HTML output.
-                    - we can call method also.
-                    NOTE: Semicolon is not used in expression tag.
-
-                    - ex <% = "this is my first jsp prog." %>
-
-            - Declaration Tag OR JSP Declaration Tag
-
-                - syntax
-
-                    <% !  code  %>
-
-                    - it is used to declare variable and method.
-                    -  For declaring variables and methods that persist for the life of the servlet instance.
-
-                    - ex
-                        <% ! String name = "Rakesh" %>
-                        <% = "Welcome = " + name %>
-
-                    - ex declaration of method and usage
-
-                        <% !
-
-                            public inf getId(){
-                                return 10;
-                            }
-                        %>
-
-                        <%
-                            int x = getId();
-                            out.println(x);
-                        %>
-
-                        <% =
-                            "My id = " + getId()
-                        %>
-
-# Difference bw Scriplet tag and declaration tag
-
-    - The jsp scriptlet tag can only declare variables not methods.
-    - The jsp declaration tag can declare variables as well as methods.
-
-
-    - The declaration of scriptlet tag is placed inside the _jspService() method.
-    - The declaration of jsp declaration tag is placed outside the _jspService() method.
-
-# JSp implicit objects (IMP)
-
-    - jsp implicit objects created by web container
-    - There are total 9 implicit jsp objects
-
-    - these are the following
-
-        Object          Type
-
-        out             JspWriter
-        request         HttpServletREquest
-        response        HttpServletResponse
-        config          ServletConfig
-        application     ServletContext
-        session         HttpSession
-        pageContext     PageContext
-        page            Object
-        exception       Throwable
-
-
-    - out
-        - it is used to print web information
-
-        ex: PrintWriter out = getWriter();
-
-        <% out.println("Hi") %>
-
-    - request
-        - get client information
-
-    - response
-        - get response information from the server
-
-    - config
-        -  Represents the servlet configuration. It provides initialization parameters and a reference to the servlet context.
-
-        - String initParam = config.getInitParameter("configParam");
-
-    - session
-        - used to set/get session attributes
-
-        - session.setAttribute("User" ,U);
-
-    - pagecontext
-        - The pageContext object can be used to set,get or remove attribute from one of the following scopes:
-            page
-            request
-            session
-            application
-
-        In JSP, page scope is the default scope.
-
-    - page
-        - it is used to store the reference of autgenerated servlet object
-
-        ex: Object page = this (ref. of servlet object)
-
-    - exception
-        - it is used to define or show exception on jsp page
-        - it can only be used in error pages
-
-        <%@ page isErrorPage="true" %>
-        <html>
-        <body>
-
-            Sorry following exception occured:<%= exception %>
-
-        </body>
-        </html>
-
-    - application
-
-        - In JSP, application is an implicit object of type ServletContext.
-
-        - The instance of ServletContext is created only once by the web container when application or project is deployed on the server.
-
-        - This object can be used to get initialization parameter from configuaration file (web.xml). It can also be used to get, set or remove attribute from the application scope.
-
-# JSP directives
-
-    - a JSP directive is a message that tells the web container how to translate a JSP page into the corresponding servlet.
-
-    - syntax
-
-        <% @ directive_name attribute_name = "value" %>
-
-    - types of JSP directives
-
-        - 3 types
-
-        - page directive
-
-            - list of page directive attributes
-                - import
-                    - The import attribute is used to import class,interface or all the members of a package.It is similar to import keyword in java class or interface.
-
-                    - <%@ page import="java.util.Date" %>
-                      Today is: <%= new Date() %>
-
-                - contentType
-                    - define content type on jsp page
-                    - - <%@ page contentType="text/Html" %>
-
-                extends
-                    - The extends attribute defines the parent class that will be inherited by the generated servlet
-                    - <%@ page extends="Date" %>
-
-
-                -info
-                    - This attribute simply sets the information of the JSP page which is retrieved later by using getServletInfo() method of Servlet interface.
-                    - <%@ page info="composed by Sonoo Jaiswal" %>
-
-                -buffer
-                    - The buffer attribute sets the buffer size in kilobytes to handle output generated by the JSP page.
-                    - The default size of the buffer is 8Kb.
-
-                -language
-                    - The language attribute specifies the scripting language used in the JSP page. The default value is "java".
-
-                -isELIgnored
-                    - We can ignore the Expression Language (EL) in jsp by the isELIgnored attribute. By default its value is false i.e. Expression Language is enabled by default.
-                    - <%@ page isELIgnored="true" %>//Now EL will be ignored
-
-                -isThreadSafe
-                    - Servlet and JSP both are multithreaded
-                    - If you want to control this behaviour of JSP page, you can use isThreadSafe attribute of page directive
-                    - if the value is true then mutithreading is enabled
-                    - if the value is false then mutithreading is disabled
-
-                -autoFlush
-                    - Specifies whether the buffered output is automatically flushed when the buffer is full.
-                    - Default: true
-
-                -session
-                    - Specifies whether the JSP page participates in an HTTP session.
-                    - Default: true
-                    - <%@ page session="false" %>
-
-                -pageEncoding
-                    -  Specifies the character encoding for the JSP page.
-                    - default - ISO-8859
-
-                -errorPage
-                    - The errorPage attribute is used to define the error page, if exception occurs in the current page, it will be redirected to the error page.
-
-                    - <%@ page errorPage="myerrorpage.jsp" %>
-
-
-                -isErrorPage
-                    - The isErrorPage attribute is used to declare that the current page is the error page.
-                    Note: The exception object can only be used in the error page.
-
-                    <%@ page isErrorPage="true" %>
-                    The exception is: <%= exception %>
-
-        - include directive
-            - The include directive is used to include the contents of any resource it may be jsp file, html file or text file.
-            - The include directive includes the original content of the included resource at page translation time (the jsp page is translated only once so it will be better to include static resource).
-
-
-        - taglib directive
-            - The JSP taglib directive is used to define a tag library that defines many tags.
-            - We use the TLD (Tag Library Descriptor) file to define the tags
-
-            <%@ taglib uri="http://www.javatpoint.com/tags" prefix="mytag" %>
-
-            <mytag:currentDate/>
-
-# JSP Action Tags
-
-    - There are many JSP action tags or elements. Each JSP action tag is used to perform some specific tasks.
-    - The action tags are used to control the flow between pages and to use Java Bean
-
-    - jsp:forward	    - forwards the request and response to another resource.
-                        - <jsp:forward page="printdate.jsp" />
-
-
-    - jsp:include       - includes another resource.
-                        - The jsp include action tag includes the resource at request time so it is better for dynamic pages
-                        - <jsp:include page="printdate.jsp" />
-
-
-    - jsp:useBean       - creates or locates bean object.
-
-
-    - jsp:setProperty   sets the value of property in bean object.
-    - jsp:getProperty   prints the value of property of the bean.
-
-
-    - jsp:plugin        embeds another components such as applet.
-    - jsp:param         sets the parameter value. It is used in forward and include mostly.
-
-
-    - jsp:fallback      can be used to print the message if plugin is working. It is used in jsp:plugin.
-
-# what is Java bean ?
-
-    A JavaBean is a Java class that should follow the following conventions:
-
-        - It should have a no-arg constructor.
-        - It should be Serializable.
-        - It should provide methods to set and get the values of the properties, known as getter and setter methods.
-
-    -  it is a reusable software component. A bean encapsulates many objects into one object so that we can access this object from multiple places. Moreover, it provides easy maintenance.
-
-# Attributes and Usage of jsp:useBean action tag
-
-    - id: is used to identify the bean in the specified scope.
-
-    - scope: represents the scope of the bean. It may be page, request, session or application. The default
-    scope is page.
-
-    - class: instantiates the specified bean class (i.e. creates an object of the bean class) but it must have no-arg or no constructor and must not be abstract.
-
-    - type: provides the bean a data type if the bean already exists in the scope. It is mainly used with class or beanName attribute. If you use it without class or beanName, no bean is instantiated.
-
-    - beanName: instantiates the bean using the java.beans.Beans.instantiate() method
-
-# Java Applet
-
-    - Applet is a special type of program that is embedded in the webpage to generate the dynamic content. It runs inside the browser and works at client side.
-
-    - Advantage of Applet
-        - It works at client side so less response time.
-        - Secured
-        - It can be executed by browsers running under many plateforms, including Linux, Windows, Mac Os etc.
-
-    - Drawback of Applet
-        - Plugin is required at client browser to execute applet.
-
-
-    Note: Jsp:plugin action tag is used in order to use applet in Jsp page
-
-    - Hierarchy of Applet
-
-        - Object
-            |
-          component
-            |
-          container
-            |
-           panel
-            |
-          Applet
-            |
-          JApplet
-
-    - package =  java.applet.Applet
-
-    - Life cycle of Applet
-
-        - Applet is initialized.
-        - Applet is started.
-        - Applet is painted.
-        - Applet is stopped.
-        - Applet is destroyed.
-
-    - methods
-
-        - java.applet.Applet provides 4 life cycle methods
-
-            - public void init(): is used to initialized the Applet. It is invoked only once.
-
-            - public void start(): is invoked after the init() method or browser is maximized. It is used to start the Applet.
-
-            - public void stop(): is used to stop the Applet. It is invoked when Applet is stop or browser is minimized.
-
-            - public void destroy(): is used to destroy the Applet. It is invoked only once.
-
-        - java.awt.Component class provides 1 life cycle method
-
-            - public void paint(Graphics g): is used to paint the Applet. It provides Graphics class object that can be used for drawing oval, rectangle, arc etc.
-
-        - Who is responsible to manage the life cycle of an applet?
-            Java Plug-in software.
-
-        - There are two ways to run an applet
-
-            By html file.
-            By appletViewer tool (for testing purpose).
-
-# Java I/O
-
-    - Java I/O (Input and Output) is used to process the input and produce the output.
-
-    - A stream is a sequence of data. In Java, a stream is composed of bytes. It's called a stream because it is like a stream of water that continues to flow.
-
-    - OutputStream
-        Java application uses an output stream to write data to a destination; it may be a file, an array, peripheral device or socket.
-
-    - InputStream
-        Java application uses an input stream to read data from a source; it may be a file, an array, peripheral device or socket.
-
-    - OutputStream class is an abstract class. It is the superclass of all classes representing an output stream of bytes
-
-    - Useful methods of OutputStream
-
-        - public void write(int)throws IOException
-            is used to write a byte to the current output stream.
-
-        - public void write(byte[])throws IOException
-            is used to write an array of byte to the current output stream.
-
-        - public void flush()throws IOException
-            flushes the current output stream.
-
-        - public void close()throws IOException
-            is used to close the current output stream.
-
-    - InputStream class is an abstract class. It is the superclass of all classes representing an input stream of bytes.
-
-    - Useful methods of InputStream
-
-        - public abstract int read()throws IOException
-            reads the next byte of data from the input  stream. It returns -1 at the end of the file.
-
-        - public int available()throws IOException
-            returns an estimate of the number of bytes that can be read from the current input stream.
-
-        - public void close()throws IOException
-            is used to close the current input stream.
-
-    - Heirarchical diagrams - https://www.javatpoint.com/java-io
-
-# FileOutputStream Class
-
-    - used for writing data to a file.
-    - You can write byte-oriented as well as character-oriented data through FileOutputStream class. But, for character-oriented data, it is preferred to use FileWriter than FileOutputStream.
-
-    - public class FileOutputStream extends OutputStream
-
-    - ex 1
-
-        FileOutputStream fout=new FileOutputStream("D:\\testout.txt");
-        fout.write(65);
-        fout.close();
-
-        - output
-
-            - A
-
-    - ex 2
-
-        FileOutputStream fout=new FileOutputStream("D:\\testout.txt");
-        String s="Welcome to javaTpoint.";
-
-        byte b[] = s.getBytes(); //converting string into byte array
-
-        fout.write(b);
-        fout.close();
-
-        - output
-
-            - Welcome to javaTpoint.
-
-    - methods
-        -https://www.javatpoint.com/java-fileoutputstream-class
-
-# FileInputStream Class
-
-    - Java FileInputStream class obtains input bytes from a file
-    -  It is used for reading byte-oriented data (streams of raw bytes) such as image data, audio, video etc. You can also read character-stream data. But, for reading streams of characters, it is recommended to use FileReader class.
-
-    - public class FileInputStream extends InputStream
-
-    - methods
-
-        https://www.javatpoint.com/java-fileinputstream-class
-
-    - ex 1
-
-        FileInputStream fin = new FileInputStream("D:\\testout.txt");
-        int i=fin.read();
-        System.out.print((char)i);
-
-        fin.close();
-
-        - the file contains = Welcome to javatpoint.
-
-        - output
-            - W
-
-    - ex 2
-
-        FileInputStream fin = new FileInputStream("D:\\testout.txt");
-        int i=0;
-        while((i=fin.read())!=-1){
-            System.out.print((char)i);
-        }
-        fin.close();
-
-        - output
-            Welcome to javaTpoint
-
-# BufferedOutputStream Class
-
-    - Java BufferedOutputStream class is used for buffering an output stream. It internally uses buffer to store data. It adds more efficiency than to write data directly into a stream. So, it makes the performance fast.
-
-    - OutputStream os = new BufferedOutputStream(new FileOutputStream("D:\\IO Package\\testout.txt"));
-
-# BufferedInputStream Class
-
-    - Java BufferedInputStream class is used to read information from stream. It internally uses buffer mechanism to make the performance fast.
-
-    - The important points about BufferedInputStream are:
-
-        - When the bytes from the stream are skipped or read, the internal buffer automatically refilled from the contained input stream, many bytes at a time.
-
-        - When a BufferedInputStream is created, an internal buffer array is created.
-
-# SequenceInputStream Class
-
-    - Java SequenceInputStream class is used to read data from multiple streams. It reads data sequentially (one by one).
-
-# ByteArrayOutputStream Class
-
-    - Java ByteArrayOutputStream class is used to write common data into multiple files. In this stream, the data is written into a byte array which can be written to multiple streams later.
-
-    - The ByteArrayOutputStream holds a copy of data and forwards it to multiple streams.
-
-    - The buffer of ByteArrayOutputStream automatically grows according to data.
-
-# ByteArrayInputStream Class
-
-    - The ByteArrayInputStream is composed of two words: ByteArray and InputStream. As the name suggests, it can be used to read byte array as input stream.
-
-    - Java ByteArrayInputStream class contains an internal buffer which is used to read byte array as stream. In this stream, the data is read from a byte array.
-
-    - The buffer of ByteArrayInputStream automatically grows according to data.
-
-# DataOutputStream Class
-
-    - Java DataOutputStream class allows an application to write primitive Java data types to the output stream in a machine-independent way.
-
-    - It provides methods for writing binary representations of Java primitives
-
-    - Java application generally uses the data output stream to write data that can later be read by a data input stream.
-
-# DataInputStream Class
-
-    - Java DataInputStream class allows an application to read primitive data from the input stream in a machine-independent way.
-
-# ObjectStreamClass
-
-    - ObjectStreamClass act as a Serialization descriptor for class. This class contains the name and serialVersionUID of the class.
-
-# Console Class
-
-    - The Java Console class is be used to get input from console. It provides methods to read texts and passwords.
-
-    - If you read password using Console class, it will not be displayed to the user.
-
-# FilePermission Class
-
-    - Java FilePermission class contains the permission related to a directory or file. All the permissions are related with path. The path can be of two types:
-
-    1) D:\\IO\\-: It indicates that the permission is associated with all sub directories and files recursively.
-
-    2) D:\\IO\\*: It indicates that the permission is associated with all directory and files within this directory excluding sub directories.
-
-# Java Writer
-
-    - It is an abstract class for writing to character streams. The methods that a subclass must implement are write(char[], int, int), flush(), and close(). Most subclasses will override some of the methods defined here to provide higher efficiency, functionality or both.
-
-# Java Reader
-
-    - Java Reader is an abstract class for reading character streams. The only methods that a subclass must implement are read(char[], int, int) and close(). Most subclasses, however, will override some of the methods to provide higher efficiency, additional functionality, or both.
-
-# Java FileWriter Class
-
-    - Java FileWriter class is used to write character-oriented data to a file. It is character-oriented class which is used for file handling in java.
-
-    - Unlike FileOutputStream class, you don't need to convert string into byte array because it provides method to write string directly.
-
-    - public class FileWriter extends OutputStreamWriter
-
-    - methods https://www.javatpoint.com/java-filewriter-class
-
-    - ex
-
-        FileWriter fw=new FileWriter("D:\\testout.txt");
-        fw.write("Welcome to javaTpoint.");
-        fw.close();
-
-# Java FileReader Class
-
-    - Java FileReader class is used to read data from the file. It returns data in byte format like FileInputStream class.
-
-    - It is character-oriented class which is used for file handling in java.
-
-    - public class FileReader extends InputStreamReader
-
-    - methods  https://www.javatpoint.com/java-filereader-class
-
-    - ex
-
-        FileReader fr=new FileReader("D:\\testout.txt");
-        int i;
-        while((i=fr.read())!=-1)
-        System.out.print((char)i);
-        fr.close();
-
-# Java CharArrayReader Class
-
-    - The CharArrayReader is composed of two words: CharArray and Reader. The CharArrayReader class is used to read character array as a reader (stream). It inherits Reader class.
-
-    - public class CharArrayReader extends Reader
-
-    - methods  https://www.javatpoint.com/java-chararrayreader-class
-
-    - ex
-
-        char[] ary = { 'j', 'a', 'v', 'a', 't', 'p', 'o', 'i', 'n', 't' };
-
-        CharArrayReader reader = new CharArrayReader(ary);
-
-        int k = 0;
-
-        // Read until the end of a file
-
-        while ((k = reader.read()) != -1) {
-            char ch = (char) k;
-            System.out.print(ch + " : ");
-            System.out.println(k);
-        }
-
-# Java CharArrayWriter Class
-
-    - The CharArrayWriter class can be used to write common data to multiple files. This class inherits Writer class. Its buffer automatically grows when data is written in this stream. Calling the close() method on this object has no effect.
-
-    - methods  https://www.javatpoint.com/java-chararraywriter-class
-
-# PrintStream Class
-
-    - The PrintStream class provides methods to write data to another stream. The PrintStream class automatically flushes the data so there is no need to call flush() method. Moreover, its methods don't throw IOException.
-
-# OutputStreamWriter
-
-    - OutputStreamWriter is a class which is used to convert character stream to byte stream, the characters are encoded into byte using a specified charset.
-
-# InputStreamReader
-
-    - An InputStreamReader is a bridge from byte streams to character streams: It reads bytes and decodes them into characters using a specified charset.
-
-# PipedWriter
-
-    - The PipedWriter class is used to write java pipe as a stream of characters. This class is used generally for writing text.
-
-# PipedReader
-
-    - The PipedReader class is used to read the contents of a pipe as a stream of characters. This class is used generally to read text.
-
-# Java File Class
-
-    - The File class is an abstract representation of file and directory pathname. A pathname can be either absolute or relative.
-
-    - The File class have several methods for working with directories and files such as creating new directories or files, deleting and renaming directories or files, listing the contents of a directory etc.
-
-# Java - RandomAccessFile
-
-    - This class is used for reading and writing to random access file. A random access file behaves like a large array of bytes. There is a cursor implied to the array called file pointer, by moving the cursor we do the read write operations. If end-of-file is reached before the desired number of byte has been read than EOFException is thrown. It is a type of IOException.
-
 # RMI (Remote Method Invocation)
 
     - The RMI is an API that provides a mechanism to create distributed application in java. The RMI allows an object to invoke methods on an object running in another JVM.
-
-    - The RMI provides remote communication between the applications using two objects stub and skeleton.
-
-    - stub
-
-        The stub is an object, acts as a gateway for the client side. All the outgoing requests are routed through it. It resides at the client side and represents the remote object. When the caller invokes method on the stub object, it does the following tasks:
-
-        It initiates a connection with remote Virtual Machine (JVM),
-        It writes and transmits (marshals) the parameters to the remote Virtual Machine (JVM),
-        It waits for the result
-        It reads (unmarshals) the return value or exception, and
-        It finally, returns the value to the caller.
-
-    - skeleton
-
-        The skeleton is an object, acts as a gateway for the server side object. All the incoming requests are routed through it. When the skeleton receives the incoming request, it does the following tasks:
-
-        It reads the parameter for the remote method
-        It invokes the method on the actual remote object, and
-        It writes and transmits (marshals) the result to the caller.
-        In the Java 2 SDK, an stub protocol was introduced that eliminates the need for skeletons.
-
-    - the stub and skeleton objects are created using the rmic tool
-    - The rmic tool invokes the RMI compiler and creates stub and skeleton objects.
